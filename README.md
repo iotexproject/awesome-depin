@@ -4,8 +4,10 @@
 ## What is DePIN?
 DePIN, or Decentralized Physical Infrastructure Networks, refers to networks that connect physical hardware devices in a decentralized manner. These networks are supported by cryptocurrency-based rewards and incentives. Also known as TIPIN, PoPW, or EdgeFi, DePIN aims to bridge the digital and physical spaces using crypto-based technologies. It focuses on creating democratized technologies that can compete with or replace centralized offerings. Participants who provide the necessary hardware to the network contribute to its adoption and decentralization, and are rewarded with cryptocurrencies. DePIN has the potential to expand the use cases of cryptocurrencies beyond finance and transactions, driving the development of Web3 and solidifying cryptocurrencies as vital resources.
 
+## The DePIN Landscape
+![The DePIN Landscape.](./depin-landscape.png)
+
 ## Projects
-![image](https://github.com/andrew-iotx/awesome-depin/assets/106767747/6155829b-ea31-4991-b72e-63b2e7296b57)
 
 ### Decentralized Wireless
 #### 5G 
