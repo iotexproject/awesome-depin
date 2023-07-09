@@ -34,6 +34,7 @@ DePIN, or Decentralized Physical Infrastructure Networks, refers to networks tha
 
 #### Hybrid 
 - World Mobile: https://worldmobile.io/
+- Fry Foundation: https://www.fryfoundation.com/
 
 ### Decentralized Sensor 
 #### Mobility
