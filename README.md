@@ -1,6 +1,8 @@
 # awesome-depin
 > [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) A curated list of awesome things related to DePIN (Decentralized Physical Infrastructure Networks)
 
+Welcome to our DePIN (Decentralized Physical Infrastructure Networks) repository. This is your go-to source for codebases, research papers, projects, and applications. We value your input and contributions - feel free to open an issue or submit a pull request with any proposed changes or additions. Let's make this the best resource for DePIN!
+
 ## What is DePIN?
 DePIN, or Decentralized Physical Infrastructure Networks, refers to networks that connect physical hardware devices in a decentralized manner. These networks are supported by cryptocurrency-based rewards and incentives. Also known as [TIPIN](https://medium.com/@mikezajko_16091/token-incentivized-physical-infrastructure-networks-3548b3182d82), [PoPW](https://multicoin.capital/2022/04/05/proof-of-physical-work/), or [EdgeFi](https://medium.com/borderless-capital/edgefi-597b9c747a94), DePIN aims to bridge the digital and physical spaces using crypto-based technologies. It focuses on creating democratized technologies that can compete with or replace centralized offerings. Participants who provide the necessary hardware to the network contribute to its adoption and decentralization, and are rewarded with cryptocurrencies. DePIN has the potential to expand the use cases of cryptocurrencies beyond finance and transactions, driving the development of Web3 and solidifying cryptocurrencies as vital resources.
 
