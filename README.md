@@ -135,3 +135,12 @@ DePIN, or Decentralized Physical Infrastructure Networks, refers to networks tha
 - Connor Lovely: https://substack.com/@connorbuildsinpublic
 - DePIN State: https://twitter.com/DePINState
 - Future Money Group: https://twitter.com/fmgroupxyz
+
+## Research Conferences, Workshops and Symposiums
+- [The First International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2023)](https://wfiot2023.iot.ieee.org/1st-international-workshop-decentralized-physical-infrastructure-networks-depin-2023)
+- [IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2023)](https://icbc2023.ieee-icbc.org/)
+- [The 6th IEEE International Conference on Blockchain (Blockchain 2023)](https://ieee-cybermatics.org/2023/blockchain/)
+- [International Conference on Blockchain (ICBC 2023)](https://www.servicessociety.org/icbc)
+- [The 5th ACM International Symposium on Blockchain and Secure Critical Infrastructure (BSCI 2023)](http://www.cloud-conf.net/bsci/2023/)
+- [The Fifth ACM International Workshop on Blockchain-enabled Networked Sensor Systems (BlockSys 2023)](https://acmblocksys.github.io/blocksys2023/)
+- [The 2023 5th Blockchain and Internet of Things Conference (BIOTC 2023)](http://www.biotc.net/)
