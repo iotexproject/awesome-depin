@@ -71,6 +71,7 @@ DePIN, or Decentralized Physical Infrastructure Networks, refers to networks tha
 
 ### Decentralized Server
 #### Compute
+- StackOS: https://www.stackos.io/
 - Render: https://rendertoken.com/
 - Akash: https://akash.network/
 - Gensyn: https://www.gensyn.ai/
