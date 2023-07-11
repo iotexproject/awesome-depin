@@ -145,4 +145,5 @@ DePIN, or Decentralized Physical Infrastructure Networks, refers to networks tha
 - [International Conference on Blockchain (ICBC 2023)](https://www.servicessociety.org/icbc)
 - [The 5th ACM International Symposium on Blockchain and Secure Critical Infrastructure (BSCI 2023)](http://www.cloud-conf.net/bsci/2023/)
 - [The Fifth ACM International Workshop on Blockchain-enabled Networked Sensor Systems (BlockSys 2023)](https://acmblocksys.github.io/blocksys2023/)
+- [3rd EAI International Conference on Blockchain Technology and Emerging Applications (BlockTEA 2023)](https://blocktea.eai-conferences.org/2023/)
 - [The 2023 5th Blockchain and Internet of Things Conference (BIOTC 2023)](http://www.biotc.net/)
