@@ -66,6 +66,9 @@ DePIN, or Decentralized Physical Infrastructure Networks, refers to networks tha
 - Healthblocks: https://www.healthblocks.ai
 - Mindland: https://mndlnd.xyz
 
+#### Hybrid
+- Fry Foundation: https://www.fryfoundation.com/
+  
 #### Smart Home
 - Envirobloq: https://envirobloq.io
 
@@ -107,6 +110,7 @@ DePIN, or Decentralized Physical Infrastructure Networks, refers to networks tha
 - Sentinel: https://sentinel.co
 - MASQ: https://masq.ai
 - Incognito: https://incognito.org
+- Fry Foundation: https://www.fryfoundation.com/
 
 #### CDN 
 - Fleek: https://fleek.co
