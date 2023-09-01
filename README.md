@@ -134,6 +134,7 @@ DePIN, or Decentralized Physical Infrastructure Networks, refers to networks tha
 - DePINDD: https://depindd.com
 - wholovesburrito: https://wholovesburrito.com
 - CoinGecko: https://www.coingecko.com/en/categories/depin
+- DePINScan: https://depinscan.io/
 
 ## Hardware Sales
 - Mining Chamber: https://www.miningchamber.com
