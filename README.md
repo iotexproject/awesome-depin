@@ -21,7 +21,9 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 #### LoRaWAN
 - Helium IoT: https://www.helium.com
 - Drop Wireless: https://dropwireless.io
-- Chirp https://chirptoken.io
+- Chirp: https://chirptoken.io
+- Crankk: crankk.io
+- ThingsIX: thingsix.com
 
 #### WiFi
 - Wayru: https://www.wayru.io
@@ -44,7 +46,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - Hivemapper: https://hivemapper.com
 - Natix: https://www.natix.network
 - 2blox: https://2blox.io
-- Mapmetrics: https://www.natix.network
+- Mapmetrics: https://mapmetrics.org
 - Soarchain: https://www.soarchain.com
 
 #### ESG
@@ -124,7 +126,9 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - Streamr: https://streamr.network
 
 #### Tools
-- Hotspotty: https://hotspotty.net
+- [Hotspotty](https://hotspotty.net)
+- [Relay](https://www.relaywireless.com)
+- [Solsplits](https://solsplits.xyz/)
 
 #### L1/L2
 - IoTeX: https://iotex.io
@@ -140,9 +144,20 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - Mining Chamber: https://www.miningchamber.com
 
 ## Blogposts and Social Media
-- Connor Lovely: https://substack.com/@connorbuildsinpublic
-- DePIN State: https://twitter.com/DePINState
-- Future Money Group: https://twitter.com/fmgroupxyz
+- [Connor Lovely](https://substack.com/@connorbuildsinpublic)
+- [DePIN State](https://twitter.com/DePINState)
+- [Future Money Group](https://twitter.com/fmgroupxyz)
+- [Meta Light](https://medium.com/@meta-light)
+- [Parlay Labs](https://parleylabs.com/blog/)
+
+## Podcasts
+- [Proof of Coverage Podcast](https://www.youtube.com/channel/UC5u5Po0RmkaSxen-1MF5nJg?app=desktop)
+- [Moonshot Research Podcast](https://moonshotresearch.buzzsprout.com/)
+- [The Hotspot Podcast](https://thehotspot.co/)
+- [Unleashing DeWi Podcast](https://tunein.com/podcasts/Technology-Podcasts/Unleashing-DeWi-p1989062/)
+
+## Jobs
+- [EV3 Job Board](https://jobs.ev3.xyz/jobs)
 
 ## Research Conferences, Workshops and Symposiums
 - [The First International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2023)](https://wfiot2023.iot.ieee.org/1st-international-workshop-decentralized-physical-infrastructure-networks-depin-2023)
