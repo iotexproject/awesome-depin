@@ -129,6 +129,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Hotspotty](https://hotspotty.net)
 - [Relay](https://www.relaywireless.com)
 - [Solsplits](https://solsplits.xyz/)
+- [Mycelium Testbed](https://myceliumnetworks.com)
 
 #### L1/L2
 - [IoTeX](https://iotex.io)
