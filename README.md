@@ -13,136 +13,152 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ### Decentralized Wireless
 #### 5G 
-- Helium 5G: https://hellohelium.com
-- XNET https://www.xnet.company
-- Karrier One: https://karrier.one
-- REALLY: https://really.com
+- [Helium 5G](https://hellohelium.com)
+- [XNET](https://www.xnet.company)
+- [Karrier One](https://karrier.one)
+- [REALLY](https://really.com)
 
 #### LoRaWAN
-- Helium IoT: https://www.helium.com
-- Drop Wireless: https://dropwireless.io
-- Chirp https://chirptoken.io
+- [Helium IoT](https://www.helium.com)
+- [Drop Wireless](https://dropwireless.io)
+- [Chirp](https://chirptoken.io)
+- [Crankk](crankk.io)
+- [ThingsIX](thingsix.com)
 
 #### WiFi
-- Wayru: https://www.wayru.io
-- Metablox: https://metablox.io
-- Drop Wireless: https://dropwireless.io
-- Wicrypt: https://wicrypt.com
-- WifiDabba: https://www.wifidabba.com
+- [Wayru](https://www.wayru.io)
+- [Metablox](https://metablox.io)
+- [Drop Wireless](https://dropwireless.io)
+- [Wicrypt](https://wicrypt.com)
+- [WifiDabba](https://www.wifidabba.com)
 
 #### Bluetooth Low Energy 
-- Nodle: https://www.nodle.com
-- Drop Wireless: https://dropwireless.io
+- [Nodle](https://www.nodle.com)
+- [Drop Wireless](https://dropwireless.io)
 
 #### Hybrid 
-- World Mobile: https://worldmobile.io
-- Fry Foundation: https://www.fryfoundation.com
+- [World Mobile](https://worldmobile.io)
+- [Fry Foundation](https://www.fryfoundation.com)
 
 ### Decentralized Sensor 
 #### Mobility
-- DIMO: https://dimo.zone
-- Hivemapper: https://hivemapper.com
-- Natix: https://www.natix.network
-- 2blox: https://2blox.io
-- Mapmetrics: https://www.natix.network
-- Soarchain: https://www.soarchain.com
+- [DIMO](https://dimo.zone)
+- [Hivemapper](https://hivemapper.com)
+- [Natix](https://www.natix.network)
+- [2blox](https://2blox.io)
+- [Mapmetrics](https://mapmetrics.org)
+- [Soarchain](https://www.soarchain.com)
 
 #### ESG
-- PlanetWatch: https://www.planetwatch.io
-- WeatherXM: https://weatherxm.com
-- Weatherflow: https://weatherflow.com
+- [PlanetWatch](https://www.planetwatch.io)
+- [WeatherXM](https://weatherxm.com)
+- [Weatherflow](https://weatherflow.com)
 
 #### Geo Location
-- GEODNET: https://geodnet.com
-- FOAM: https://foam.space
-- Onocoy: https://www.onocoy.com
+- [GEODNET](https://geodnet.com)
+- [FOAM](https://foam.space)
+- [Onocoy](https://www.onocoy.com)
 
 #### Energy
-- React: https://www.reactnetwork.io
-- Arkreen: https://arkreen.com
-- GPN: https://www.greenpowern.com
+- [React](https://www.reactnetwork.io)
+- [Arkreen](https://arkreen.com)
+- [GPN](https://www.greenpowern.com)
 
 #### Health
-- Healthblocks: https://www.healthblocks.ai
-- Mindland: https://mndlnd.xyz
+- [Healthblocks](https://www.healthblocks.ai)
+- [Mindland](https://mndlnd.xyz)
 
 #### Hybrid
-- Fry Foundation: https://www.fryfoundation.com/
+- [Fry Foundation](https://www.fryfoundation.com/)
   
 #### Smart Home
-- Envirobloq: https://envirobloq.io
+- [Envirobloq](https://envirobloq.io)
 
 ### Decentralized Server
 #### Compute
-- StackOS: https://www.stackos.io
-- Render: https://rendertoken.com
-- Akash: https://akash.network
-- Gensyn: https://www.gensyn.ai
-- Cudos: https://www.cudos.org
-- Flux: https://runonflux.io
-- Aleph: https://aleph.im
-- Lit: https://litprotocol.com
-- Functionland: https://fx.land
-- Golem: https://www.golem.network
-- iExec: https://iex.ec
-- Theta: https://www.thetatoken.org
-- Livepeer: https://livepeer.org
+- [StackOS](https://www.stackos.io)
+- [Render](https://rendertoken.com)
+- [Akash](https://akash.network)
+- [Gensyn](https://www.gensyn.ai)
+- [Cudos](https://www.cudos.org)
+- [Flux](https://runonflux.io)
+- [Aleph](https://aleph.im)
+- [Lit](https://litprotocol.com)
+- [Functionland](https://fx.land)
+- [Golem](https://www.golem.network)
+- [iExec](https://iex.ec)
+- [Theta](https://www.thetatoken.org)
+- [Livepeer](https://livepeer.org)
 
 #### Storage
-- Filecoin: https://filecoin.io
-- Arweave: https://www.arweave.org
-- Sia: https://sia.tech
-- Storj: https://www.storj.io
-- Crust: https://crust.network
-- ScPrime: https://scpri.me
-- Zus: https://zus.network
-- 4EVERLAND: https://www.4everland.org
-- Ceramic: https://ceramic.network
-- Space and Time: https://www.spaceandtime.io
-- Kwil: https://www.kwil.com
-- Polybase: https://polybase.xyz
-- Tableland: https://tableland.xyz
+- [Filecoin](https://filecoin.io)
+- [Arweave](https://www.arweave.org)
+- [Sia](https://sia.tech)
+- [Storj](https://www.storj.io)
+- [Crust](https://crust.network)
+- [ScPrime](https://scpri.me)
+- [Zus](https://zus.network)
+- [4EVERLAND](https://www.4everland.org)
+- [Ceramic](https://ceramic.network)
+- [Space and Time](https://www.spaceandtime.io)
+- [Kwil](https://www.kwil.com)
+- [Polybase](https://polybase.xyz)
+- [Tableland](https://tableland.xyz)
 
 #### VPN
-- Orchid: https://www.orchid.com
-- Mysterium: https://www.mysteriumvpn.com
-- Boring Protocol: https://boringprotocol.io
-- Sentinel: https://sentinel.co
-- MASQ: https://masq.ai
-- Incognito: https://incognito.org
-- Fry Foundation: https://www.fryfoundation.com/
+- [Orchid](https://www.orchid.com)
+- [Mysterium](https://www.mysteriumvpn.com)
+- [Boring Protocol](https://boringprotocol.io)
+- [Sentinel](https://sentinel.co)
+- [MASQ](https://masq.ai)
+- [Incognito](https://incognito.org)
+- [Fry Foundation](https://www.fryfoundation.com/)
 
 #### CDN 
-- Fleek: https://fleek.co
-- Saturn: https://saturn.tech
-- Media: https://www.media.network
-- Meson https://www.meson.network
+- [Fleek](https://fleek.co)
+- [Saturn](https://saturn.tech)
+- [Media](https://www.media.network)
+- [Meson](https://www.meson.network)
 
 ### DePIN Specific Infrastructure 
 #### Off-chain Compute
-- W3bstream: https://w3bstream.com
-- Streamr: https://streamr.network
+- [W3bstream](https://w3bstream.com)
+- [Streamr](https://streamr.network)
 
 #### Tools
-- Hotspotty: https://hotspotty.net
+- [Hotspotty](https://hotspotty.net)
+- [Relay](https://www.relaywireless.com)
+- [Solsplits](https://solsplits.xyz/)
+- [Mycelium Testbed](https://myceliumnetworks.com)
 
 #### L1/L2
-- IoTeX: https://iotex.io
-- Eclipse: https://www.eclipse.builders
+- [IoTeX](https://iotex.io)
+- [Eclipse](https://www.eclipse.builders)
 
 ## Analytics
-- DePINDD: https://depindd.com
-- wholovesburrito: https://wholovesburrito.com
-- CoinGecko: https://www.coingecko.com/en/categories/depin
-- DePINScan: https://depinscan.io/
+- [DePINDD](https://depindd.com)
+- [wholovesburrito](https://wholovesburrito.com)
+- [CoinGecko](https://www.coingecko.com/en/categories/depin)
+- [DePINScan](https://depinscan.io/)
 
 ## Hardware Sales
-- Mining Chamber: https://www.miningchamber.com
+- [Mining Chamber](https://www.miningchamber.com)
 
 ## Blogposts and Social Media
-- Connor Lovely: https://substack.com/@connorbuildsinpublic
-- DePIN State: https://twitter.com/DePINState
-- Future Money Group: https://twitter.com/fmgroupxyz
+- [Connor Lovely](https://substack.com/@connorbuildsinpublic)
+- [DePIN State](https://twitter.com/DePINState)
+- [Future Money Group](https://twitter.com/fmgroupxyz)
+- [Meta Light](https://medium.com/@meta-light)
+- [Parlay Labs](https://parleylabs.com/blog/)
+
+## Podcasts
+- [Proof of Coverage Podcast](https://www.youtube.com/channel/UC5u5Po0RmkaSxen-1MF5nJg?app=desktop)
+- [Moonshot Research Podcast](https://moonshotresearch.buzzsprout.com/)
+- [The Hotspot Podcast](https://thehotspot.co/)
+- [Unleashing DeWi Podcast](https://tunein.com/podcasts/Technology-Podcasts/Unleashing-DeWi-p1989062/)
+
+## Jobs
+- [EV3 Job Board](https://jobs.ev3.xyz/jobs)
 
 ## Research Conferences, Workshops and Symposiums
 - [The First International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2023)](https://wfiot2023.iot.ieee.org/1st-international-workshop-decentralized-physical-infrastructure-networks-depin-2023)
