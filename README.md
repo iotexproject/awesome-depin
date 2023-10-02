@@ -157,6 +157,10 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [The Hotspot Podcast](https://thehotspot.co/)
 - [Unleashing DeWi Podcast](https://tunein.com/podcasts/Technology-Podcasts/Unleashing-DeWi-p1989062/)
 
+## Awesome DePIN videos and presentations
+- [DePIN Blockchaince Keynote](https://www.youtube.com/watch?v=SKbVfK-fIAs)
+- [EthDenver '23: DePIN W3bstream- The next big thing in Web3](https://www.youtube.com/watch?v=jJzY5i3SIV8)
+
 ## Jobs
 - [EV3 Job Board](https://jobs.ev3.xyz/jobs)
 
