@@ -160,6 +160,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 ## Awesome DePIN videos and presentations
 - [DePIN Blockchaince Keynote](https://www.youtube.com/watch?v=SKbVfK-fIAs)
 - [EthDenver '23: DePIN W3bstream- The next big thing in Web3](https://www.youtube.com/watch?v=jJzY5i3SIV8)
+- [Build a DePIN bike-sharing dApp with IoTeX (Episode 1)](https://www.youtube.com/watch?v=_8eOv0fmMgE&t=619s)
 
 ## Jobs
 - [EV3 Job Board](https://jobs.ev3.xyz/jobs)
