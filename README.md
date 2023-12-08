@@ -163,6 +163,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Use off-chain price feeds in your DePIN dApp built on IoTeX](https://www.youtube.com/watch?v=x7NlClgGuSk)
 - [Build a DePIN bike-sharing dApp with IoTeX (Episode 1)](https://www.youtube.com/watch?v=_8eOv0fmMgE&t=619s)
 - [Build a DePIN bike-sharing dApp with IoTeX (Episode 2)](https://www.youtube.com/live/ENteptPNcDo?si=4aaNiTYBtk9tEKd8&t=668)
+- [Build a DePIN bike-sharing dApp with IoTeX (Episode 3)](https://www.youtube.com/watch?v=hW8EDrU-UGQ)
 
 ## Jobs
 - [EV3 Job Board](https://jobs.ev3.xyz/jobs)
