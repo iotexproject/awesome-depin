@@ -165,6 +165,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Build a DePIN bike-sharing dApp with IoTeX (Episode 2)](https://www.youtube.com/live/ENteptPNcDo?si=4aaNiTYBtk9tEKd8&t=668)
 - [Build a DePIN bike-sharing dApp with IoTeX (Episode 3)](https://www.youtube.com/watch?v=hW8EDrU-UGQ)
 - [Solana & IoTeX DePIN Ecosystem](https://youtu.be/53KO9WMeGVw?si=LJaK-NzkwILFVZT7)
+- [Sprout Your DePIN Contest](https://www.youtube.com/watch?v=M4XqRz4Hleo)
 
 ## Jobs
 - [EV3 Job Board](https://jobs.ev3.xyz/jobs)
