@@ -140,6 +140,9 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [wholovesburrito](https://wholovesburrito.com)
 - [CoinGecko](https://www.coingecko.com/en/categories/depin)
 - [DePINScan](https://depinscan.io/)
+  
+## Articles 
+- [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
 
 ## Hardware Sales
 - [Mining Chamber](https://www.miningchamber.com)
