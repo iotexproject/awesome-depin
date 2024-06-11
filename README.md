@@ -104,6 +104,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Kwil](https://www.kwil.com)
 - [Polybase](https://polybase.xyz)
 - [Tableland](https://tableland.xyz)
+- [Swarm](https://www.ethswarm.org/)
 
 #### VPN
 - [Orchid](https://www.orchid.com)
