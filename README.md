@@ -136,6 +136,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [MASQ](https://masq.ai)
 - [Incognito](https://incognito.org)
 - [Fry Foundation](https://www.fryfoundation.com/)
+- [NYM](https://nymvpn.com)
 
 #### CDN
 
