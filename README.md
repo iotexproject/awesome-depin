@@ -125,6 +125,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Kwil](https://www.kwil.com)
 - [Polybase](https://polybase.xyz)
 - [Tableland](https://tableland.xyz)
+- [Swarm](https://www.ethswarm.org/)
 
 #### VPN
 
@@ -168,6 +169,9 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [wholovesburrito](https://wholovesburrito.com)
 - [CoinGecko](https://www.coingecko.com/en/categories/depin)
 - [DePINScan](https://depinscan.io/)
+  
+## Articles 
+- [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
 
 ## Hardware Sales
 
@@ -205,6 +209,8 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Research Conferences, Workshops and Symposiums
 
+- [The Second International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2024)](https://icbc2024.ieee-icbc.org/workshop/depin)
+- [IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2024)](https://icbc2024.ieee-icbc.org/)
 - [The First International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2023)](https://wfiot2023.iot.ieee.org/1st-international-workshop-decentralized-physical-infrastructure-networks-depin-2023)
 - [IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2023)](https://icbc2023.ieee-icbc.org/)
 - [The 6th IEEE International Conference on Blockchain (Blockchain 2023)](https://ieee-cybermatics.org/2023/blockchain/)
