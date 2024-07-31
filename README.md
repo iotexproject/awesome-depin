@@ -1,24 +1,30 @@
 # awesome-depin
+
 > [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) A curated list of awesome things related to DePIN (Decentralized Physical Infrastructure Networks)
 
 Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/) repository. This is your go-to source for codebases, research papers, projects, and applications. We value your input and contributions - feel free to open an issue or submit a pull request with any proposed changes or additions. Let's make this the best resource for DePIN!
 
 ## What is DePIN?
+
 [DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/), or Decentralized Physical Infrastructure Networks, refers to networks that connect physical hardware devices in a decentralized manner. These networks are supported by cryptocurrency-based rewards and incentives. Also known as [TIPIN](https://medium.com/@mikezajko_16091/token-incentivized-physical-infrastructure-networks-3548b3182d82), [PoPW](https://multicoin.capital/2022/04/05/proof-of-physical-work/), or [EdgeFi](https://medium.com/borderless-capital/edgefi-597b9c747a94), DePIN aims to bridge the digital and physical spaces using crypto-based technologies. It focuses on creating democratized technologies that can compete with or replace centralized offerings. Participants who provide the necessary hardware to the network contribute to its adoption and decentralization, and are rewarded with cryptocurrencies. DePIN has the potential to expand the use cases of cryptocurrencies beyond finance and transactions, driving the development of Web3 and solidifying cryptocurrencies as vital resources.
 
 ## The DePIN Landscape
+
 ![The DePIN Landscape.](./depin_landscape_oct.jpeg)
 
 ## Projects
 
 ### Decentralized Wireless
-#### 5G 
+
+#### 5G
+
 - [Helium 5G](https://hellohelium.com)
 - [XNET](https://www.xnet.company)
 - [Karrier One](https://karrier.one)
 - [REALLY](https://really.com)
 
 #### LoRaWAN
+
 - [Helium IoT](https://www.helium.com)
 - [Drop Wireless](https://dropwireless.io)
 - [Chirp](https://chirptoken.io)
@@ -26,22 +32,27 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [ThingsIX](thingsix.com)
 
 #### WiFi
+
 - [Wayru](https://www.wayru.io)
 - [Metablox](https://metablox.io)
 - [Drop Wireless](https://dropwireless.io)
 - [Wicrypt](https://wicrypt.com)
 - [WifiDabba](https://www.wifidabba.com)
 
-#### Bluetooth Low Energy 
+#### Bluetooth Low Energy
+
 - [Nodle](https://www.nodle.com)
 - [Drop Wireless](https://dropwireless.io)
 
-#### Hybrid 
+#### Hybrid
+
 - [World Mobile](https://worldmobile.io)
 - [Fry Foundation](https://www.fryfoundation.com)
 
-### Decentralized Sensor 
+### Decentralized Sensor
+
 #### Mobility
+
 - [DIMO](https://dimo.zone)
 - [Hivemapper](https://hivemapper.com)
 - [Natix](https://www.natix.network)
@@ -50,32 +61,40 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Soarchain](https://www.soarchain.com)
 
 #### ESG
+
 - [PlanetWatch](https://www.planetwatch.io)
 - [WeatherXM](https://weatherxm.com)
 - [Weatherflow](https://weatherflow.com)
 
 #### Geo Location
+
 - [GEODNET](https://geodnet.com)
 - [FOAM](https://foam.space)
 - [Onocoy](https://www.onocoy.com)
 
 #### Energy
+
 - [React](https://www.reactnetwork.io)
 - [Arkreen](https://arkreen.com)
 - [GPN](https://www.greenpowern.com)
 
 #### Health
+
 - [Healthblocks](https://www.healthblocks.ai)
 - [Mindland](https://mndlnd.xyz)
 
 #### Hybrid
+
 - [Fry Foundation](https://www.fryfoundation.com/)
-  
+
 #### Smart Home
+
 - [Envirobloq](https://envirobloq.io)
 
 ### Decentralized Server
+
 #### Compute
+
 - [StackOS](https://www.stackos.io)
 - [Render](https://rendertoken.com)
 - [Akash](https://akash.network)
@@ -89,8 +108,10 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [iExec](https://iex.ec)
 - [Theta](https://www.thetatoken.org)
 - [Livepeer](https://livepeer.org)
+- [Acurast](https://acurast.com/)
 
 #### Storage
+
 - [Filecoin](https://filecoin.io)
 - [Arweave](https://www.arweave.org)
 - [Sia](https://sia.tech)
@@ -107,6 +128,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Swarm](https://www.ethswarm.org/)
 
 #### VPN
+
 - [Orchid](https://www.orchid.com)
 - [Mysterium](https://www.mysteriumvpn.com)
 - [Boring Protocol](https://boringprotocol.io)
@@ -115,28 +137,34 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Incognito](https://incognito.org)
 - [Fry Foundation](https://www.fryfoundation.com/)
 
-#### CDN 
+#### CDN
+
 - [Fleek](https://fleek.co)
 - [Saturn](https://saturn.tech)
 - [Media](https://www.media.network)
 - [Meson](https://www.meson.network)
 
-### DePIN Specific Infrastructure 
+### DePIN Specific Infrastructure
+
 #### Off-chain Compute
+
 - [W3bstream](https://w3bstream.com)
 - [Streamr](https://streamr.network)
 
 #### Tools
+
 - [Hotspotty](https://hotspotty.net)
 - [Relay](https://www.relaywireless.com)
 - [Solsplits](https://solsplits.xyz/)
 - [Mycelium Testbed](https://myceliumnetworks.com)
 
 #### L1/L2
+
 - [IoTeX](https://iotex.io)
 - [Eclipse](https://www.eclipse.builders)
 
 ## Analytics
+
 - [DePINDD](https://depindd.com)
 - [wholovesburrito](https://wholovesburrito.com)
 - [CoinGecko](https://www.coingecko.com/en/categories/depin)
@@ -146,9 +174,11 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
 
 ## Hardware Sales
+
 - [Mining Chamber](https://www.miningchamber.com)
 
 ## Blogposts and Social Media
+
 - [Connor Lovely](https://substack.com/@connorbuildsinpublic)
 - [DePIN State](https://twitter.com/DePINState)
 - [Future Money Group](https://twitter.com/fmgroupxyz)
@@ -156,12 +186,14 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Parlay Labs](https://parleylabs.com/blog/)
 
 ## Podcasts
+
 - [Proof of Coverage Podcast](https://www.youtube.com/channel/UC5u5Po0RmkaSxen-1MF5nJg?app=desktop)
 - [Moonshot Research Podcast](https://moonshotresearch.buzzsprout.com/)
 - [The Hotspot Podcast](https://thehotspot.co/)
 - [Unleashing DeWi Podcast](https://tunein.com/podcasts/Technology-Podcasts/Unleashing-DeWi-p1989062/)
 
 ## Awesome DePIN videos and presentations
+
 - [DePIN Blockchaince Keynote](https://www.youtube.com/watch?v=SKbVfK-fIAs)
 - [EthDenver '23: DePIN W3bstream- The next big thing in Web3](https://www.youtube.com/watch?v=jJzY5i3SIV8)
 - [Use off-chain price feeds in your DePIN dApp built on IoTeX](https://www.youtube.com/watch?v=x7NlClgGuSk)
@@ -172,9 +204,11 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Sprout Your DePIN Contest](https://www.youtube.com/watch?v=M4XqRz4Hleo)
 
 ## Jobs
+
 - [EV3 Job Board](https://jobs.ev3.xyz/jobs)
 
 ## Research Conferences, Workshops and Symposiums
+
 - [The Second International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2024)](https://icbc2024.ieee-icbc.org/workshop/depin)
 - [IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2024)](https://icbc2024.ieee-icbc.org/)
 - [The First International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2023)](https://wfiot2023.iot.ieee.org/1st-international-workshop-decentralized-physical-infrastructure-networks-depin-2023)
