@@ -144,6 +144,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Saturn](https://saturn.tech)
 - [Media](https://www.media.network)
 - [Meson](https://www.meson.network)
+- [Edge](https://edge.network/)
 
 ### DePIN Specific Infrastructure
 
