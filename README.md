@@ -109,6 +109,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Theta](https://www.thetatoken.org)
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
+- [Lilypad](https://lilypad.tech)
 
 #### Storage
 
