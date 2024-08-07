@@ -22,6 +22,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [XNET](https://www.xnet.company)
 - [Karrier One](https://karrier.one)
 - [REALLY](https://really.com)
+- [Drop Wireless](https://dropwireless.io/)
 
 #### LoRaWAN
 
@@ -47,7 +48,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 #### Hybrid
 
 - [World Mobile](https://worldmobile.io)
-- [Fry Foundation](https://www.fryfoundation.com)
+- [Fry Networks](https://www.frynetworks.com)
 
 ### Decentralized Sensor
 
@@ -59,37 +60,38 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [2blox](https://2blox.io)
 - [Mapmetrics](https://mapmetrics.org)
 - [Soarchain](https://www.soarchain.com)
+- [Fry Networks](https://www.frynetworks.com)
 
 #### ESG
 
 - [PlanetWatch](https://www.planetwatch.io)
 - [WeatherXM](https://weatherxm.com)
 - [Weatherflow](https://weatherflow.com)
+- [Fry Networks](https://www.frynetworks.com)
 
 #### Geo Location
 
 - [GEODNET](https://geodnet.com)
 - [FOAM](https://foam.space)
 - [Onocoy](https://www.onocoy.com)
+- [Fry Networks](https://www.frynetworks.com)
 
 #### Energy
 
 - [React](https://www.reactnetwork.io)
 - [Arkreen](https://arkreen.com)
 - [GPN](https://www.greenpowern.com)
+- [Fry Networks](https://www.frynetworks.com)
 
 #### Health
 
 - [Healthblocks](https://www.healthblocks.ai)
 - [Mindland](https://mndlnd.xyz)
 
-#### Hybrid
-
-- [Fry Foundation](https://www.fryfoundation.com/)
-
 #### Smart Home
 
 - [Envirobloq](https://envirobloq.io)
+- [PiPhi] (https://piphi.network/)
 
 ### Decentralized Server
 
@@ -136,7 +138,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Sentinel](https://sentinel.co)
 - [MASQ](https://masq.ai)
 - [Incognito](https://incognito.org)
-- [Fry Foundation](https://www.fryfoundation.com/)
+- [Fry Networks](https://www.frynetworks.com/)
 - [NYM](https://nymvpn.com)
 
 #### CDN
