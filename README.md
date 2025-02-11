@@ -91,7 +91,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 #### Smart Home
 
 - [Envirobloq](https://envirobloq.io)
-- [PiPhi] (https://piphi.network/)
+- [PiPhi](https://piphi.network/)
 
 ### Decentralized Server
 
