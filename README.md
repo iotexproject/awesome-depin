@@ -75,6 +75,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [FOAM](https://foam.space)
 - [Onocoy](https://www.onocoy.com)
 - [Fry Networks](https://www.frynetworks.com)
+- [Voxense](https://www.voxense.network/)
 
 #### Energy
 
