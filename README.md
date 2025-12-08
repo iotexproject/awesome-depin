@@ -81,6 +81,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [React](https://www.reactnetwork.io)
 - [Arkreen](https://arkreen.com)
 - [GPN](https://www.greenpowern.com)
+- [PVP Genesis](https://github.com/Synapse-Founder/pvp-genesis-sdk) - Protocol for tokenizing physical energy and compute resources on Polygon blockchain
 - [Fry Networks](https://www.frynetworks.com)
 
 #### Health
