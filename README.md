@@ -140,6 +140,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Incognito](https://incognito.org)
 - [Fry Networks](https://www.frynetworks.com/)
 - [NYM](https://nymvpn.com)
+- [DeVpn](https://devpn.org) - Decentralized VPN on Solana where community-run Raspberry Pi nodes earn DVPN tokens for routing encrypted WireGuard traffic. Logging is architecturally impossible. 17 nodes across 6 countries, on-chain staking, iOS/Windows/Android apps. ([GitHub](https://github.com/DeVpn-social/devpn-provider))
 
 #### CDN
 
