@@ -158,6 +158,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 #### Tools
 
+- [CashPilot](https://github.com/GeiserX/CashPilot) - Self-hosted dashboard that deploys and manages DePIN bandwidth-sharing containers with unified earnings tracking.
 - [Hotspotty](https://hotspotty.net)
 - [Relay](https://www.relaywireless.com)
 - [Solsplits](https://solsplits.xyz/)
