@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [RustChain](https://github.com/Scottcjn/Rustchain) - Proof of Physical AI (PPA) — hardware fingerprinting verifies real silicon identity for AI compute. Vintage hardware earns higher rewards.
 
 #### Storage
 
