@@ -107,6 +107,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Lit](https://litprotocol.com)
 - [Functionland](https://fx.land)
 - [Golem](https://www.golem.network)
+- [RustChain](https://rustchain.org) - Proof of Antiquity blockchain that rewards vintage hardware mining with higher multipliers for older systems.
 - [iExec](https://iex.ec)
 - [Theta](https://www.thetatoken.org)
 - [Livepeer](https://livepeer.org)
