@@ -98,6 +98,8 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 #### Compute
 
 - [StackOS](https://www.stackos.io)
+- [RustChain](https://github.com/scottcjn/rustchain) - Proof-of-Antiquity blockchain. Earn rewards with vintage hardware like PowerPC Macs and old ThinkPads.
+
 - [Render](https://rendertoken.com)
 - [Akash](https://akash.network)
 - [Gensyn](https://www.gensyn.ai)
