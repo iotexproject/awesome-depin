@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [RustChain](https://github.com/Scottcjn/rustchain-bounties) - Proof-of-Antiquity (RIP-302) blockchain rewarding physical hardware uptime and longevity; runs on everything from Apple Silicon to PowerPC G4
 
 #### Storage
 
