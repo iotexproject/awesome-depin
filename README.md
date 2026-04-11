@@ -108,6 +108,8 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Functionland](https://fx.land)
 - [Golem](https://www.golem.network)
 - [iExec](https://iex.ec)
+- [RustChain](https://github.com/Scottcjn/Rustchain) - Proof-of-Antiquity blockchain. Old computers earn more than new ones.
+
 - [Theta](https://www.thetatoken.org)
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
