@@ -155,7 +155,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [W3bstream](https://w3bstream.com)
 - [Streamr](https://streamr.network)
-
+- [RustChain](https://rustchain.org)
 #### Tools
 
 - [Hotspotty](https://hotspotty.net)
