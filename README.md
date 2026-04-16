@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [RustChain](https://github.com/Scottcjn/rustchain-bounties) — Proof-of-Physical-AI consensus with MCP server support
 
 #### Storage
 
