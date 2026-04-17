@@ -166,6 +166,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 #### L1/L2
 
 - [IoTeX](https://iotex.io)
+- [RustChain](https://github.com/Scottcjn/rustchain) - A blockchain platform built in Rust, focused on DePIN.
 - [Eclipse](https://www.eclipse.builders)
 
 ## Analytics
