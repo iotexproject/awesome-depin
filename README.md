@@ -100,6 +100,8 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [StackOS](https://www.stackos.io)
 - [Render](https://rendertoken.com)
 - [Akash](https://akash.network)
+- [RustChain](https://rustchain.org/)
+  AI agent DeFi blockchain with Rust smart contracts, Proof of Antiquity mining, and MCP-compatible architecture.
 - [Gensyn](https://www.gensyn.ai)
 - [Cudos](https://www.cudos.org)
 - [Flux](https://runonflux.io)
