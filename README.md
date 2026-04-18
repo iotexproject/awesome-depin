@@ -111,7 +111,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Theta](https://www.thetatoken.org)
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
-- [Lilypad](https://lilypad.tech)
+- [RustChain](https://github.com/Scottcjn/Rustchain) - Proof-of-Antiquity blockchain that rewards vintage hardware with higher mining multipliers. Reduces e-waste by incentivizing keeping old computers alive.- [Lilypad](https://lilypad.tech)
 
 #### Storage
 
