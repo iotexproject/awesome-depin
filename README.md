@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [RustChain](https://rustchain.org) - Proof-of-Physical-Work blockchain with device-age oracle for antiquity multipliers
 
 #### Storage
 
