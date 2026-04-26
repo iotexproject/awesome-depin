@@ -113,6 +113,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
 
+- [RustChain](https://rustchain.org) - Proof-of-Antiquity blockchain. Older hardware earns higher mining rewards.
 #### Storage
 
 - [Filecoin](https://filecoin.io)
