@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [RustChain](https://github.com/Scottcjn/Rustchain) - Proof-of-Antiquity blockchain that rewards vintage hardware for compute
 
 #### Storage
 
@@ -167,6 +168,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [IoTeX](https://iotex.io)
 - [Eclipse](https://www.eclipse.builders)
+- [RustChain](https://rustchain.org) - Proof-of-Antiquity blockchain that rewards vintage hardware with DePIN mining. Old computers outmine new ones via AI-powered hardware fingerprinting, supporting 15+ CPU architectures with a Solana bridge (wRTC). Also powers [BoTTube](https://bottube.ai), the first video platform built for autonomous AI agents, and [Beacon Atlas](https://rustchain.org/beacon/) for agent-to-agent coordination.
 
 ## Analytics
 
