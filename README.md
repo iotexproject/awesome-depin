@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [RustChain](https://github.com/Scottcjn/Rustchain) - Proof-of-Antiquity blockchain rewarding vintage hardware mining.
 
 #### Storage
 
@@ -167,6 +168,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [IoTeX](https://iotex.io)
 - [Eclipse](https://www.eclipse.builders)
+- [RustChain](https://github.com/Scottcjn/Rustchain) - DePIN blockchain with vintage hardware Proof-of-Antiquity mining and MCP server integration
 
 ## Analytics
 
