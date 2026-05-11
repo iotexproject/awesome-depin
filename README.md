@@ -225,3 +225,5 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [The 3rd EAI International Conference on Blockchain Technology and Emerging Applications (BlockTEA 2023)](https://blocktea.eai-conferences.org/2023/)
 - [The 2023 5th Blockchain and Internet of Things Conference (BIOTC 2023)](http://www.biotc.net/)
 - [IEEE DePIN Workshop 2023](https://bit.ly/3RO25QD)
+
+- [RustChain](https://github.com/Scottcjn/RustChain) — Proof-of-Antiquity L1 blockchain where vintage hardware earns higher mining rewards. DePIN-compatible compute network.
