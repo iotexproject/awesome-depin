@@ -97,7 +97,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 #### Compute
 
-- [StackOS](https://www.stackos.io)
+- [RustChain](https://github.com/Scottcjn/Rustchain) — Proof-of-Antiquity blockchain with hardware fingerprint attestation. Turns vintage hardware into DePIN compute nodes.- [StackOS](https://www.stackos.io)
 - [Render](https://rendertoken.com)
 - [Akash](https://akash.network)
 - [Gensyn](https://www.gensyn.ai)
@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [RustChain](https://github.com/Scottcjn/RustChain) — Proof-of-Antiquity blockchain where vintage hardware earns higher mining rewards
 
 #### Storage
 
