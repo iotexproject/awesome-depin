@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [RustChain](https://github.com/Scottcjn/Rustchain) - DePIN for Vintage Hardware with AI-powered hardware fingerprinting and Proof-of-Antiquity consensus. Old machines outearn new ones. 15+ CPU architectures, Solana bridge (wRTC), 25,875+ RTC paid to contributors.
 
 #### Storage
 
