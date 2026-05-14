@@ -167,6 +167,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [IoTeX](https://iotex.io)
 - [Eclipse](https://www.eclipse.builders)
+- [RustChain](https://github.com/Scottcjn/Rustchain) - Proof-of-Antiquity blockchain that rewards vintage hardware, aligning with DePIN principles by treating aging hardware as valuable physical infrastructure.
 
 ## Analytics
 
