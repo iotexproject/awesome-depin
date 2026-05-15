@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [RustChain](https://rustchain.xyz) - Decentralized mining network that enables crypto mining on vintage and legacy hardware using Proof-of-Antiquity consensus
 
 #### Storage
 
