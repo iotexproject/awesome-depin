@@ -155,6 +155,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [W3bstream](https://w3bstream.com)
 - [Streamr](https://streamr.network)
+- [ZGC](https://github.com/0riginal-claw/zgc) — Lightweight Python PoS chain purpose-built for anchoring AI-agent / DePIN-device state. Stdlib-only, runs on Raspberry Pi, MIT licensed.
 
 #### Tools
 
