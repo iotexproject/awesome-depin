@@ -129,6 +129,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Polybase](https://polybase.xyz)
 - [Tableland](https://tableland.xyz)
 - [Swarm](https://www.ethswarm.org/)
+- [Xandeum](https://www.xandeum.network)
 
 #### VPN
 
@@ -174,6 +175,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [wholovesburrito](https://wholovesburrito.com)
 - [CoinGecko](https://www.coingecko.com/en/categories/depin)
 - [DePINScan](https://depinscan.io/)
+- [Pulsar Network](https://pulsarnetwork.xyz)
   
 ## Articles 
 - [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
