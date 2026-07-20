@@ -74,6 +74,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [GEODNET](https://geodnet.com)
 - [FOAM](https://foam.space)
 - [Onocoy](https://www.onocoy.com)
+- [Azimuth](https://azimuth.day)
 - [Fry Networks](https://www.frynetworks.com)
 
 #### Energy
