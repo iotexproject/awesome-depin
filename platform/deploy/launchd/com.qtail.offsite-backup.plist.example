@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.qtail.offsite-backup</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/absolute/path/to/platform/scripts/pull_remote_backup.sh</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>QTAIL_BACKUP_HOST</key>
+    <string>203.0.113.10</string>
+    <key>QTAIL_BACKUP_USER</key>
+    <string>qtailbackup</string>
+    <key>QTAIL_BACKUP_PROTOCOL</key>
+    <string>restricted_stream</string>
+    <key>QTAIL_BACKUP_SSH_KEY</key>
+    <string>/Users/example/.ssh/id_ed25519</string>
+    <key>QTAIL_BACKUP_HOST_FINGERPRINT</key>
+    <string>SHA256:replace-with-verified-ed25519-fingerprint</string>
+    <key>QTAIL_OFFSITE_DIR</key>
+    <string>/Users/example/qtail-offsite-backups</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StartInterval</key>
+  <integer>21600</integer>
+  <key>StandardOutPath</key>
+  <string>/Users/example/Library/Logs/qtail-offsite-backup.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/example/Library/Logs/qtail-offsite-backup.error.log</string>
+</dict>
+</plist>

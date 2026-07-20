@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q-Tail Data Engine | 用户数据 vs PT 合成数据评测</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071116;
+      --panel: #101b22;
+      --line: #273f49;
+      --ink: #edf7f6;
+      --muted: #9fb2b7;
+      --cyan: #43d9c8;
+      --green: #67d58f;
+      --gold: #e6bd62;
+      --red: #ff8585;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, rgba(67,217,200,.09), transparent 420px), var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+    a { color: inherit; text-decoration: none; }
+    .shell { max-width: 1180px; margin: 0 auto; padding: 0 22px 56px; }
+    .topbar { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(7,17,22,.9); backdrop-filter: blur(14px); }
+    .topbar .shell { min-height: 62px; display: flex; align-items: center; justify-content: space-between; padding-bottom: 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 850; }
+    .mark { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid var(--cyan); color: var(--cyan); }
+    .nav { display: flex; gap: 16px; color: var(--muted); font-size: 13px; }
+    .hero { min-height: calc(100vh - 62px); display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(330px, .92fr); gap: 40px; align-items: center; padding: 54px 0 30px; }
+    .eyebrow { color: var(--gold); font-weight: 820; font-size: 13px; text-transform: uppercase; margin-bottom: 16px; }
+    h1 { margin: 0; font-size: clamp(40px, 5.5vw, 70px); line-height: 1.04; letter-spacing: 0; }
+    .title-line { display: block; }
+    .copy { max-width: 760px; margin: 22px 0 0; color: #c9d9dc; font-size: 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; border: 1px solid var(--line); background: var(--panel); font-weight: 820; }
+    .button.primary { background: var(--cyan); color: #061114; border-color: var(--cyan); }
+    .panel, .card, .table-wrap { border: 1px solid var(--line); background: rgba(16,27,34,.9); }
+    .panel { padding: 22px; }
+    .metric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .metric { border: 1px solid var(--line); background: rgba(255,255,255,.035); padding: 14px; min-height: 112px; }
+    .label { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+    .value { font-size: 31px; line-height: 1; font-weight: 870; }
+    .note { margin-top: 8px; color: #bed0d4; font-size: 12px; }
+    section { padding: 54px 0 8px; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 22px; }
+    h2 { margin: 0; font-size: clamp(28px, 4vw, 44px); line-height: 1.08; }
+    .section-note { margin: 0; max-width: 650px; color: var(--muted); font-size: 14px; }
+    .three, .two { display: grid; gap: 14px; }
+    .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card { padding: 18px; }
+    .card h3 { margin: 0 0 10px; font-size: 18px; }
+    .card p, .card li { color: #bfd0d4; font-size: 14px; }
+    .card ul { margin: 0; padding-left: 18px; }
+    .upload-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 14px; align-items: stretch; }
+    .field { display: grid; gap: 8px; margin-bottom: 12px; }
+    .field span { color: var(--muted); font-size: 12px; font-weight: 760; }
+    input[type="file"], input[type="number"] { width: 100%; min-height: 42px; color: var(--ink); border: 1px solid var(--line); background: rgba(255,255,255,.035); padding: 9px 10px; font: inherit; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .status { margin-top: 12px; min-height: 22px; color: #bed0d4; font-size: 13px; }
+    .status.ok { color: var(--green); }
+    .status.bad { color: var(--red); }
+    .code-line { display: block; margin-top: 10px; padding: 10px; border: 1px solid var(--line); background: rgba(0,0,0,.22); color: #d7f3ef; overflow-x: auto; font-size: 12px; }
+    .mini-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .mini { border: 1px solid var(--line); padding: 12px; background: rgba(255,255,255,.03); min-height: 84px; }
+    .mini strong { display: block; font-size: 22px; line-height: 1.1; }
+    .mini span { display: block; color: var(--muted); font-size: 12px; margin-top: 6px; }
+    .hidden { display: none !important; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; min-width: 920px; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+    th { color: var(--muted); background: rgba(255,255,255,.04); font-weight: 820; }
+    tr:last-child td { border-bottom: 0; }
+    .gain { color: var(--green); font-weight: 850; }
+    .warn { color: var(--gold); font-weight: 800; }
+    .notice { margin-top: 16px; padding: 14px 16px; border: 1px solid rgba(230,189,98,.46); background: rgba(230,189,98,.09); color: #f0d99a; font-size: 14px; }
+    .error { margin: 30px auto; padding: 18px; border: 1px solid rgba(255,133,133,.5); background: rgba(255,133,133,.08); color: #ffd6d6; }
+    .pill { display: inline-flex; align-items: center; min-height: 30px; padding: 5px 10px; border: 1px solid var(--line); font-size: 12px; font-weight: 850; }
+    .pill.pass { color: #061114; background: var(--green); border-color: var(--green); }
+    .pill.fail { color: #ffd6d6; background: rgba(255,133,133,.12); border-color: rgba(255,133,133,.55); }
+    @media (max-width: 900px) {
+      .nav { display: none; }
+      .hero, .three, .two, .upload-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .section-head { display: block; }
+      .section-note { margin-top: 10px; }
+    }
+    @media (max-width: 520px) {
+      .shell { padding-left: 16px; padding-right: 16px; }
+      h1 { font-size: 34px; }
+      .metric-grid, .mini-metrics { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="index.html"><span class="mark">Q</span><span>Q-Tail Data Engine</span></a>
+      <nav class="nav">
+        <a href="#model">模型</a>
+        <a href="#upload">上传测试</a>
+        <a href="#comparison">对比</a>
+        <a href="#anchors">外部锚点</a>
+        <a href="#artifacts">产物</a>
+        <a href="qtail-openx-training.html">Open X 训练</a>
+      </nav>
+    </div>
+  </header>
+  <main id="app" class="shell">
+    <div class="error">正在读取 <code>results/qtail_data_engine_public_real/qtail_data_engine_report.json</code>...</div>
+  </main>
+
+  <script>
+    const app = document.getElementById("app");
+    const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+    const pct = (value) => `${(Number(value) * 100).toFixed(1)}%`;
+    const pp = (value) => `${Number(value) >= 0 ? "+" : ""}${(Number(value) * 100).toFixed(1)} pp`;
+    const num = (value, d=2) => Number(value).toFixed(d);
+    const list = (items) => `<ul>${items.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
+    const metric = (label, value, note) => `<div class="metric"><div class="label">${esc(label)}</div><div class="value">${value}</div><div class="note">${esc(note)}</div></div>`;
+    const relPct = (delta, base) => `${Number(base) ? ((Number(delta) / Number(base)) * 100).toFixed(1) : "0.0"}%`;
+    const TASK_KEYS = ["task", "task_id", "skill", "instruction", "scenario", "env", "environment", "name", "states"];
+    const COUNT_KEYS = ["count", "n", "episodes", "trajectories", "samples", "frequency", "raw probabilities(%)"];
+    const SUCCESS_KEYS = ["success", "success_rate", "sr", "reward", "score", "pass_rate"];
+    const DIFFICULTY_KEYS = ["difficulty", "risk", "failure_rate", "tail_score", "rarity"];
+    const GROUP_KEYS = ["group", "split", "category", "bucket"];
+
+    function parseCsv(text) {
+      const rows = [];
+      let row = [];
+      let cell = "";
+      let quoted = false;
+      const input = String(text || "").replace(/^\uFEFF/, "");
+      for (let i = 0; i < input.length; i += 1) {
+        const ch = input[i];
+        const next = input[i + 1];
+        if (ch === '"') {
+          if (quoted && next === '"') {
+            cell += '"';
+            i += 1;
+          } else {
+            quoted = !quoted;
+          }
+        } else if (ch === "," && !quoted) {
+          row.push(cell);
+          cell = "";
+        } else if ((ch === "\n" || ch === "\r") && !quoted) {
+          if (ch === "\r" && next === "\n") i += 1;
+          row.push(cell);
+          if (row.some((value) => value.trim() !== "")) rows.push(row);
+          row = [];
+          cell = "";
+        } else {
+          cell += ch;
+        }
+      }
+      row.push(cell);
+      if (row.some((value) => value.trim() !== "")) rows.push(row);
+      if (rows.length < 2) throw new Error("CSV 至少需要表头和一行数据");
+      const columns = rows[0].map((value) => value.trim());
+      const body = rows.slice(1).map((values) => Object.fromEntries(columns.map((col, idx) => [col, values[idx] ?? ""])));
+      return { columns, rows: body };
+    }
+
+    function firstPresent(columns, candidates) {
+      const lookup = new Map(columns.map((col) => [String(col).trim().toLowerCase(), col]));
+      return candidates.map((key) => lookup.get(key.toLowerCase())).find(Boolean) || null;
+    }
+
+    function toFloat(value, fallback = 0) {
+      const text = String(value ?? "").trim().replace("%", "");
+      if (!text) return fallback;
+      const parsed = Number(text);
+      return Number.isFinite(parsed) ? parsed : fallback;
+    }
+
+    function normalize(values) {
+      const safe = values.map((value) => Math.max(Number(value) || 0, 1e-9));
+      const total = safe.reduce((sum, value) => sum + value, 0);
+      return safe.map((value) => value / total);
+    }
+
+    function quantile(values, q) {
+      const sorted = values.slice().sort((a, b) => a - b);
+      const pos = (sorted.length - 1) * q;
+      const base = Math.floor(pos);
+      const rest = pos - base;
+      return sorted[base + 1] === undefined ? sorted[base] : sorted[base] + rest * (sorted[base + 1] - sorted[base]);
+    }
+
+    function inferProfilesFromCsv(text, topK = 128) {
+      const parsed = parseCsv(text);
+      const { columns, rows } = parsed;
+      const taskCol = firstPresent(columns, TASK_KEYS) || columns[0];
+      const countCol = firstPresent(columns, COUNT_KEYS);
+      const successCol = firstPresent(columns, SUCCESS_KEYS);
+      const difficultyCol = firstPresent(columns, DIFFICULTY_KEYS);
+      const groupCol = firstPresent(columns, GROUP_KEYS);
+      const aggregate = new Map();
+      rows.forEach((sourceRow) => {
+        const taskId = String(sourceRow[taskCol] || `row_${aggregate.size + 1}`).trim() || `row_${aggregate.size + 1}`;
+        const count = Math.max(toFloat(sourceRow[countCol], 1), 1e-9);
+        const item = aggregate.get(taskId) || { count: 0, successSum: 0, successN: 0, difficultySum: 0, difficultyN: 0, group: "" };
+        item.count += count;
+        if (successCol) {
+          let success = toFloat(sourceRow[successCol], NaN);
+          if (Number.isFinite(success)) {
+            if (success > 1) success /= 100;
+            item.successSum += Math.max(0, Math.min(1, success));
+            item.successN += 1;
+          }
+        }
+        if (difficultyCol) {
+          let difficulty = toFloat(sourceRow[difficultyCol], NaN);
+          if (Number.isFinite(difficulty)) {
+            if (difficulty > 1) difficulty = difficulty <= 10 ? difficulty / 10 : difficulty / 100;
+            item.difficultySum += Math.max(0, Math.min(1, difficulty));
+            item.difficultyN += 1;
+          }
+        }
+        if (groupCol && sourceRow[groupCol]) item.group = String(sourceRow[groupCol]).trim().toLowerCase();
+        aggregate.set(taskId, item);
+      });
+      const items = [...aggregate.entries()].sort((a, b) => b[1].count - a[1].count).slice(0, topK);
+      const counts = items.map(([, item]) => item.count);
+      const shares = normalize(counts);
+      const rarityRaw = shares.map((share) => 1 / Math.sqrt(share + 1e-12));
+      const rarityMin = Math.min(...rarityRaw);
+      const rarityMax = Math.max(...rarityRaw);
+      const profiles = items.map(([taskId, item], idx) => {
+        const rarity = (rarityRaw[idx] - rarityMin) / (rarityMax - rarityMin + 1e-12);
+        const successRate = item.successN > 0 ? item.successSum / item.successN : Math.max(0.15, Math.min(0.92, 0.88 - 0.48 * rarity));
+        const difficulty = item.difficultyN > 0 ? item.difficultySum / item.difficultyN : rarity;
+        const tailScore = 0.45 * rarity + 0.35 * difficulty + 0.20 * (1 - successRate);
+        const group = item.group || (tailScore >= 0.62 ? "tail" : tailScore >= 0.36 ? "medium" : "head");
+        return { task_id: taskId, source_count: counts[idx], source_share: shares[idx], success_rate: successRate, difficulty, rarity, tail_score: tailScore, group };
+      });
+      return {
+        profiles,
+        input: {
+          row_count: rows.length,
+          profile_count: profiles.length,
+          detected_columns: { task: taskCol, count: countCol, success: successCol, difficulty: difficultyCol, group: groupCol },
+        },
+      };
+    }
+
+    function ptWeights(n) {
+      const weights = Array.from({ length: n }, (_, idx) => -Math.log((idx + 0.5) / (n + 0.5))).sort((a, b) => b - a);
+      return normalize(weights);
+    }
+
+    function loadPtDistributionFromCsv(text, n) {
+      if (!text) return ptWeights(n);
+      const parsed = parseCsv(text);
+      const probCol = firstPresent(parsed.columns, COUNT_KEYS) || parsed.columns[1];
+      const probs = parsed.rows
+        .map((row) => toFloat(row[probCol], 0))
+        .filter((value) => Number.isFinite(value) && value > 0)
+        .sort((a, b) => b - a);
+      if (probs.length < n) return ptWeights(n);
+      const normalized = normalize(probs);
+      const buckets = [];
+      for (let i = 0; i < n; i += 1) {
+        const start = Math.floor(i * normalized.length / n);
+        const end = Math.floor((i + 1) * normalized.length / n);
+        buckets.push(normalized.slice(start, Math.max(start + 1, end)).reduce((sum, value) => sum + value, 0));
+      }
+      return normalize(buckets);
+    }
+
+    function responseSuccess(allocation, profiles, totalBudget) {
+      return profiles.map((profile, idx) => {
+        const count = allocation[idx] * totalBudget;
+        const tau = totalBudget * (0.010 + 0.085 * profile.tail_score);
+        const maxGain = 0.05 + 0.55 * profile.tail_score;
+        return Math.max(0, Math.min(0.995, profile.success_rate + maxGain * (1 - Math.exp(-count / tau))));
+      });
+    }
+
+    function evaluateClientAllocations(profiles, sourceAlloc, syntheticAlloc, totalBudget) {
+      const tailScores = profiles.map((profile) => profile.tail_score);
+      const tailCut = quantile(tailScores, 0.70);
+      const tailMask = tailScores.map((score) => score >= tailCut);
+      const sourceSuccess = responseSuccess(sourceAlloc, profiles, totalBudget);
+      const syntheticSuccess = responseSuccess(syntheticAlloc, profiles, totalBudget);
+      const makeMetrics = (values, alloc) => {
+        const sorted = values.slice().sort((a, b) => a - b);
+        const cvarK = Math.max(1, Math.ceil(0.20 * values.length));
+        const tailValues = values.filter((_, idx) => tailMask[idx]);
+        return {
+          overall_success: values.reduce((sum, value) => sum + value, 0) / values.length,
+          tail_success: tailValues.reduce((sum, value) => sum + value, 0) / tailValues.length,
+          cvar20: sorted.slice(0, cvarK).reduce((sum, value) => sum + value, 0) / cvarK,
+          extreme_failure_count: values.filter((value) => value < 0.40).length,
+          tail_coverage_at_50: tailValues.filter((value) => value >= 0.50).length / tailValues.length,
+          tail_data_share: alloc.filter((_, idx) => tailMask[idx]).reduce((sum, value) => sum + value, 0),
+        };
+      };
+      const sourceMetrics = makeMetrics(sourceSuccess, sourceAlloc);
+      const syntheticMetrics = makeMetrics(syntheticSuccess, syntheticAlloc);
+      const gains = {
+        overall_success: syntheticMetrics.overall_success - sourceMetrics.overall_success,
+        tail_success: syntheticMetrics.tail_success - sourceMetrics.tail_success,
+        cvar20: syntheticMetrics.cvar20 - sourceMetrics.cvar20,
+        tail_coverage_at_50: syntheticMetrics.tail_coverage_at_50 - sourceMetrics.tail_coverage_at_50,
+        tail_data_share: syntheticMetrics.tail_data_share - sourceMetrics.tail_data_share,
+        extreme_failure_reduction: sourceMetrics.extreme_failure_count - syntheticMetrics.extreme_failure_count,
+      };
+      const passGate = {
+        tail_success_min_gain: 0.02,
+        cvar20_min_gain: 0.02,
+        tail_data_share_min_gain: 0.10,
+      };
+      const testPassed = (
+        gains.tail_success >= passGate.tail_success_min_gain &&
+        gains.cvar20 >= passGate.cvar20_min_gain &&
+        gains.tail_data_share >= passGate.tail_data_share_min_gain
+      );
+      return {
+        tail_threshold_quantile: 0.70,
+        tail_task_count: tailMask.filter(Boolean).length,
+        source_data_metrics: sourceMetrics,
+        qtail_synthetic_metrics: syntheticMetrics,
+        gains,
+        pass_gate: passGate,
+        test_passed: testPassed,
+        per_task: profiles.map((profile, idx) => ({
+          task_id: profile.task_id,
+          group: profile.group,
+          tail_score: profile.tail_score,
+          source_share: sourceAlloc[idx],
+          synthetic_share: syntheticAlloc[idx],
+          source_effect: sourceSuccess[idx],
+          synthetic_effect: syntheticSuccess[idx],
+        })),
+      };
+    }
+
+    function runClientEvaluation(csvText, options = {}) {
+      const syntheticBudget = Number(options.syntheticBudget || 100000);
+      const topK = Number(options.topK || 128);
+      const { profiles, input } = inferProfilesFromCsv(csvText, topK);
+      if (profiles.length < 2) throw new Error("至少需要 2 个任务/场景才能比较长尾分布");
+      const sourceAlloc = normalize(profiles.map((profile) => profile.source_count));
+      const tailOrder = profiles.map((profile, idx) => ({ idx, score: profile.tail_score })).sort((a, b) => b.score - a.score);
+      const pt = loadPtDistributionFromCsv(options.ptCsvText || "", profiles.length);
+      const syntheticAlloc = Array(profiles.length).fill(0);
+      tailOrder.forEach((item, rank) => { syntheticAlloc[item.idx] = pt[rank]; });
+      const blendedAlloc = normalize(syntheticAlloc.map((value, idx) => 0.72 * value + 0.28 * sourceAlloc[idx]));
+      const syntheticRows = profiles.map((profile, idx) => ({
+        task_id: profile.task_id,
+        source: "qtail_pt_synthetic_browser",
+        synthetic_count: syntheticBudget * blendedAlloc[idx],
+        synthetic_share: blendedAlloc[idx],
+        tail_score: profile.tail_score,
+        group: profile.group,
+        success_rate_reference: profile.success_rate,
+      }));
+      const sourceAllocSum = sourceAlloc.reduce((sum, value) => sum + value, 0);
+      const syntheticAllocSum = blendedAlloc.reduce((sum, value) => sum + value, 0);
+      const evaluation = evaluateClientAllocations(profiles, sourceAlloc, blendedAlloc, syntheticBudget);
+      const sameBudgetAudit = {
+        same_task_set: new Set(profiles.map((profile) => profile.task_id)).size === profiles.length,
+        same_total_budget: syntheticBudget,
+        source_allocation_sum: sourceAllocSum,
+        synthetic_allocation_sum: syntheticAllocSum,
+        allocation_sum_tolerance: 1e-6,
+        allocation_sums_valid: Math.abs(sourceAllocSum - 1) <= 1e-6 && Math.abs(syntheticAllocSum - 1) <= 1e-6,
+        same_response_model: "response_success_v1_browser",
+        same_tail_definition: "top_30_percent_by_tail_score",
+        same_metric_set: ["overall_success", "tail_success", "cvar20", "extreme_failure_count", "tail_coverage_at_50", "tail_data_share"],
+        profile_count: profiles.length,
+      };
+      const decisionPassed = evaluation.test_passed && sameBudgetAudit.allocation_sums_valid && sameBudgetAudit.same_task_set;
+      return {
+        generated_at: new Date().toISOString(),
+        input,
+        synthetic_budget: syntheticBudget,
+        model: {
+          name: "Q-Tail Data Engine browser prototype",
+          claim_boundary: [
+            "Browser output is a local preview aligned with the Python engine's evaluation protocol.",
+            "Synthetic rows are allocation targets/scenario specs; rendering or robot execution is downstream.",
+          ],
+        },
+        same_budget_audit: sameBudgetAudit,
+        evaluation,
+        decision: {
+          winner: decisionPassed ? "qtail_synthetic" : "source_data_or_inconclusive",
+          passed: decisionPassed,
+          summary: decisionPassed ? "Q-Tail synthetic data wins under the same-budget evaluation protocol." : "The test is inconclusive or source data remains the safer winner under the current gate.",
+          primary_metric: "tail_success",
+          decision_gate: evaluation.pass_gate,
+          reasons: decisionPassed ? ["tail_success_gain", "cvar20_gain", "tail_data_share_gain", "same_budget_audit_passed"] : ["gate_or_audit_not_passed"],
+        },
+        artifacts: { qtail_synthetic_data: "downloaded qtail_synthetic_data.csv", qtail_report: "downloaded qtail_client_report.json" },
+        profiles,
+        syntheticRows,
+      };
+    }
+
+    function toCsv(rows) {
+      if (!rows.length) return "";
+      const columns = Object.keys(rows[0]);
+      const escapeCell = (value) => {
+        const text = String(value ?? "");
+        return /[",\n\r]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+      };
+      return [columns.join(","), ...rows.map((row) => columns.map((col) => escapeCell(row[col])).join(","))].join("\n");
+    }
+
+    function downloadText(filename, text, type = "text/plain") {
+      const blob = new Blob([text], { type });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    window.__qtailClient = { parseCsv, inferProfilesFromCsv, runClientEvaluation, toCsv };
+
+    function renderRows(report, limit = Infinity) {
+      return report.evaluation.per_task
+        .slice()
+        .sort((a, b) => b.tail_score - a.tail_score)
+        .slice(0, limit)
+        .map((row) => `<tr>
+          <td>${esc(row.task_id)}</td>
+          <td>${esc(row.group)}</td>
+          <td>${num(row.tail_score, 3)}</td>
+          <td>${pct(row.source_share)}</td>
+          <td>${pct(row.synthetic_share)}</td>
+          <td>${pct(row.source_effect)}</td>
+          <td>${pct(row.synthetic_effect)}</td>
+          <td class="${row.synthetic_effect >= row.source_effect ? "gain" : ""}">${pp(row.synthetic_effect - row.source_effect)}</td>
+        </tr>`).join("");
+    }
+
+    function renderClientResult(result) {
+      const src = result.evaluation.source_data_metrics;
+      const syn = result.evaluation.qtail_synthetic_metrics;
+      const gain = result.evaluation.gains;
+      return `
+        <p><span class="pill ${result.decision.passed ? "pass" : "fail"}">${result.decision.passed ? "Winner: Q-Tail synthetic" : "Winner: source/inconclusive"}</span></p>
+        <div class="mini-metrics">
+          <div class="mini"><strong>${pp(gain.tail_success)}</strong><span>Tail success gain · ${pct(src.tail_success)} → ${pct(syn.tail_success)}</span></div>
+          <div class="mini"><strong>${pp(gain.cvar20)}</strong><span>CVaR@20 gain · ${pct(src.cvar20)} → ${pct(syn.cvar20)}</span></div>
+          <div class="mini"><strong>${pp(gain.tail_data_share)}</strong><span>Tail data share · ${pct(src.tail_data_share)} → ${pct(syn.tail_data_share)}</span></div>
+          <div class="mini"><strong>${esc(result.input.profile_count)}</strong><span>任务/场景画像 · ${esc(result.input.row_count)} rows parsed</span></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Task</th><th>Group</th><th>Tail Score</th><th>Source Share</th><th>Synthetic Share</th><th>Source Effect</th><th>Synthetic Effect</th><th>Gain</th></tr></thead>
+            <tbody>${renderRows(result, 16)}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function bindUploadPanel() {
+      const fileInput = document.getElementById("userCsv");
+      const sampleButton = document.getElementById("runSampleData");
+      const status = document.getElementById("uploadStatus");
+      const resultBox = document.getElementById("uploadResult");
+      const downloadCsvButton = document.getElementById("downloadSyntheticCsv");
+      const downloadJsonButton = document.getElementById("downloadClientReport");
+      let latestResult = null;
+
+      const loadPtSourceText = async () => {
+        const response = await fetch("data/uploaded_data.csv", { cache: "no-store" });
+        if (!response.ok) throw new Error(`PT source HTTP ${response.status}`);
+        return response.text();
+      };
+
+      const runText = async (text, label) => {
+        const budget = Number(document.getElementById("syntheticBudget").value || 100000);
+        let ptCsvText = "";
+        let ptNote = "empirical PT source";
+        try {
+          ptCsvText = await loadPtSourceText();
+        } catch (error) {
+          ptNote = "deterministic PT fallback";
+        }
+        latestResult = runClientEvaluation(text, { syntheticBudget: budget, topK: 128, ptCsvText });
+        resultBox.innerHTML = renderClientResult(latestResult);
+        downloadCsvButton.classList.remove("hidden");
+        downloadJsonButton.classList.remove("hidden");
+        status.className = "status ok";
+        status.textContent = `${label} 已完成：${latestResult.input.profile_count} 个任务画像，已生成 PT 重尾合成数据（${ptNote}）。`;
+      };
+
+      fileInput.addEventListener("change", async () => {
+        const file = fileInput.files && fileInput.files[0];
+        if (!file) return;
+        try {
+          status.className = "status";
+          status.textContent = "正在解析 CSV 并生成 PT 重尾数据...";
+          await runText(await file.text(), file.name);
+        } catch (error) {
+          status.className = "status bad";
+          status.textContent = error.message;
+        }
+      });
+
+      sampleButton.addEventListener("click", async () => {
+        try {
+          status.className = "status";
+          status.textContent = "正在读取公开锚点样例...";
+          const response = await fetch("data/embodied_public_anchor_real.csv", { cache: "no-store" });
+          if (!response.ok) throw new Error(`样例数据读取失败：HTTP ${response.status}`);
+          await runText(await response.text(), "public anchor sample");
+        } catch (error) {
+          status.className = "status bad";
+          status.textContent = error.message;
+        }
+      });
+
+      downloadCsvButton.addEventListener("click", () => {
+        if (!latestResult) return;
+        downloadText("qtail_synthetic_data.csv", toCsv(latestResult.syntheticRows), "text/csv");
+      });
+
+      downloadJsonButton.addEventListener("click", () => {
+        if (!latestResult) return;
+        const payload = { ...latestResult };
+        delete payload.profiles;
+        delete payload.syntheticRows;
+        downloadText("qtail_client_report.json", JSON.stringify(payload, null, 2), "application/json");
+      });
+    }
+
+    function validationCard(title, report, note) {
+      if (!report) {
+        return `<article class="card"><h3>${esc(title)}</h3><p>未读取到该验证报告。</p></article>`;
+      }
+      const gains = report.evaluation.gains;
+      const tailSig = report.evaluation.significance?.tail_success_delta || {};
+      const winner = report.decision?.winner || (report.evaluation.test_passed ? "qtail_synthetic" : "source_data_or_inconclusive");
+      return `<article class="card">
+        <h3>${esc(title)}</h3>
+        <p><span class="pill ${winner === "qtail_synthetic" ? "pass" : "fail"}">${winner === "qtail_synthetic" ? "Winner: Q-Tail synthetic" : "Winner: source/inconclusive"}</span></p>
+        <p>Tail success ${pp(gains.tail_success)} · CVaR@20 ${pp(gains.cvar20)} · Tail data share ${pp(gains.tail_data_share)}</p>
+        <p>Tail 95% CI [${pp((tailSig.ci95 || [0, 0])[0])}, ${pp((tailSig.ci95 || [0, 0])[1])}] · ${esc(report.input.profile_count)} task profiles</p>
+        <p>${esc(note)}</p>
+      </article>`;
+    }
+
+    function render(report, metaworldReport = null) {
+      const src = report.evaluation.source_data_metrics;
+      const syn = report.evaluation.qtail_synthetic_metrics;
+      const gain = report.evaluation.gains;
+      const sig = report.evaluation.significance || {};
+      const tailSig = sig.tail_success_delta || {};
+      const cvarSig = sig.cvar20_delta || {};
+      const decision = report.decision || { winner: report.evaluation.test_passed ? "qtail_synthetic" : "source_data_or_inconclusive", passed: report.evaluation.test_passed };
+      const audit = report.same_budget_audit || {};
+      const sourceAudit = report.source_audit || {};
+      const sources = sourceAudit.sources || [];
+      app.innerHTML = `
+        <section class="hero">
+          <div>
+            <div class="eyebrow">user data in · PT-tail synthetic data out · same evaluator</div>
+            <h1><span class="title-line">Q-Tail-for-AI</span><span class="title-line">数据合成与</span><span class="title-line">效果对比模型</span></h1>
+            <p class="copy">用户给我们一批具身智能数据，我们先抽取任务/场景画像，识别长尾和失败风险；然后用 PT 重尾先验生成新的合成数据分布；最后用同一套响应模型比较“用户原始数据”与“Q-Tail 合成数据”谁更能提升 tail success、CVaR 和罕见场景覆盖。</p>
+            <div class="actions">
+              <a class="button primary" href="results/qtail_data_engine_public_real/qtail_data_engine_report.json">查看模型报告 JSON</a>
+              <a class="button" href="results/qtail_data_engine_public_real/qtail_synthetic_data.csv">查看合成数据 CSV</a>
+              <a class="button" href="results/qtail_public_anchor_adapter/source_audit.json">查看来源审计</a>
+              <a class="button" href="tools/qtail_data_engine.py">复跑模型</a>
+            </div>
+            <div class="notice">当前展示已经从官方公开页面抽取 Open X/RT-X、DROID、Habitat 3.0 聚合信息，并展开为 ${esc(report.input.profile_count)} 个任务桶。注意：这是公开聚合元数据适配器，不等价于完整轨迹训练。</div>
+            <div class="notice"><span class="pill ${decision.passed ? "pass" : "fail"}">${decision.winner === "qtail_synthetic" ? "Winner: Q-Tail synthetic" : "Winner: source/inconclusive"}</span> 同预算 gate：tail success ≥ +2 pp、CVaR@20 ≥ +2 pp、tail data share ≥ +10 pp，bootstrap p(Δ≤0) ≤ 0.05。</div>
+          </div>
+          <aside class="panel">
+            <div class="metric-grid">
+              ${metric("Tail Success gain", pp(gain.tail_success), `source ${pct(src.tail_success)} → qtail ${pct(syn.tail_success)} · 相对提升 ${relPct(gain.tail_success, src.tail_success)}`)}
+              ${metric("CVaR@20 gain", pp(gain.cvar20), `source ${pct(src.cvar20)} → qtail ${pct(syn.cvar20)}`)}
+              ${metric("Tail Data Share", pp(gain.tail_data_share), `从 ${pct(src.tail_data_share)} 提到 ${pct(syn.tail_data_share)}`)}
+              ${metric("Overall gain", pp(gain.overall_success), `source ${pct(src.overall_success)} → qtail ${pct(syn.overall_success)}`)}
+            </div>
+          </aside>
+        </section>
+        <section id="summary">
+          <div class="section-head"><h2>这次验证证明了什么</h2><p class="section-note">结论边界很重要：这里验证的是同预算数据分布与评测协议，不是已经下载 Open X/DROID 全量数据并完成真实机器人策略训练。</p></div>
+          <div class="three">
+            <article class="card"><h3>输入模型成立</h3><p>任意用户 CSV 只要有任务、计数、成功率或难度字段，就能转成统一任务画像；缺失字段会用 rarity proxy 明确补齐。</p></article>
+            <article class="card"><h3>输出 PT 重尾数据成立</h3><p>Q-Tail 把 PT 权重映射到高 tail_score 任务，输出可交付的合成数据 allocation/spec CSV。</p></article>
+            <article class="card"><h3>裁判结论明确</h3><p>${esc(decision.summary || "Q-Tail synthetic data wins under the same-budget evaluation protocol.")}</p></article>
+          </div>
+        </section>
+        <section id="effect">
+          <div class="section-head"><h2>效果怎么读</h2><p class="section-note">这里的 pp 是 percentage points，也就是百分点；不要和相对百分比混在一起。</p></div>
+          <div class="three">
+            <article class="card"><h3>Tail success</h3><p>${pp(gain.tail_success)} 是从 ${pct(src.tail_success)} 到 ${pct(syn.tail_success)} 的百分点差；按相对提升算是 ${relPct(gain.tail_success, src.tail_success)}。</p></article>
+            <article class="card"><h3>Tail data share</h3><p>长尾任务拿到的数据份额从 ${pct(src.tail_data_share)} 提到 ${pct(syn.tail_data_share)}，说明 Q-Tail 主要改变的是罕见任务覆盖结构。</p></article>
+            <article class="card"><h3>没有做全量训练</h3><p>当前 Open X/DROID/Habitat 是官网聚合元数据锚点，不是完整数据集下载训练。全量训练需要拉取 trajectory、统一格式、接入策略训练/benchmark，再用同一报告模板复验。</p></article>
+          </div>
+        </section>
+        <section id="full-training">
+          <div class="section-head"><h2>全量训练状态</h2><p class="section-note">你要的 full trajectory 训练还没有完成；下面是当前真实下载/训练前置检查结果。</p></div>
+          <div class="three">
+            <article class="card"><h3>DROID 全量数据</h3><p>官方下载入口已验证：<code>gs://gresearch/robotics/droid</code>。本机用 <code>gsutil du</code> 探测为约 3.366 TiB；按 5% 临时空间冗余至少需要约 3.53 TiB，而当前可用磁盘约 1.15 TiB，无法完整下载。</p></article>
+            <article class="card"><h3>训练代码</h3><p>DROID policy learning 仓库已 clone 到 <code>external_data/embodied_full/training_backends/droid_policy_learning</code>。官方要求 Python 3.10、Octo、robomimic，并建议单 NVIDIA A100。</p></article>
+            <article class="card"><h3>Runner</h3><p>已新增 <code>tools/qtail_full_training_runner.py</code>，会记录 preflight、GCS 入口、依赖、磁盘和下载/训练阻塞，避免把未完成 full training 误报成结果。</p></article>
+          </div>
+        </section>
+        <section id="audit">
+          <div class="section-head"><h2>同预算审计</h2><p class="section-note">确保两边比较的是同任务集、同预算、同响应模型、同 metric set。</p></div>
+          <div class="three">
+            <article class="card"><h3>Budget</h3><p>source allocation sum=${num(audit.source_allocation_sum || 0, 6)} · synthetic allocation sum=${num(audit.synthetic_allocation_sum || 0, 6)} · total budget=${esc(audit.same_total_budget || report.synthetic_budget)}</p></article>
+            <article class="card"><h3>Evaluator</h3><p>${esc(audit.same_response_model || "response_success_v1")} · ${esc(audit.same_tail_definition || "top_30_percent_by_tail_score")}</p></article>
+            <article class="card"><h3>Package</h3><p>${audit.allocation_sums_valid && audit.same_task_set ? "通过" : "未通过"}：${esc(audit.profile_count || report.input.profile_count)} profiles，可用 <code>tools/qtail_validate_package.py</code> 自动校验。</p></article>
+          </div>
+        </section>
+        <section id="test">
+          <div class="section-head"><h2>统计测试门槛</h2><p class="section-note">把每个任务/场景的 source effect 与 synthetic effect 当作配对样本，使用任务级 bootstrap 估计不确定性。</p></div>
+          <div class="three">
+            <article class="card"><h3>Tail success</h3><p>Δ=${pp(tailSig.delta || gain.tail_success)} · 95% CI [${pp((tailSig.ci95 || [0, 0])[0])}, ${pp((tailSig.ci95 || [0, 0])[1])}] · p(Δ≤0)=${num(tailSig.p_delta_le_0 || 0, 4)}</p></article>
+            <article class="card"><h3>CVaR@20</h3><p>Δ=${pp(cvarSig.delta || gain.cvar20)} · 95% CI [${pp((cvarSig.ci95 || [0, 0])[0])}, ${pp((cvarSig.ci95 || [0, 0])[1])}] · p(Δ≤0)=${num(cvarSig.p_delta_le_0 || 0, 4)}</p></article>
+            <article class="card"><h3>Gate</h3><p>${report.evaluation.test_passed ? "通过" : "未通过"}：tail success、CVaR@20、tail data share 均达到预设提升门槛。</p></article>
+          </div>
+        </section>
+        <section id="model">
+          <div class="section-head"><h2>模型流程</h2><p class="section-note">这是产品模型，不是单次实验：CSV 输入、PT 合成、同协议评估、输出可审计 artifact。</p></div>
+          <div class="three">
+            <article class="card"><h3>1. 用户数据画像</h3><p>自动识别 task/count/success/difficulty/group 列，输出任务画像和 tail_score。</p></article>
+            <article class="card"><h3>2. PT 重尾合成</h3><p>从量子/PT 源中取重尾桶，把高权重映射到 tail_score 高的任务，生成合成数据分布。</p></article>
+            <article class="card"><h3>3. 同方法测试</h3><p>原始数据和合成数据进入同一个响应模型，比较 tail success、CVaR、极端失败和覆盖率。</p></article>
+          </div>
+        </section>
+        <section id="upload">
+          <div class="section-head"><h2>上传数据即跑</h2><p class="section-note">把客户数据转成任务画像，输出 PT 重尾合成数据，并用同一评估器比较原始数据和合成数据。</p></div>
+          <div class="upload-grid">
+            <div class="panel">
+              <label class="field"><span>客户 CSV</span><input id="userCsv" type="file" accept=".csv,text/csv" /></label>
+              <label class="field"><span>同预算 synthetic budget</span><input id="syntheticBudget" type="number" min="100" step="100" value="100000" /></label>
+              <div class="button-row">
+                <button id="runSampleData" class="button primary" type="button">试跑公开锚点样例</button>
+                <button id="downloadSyntheticCsv" class="button hidden" type="button">下载 PT 合成 CSV</button>
+                <button id="downloadClientReport" class="button hidden" type="button">下载评测 JSON</button>
+              </div>
+              <div id="uploadStatus" class="status">支持列名：task、count、success_rate、difficulty、group；缺失 success/difficulty 时会用 rarity proxy。</div>
+            </div>
+            <div id="uploadResult" class="panel">
+              <div class="notice">等待 CSV 输入。输出会包含 Q-Tail synthetic allocation、原始数据指标、合成数据指标和 per-task gain。</div>
+            </div>
+          </div>
+        </section>
+        <section id="comparison">
+          <div class="section-head"><h2>原始数据 vs Q-Tail 合成数据</h2><p class="section-note">按 tail_score 排序，展示 Q-Tail 如何把预算从头部重分配到高风险/罕见任务。</p></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>Group</th><th>Tail Score</th><th>Source Share</th><th>Synthetic Share</th><th>Source Effect</th><th>Synthetic Effect</th><th>Gain</th></tr></thead>
+              <tbody>${renderRows(report)}</tbody>
+            </table>
+          </div>
+        </section>
+        <section id="anchors">
+          <div class="section-head"><h2>外部验证锚点</h2><p class="section-note">页面展示的是官方公开聚合信息的可复跑适配结果；当客户提供完整 trajectory summary 时，同一接口可替换输入 CSV。</p></div>
+          <div class="three">
+            ${sources.map((source) => `<article class="card"><h3>${esc(source.name)}</h3><p>${esc(source.extracted.evidence)}</p><p><a class="warn" href="${esc(source.url)}">${esc(source.url)}</a></p><p>${esc(source.row_count)} 个适配任务桶 · ${esc(source.fetch_method)} source</p></article>`).join("")}
+          </div>
+        </section>
+        <section id="benchmark">
+          <div class="section-head"><h2>Benchmark 任务空间验证</h2><p class="section-note">除官方聚合数据外，额外用本地 MetaWorld V3/MT50/ML held-out 任务空间验证 Q-Tail 对罕见操作任务的覆盖。</p></div>
+          <div class="two">
+            ${validationCard("Open X + DROID + Habitat public anchor", report, "官方公开页面聚合元数据，验证跨机器人/真实操作/模拟 HRI 锚点。")}
+            ${validationCard("MetaWorld task-space anchor", metaworldReport, "本地 MetaWorld env_dict.py 静态抽取 50 个 V3 操作任务，ML test tasks 标为长尾泛化任务。")}
+          </div>
+        </section>
+        <section id="artifacts">
+          <div class="section-head"><h2>输出产物</h2><p class="section-note">这就是用户未来上传数据后要交付的结果形态。</p></div>
+          <div class="two">
+            <article class="card"><h3>一键客户包</h3><p>客户 CSV 进来后，用一条命令生成 report、PT synthetic CSV、manifest，并自动 validator。</p><code class="code-line">python3 tools/qtail_build_package.py --input customer.csv --out results/customer_qtail_package --top-k 128 --synthetic-budget 100000</code>${list(["results/qtail_package_public/package_manifest.json", "results/qtail_package_metaworld/package_manifest.json", "tools/qtail_build_package.py"])}</article>
+            <article class="card"><h3>Artifacts</h3>${list([...Object.values(report.artifacts), "data/embodied_public_anchor_real.csv", "results/qtail_public_anchor_adapter/source_audit.json", "data/metaworld_benchmark_anchor.csv", "results/qtail_data_engine_metaworld/qtail_data_engine_report.json", "tools/qtail_validate_package.py", "docs/experiments/qtail_data_engine_protocol.md"])}</article>
+            <article class="card"><h3>Claim Boundary</h3>${list([...(report.model.claim_boundary || []), ...(sourceAudit.claim_boundary || [])])}</article>
+          </div>
+        </section>
+      `;
+      bindUploadPanel();
+    }
+
+    Promise.all([
+      fetch("results/qtail_data_engine_public_real/qtail_data_engine_report.json", { cache: "no-store" })
+        .then((r) => { if (!r.ok) throw new Error(`public report HTTP ${r.status}`); return r.json(); }),
+      fetch("results/qtail_data_engine_metaworld/qtail_data_engine_report.json", { cache: "no-store" })
+        .then((r) => r.ok ? r.json() : null)
+        .catch(() => null),
+    ])
+      .then(([report, metaworldReport]) => render(report, metaworldReport))
+      .catch((error) => {
+        app.innerHTML = `<div class="error"><strong>无法读取 Q-Tail Data Engine 报告。</strong><br>请先运行 <code>python3 tools/qtail_public_anchor_adapter.py --refresh</code>，再运行 <code>python3 tools/qtail_data_engine.py --input data/embodied_public_anchor_real.csv --out results/qtail_data_engine_public_real --top-k 128 --source-audit results/qtail_public_anchor_adapter/source_audit.json</code><br>错误：${esc(error.message)}</div>`;
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+env:
+  mode: "simulation"
+training:
+  budget: 100000
+  n_seeds: 3
+  log_interval: 1000
+scheduler:
+  eta: 0.6
+  strategies:
+    - uniform
+    - empirical
+    - invfreq
+    - pt-rank
+    - prioritized_replay
+    - curriculum
+    - power_law
+    - levy
+    - gaussian
+    - dro_risk_weighting
+    - focal_loss

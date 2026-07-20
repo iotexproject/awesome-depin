@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.npm-cache/
+.venv/
+.env
+.env.preview
+.env.acceptance
+var/
+backups/
+backend/__pycache__/
+backend/tests/__pycache__/
+design-qa-artifacts/

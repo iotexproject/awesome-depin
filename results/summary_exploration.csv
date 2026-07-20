@@ -1,0 +1,4 @@
+Strategy,Cumulative Reward,Best Arm Discovery (%)
+Gaussian Baseline,9.999999999999982,0.0
+Uniform,9.999999999999982,0.0
+PT-OT,24.180600000000027,95.8

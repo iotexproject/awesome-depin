@@ -1,0 +1,1 @@
+pilot_id,task_id,robot_model,robot_serial,site_id,session_date,condition,episode_id,policy_sha256,dataset_manifest_sha256,success,safety_stop,collision,operator_name,evidence_url,notes

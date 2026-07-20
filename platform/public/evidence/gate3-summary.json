@@ -1,0 +1,24 @@
+{
+  "gate": 3,
+  "status": "local_simulation_ready_external_acceptance_required",
+  "generated_at": "2026-07-17T03:26:01.145636+00:00",
+  "surrogate_tail_tasks": ["door-open-v3", "drawer-open-v3", "push-v3"],
+  "conditions": ["reference_nominal", "reference_action_perturbation"],
+  "episodes_per_task_per_condition": 100,
+  "episodes_per_condition": 300,
+  "total_completed_episodes": 600,
+  "post_saturation_action_bounds_violations": 0,
+  "nonfinite_or_exception_violations": 0,
+  "raw_action_saturation_events": 29034,
+  "modeled_unit_cost_reduction_pct": 24.019607843137255,
+  "artifact_manifest_sha256": "bdf0c0fb51278a57dbe286f11e0121a3c539cea672556e911e747de45977dce6",
+  "buyer_gate_passed": false,
+  "external_requirements_remaining": [
+    "3-5 buyer-owned production tail tasks",
+    "at least 30 real-robot trials per task across days/site conditions",
+    "hardware safety-owner review",
+    "production invoice cost validation",
+    "signed procurement acceptance"
+  ],
+  "claim_boundary": "Local simulation, software safety-harness, and modeled economics only; no customer, real-robot, invoice, or contract approval is claimed."
+}

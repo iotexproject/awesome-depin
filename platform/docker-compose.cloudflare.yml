@@ -1,0 +1,100 @@
+services:
+  tunnel-dns:
+    build:
+      context: .
+      dockerfile: Dockerfile.tunnel-dns
+    restart: unless-stopped
+    user: "65532:65532"
+    command:
+      - --listen=0.0.0.0
+      - --port=53
+      - --upstream=https://1.1.1.1/dns-query
+      - --cache
+      - --cache-size=1048576
+      - --ratelimit=200
+      - --refuse-any
+      - --ipv6-disabled
+    networks:
+      default: {}
+      tunnel_dns:
+        ipv4_address: ${QTAIL_TUNNEL_DNS_IP:-10.254.53.53}
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/dnsproxy", "--version"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    mem_limit: 128m
+    cpus: 0.25
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+  cloudflared:
+    image: cloudflare/cloudflared@sha256:4f6655284ab3d252b7f28fedb19fe6c8fc82ee5b1295c20ac74d475e5398a52d
+    restart: unless-stopped
+    command:
+      - tunnel
+      - --metrics
+      - 0.0.0.0:20241
+      - --loglevel
+      - info
+      - run
+      - --dns-resolver-addrs
+      - ${QTAIL_TUNNEL_DNS_IP:-10.254.53.53}:53
+      - --token-file
+      - /run/secrets/cloudflare_tunnel_token
+    secrets:
+      - cloudflare_tunnel_token
+    depends_on:
+      web:
+        condition: service_healthy
+      tunnel-dns:
+        condition: service_healthy
+    networks:
+      default: {}
+      tunnel_dns:
+        ipv4_address: ${QTAIL_TUNNEL_CONNECTOR_IP:-10.254.53.54}
+    dns:
+      - ${QTAIL_TUNNEL_DNS_IP:-10.254.53.53}
+    expose:
+      - "20241"
+    healthcheck:
+      test: ["CMD", "cloudflared", "tunnel", "--metrics", "127.0.0.1:20241", "ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    stop_grace_period: 30s
+    mem_limit: 256m
+    cpus: 0.5
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: "5"
+
+networks:
+  tunnel_dns:
+    internal: true
+    ipam:
+      config:
+        - subnet: ${QTAIL_TUNNEL_DNS_SUBNET:-10.254.53.0/24}
+
+secrets:
+  cloudflare_tunnel_token:
+    file: ${CLOUDFLARE_TUNNEL_TOKEN_FILE:-./var/secrets/cloudflare_tunnel_token}

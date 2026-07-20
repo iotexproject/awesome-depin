@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-07-02T03:29:51.104410+00:00",
+  "claim_boundary": [
+    "Rows are deterministic task buckets derived from official aggregate metadata, not raw trajectory records.",
+    "Success and difficulty values are modeling priors used to run a same-protocol data allocation test.",
+    "Full policy-training validation still requires exported trajectory summaries or benchmark runs."
+  ],
+  "sources": [
+    {
+      "key": "openx",
+      "name": "Google DeepMind Open X-Embodiment / RT-X",
+      "url": "https://robotics-transformer-x.github.io/",
+      "fetch_method": "network",
+      "cache_path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_public_anchor_adapter/source_pages/openx.html",
+      "row_count": 64,
+      "extracted": {
+        "trajectories": 1000000.0,
+        "robots": 22.0,
+        "institutions": 21.0,
+        "skills": 527.0,
+        "tasks": 160266.0,
+        "datasets": 60.0,
+        "labs": 34.0,
+        "evidence": "official aggregate: 1000000+ trajectories, 22 robots, 527 skills, 160266 tasks, 60 datasets"
+      }
+    },
+    {
+      "key": "droid",
+      "name": "DROID real robot manipulation dataset",
+      "url": "https://droid-dataset.github.io/",
+      "fetch_method": "network",
+      "cache_path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_public_anchor_adapter/source_pages/droid.html",
+      "row_count": 48,
+      "extracted": {
+        "trajectories": 76000.0,
+        "hours": 350.0,
+        "scenes": 564.0,
+        "tasks": 86.0,
+        "collectors": 50.0,
+        "institutions": 13.0,
+        "evidence": "official aggregate: 76000 trajectories, 350 hours, 564 scenes, 86 tasks, 50 collectors"
+      }
+    },
+    {
+      "key": "habitat3",
+      "name": "Meta AI Habitat 3.0",
+      "url": "https://aihabitat.org/habitat3/",
+      "fetch_method": "network",
+      "cache_path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_public_anchor_adapter/source_pages/habitat3.html",
+      "row_count": 2,
+      "extracted": {
+        "benchmark_tasks": [
+          "habitat3_social_navigation",
+          "habitat3_social_rearrangement"
+        ],
+        "evidence": "official qualitative benchmark tasks: habitat3_social_navigation, habitat3_social_rearrangement"
+      }
+    }
+  ],
+  "output_csv": "/Users/avalok/work/Q-TAIL-MVP/data/embodied_public_anchor_real.csv",
+  "row_count": 114
+}

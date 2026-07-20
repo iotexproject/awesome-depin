@@ -1,0 +1,13 @@
+env:
+  mode: "simulation" # or "real"
+training:
+  budget: 100000     # Total episodes per strategy (increased for visible learning curves)
+  n_seeds: 3         # Number of random seeds to test
+  log_interval: 1000 # How often to log the history for the curves
+scheduler:
+  eta: 0.6           # Quantum prior fusion coefficient
+  strategies:
+    - uniform
+    - empirical
+    - invfreq
+    - pt-rank

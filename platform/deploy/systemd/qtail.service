@@ -1,0 +1,20 @@
+[Unit]
+Description=Q-Tail production Docker stack
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/opt/qtail/current/platform
+Environment=ENV_FILE=/etc/qtail/qtail.env
+Environment=COMPOSE_PROJECT_NAME=qtail-production
+ExecStart=/opt/qtail/current/platform/scripts/production_stack.sh start
+ExecReload=/opt/qtail/current/platform/scripts/production_stack.sh start
+ExecStop=/opt/qtail/current/platform/scripts/production_stack.sh down
+TimeoutStartSec=900
+TimeoutStopSec=420
+
+[Install]
+WantedBy=multi-user.target

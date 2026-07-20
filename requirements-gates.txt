@@ -1,0 +1,4 @@
+lerobot[dataset]==0.6.0
+tfrecord==1.14.6
+# Gate 1 simulator production and Gate 2/3: install the checked-out benchmark
+# with `pip install -e ../Metaworld`.

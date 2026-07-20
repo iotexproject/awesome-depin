@@ -1,0 +1,14 @@
+[Unit]
+Description=Q-Tail short-lived IP certificate renewal
+Requires=qtail.service
+After=qtail.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/qtail/current/platform
+EnvironmentFile=-/etc/qtail/operations.env
+Environment=ENV_FILE=/etc/qtail/qtail.env
+Environment=COMPOSE_PROJECT_NAME=qtail-production
+ExecStart=/opt/qtail/current/platform/scripts/renew_ip_certificate.sh
+Nice=10

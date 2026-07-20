@@ -1,0 +1,1292 @@
+{
+  "generated_at": "2026-07-02T03:48:09.083153+00:00",
+  "input": {
+    "input_path": "data/embodied_public_anchor_real.csv",
+    "columns": [
+      "dataset",
+      "task",
+      "count",
+      "success_rate",
+      "difficulty",
+      "group",
+      "source_url",
+      "evidence",
+      "adapter_method"
+    ],
+    "row_count": 114,
+    "profile_count": 114,
+    "detected_columns": {
+      "task": "task",
+      "count": "count",
+      "success": "success_rate",
+      "difficulty": "difficulty",
+      "group": "group"
+    }
+  },
+  "source_audit": {
+    "generated_at": "2026-07-02T03:29:51.104410+00:00",
+    "claim_boundary": [
+      "Rows are deterministic task buckets derived from official aggregate metadata, not raw trajectory records.",
+      "Success and difficulty values are modeling priors used to run a same-protocol data allocation test.",
+      "Full policy-training validation still requires exported trajectory summaries or benchmark runs."
+    ],
+    "sources": [
+      {
+        "key": "openx",
+        "name": "Google DeepMind Open X-Embodiment / RT-X",
+        "url": "https://robotics-transformer-x.github.io/",
+        "fetch_method": "network",
+        "cache_path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_public_anchor_adapter/source_pages/openx.html",
+        "row_count": 64,
+        "extracted": {
+          "trajectories": 1000000.0,
+          "robots": 22.0,
+          "institutions": 21.0,
+          "skills": 527.0,
+          "tasks": 160266.0,
+          "datasets": 60.0,
+          "labs": 34.0,
+          "evidence": "official aggregate: 1000000+ trajectories, 22 robots, 527 skills, 160266 tasks, 60 datasets"
+        }
+      },
+      {
+        "key": "droid",
+        "name": "DROID real robot manipulation dataset",
+        "url": "https://droid-dataset.github.io/",
+        "fetch_method": "network",
+        "cache_path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_public_anchor_adapter/source_pages/droid.html",
+        "row_count": 48,
+        "extracted": {
+          "trajectories": 76000.0,
+          "hours": 350.0,
+          "scenes": 564.0,
+          "tasks": 86.0,
+          "collectors": 50.0,
+          "institutions": 13.0,
+          "evidence": "official aggregate: 76000 trajectories, 350 hours, 564 scenes, 86 tasks, 50 collectors"
+        }
+      },
+      {
+        "key": "habitat3",
+        "name": "Meta AI Habitat 3.0",
+        "url": "https://aihabitat.org/habitat3/",
+        "fetch_method": "network",
+        "cache_path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_public_anchor_adapter/source_pages/habitat3.html",
+        "row_count": 2,
+        "extracted": {
+          "benchmark_tasks": [
+            "habitat3_social_navigation",
+            "habitat3_social_rearrangement"
+          ],
+          "evidence": "official qualitative benchmark tasks: habitat3_social_navigation, habitat3_social_rearrangement"
+        }
+      }
+    ],
+    "output_csv": "/Users/avalok/work/Q-TAIL-MVP/data/embodied_public_anchor_real.csv",
+    "row_count": 114
+  },
+  "pt_source": {
+    "pt_source_path": "/Users/avalok/work/Q-TAIL-MVP/data/uploaded_data.csv",
+    "pt_source_rows": 29581,
+    "pt_source_gini": 0.33948355660562607,
+    "method": "empirical_pt_bucket_from_csv"
+  },
+  "synthetic_budget": 100000.0,
+  "same_budget_audit": {
+    "same_task_set": true,
+    "same_total_budget": 100000.0,
+    "source_allocation_sum": 1.0000000000000002,
+    "synthetic_allocation_sum": 1.0,
+    "allocation_sum_tolerance": 1e-06,
+    "allocation_sums_valid": true,
+    "same_response_model": "response_success_v1",
+    "same_tail_definition": "top_30_percent_by_tail_score",
+    "same_metric_set": [
+      "overall_success",
+      "tail_success",
+      "cvar20",
+      "extreme_failure_count",
+      "tail_coverage_at_50",
+      "tail_data_share"
+    ],
+    "profile_count": 114
+  },
+  "decision": {
+    "winner": "qtail_synthetic",
+    "passed": true,
+    "summary": "Q-Tail synthetic data wins under the same-budget evaluation protocol.",
+    "primary_metric": "tail_success",
+    "decision_gate": {
+      "tail_success_min_gain": 0.02,
+      "cvar20_min_gain": 0.02,
+      "tail_data_share_min_gain": 0.1,
+      "p_delta_le_0_max": 0.05
+    },
+    "reasons": [
+      "tail_success_gain=0.054098",
+      "cvar20_gain=0.055606",
+      "tail_data_share_gain=0.344332",
+      "paired_bootstrap_p_delta_le_0_within_gate",
+      "same_budget_audit_passed"
+    ]
+  },
+  "model": {
+    "name": "Q-Tail Data Engine v0",
+    "purpose": "Compare user-provided embodied data allocation against PT-heavy-tail synthetic allocation under one response model.",
+    "claim_boundary": [
+      "This evaluates data distribution quality, not full policy training.",
+      "Public Open X/Habitat/DROID anchors are aggregate-metadata validations unless full exports are supplied.",
+      "Synthetic data rows are allocation targets/scenario specs; rendering or robot execution is a downstream adapter."
+    ]
+  },
+  "evaluation": {
+    "tail_threshold_quantile": 0.7,
+    "tail_task_count": 34,
+    "source_data_metrics": {
+      "overall_success": 0.6547590004336821,
+      "tail_success": 0.4783005759376341,
+      "cvar20": 0.45378949528698653,
+      "extreme_failure_count": 0,
+      "tail_coverage_at_50": 0.3235294117647059,
+      "tail_data_share": 0.05413894721231414
+    },
+    "qtail_synthetic_metrics": {
+      "overall_success": 0.67253929154271,
+      "tail_success": 0.5323985833620036,
+      "cvar20": 0.5093951772606926,
+      "extreme_failure_count": 0,
+      "tail_coverage_at_50": 0.7647058823529411,
+      "tail_data_share": 0.398470760889551
+    },
+    "gains": {
+      "overall_success": 0.0177802911090279,
+      "tail_success": 0.05409800742436954,
+      "cvar20": 0.05560568197370608,
+      "tail_coverage_at_50": 0.4411764705882352,
+      "tail_data_share": 0.34433181367723686,
+      "extreme_failure_reduction": 0
+    },
+    "significance": {
+      "method": "paired task-level bootstrap over response-model effects",
+      "bootstrap_iterations": 5000,
+      "tail_success_delta": {
+        "n": 34,
+        "delta": 0.05409800742436948,
+        "ci95": [
+          0.047211094023669554,
+          0.061512137217285906
+        ],
+        "p_delta_le_0": 0.0,
+        "positive_pair_rate": 1.0
+      },
+      "overall_success_delta": {
+        "n": 114,
+        "delta": 0.017780291109027815,
+        "ci95": [
+          0.011627739405560408,
+          0.023836767272704562
+        ],
+        "p_delta_le_0": 0.0,
+        "positive_pair_rate": 0.7105263157894737
+      },
+      "cvar20_delta": {
+        "n": 114,
+        "delta": 0.05560568197370608,
+        "ci95": [
+          0.04759093251905011,
+          0.06304373132196528
+        ],
+        "p_delta_le_0": 0.0
+      }
+    },
+    "pass_gate": {
+      "tail_success_min_gain": 0.02,
+      "cvar20_min_gain": 0.02,
+      "tail_data_share_min_gain": 0.1,
+      "p_delta_le_0_max": 0.05
+    },
+    "test_passed": true,
+    "gate_results": {
+      "tail_success_gain": true,
+      "tail_success_p": true,
+      "cvar20_gain": true,
+      "cvar20_p": true,
+      "tail_data_share_gain": true
+    },
+    "per_task": [
+      {
+        "task_id": "openx_skill_bucket_01_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.10500000000000001,
+        "source_share": 0.22522584168980142,
+        "synthetic_share": 0.06494065191025782,
+        "source_effect": 0.967749269042653,
+        "synthetic_effect": 0.9642654483393734
+      },
+      {
+        "task_id": "openx_skill_bucket_02_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.1106558242014909,
+        "source_share": 0.10653831485200278,
+        "synthetic_share": 0.03170814439567419,
+        "source_effect": 0.9631031058657031,
+        "synthetic_effect": 0.9419255830934545
+      },
+      {
+        "task_id": "openx_skill_bucket_03_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.1162218075632944,
+        "source_share": 0.068758637690726,
+        "synthetic_share": 0.021129834790516683,
+        "source_effect": 0.9557374528763548,
+        "synthetic_effect": 0.9199685417668736
+      },
+      {
+        "task_id": "openx_skill_bucket_04_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.12174042116141498,
+        "source_share": 0.05039569376250391,
+        "synthetic_share": 0.0159882104906145,
+        "source_effect": 0.9452304622231609,
+        "synthetic_effect": 0.9017502571725695
+      },
+      {
+        "task_id": "openx_skill_bucket_05_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.12722839114269227,
+        "source_share": 0.039603230555481046,
+        "synthetic_share": 0.012966320792648096,
+        "source_effect": 0.9328791091022791,
+        "synthetic_effect": 0.8864254579396538
+      },
+      {
+        "task_id": "openx_skill_bucket_06_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.13269439201054828,
+        "source_share": 0.032524817506835564,
+        "synthetic_share": 0.01098436513902736,
+        "source_effect": 0.9198117568947074,
+        "synthetic_effect": 0.8730887329068749
+      },
+      {
+        "task_id": "openx_skill_bucket_07_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.13814362111166772,
+        "source_share": 0.027536728081346794,
+        "synthetic_share": 0.009587700099890505,
+        "source_effect": 0.9066764263977971,
+        "synthetic_effect": 0.8611227399550486
+      },
+      {
+        "task_id": "openx_skill_bucket_08_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.14357948852630412,
+        "source_share": 0.02383861571861814,
+        "synthetic_share": 0.008552228638326482,
+        "source_effect": 0.8937905678669473,
+        "synthetic_effect": 0.8501260589604152
+      },
+      {
+        "task_id": "openx_skill_bucket_09_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.14896937692974072,
+        "source_share": 0.020991153726111607,
+        "synthetic_share": 0.007754939280424652,
+        "source_effect": 0.8812831190019057,
+        "synthetic_effect": 0.8398328678499836
+      },
+      {
+        "task_id": "droid_task_bucket_01_in_the_wild_manipulation",
+        "group": "head",
+        "tail_score": 0.10713534463032831,
+        "source_share": 0.020295757528221787,
+        "synthetic_share": 0.007560228345015503,
+        "source_effect": 0.9312714989117814,
+        "synthetic_effect": 0.8955947403145338
+      },
+      {
+        "task_id": "openx_skill_bucket_10_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.1543850300648207,
+        "source_share": 0.018733469540490273,
+        "synthetic_share": 0.0071227877084506785,
+        "source_effect": 0.8692057166129119,
+        "synthetic_effect": 0.8300672774934309
+      },
+      {
+        "task_id": "openx_skill_bucket_11_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.15979277028368205,
+        "source_share": 0.016901066813295493,
+        "synthetic_share": 0.00660971494483614,
+        "source_effect": 0.8575466162407206,
+        "synthetic_effect": 0.820703378219619
+      },
+      {
+        "task_id": "openx_skill_bucket_12_cross_embodiment_skill",
+        "group": "head",
+        "tail_score": 0.16519362911674668,
+        "source_share": 0.015385176137075891,
+        "synthetic_share": 0.006185265555494652,
+        "source_effect": 0.8462797395313801,
+        "synthetic_effect": 0.8116525089568635
+      },
+      {
+        "task_id": "openx_skill_bucket_13_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.1705884299060494,
+        "source_share": 0.014111052204694398,
+        "synthetic_share": 0.0058285108544278335,
+        "source_effect": 0.8353711065755988,
+        "synthetic_effect": 0.8028499230157339
+      },
+      {
+        "task_id": "openx_skill_bucket_14_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.1759778424859888,
+        "source_share": 0.013025666025518296,
+        "synthetic_share": 0.005966774116011101,
+        "source_effect": 0.8247851817449351,
+        "synthetic_effect": 0.7963131672521323
+      },
+      {
+        "task_id": "openx_skill_bucket_15_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.18136242058057495,
+        "source_share": 0.012090371853550323,
+        "synthetic_share": 0.007140136593220894,
+        "source_effect": 0.814487893464003,
+        "synthetic_effect": 0.7944767586112071
+      },
+      {
+        "task_id": "openx_skill_bucket_16_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.18674262831191485,
+        "source_share": 0.011276352363182838,
+        "synthetic_share": 0.006912211135917999,
+        "source_effect": 0.8044479331986156,
+        "synthetic_effect": 0.7863021701961564
+      },
+      {
+        "task_id": "openx_skill_bucket_17_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.19211885933565392,
+        "source_share": 0.010561689193677453,
+        "synthetic_share": 0.006712105448456491,
+        "source_effect": 0.7946371810373577,
+        "synthetic_effect": 0.7782282196399853
+      },
+      {
+        "task_id": "openx_skill_bucket_18_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.1974914509702498,
+        "source_share": 0.009929420759467207,
+        "synthetic_share": 0.006535070286877622,
+        "source_effect": 0.7850306983653064,
+        "synthetic_effect": 0.7702390692033905
+      },
+      {
+        "task_id": "openx_skill_bucket_19_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.2028606949987109,
+        "source_share": 0.009366219483099023,
+        "synthetic_share": 0.00637737392949453,
+        "source_effect": 0.7756065164356033,
+        "synthetic_effect": 0.7623219913261694
+      },
+      {
+        "task_id": "droid_task_bucket_02_in_the_wild_manipulation",
+        "group": "head",
+        "tail_score": 0.11568028429311297,
+        "source_share": 0.009082605883973225,
+        "synthetic_share": 0.004420545884625905,
+        "source_effect": 0.8919484838551666,
+        "synthetic_effect": 0.8729018160367887
+      },
+      {
+        "task_id": "openx_skill_bucket_20_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.2082268457990777,
+        "source_share": 0.008861471072038355,
+        "synthetic_share": 0.006236044374397544,
+        "source_effect": 0.7663453485899163,
+        "synthetic_effect": 0.7544666476683417
+      },
+      {
+        "task_id": "openx_skill_bucket_21_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.21359012678631034,
+        "source_share": 0.008406619315426323,
+        "synthetic_share": 0.006108685882546174,
+        "source_effect": 0.7572302818343382,
+        "synthetic_effect": 0.7466645580114072
+      },
+      {
+        "task_id": "openx_skill_bucket_22_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.21895073547584248,
+        "source_share": 0.007994691735519194,
+        "synthetic_share": 0.005993346160172178,
+        "source_effect": 0.7482464812029265,
+        "synthetic_effect": 0.738908704075635
+      },
+      {
+        "task_id": "openx_skill_bucket_23_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.22430884746438384,
+        "source_share": 0.007619950610642007,
+        "synthetic_share": 0.005888418645206566,
+        "source_effect": 0.7393809205809472,
+        "synthetic_effect": 0.7311932302595305
+      },
+      {
+        "task_id": "openx_skill_bucket_24_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.2296646198066489,
+        "source_share": 0.007277631730321085,
+        "synthetic_share": 0.005792569358716708,
+        "source_effect": 0.7306221410330789,
+        "synthetic_effect": 0.7235132139477727
+      },
+      {
+        "task_id": "openx_skill_bucket_25_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.2349831935132304,
+        "source_share": 0.006963747369628032,
+        "synthetic_share": 0.0057046817377226534,
+        "source_effect": 0.7219593288876621,
+        "synthetic_effect": 0.7158639518689747
+      },
+      {
+        "task_id": "openx_skill_bucket_26_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.2403346958837087,
+        "source_share": 0.006674934430725991,
+        "synthetic_share": 0.005623814114830082,
+        "source_effect": 0.713385050121158,
+        "synthetic_effect": 0.7082429942226052
+      },
+      {
+        "task_id": "openx_skill_bucket_27_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.24568424230717872,
+        "source_share": 0.006408337156842335,
+        "synthetic_share": 0.005549166878142658,
+        "source_effect": 0.7048906196381027,
+        "synthetic_effect": 0.7006467356599883
+      },
+      {
+        "task_id": "openx_skill_bucket_28_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.25103193766219417,
+        "source_share": 0.006161515496751303,
+        "synthetic_share": 0.0054800568133171685,
+        "source_effect": 0.6964690217923094,
+        "synthetic_effect": 0.6930725566566502
+      },
+      {
+        "task_id": "openx_skill_bucket_29_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.25637787774428905,
+        "source_share": 0.005932372056582658,
+        "synthetic_share": 0.006764156959348298,
+        "source_effect": 0.6881140107387937,
+        "synthetic_effect": 0.6922069471663543
+      },
+      {
+        "task_id": "openx_skill_bucket_30_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.26172215024154794,
+        "source_share": 0.005719094386174341,
+        "synthetic_share": 0.007233595139469021,
+        "source_effect": 0.679820012933128,
+        "synthetic_effect": 0.6872722803108358
+      },
+      {
+        "task_id": "droid_task_bucket_03_in_the_wild_manipulation",
+        "group": "head",
+        "tail_score": 0.12388957949688459,
+        "source_share": 0.005674722256771002,
+        "synthetic_share": 0.0034663384690092826,
+        "source_effect": 0.8689297790154584,
+        "synthetic_effect": 0.8587533948574309
+      },
+      {
+        "task_id": "openx_skill_bucket_31_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.2670648357641156,
+        "source_share": 0.005520108139010855,
+        "synthetic_share": 0.007177878990263245,
+        "source_effect": 0.6715820412799504,
+        "synthetic_effect": 0.6798027594855067
+      },
+      {
+        "task_id": "openx_skill_bucket_32_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.27240600842476936,
+        "source_share": 0.00533403971169792,
+        "synthetic_share": 0.007125779830615624,
+        "source_effect": 0.6633956243889408,
+        "synthetic_effect": 0.6723456674614752
+      },
+      {
+        "task_id": "openx_skill_bucket_33_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.27776573688302725,
+        "source_share": 0.005159684738444843,
+        "synthetic_share": 0.007076960438104762,
+        "source_effect": 0.65515695545699,
+        "synthetic_effect": 0.6648001684808517
+      },
+      {
+        "task_id": "openx_skill_bucket_34_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.28310408456996977,
+        "source_share": 0.004995983462857511,
+        "synthetic_share": 0.007031124080940309,
+        "source_effect": 0.6470619668477244,
+        "synthetic_effect": 0.6573645363023495
+      },
+      {
+        "task_id": "openx_skill_bucket_35_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.2884411104525003,
+        "source_share": 0.004841999362513454,
+        "synthetic_share": 0.0069880085328439725,
+        "source_effect": 0.6390076167468854,
+        "synthetic_effect": 0.6499382035142923
+      },
+      {
+        "task_id": "openx_skill_bucket_36_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.2937768691831813,
+        "source_share": 0.0046969022344951405,
+        "synthetic_share": 0.006969127471019464,
+        "source_effect": 0.6309909440935594,
+        "synthetic_effect": 0.6426281819714922
+      },
+      {
+        "task_id": "openx_skill_bucket_37_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.29911141200810154,
+        "source_share": 0.004559952860846002,
+        "synthetic_share": 0.006930781646397705,
+        "source_effect": 0.6230092605023665,
+        "synthetic_effect": 0.6352185769068197
+      },
+      {
+        "task_id": "openx_skill_bucket_38_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.3044447864727633,
+        "source_share": 0.004430491763238177,
+        "synthetic_share": 0.006894532539067515,
+        "source_effect": 0.6150601247747812,
+        "synthetic_effect": 0.6278160610195869
+      },
+      {
+        "task_id": "openx_skill_bucket_39_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.30977703729788575,
+        "source_share": 0.0043079280505768855,
+        "synthetic_share": 0.006860214699522353,
+        "source_effect": 0.6071413117671575,
+        "synthetic_effect": 0.6204200523244593
+      },
+      {
+        "task_id": "openx_skill_bucket_40_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.3151082062511888,
+        "source_share": 0.004191731240576977,
+        "synthetic_share": 0.006827679592722379,
+        "source_effect": 0.5992507920663667,
+        "synthetic_effect": 0.6130300281271513
+      },
+      {
+        "task_id": "openx_skill_bucket_41_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.3204033326506199,
+        "source_share": 0.00408142345308599,
+        "synthetic_share": 0.006796793412224902,
+        "source_effect": 0.5913864866810503,
+        "synthetic_effect": 0.6056450544947171
+      },
+      {
+        "task_id": "droid_task_bucket_04_in_the_wild_manipulation",
+        "group": "head",
+        "tail_score": 0.13197241645463464,
+        "source_share": 0.004064579989976011,
+        "synthetic_share": 0.0030154986343066854,
+        "source_effect": 0.8519708037061521,
+        "synthetic_effect": 0.8468406155359292
+      },
+      {
+        "task_id": "openx_skill_bucket_42_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.32573245339475937,
+        "source_share": 0.003976573276266561,
+        "synthetic_share": 0.008652100311169069,
+        "source_effect": 0.5835471549415115,
+        "synthetic_effect": 0.6076060460553402
+      },
+      {
+        "task_id": "openx_skill_bucket_43_cross_embodiment_skill",
+        "group": "medium",
+        "tail_score": 0.3310606033154353,
+        "source_share": 0.003876790097461979,
+        "synthetic_share": 0.008624161021103787,
+        "source_effect": 0.5757310005069495,
+        "synthetic_effect": 0.6002680352940495
+      },
+      {
+        "task_id": "openx_skill_bucket_44_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.3363878151269869,
+        "source_share": 0.003781719642237945,
+        "synthetic_share": 0.008597541293641056,
+        "source_effect": 0.5679365910655978,
+        "synthetic_effect": 0.5929333245006513
+      },
+      {
+        "task_id": "openx_skill_bucket_45_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.3417141198326814,
+        "source_share": 0.0036910396063609408,
+        "synthetic_share": 0.008572150883595496,
+        "source_effect": 0.5601626075594425,
+        "synthetic_effect": 0.5856016477107716
+      },
+      {
+        "task_id": "openx_skill_bucket_46_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.34703954668973763,
+        "source_share": 0.003604456310079552,
+        "synthetic_share": 0.008547907560636708,
+        "source_effect": 0.5524078343008261,
+        "synthetic_effect": 0.5782727637984908
+      },
+      {
+        "task_id": "openx_skill_bucket_47_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.35236412349934465,
+        "source_share": 0.003521701445342407,
+        "synthetic_share": 0.008524736198510307,
+        "source_effect": 0.5446711483029956,
+        "synthetic_effect": 0.5709464535619769
+      },
+      {
+        "task_id": "openx_skill_bucket_48_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.35768787654077555,
+        "source_share": 0.00344252956650916,
+        "synthetic_share": 0.008502568072436998,
+        "source_effect": 0.5369515116375738,
+        "synthetic_effect": 0.5636225176224201
+      },
+      {
+        "task_id": "openx_skill_bucket_49_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.3630108306199769,
+        "source_share": 0.0033667157669347403,
+        "synthetic_share": 0.008481340208556159,
+        "source_effect": 0.5292479639190409,
+        "synthetic_effect": 0.5563007744128692
+      },
+      {
+        "task_id": "openx_skill_bucket_50_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.368333009536577,
+        "source_share": 0.003294053262616965,
+        "synthetic_share": 0.008460994707347182,
+        "source_effect": 0.5215596134726618,
+        "synthetic_effect": 0.5489810578929062
+      },
+      {
+        "task_id": "openx_skill_bucket_51_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.37365443580877966,
+        "source_share": 0.0032243519052104546,
+        "synthetic_share": 0.00844147832727336,
+        "source_effect": 0.5138856330493612,
+        "synthetic_effect": 0.5416632164113457
+      },
+      {
+        "task_id": "openx_skill_bucket_52_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.37897513091806423,
+        "source_share": 0.0031574364162306632,
+        "synthetic_share": 0.010307406938812626,
+        "source_effect": 0.5062252534217384,
+        "synthetic_effect": 0.5435904525948132
+      },
+      {
+        "task_id": "droid_task_bucket_05_in_the_wild_manipulation",
+        "group": "head",
+        "tail_score": 0.13992952461476854,
+        "source_share": 0.0031376179586515207,
+        "synthetic_share": 0.002755949265535828,
+        "source_effect": 0.8378511137590635,
+        "synthetic_effect": 0.8359165420915287
+      },
+      {
+        "task_id": "openx_skill_bucket_53_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.3842951153455423,
+        "source_share": 0.003093144993004421,
+        "synthetic_share": 0.010289405340309279,
+        "source_effect": 0.4985777585903871,
+        "synthetic_effect": 0.536307200264848
+      },
+      {
+        "task_id": "openx_skill_bucket_54_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.38961440844079986,
+        "source_share": 0.0030313281934303744,
+        "synthetic_share": 0.010272096636428545,
+        "source_effect": 0.49094248216642555,
+        "synthetic_effect": 0.5290247309476954
+      },
+      {
+        "task_id": "openx_skill_bucket_55_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.3949330289360648,
+        "source_share": 0.002971847448992903,
+        "synthetic_share": 0.010255442027986054,
+        "source_effect": 0.4833188012800644,
+        "synthetic_effect": 0.5217429635193792
+      },
+      {
+        "task_id": "openx_skill_bucket_56_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.40025099455383933,
+        "source_share": 0.0029145744142057084,
+        "synthetic_share": 0.010239405578245639,
+        "source_effect": 0.47570613494669783,
+        "synthetic_effect": 0.51446182418735
+      },
+      {
+        "task_id": "openx_skill_bucket_57_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.4055333223389361,
+        "source_share": 0.002859389851372251,
+        "synthetic_share": 0.01022395390065227,
+        "source_effect": 0.4681038420846883,
+        "synthetic_effect": 0.5071806287340493
+      },
+      {
+        "task_id": "openx_skill_bucket_58_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.4108500284966715,
+        "source_share": 0.002806182980029338,
+        "synthetic_share": 0.01171678793543914,
+        "source_effect": 0.4605116134203322,
+        "synthetic_effect": 0.5071575233517416
+      },
+      {
+        "task_id": "openx_skill_bucket_59_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.4161661287337329,
+        "source_share": 0.002754850547580823,
+        "synthetic_share": 0.01207934784404428,
+        "source_effect": 0.4529288699084989,
+        "synthetic_effect": 0.5016844229776122
+      },
+      {
+        "task_id": "openx_skill_bucket_60_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.42148163789857623,
+        "source_share": 0.0027052964575510845,
+        "synthetic_share": 0.012065472698835953,
+        "source_effect": 0.4453551649095017,
+        "synthetic_effect": 0.49443461305922337
+      },
+      {
+        "task_id": "openx_skill_bucket_61_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.42679657024242845,
+        "source_share": 0.002657431026091985,
+        "synthetic_share": 0.012052070378027404,
+        "source_effect": 0.4377900790597408,
+        "synthetic_effect": 0.48718456720370384
+      },
+      {
+        "task_id": "openx_skill_bucket_62_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.43211093981044724,
+        "source_share": 0.0026111702384898285,
+        "synthetic_share": 0.013699072254406015,
+        "source_effect": 0.43023321696276356,
+        "synthetic_effect": 0.48769327773739213
+      },
+      {
+        "task_id": "openx_skill_bucket_63_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.43742475941746506,
+        "source_share": 0.002566435935038621,
+        "synthetic_share": 0.013911256700986066,
+        "source_effect": 0.4226842091662288,
+        "synthetic_effect": 0.48150205896282217
+      },
+      {
+        "task_id": "droid_task_bucket_06_in_the_wild_manipulation",
+        "group": "head",
+        "tail_score": 0.1477951305387113,
+        "source_share": 0.002539509312235662,
+        "synthetic_share": 0.002588478844539387,
+        "source_effect": 0.8250756543146442,
+        "synthetic_effect": 0.8253299898711596
+      },
+      {
+        "task_id": "openx_skill_bucket_64_cross_embodiment_skill",
+        "group": "tail",
+        "tail_score": 0.44273804207900336,
+        "source_share": 0.002523154509927248,
+        "synthetic_share": 0.015435864706078595,
+        "source_effect": 0.41514270539754294,
+        "synthetic_effect": 0.48124043413971007
+      },
+      {
+        "task_id": "droid_task_bucket_07_in_the_wild_manipulation",
+        "group": "head",
+        "tail_score": 0.15563689544965276,
+        "source_share": 0.002123692055544993,
+        "synthetic_share": 0.002472050012666,
+        "source_effect": 0.8131472610348645,
+        "synthetic_effect": 0.8149892885911141
+      },
+      {
+        "task_id": "droid_task_bucket_08_in_the_wild_manipulation",
+        "group": "head",
+        "tail_score": 0.16343148870161986,
+        "source_share": 0.0018189505217206105,
+        "synthetic_share": 0.0023867223831951726,
+        "source_effect": 0.8017547568300861,
+        "synthetic_effect": 0.8047990830210121
+      },
+      {
+        "task_id": "droid_task_bucket_09_in_the_wild_manipulation",
+        "group": "head",
+        "tail_score": 0.17115211188462753,
+        "source_share": 0.0015866603401902006,
+        "synthetic_share": 0.002321681132366658,
+        "source_effect": 0.7907214170125406,
+        "synthetic_effect": 0.7947070179021681
+      },
+      {
+        "task_id": "droid_task_bucket_10_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.17887479826437958,
+        "source_share": 0.0014041234118880364,
+        "synthetic_share": 0.004147987029555454,
+        "source_effect": 0.7799402088228014,
+        "synthetic_effect": 0.794416123525564
+      },
+      {
+        "task_id": "droid_task_bucket_11_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.18656914397171387,
+        "source_share": 0.0012571576999830271,
+        "synthetic_share": 0.004106836630222052,
+        "source_effect": 0.7693421217246791,
+        "synthetic_effect": 0.7845112828543234
+      },
+      {
+        "task_id": "droid_task_bucket_12_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.19420374857588057,
+        "source_share": 0.0011364622923985416,
+        "synthetic_share": 0.004073041916098395,
+        "source_effect": 0.7588810030187767,
+        "synthetic_effect": 0.774635385837277
+      },
+      {
+        "task_id": "droid_task_bucket_13_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.20183149611722076,
+        "source_share": 0.0010356928700743335,
+        "synthetic_share": 0.004044826477847617,
+        "source_effect": 0.7486250478594026,
+        "synthetic_effect": 0.7648813906454959
+      },
+      {
+        "task_id": "droid_task_bucket_14_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.2094597407815636,
+        "source_share": 0.0009503788093515148,
+        "synthetic_share": 0.004020938540845228,
+        "source_effect": 0.7383514262421053,
+        "synthetic_effect": 0.755043940542911
+      },
+      {
+        "task_id": "droid_task_bucket_15_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.21707043440037993,
+        "source_share": 0.0008772823839073601,
+        "synthetic_share": 0.004000471541720865,
+        "source_effect": 0.7281433740120326,
+        "synthetic_effect": 0.7452189322540319
+      },
+      {
+        "task_id": "droid_task_bucket_16_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.22463021837724859,
+        "source_share": 0.0008140031335205687,
+        "synthetic_share": 0.003982753351612563,
+        "source_effect": 0.7179883279645499,
+        "synthetic_effect": 0.7354031885599549
+      },
+      {
+        "task_id": "droid_task_bucket_17_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.23221048800851235,
+        "source_share": 0.0007587251693737653,
+        "synthetic_share": 0.003967275521651458,
+        "source_effect": 0.7078768425568753,
+        "synthetic_effect": 0.7255952972934853
+      },
+      {
+        "task_id": "droid_task_bucket_18_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.23977744160075815,
+        "source_share": 0.0007100503528022996,
+        "synthetic_share": 0.003953646573011447,
+        "source_effect": 0.697801457127134,
+        "synthetic_effect": 0.7157932915360594
+      },
+      {
+        "task_id": "droid_task_bucket_19_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.24729711936253035,
+        "source_share": 0.0006668851914153004,
+        "synthetic_share": 0.0039415603278230875,
+        "source_effect": 0.6877563073733219,
+        "synthetic_effect": 0.7059956354848081
+      },
+      {
+        "task_id": "droid_task_bucket_20_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.2548404293904579,
+        "source_share": 0.0006283627723263108,
+        "synthetic_share": 0.003930774050478171,
+        "source_effect": 0.6777368155629921,
+        "synthetic_effect": 0.6962019817644534
+      },
+      {
+        "task_id": "droid_task_bucket_21_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.2623531701711469,
+        "source_share": 0.0005937872789850625,
+        "synthetic_share": 0.005798509149456023,
+        "source_effect": 0.6678391765606392,
+        "synthetic_effect": 0.6962281811743588
+      },
+      {
+        "task_id": "droid_task_bucket_22_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.26984105084609744,
+        "source_share": 0.0005625938425532318,
+        "synthetic_share": 0.00578977498725511,
+        "source_effect": 0.6578603384295341,
+        "synthetic_effect": 0.6864846166329793
+      },
+      {
+        "task_id": "droid_task_bucket_23_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.27735470242858956,
+        "source_share": 0.0005343194527391886,
+        "synthetic_share": 0.005781858158107178,
+        "source_effect": 0.6478978170381301,
+        "synthetic_effect": 0.6767415502619438
+      },
+      {
+        "task_id": "droid_task_bucket_24_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.2848596893484716,
+        "source_share": 0.0005085811176898998,
+        "synthetic_share": 0.005774651424293378,
+        "source_effect": 0.6379494927540892,
+        "synthetic_effect": 0.6669982441069778
+      },
+      {
+        "task_id": "droid_task_bucket_25_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.29232152031747644,
+        "source_share": 0.00048505932127075634,
+        "synthetic_share": 0.005789811455316637,
+        "source_effect": 0.6280135947822033,
+        "synthetic_effect": 0.6573655191421379
+      },
+      {
+        "task_id": "droid_task_bucket_26_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.2998106538734845,
+        "source_share": 0.0004634855695571253,
+        "synthetic_share": 0.005783770804836819,
+        "source_effect": 0.618088685844301,
+        "synthetic_effect": 0.6476216864696178
+      },
+      {
+        "task_id": "droid_task_bucket_27_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.30729250977050987,
+        "source_share": 0.00044363244661491997,
+        "synthetic_share": 0.005778211930413002,
+        "source_effect": 0.6081734900519118,
+        "synthetic_effect": 0.6378771265811393
+      },
+      {
+        "task_id": "droid_task_bucket_28_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.3147324651196145,
+        "source_share": 0.0004253064583800751,
+        "synthetic_share": 0.005773080653707245,
+        "source_effect": 0.5982669215900941,
+        "synthetic_effect": 0.62813137910626
+      },
+      {
+        "task_id": "droid_task_bucket_29_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.32218087098491943,
+        "source_share": 0.00040834152709443244,
+        "synthetic_share": 0.005956796967792626,
+        "source_effect": 0.5884680816275715,
+        "synthetic_effect": 0.6194640545846057
+      },
+      {
+        "task_id": "droid_task_bucket_30_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.32964303991314514,
+        "source_share": 0.00039259490209401295,
+        "synthetic_share": 0.007648586366400756,
+        "source_effect": 0.5785761760681948,
+        "synthetic_effect": 0.6183505362817702
+      },
+      {
+        "task_id": "droid_task_bucket_31_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.33706427090710417,
+        "source_share": 0.0003779425129775066,
+        "synthetic_share": 0.0076444836974481345,
+        "source_effect": 0.5686904922933685,
+        "synthetic_effect": 0.6086407925249172
+      },
+      {
+        "task_id": "droid_task_bucket_32_in_the_wild_manipulation",
+        "group": "medium",
+        "tail_score": 0.3445148323830831,
+        "source_share": 0.0003642766461905177,
+        "synthetic_share": 0.007640657254747777,
+        "source_effect": 0.5588104526024361,
+        "synthetic_effect": 0.5989293916881162
+      },
+      {
+        "task_id": "droid_task_bucket_33_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.35195997452317185,
+        "source_share": 0.0003515030639900287,
+        "synthetic_share": 0.00763708065173164,
+        "source_effect": 0.5489355160998988,
+        "synthetic_effect": 0.5892158517289408
+      },
+      {
+        "task_id": "droid_task_bucket_34_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.35936492854089264,
+        "source_share": 0.00033953905277516627,
+        "synthetic_share": 0.007633730728591479,
+        "source_effect": 0.5390652086471235,
+        "synthetic_effect": 0.579499754567641
+      },
+      {
+        "task_id": "droid_task_bucket_35_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.3667999110128638,
+        "source_share": 0.00032831165729122754,
+        "synthetic_share": 0.0076305870578559755,
+        "source_effect": 0.5291991395688008,
+        "synthetic_effect": 0.5697821060607592
+      },
+      {
+        "task_id": "droid_task_bucket_36_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.374230118469475,
+        "source_share": 0.00031775647245348756,
+        "synthetic_share": 0.009360073616410688,
+        "source_effect": 0.519336935477733,
+        "synthetic_effect": 0.5687147537972032
+      },
+      {
+        "task_id": "droid_task_bucket_37_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.3816357439717537,
+        "source_share": 0.00030781606342448586,
+        "synthetic_share": 0.009509513240026897,
+        "source_effect": 0.5095782673547268,
+        "synthetic_effect": 0.559873438462039
+      },
+      {
+        "task_id": "droid_task_bucket_38_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.38902195910531057,
+        "source_share": 0.0002984395009308759,
+        "synthetic_share": 0.009506887802528686,
+        "source_effect": 0.4997228489277104,
+        "synthetic_effect": 0.5501857602254774
+      },
+      {
+        "task_id": "droid_task_bucket_39_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.3964389295590358,
+        "source_share": 0.0002895811530872318,
+        "synthetic_share": 0.009504407465132465,
+        "source_effect": 0.48987043204011904,
+        "synthetic_effect": 0.5404958946340671
+      },
+      {
+        "task_id": "droid_task_bucket_40_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.40385180657661324,
+        "source_share": 0.00028120022071289827,
+        "synthetic_share": 0.009502060804067652,
+        "source_effect": 0.4800207771509874,
+        "synthetic_effect": 0.530803334145828
+      },
+      {
+        "task_id": "droid_task_bucket_41_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.4112257339892203,
+        "source_share": 0.0002732599938389483,
+        "synthetic_share": 0.011384502488996555,
+        "source_effect": 0.47017366927994947,
+        "synthetic_effect": 0.5302867032147124
+      },
+      {
+        "task_id": "droid_task_bucket_42_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.41863085198262584,
+        "source_share": 0.00026572729408840234,
+        "synthetic_share": 0.011382393333066402,
+        "source_effect": 0.4603289322468809,
+        "synthetic_effect": 0.5206257030079848
+      },
+      {
+        "task_id": "droid_task_bucket_43_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.4260322906607167,
+        "source_share": 0.0002585721958663378,
+        "synthetic_share": 0.011380389905564224,
+        "source_effect": 0.4504863887480432,
+        "synthetic_effect": 0.5109613681725684
+      },
+      {
+        "task_id": "droid_task_bucket_44_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.43339516490147284,
+        "source_share": 0.000251767747549998,
+        "synthetic_share": 0.013263149608489252,
+        "source_effect": 0.4406458796198135,
+        "synthetic_effect": 0.5102131596690027
+      },
+      {
+        "task_id": "droid_task_bucket_45_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.44076958654582055,
+        "source_share": 0.00024528941386901164,
+        "synthetic_share": 0.013261335675058576,
+        "source_effect": 0.4309072725086606,
+        "synthetic_effect": 0.5006795372327798
+      },
+      {
+        "task_id": "droid_task_bucket_46_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.44816067662988446,
+        "source_share": 0.00023911461122224143,
+        "synthetic_share": 0.015144271678771092,
+        "source_effect": 0.42107043826940466,
+        "synthetic_effect": 0.49969092372380225
+      },
+      {
+        "task_id": "droid_task_bucket_47_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.45551352562053904,
+        "source_share": 0.000233223172360935,
+        "synthetic_share": 0.01560653960166312,
+        "source_effect": 0.4112352538205608,
+        "synthetic_effect": 0.49217531685419413
+      },
+      {
+        "task_id": "droid_task_bucket_48_in_the_wild_manipulation",
+        "group": "tail",
+        "tail_score": 0.4628982342976194,
+        "source_share": 0.0002275964170224233,
+        "synthetic_share": 0.017025711532848747,
+        "source_effect": 0.40140162109568517,
+        "synthetic_effect": 0.4888796748441207
+      },
+      {
+        "task_id": "habitat3_social_navigation",
+        "group": "medium",
+        "tail_score": 0.7329999999999997,
+        "source_share": 9.2936630194763e-07,
+        "synthetic_share": 0.018448230583389288,
+        "source_effect": 0.6000058244883919,
+        "synthetic_effect": 0.7020473634227196
+      },
+      {
+        "task_id": "habitat3_social_rearrangement",
+        "group": "tail",
+        "tail_score": 0.8049999999999996,
+        "source_share": 9.2936630194763e-07,
+        "synthetic_share": 0.022493011511224337,
+        "source_effect": 0.5200058392417198,
+        "synthetic_effect": 0.6428647782533399
+      }
+    ]
+  },
+  "external_validation_anchors": [
+    {
+      "name": "Google DeepMind Open X-Embodiment / RT-X",
+      "url": "https://robotics-transformer-x.github.io/",
+      "why_it_matters": "Large cross-embodiment robot dataset with many skills/tasks; validates the need for task/skill distribution auditing.",
+      "adapter_expected_columns": [
+        "dataset",
+        "robot",
+        "task_or_language_instruction",
+        "success_or_reward",
+        "trajectory_count"
+      ],
+      "status": "adapter-ready; full dataset not bundled locally"
+    },
+    {
+      "name": "Meta AI Habitat / Habitat 3.0",
+      "url": "https://aihabitat.org/habitat3/",
+      "why_it_matters": "Embodied AI simulator for navigation/rearrangement and human-robot collaboration; validates simulated rare-scenario mining.",
+      "adapter_expected_columns": [
+        "scene",
+        "episode_id",
+        "task",
+        "success",
+        "spl_or_reward",
+        "difficulty"
+      ],
+      "status": "adapter-ready; benchmark export required"
+    },
+    {
+      "name": "DROID / BridgeData-style real robot manipulation datasets",
+      "url": "https://droid-dataset.github.io/",
+      "why_it_matters": "Real robot manipulation trajectories can be grouped into task/scene/object tails for original-vs-synthetic evaluation.",
+      "adapter_expected_columns": [
+        "task",
+        "scene",
+        "object",
+        "success",
+        "trajectory_count"
+      ],
+      "status": "adapter-ready; local sample/export required"
+    }
+  ],
+  "artifacts": {
+    "task_profiles": "results/qtail_data_engine_public_real/task_profiles.csv",
+    "qtail_synthetic_data": "results/qtail_data_engine_public_real/qtail_synthetic_data.csv",
+    "per_task_comparison": "results/qtail_data_engine_public_real/per_task_comparison.csv"
+  }
+}

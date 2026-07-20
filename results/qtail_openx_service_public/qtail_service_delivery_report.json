@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-07-10T03:08:41.353135+00:00",
+  "service_status": "implemented_demo_delivery",
+  "input_csv": "data/embodied_public_anchor_real.csv",
+  "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public",
+  "model_card": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_model_card.json",
+  "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_synthetic_plan.csv",
+  "customer_package": {
+    "generated_at": "2026-07-10T03:08:41.350725+00:00",
+    "package_type": "qtail_data_engine_evaluation_package",
+    "input_csv": "data/embodied_public_anchor_real.csv",
+    "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public",
+    "report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_data_engine_report.json",
+    "synthetic_data": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_synthetic_data.csv",
+    "task_profiles": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/task_profiles.csv",
+    "per_task_comparison": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/per_task_comparison.csv",
+    "winner": "qtail_synthetic",
+    "test_passed": true,
+    "same_budget_audit": {
+      "same_task_set": true,
+      "same_total_budget": 100000.0,
+      "source_allocation_sum": 1.0000000000000002,
+      "synthetic_allocation_sum": 1.0,
+      "allocation_sum_tolerance": 1e-06,
+      "allocation_sums_valid": true,
+      "same_response_model": "response_success_v1",
+      "same_tail_definition": "top_30_percent_by_tail_score",
+      "same_metric_set": [
+        "overall_success",
+        "tail_success",
+        "cvar20",
+        "extreme_failure_count",
+        "tail_coverage_at_50",
+        "tail_data_share"
+      ],
+      "profile_count": 114
+    },
+    "validation": {
+      "report_path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_data_engine_report.json",
+      "valid": true,
+      "errors": [],
+      "winner": "qtail_synthetic",
+      "test_passed": true,
+      "profile_count": 114
+    },
+    "manifest": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/package_manifest.json"
+  },
+  "service_steps": [
+    {
+      "step": "1. Ingest customer embodied data",
+      "status": "complete",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/task_profiles.csv"
+    },
+    {
+      "step": "2. Score rarity/risk/tail profile",
+      "status": "complete",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/task_profiles.csv"
+    },
+    {
+      "step": "3. Apply Open X trained PT-tail prior",
+      "status": "complete",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_model_card.json"
+    },
+    {
+      "step": "4. Generate synthetic allocation/spec plan",
+      "status": "complete",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_synthetic_plan.csv"
+    },
+    {
+      "step": "5. Same-budget source vs Q-Tail audit",
+      "status": "complete",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_data_engine_report.json"
+    },
+    {
+      "step": "6. Full policy training handoff",
+      "status": "pending_full_policy_stack",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/openx_demo_training_report.json"
+    }
+  ],
+  "effect_summary": {
+    "source_tail_success": 0.4783005759376341,
+    "qtail_tail_success": 0.5323985833620036,
+    "tail_success_gain_pp": 5.409800742436954,
+    "tail_success_relative_gain_pct": 11.310462530453531,
+    "source_cvar20": 0.45378949528698653,
+    "qtail_cvar20": 0.5093951772606926,
+    "cvar20_gain_pp": 5.560568197370608,
+    "source_tail_data_share": 0.05413894721231414,
+    "qtail_tail_data_share": 0.398470760889551,
+    "tail_data_share_gain_pp": 34.433181367723684,
+    "extreme_failure_reduction": 0,
+    "decision": {
+      "winner": "qtail_synthetic",
+      "passed": true,
+      "summary": "Q-Tail synthetic data wins under the same-budget evaluation protocol.",
+      "primary_metric": "tail_success",
+      "decision_gate": {
+        "tail_success_min_gain": 0.02,
+        "cvar20_min_gain": 0.02,
+        "tail_data_share_min_gain": 0.1,
+        "p_delta_le_0_max": 0.05
+      },
+      "reasons": [
+        "tail_success_gain=0.054098",
+        "cvar20_gain=0.055606",
+        "tail_data_share_gain=0.344332",
+        "paired_bootstrap_p_delta_le_0_within_gate",
+        "same_budget_audit_passed"
+      ]
+    },
+    "aligned_with_pt_tail_goal": true
+  },
+  "business_use": [
+    "Customer sends a task/trajectory summary CSV or RLDS export summary.",
+    "Q-Tail scores rare, risky, or under-covered tasks.",
+    "The Open X calibrated prior shifts generation budget toward tail tasks while preserving a source-data floor.",
+    "The customer receives a synthetic data plan and audit package before expensive robot-policy retraining."
+  ],
+  "delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+  "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/README_QTAIL_DELIVERY.md",
+  "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+}

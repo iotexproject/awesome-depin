@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q-Tail Open X 训练进展 | PT 重尾具身智能数据服务</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071116;
+      --panel: #101b22;
+      --panel2: #14232b;
+      --line: #29434c;
+      --ink: #eef8f7;
+      --muted: #9db4b9;
+      --cyan: #43d9c8;
+      --green: #67d58f;
+      --gold: #e6bd62;
+      --red: #ff8585;
+    }
+    * { box-sizing: border-box; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.5; letter-spacing: 0; }
+    a { color: inherit; text-decoration: none; }
+    .shell { width: 100%; min-width: 0; max-width: 1180px; margin: 0 auto; padding: 0 22px 60px; }
+    .topbar { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(7,17,22,.92); backdrop-filter: blur(14px); }
+    .topbar .shell { min-height: 62px; display: flex; align-items: center; justify-content: space-between; padding-bottom: 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 850; }
+    .mark { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid var(--cyan); color: var(--cyan); }
+    .nav { display: flex; gap: 16px; color: var(--muted); font-size: 13px; }
+    .hero { padding: 52px 0 32px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--gold); font-weight: 820; font-size: 13px; text-transform: uppercase; margin-bottom: 14px; }
+    h1 { margin: 0; max-width: 940px; font-size: 56px; line-height: 1.05; }
+    .copy { max-width: 860px; margin: 18px 0 0; color: #c8d8dc; font-size: 17px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .button { min-height: 40px; display: inline-flex; align-items: center; justify-content: center; padding: 9px 13px; border: 1px solid var(--line); background: var(--panel); font-weight: 800; font-size: 13px; }
+    .button.primary { background: var(--cyan); color: #061114; border-color: var(--cyan); }
+    main, #app, section { width: 100%; min-width: 0; max-width: 100%; }
+    section { padding: 42px 0 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 16px; }
+    h2 { margin: 0; font-size: 38px; line-height: 1.08; }
+    .section-note { margin: 0; color: var(--muted); max-width: 640px; font-size: 14px; }
+    .grid4, .grid3, .grid2 { display: grid; gap: 12px; }
+    .grid4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card, .table-wrap { min-width: 0; max-width: 100%; border: 1px solid var(--line); background: var(--panel); }
+    .card { padding: 16px; min-height: 108px; }
+    .label { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+    .value { font-size: 28px; line-height: 1.05; font-weight: 880; }
+    .label, .value, .note, .step span { max-width: 100%; overflow-wrap: anywhere; word-break: break-word; }
+    .note { color: #bfd0d4; font-size: 13px; margin-top: 8px; }
+    .pill { display: inline-flex; align-items: center; min-height: 28px; padding: 5px 9px; border: 1px solid var(--line); font-size: 12px; font-weight: 850; }
+    .pill.ok { color: #061114; background: var(--green); border-color: var(--green); }
+    .pill.warn { color: #071116; background: var(--gold); border-color: var(--gold); }
+    .pill.bad { color: #ffd6d6; background: rgba(255,133,133,.12); border-color: rgba(255,133,133,.55); }
+    .bar { width: 100%; height: 10px; margin-top: 12px; background: rgba(255,255,255,.08); border: 1px solid var(--line); overflow: hidden; }
+    .bar > span { display: block; height: 100%; background: var(--cyan); }
+    .table-wrap { width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; }
+    table { width: 100%; min-width: 780px; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 11px 12px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+    th { color: var(--muted); background: rgba(255,255,255,.035); }
+    tr:last-child td { border-bottom: 0; }
+    pre { margin: 0; max-height: 360px; overflow: auto; white-space: pre-wrap; color: #cfe3e5; font-size: 12px; }
+    textarea, input { width: 100%; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--ink); font: inherit; padding: 10px; }
+    textarea { min-height: 180px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+    .field { display: grid; gap: 7px; margin-top: 10px; }
+    .field span { color: var(--muted); font-size: 12px; font-weight: 780; }
+    .timeline { display: grid; gap: 10px; }
+    .step { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; padding: 14px; border: 1px solid var(--line); background: var(--panel2); }
+    .step strong { color: var(--cyan); }
+    @media (max-width: 900px) {
+      .shell { padding-left: 14px; padding-right: 14px; }
+      .nav { display: none; }
+      .grid4, .grid3, .grid2 { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-note { margin-top: 8px; }
+      .step { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+      h2 { font-size: 27px; }
+      .hero { padding-top: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="index.html"><span class="mark">Q</span><span>Q-Tail Open X Training</span></a>
+      <nav class="nav">
+        <a href="#status">状态</a>
+        <a href="#objective">目标审计</a>
+        <a href="#effect">效果</a>
+        <a href="#service">服务模型</a>
+        <a href="#logs">日志</a>
+      </nav>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">real Open X shards · PT-heavy-tail allocation · productized synthetic data service</div>
+      <h1>Q-Tail 真实 Open X 训练与 PT 重尾数据服务进展</h1>
+      <p class="copy">这个页面展示当前真实下载、训练、效果指标和产品化路径：我们不是把聚合元数据当训练结果，而是用 Open X 官方 RLDS 子集训练 Q-Tail 分配模型，并把它推进成“客户新数据进来 -> 生成 PT 重尾具身智能数据包”的服务。</p>
+      <div class="actions">
+        <a class="button primary" href="results/openx_training_progress/progress_manifest.json">查看进度 JSON</a>
+        <a class="button" href="results/openx_training_progress/STATUS_BRIEF.md">查看状态简报</a>
+        <a class="button" href="results/openx_strong_download/DOWNLOAD_STATUS.md">查看 Strong 门禁状态</a>
+        <a class="button" href="results/openx_demo_training_full_demo/openx_demo_training_report.json">查看 Demo 训练报告</a>
+        <a class="button" href="results/qtail_openx_service_public/qtail_service_delivery_report.json">查看服务交付报告</a>
+        <a class="button" href="results/qtail_openx_service_public/qtail_service_synthetic_plan.csv">查看合成数据计划</a>
+        <a class="button" href="results/qtail_openx_service_public/README_QTAIL_DELIVERY.md">查看交付 README</a>
+        <a class="button" href="results/openx_strong_download/download.log">查看 Strong 下载日志</a>
+      </div>
+    </section>
+    <div id="app">
+      <section><div class="card">正在读取训练进展...</div></section>
+    </div>
+  </main>
+  <script>
+    const app = document.getElementById("app");
+    const fmt = (n, d = 1) => Number.isFinite(Number(n)) ? Number(n).toFixed(d) : "-";
+    const pct = (n) => `${fmt(Number(n) * 100, 1)}%`;
+    const pp = (n) => `${Number(n) >= 0 ? "+" : ""}${fmt(n, 1)} pp`;
+    const duration = (seconds) => {
+      const n = Number(seconds);
+      if (!Number.isFinite(n) || n <= 0) return "-";
+      const h = Math.floor(n / 3600);
+      const m = Math.floor((n % 3600) / 60);
+      if (h >= 24) return `${Math.floor(h / 24)}d ${h % 24}h`;
+      if (h > 0) return `${h}h ${m}m`;
+      return `${m}m`;
+    };
+    const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+    const artifactHref = (path) => {
+      const value = String(path || "");
+      const marker = "/Q-TAIL-MVP/";
+      return value.includes(marker) ? value.slice(value.indexOf(marker) + marker.length) : value;
+    };
+    const artifactButton = (label, path, cls = "") => path ? `<a class="button ${cls}" href="${esc(artifactHref(path))}">${esc(label)}</a>` : "";
+    const verificationTable = (verification) => `<div class="table-wrap"><table><thead><tr><th>Dataset</th><th>GiB</th><th>TFRecord</th><th>Partial</th><th>Status</th><th>Errors</th></tr></thead><tbody>${(verification?.datasets || []).map((r) => `<tr><td>${esc(r.dataset)}</td><td>${fmt(r.gib, 2)}</td><td>${esc(r.tfrecord_count)}</td><td>${esc(r.partial_file_count)}</td><td>${r.valid ? "ready" : "not ready"}</td><td>${esc((r.errors || []).join(", ") || "-")}</td></tr>`).join("")}</tbody></table></div>`;
+    const evidenceTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Claim</th><th>Status</th><th>Evidence</th><th>Artifact</th><th>Boundary</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.claim)}</td><td>${esc(r.status)}</td><td>${esc(r.evidence)}</td><td>${r.artifact ? `<a href="${esc(artifactHref(r.artifact))}">${esc(artifactHref(r.artifact))}</a>` : "-"}</td><td>${esc(r.boundary)}</td></tr>`).join("")}</tbody></table></div>`;
+    const objectiveTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Requirement</th><th>Status</th><th>Evidence</th><th>Artifact</th><th>Next Step</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.requirement)}</td><td>${esc(r.status)}</td><td>${esc(r.evidence)}</td><td>${r.artifact ? `<a href="${esc(artifactHref(r.artifact))}">${esc(artifactHref(r.artifact))}</a>` : "-"}</td><td>${esc(r.next_step)}</td></tr>`).join("")}</tbody></table></div>`;
+    const gateDecisionTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Gate</th><th>Status</th><th>Release Condition</th><th>Current Evidence</th><th>Next Action</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.gate)}</td><td>${esc(r.status)}</td><td>${esc(r.release_condition)}</td><td>${esc(r.current_evidence)}</td><td>${esc(r.next_action)}</td></tr>`).join("")}</tbody></table></div>`;
+    const strongCompletionTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Dataset</th><th>Status</th><th>GiB</th><th>GiB Done</th><th>TFRecord</th><th>TFRecord Done</th><th>Partial</th><th>Errors</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.dataset)}</td><td>${r.valid ? "ready" : "waiting"}</td><td>${fmt(r.gib, 2)} / ${fmt(r.min_gib, 2)}</td><td>${fmt(r.gib_completion_pct, 1)}%</td><td>${esc(r.tfrecord_count)} / ${esc(r.min_tfrecords)}</td><td>${fmt(r.tfrecord_completion_pct, 1)}%</td><td>${esc(r.partial_file_count ?? "-")}</td><td>${esc((r.errors || []).join(", ") || "-")}</td></tr>`).join("")}</tbody></table></div>`;
+    const postStrongAcceptanceTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Sample</th><th>Exists</th><th>Current Source</th><th>Run</th><th>Tail Success Gain</th><th>Expected After Strong</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.name)}</td><td>${r.exists ? "yes" : "no"}</td><td>${esc(r.training_source || "-")}</td><td>${esc(r.run_id || "-")}</td><td>${pp(r.tail_success_gain_pp)}</td><td>${esc(r.expected_after_strong || "-")}</td></tr>`).join("")}</tbody></table></div>`;
+    const historyTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Time</th><th>Data GiB</th><th>Download</th><th>Incremental</th><th>Tail Gain</th><th>Refresh</th><th>Strong Gate</th></tr></thead><tbody>${(rows || []).slice().reverse().map((r) => `<tr><td>${esc((r.generated_at || "").replace("T", " ").slice(0, 19))}</td><td>${fmt(r.data_gib, 3)}</td><td>${esc(r.download_dataset || "-")} · ${esc(r.download_files_done ?? "-")}/${esc(r.download_files_total ?? "-")} · ${fmt(r.download_percent, 0)}%</td><td>${fmt(r.incremental_total_gib, 3)} GiB · ${esc(r.incremental_steps || "-")} steps</td><td>${pp(r.predicted_tail_share_gain_pp)}</td><td>${esc(r.auto_refresh_status || "-")}</td><td>${r.strong_ready ? "ready" : "waiting"}</td></tr>`).join("")}</tbody></table></div>`;
+    const trainingLedgerTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Run</th><th>Clean GiB</th><th>Shards</th><th>Steps</th><th>Q-Tail Tail Share</th><th>Tail Gain</th><th>Service Tail Success</th><th>Service Tail Share</th><th>PT Goal</th></tr></thead><tbody>${(rows || []).slice().reverse().map((r) => `<tr><td>${esc((r.generated_at || r.run_id || "-").replace("T", " ").slice(0, 19))}</td><td>${fmt(r.trainable_gib, 2)}</td><td>${esc(r.shard_count ?? "-")}</td><td>${esc(r.steps ?? "-")}</td><td>${pct(r.source_pred_tail_share)} → ${pct(r.qtail_pred_tail_share)}</td><td>${pp(r.predicted_tail_share_gain_pp)}</td><td>${pp(r.service_tail_success_gain_pp)} · ${fmt(r.service_tail_success_relative_gain_pct, 1)}%</td><td>${pp(r.service_tail_data_share_gain_pp)}</td><td>${r.consistent_with_pt_tail_goal && r.service_passed ? "一致/通过" : "待验证"}</td></tr>`).join("")}</tbody></table></div>`;
+    const watchdogHistoryTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Time</th><th>Action</th><th>Data GiB</th><th>Growth</th><th>Unchanged Since</th><th>No Growth</th><th>gsutil</th><th>Reasons</th></tr></thead><tbody>${(rows || []).slice().reverse().map((r) => `<tr><td>${esc((r.generated_at || "-").replace("T", " ").slice(0, 19))}</td><td>${esc(r.action || "-")}</td><td>${fmt((r.data_bytes || 0) / (1024 ** 3), 2)}</td><td>${esc(r.data_growth_bytes_since_last_check ?? "first")}</td><td>${esc((r.data_unchanged_since || "-").replace("T", " ").slice(0, 19))}</td><td>${fmt(r.no_data_growth_seconds, 0)}s</td><td>${esc(r.active_gsutil_process_count ?? "-")}</td><td>${esc((r.reasons || []).join(", ") || "none")}</td></tr>`).join("")}</tbody></table></div>`;
+    const partialShardTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Dataset</th><th>Partial shard</th><th>Size</th><th>Updated</th><th>Age</th><th>State</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.dataset || "-")}</td><td>${esc(r.relative_path || r.path || "-")}</td><td>${fmt(r.mib, 1)} MiB</td><td>${esc((r.mtime_local || "-").replace("T", " ").slice(0, 19))}</td><td>${fmt(r.age_seconds, 0)}s</td><td>${r.recently_active ? "active" : "waiting"}</td></tr>`).join("")}</tbody></table></div>`;
+    const jobPill = (job) => {
+      const state = job?.state || "not_running";
+      const cls = state === "running" ? "ok" : state === "loaded_or_waiting" ? "warn" : "bad";
+      return `<span class="pill ${cls}">${esc(state)}${job?.pid ? ` · pid ${esc(job.pid)}` : ""}</span>`;
+    };
+    const safetyPill = (value) => {
+      const state = value || "unknown";
+      const cls = state === "ok" ? "ok" : state === "watch" ? "warn" : "bad";
+      return `<span class="pill ${cls}">${esc(state)}</span>`;
+    };
+    const metric = (label, value, note) => `<article class="card"><div class="label">${esc(label)}</div><div class="value">${value}</div><div class="note">${esc(note)}</div></article>`;
+    const table = (rows) => `<div class="table-wrap"><table><thead><tr><th>Dataset</th><th>Disk GiB</th><th>Trainable GiB</th><th>Files</th><th>TFRecord</th><th>Trainable TFRecord</th><th>Partial</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${esc(r.dataset)}</td><td>${fmt(r.gib, 3)}</td><td>${fmt(r.trainable_gib, 3)}</td><td>${esc(r.file_count)}</td><td>${esc(r.tfrecord_count)}</td><td>${esc(r.trainable_tfrecord_count)}</td><td>${esc(r.partial_file_count)}</td></tr>`).join("")}</tbody></table></div>`;
+    const runTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Run</th><th>Winner</th><th>Tail success</th><th>CVaR@20</th><th>Tail share</th><th>Aligned</th><th>Artifacts</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.run_id)}</td><td>${esc(r.winner || "-")}</td><td>${pp(r.tail_success_gain_pp)}</td><td>${pp(r.cvar20_gain_pp)}</td><td>${pp(r.tail_data_share_gain_pp)}</td><td>${r.aligned_with_pt_tail_goal ? "yes" : "no"}</td><td>${r.package_zip ? `<a href="${esc(artifactHref(r.package_zip))}">zip</a>` : "-"} ${r.readme ? `<a href="${esc(artifactHref(r.readme))}">README</a>` : ""}</td></tr>`).join("")}</tbody></table></div>`;
+    const serviceExecutionTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Layer</th><th>Status</th><th>Implemented</th><th>Artifact</th><th>Next step</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.layer)}</td><td>${esc(r.status)}</td><td>${esc(r.implemented)}</td><td>${r.artifact ? `<a href="${esc(artifactHref(r.artifact))}">${esc(artifactHref(r.artifact))}</a>` : "-"}</td><td>${esc(r.next_step)}</td></tr>`).join("")}</tbody></table></div>`;
+    const businessValueTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Business Value</th><th>Evidence</th><th>Metric</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.value)}</td><td>${esc(r.evidence)}</td><td>${esc(r.metric)}</td></tr>`).join("")}</tbody></table></div>`;
+    const operatingModelTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Stage</th><th>Input</th><th>Output</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.stage)}</td><td>${esc(r.input)}</td><td>${esc(r.output)}</td></tr>`).join("")}</tbody></table></div>`;
+    const upgradePathTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>Milestone</th><th>Status</th><th>Deliverable</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.milestone)}</td><td>${esc(r.status)}</td><td>${esc(r.deliverable)}</td></tr>`).join("")}</tbody></table></div>`;
+    const processTable = (rows) => `<div class="table-wrap"><table><thead><tr><th>PID</th><th>CPU</th><th>MEM</th><th>Started</th><th>Command</th></tr></thead><tbody>${(rows || []).map((r) => `<tr><td>${esc(r.pid || "-")}</td><td>${esc(r.cpu_pct || "-")}</td><td>${esc(r.mem_pct || "-")}</td><td>${esc(r.started || "-")}</td><td>${esc(r.command || "-")}</td></tr>`).join("")}</tbody></table></div>`;
+    async function load() {
+      const res = await fetch("results/openx_training_progress/progress_manifest.json?ts=" + Date.now());
+      const data = await res.json();
+      const quick = data.training.quick_report || {};
+      const fullDemo = data.training.full_demo_report || {};
+      const incremental = data.training.incremental_report || {};
+      const strong = data.training.strong_report || {};
+      const incrementalQuality = data.training.incremental_rows_quality || {};
+      const trainingLedger = data.training.ledger || {};
+      const report = strong.status === "complete" ? strong : incremental.status === "complete" ? incremental : fullDemo.status === "complete" ? fullDemo : quick;
+      const effect = report.effect_metrics || {};
+      const trajectoryEvidence = report.trajectory_evidence || {};
+      const modelArtifact = report.model_artifact || {};
+      const delivery = data.service_delivery?.delivery_report || {};
+      const deliveryEffect = delivery.effect_summary || {};
+      const modelCard = data.service_delivery?.model_card || {};
+      const serviceExecution = data.service_execution || {};
+      const api = data.service_api || {};
+      const latestApi = api.latest_response || {};
+      const latestApiEffect = latestApi.effect_summary || {};
+      const runHistory = api.run_history || [];
+      const cli = api.cli || {};
+      const latestCli = cli.latest_response || {};
+      const latestCliEffect = latestCli.effect_summary || {};
+      const autoRefresh = data.auto_refresh || {};
+      const autoRefreshLoop = data.auto_refresh_loop || {};
+      const refreshPolicy = data.refresh_policy || {};
+      const disk = data.disk || {};
+      const progress = data.download_progress || {};
+      const downloadAcceleration = data.download_acceleration || {};
+      const partialDownloads = data.partial_downloads || {};
+      const health = data.download_health || {};
+      const watchdog = data.download_watchdog || {};
+      const watchdogLoop = data.download_watchdog_loop || {};
+      const watchdogHistory = data.download_watchdog_history || {};
+      const forecast = data.gate_forecast || {};
+      const verification = data.strong_download_verification || {};
+      const strongPipeline = data.strong_pipeline || {};
+      const postStrongAcceptance = data.post_strong_acceptance || {};
+      const strongWaitGuard = data.strong_wait_guard || {};
+      const strongCompletion = data.strong_dataset_completion || [];
+      const evidenceLedger = data.evidence_ledger || [];
+      const objectiveProgress = data.objective_progress || [];
+      const gateDecisions = data.gate_decisions || [];
+      const progressHistory = data.progress_history?.rows || [];
+      const submission = data.submission_summary || {};
+      const headline = submission.headline_metrics || {};
+      const strongProgress = Math.min(100, (Number(data.data.trainable_gib || data.data.total_gib || 0) / Number(data.data.target_strong_gib || 171.62)) * 100);
+      app.innerHTML = `
+        <section id="status">
+          <div class="section-head"><h2>当前状态</h2><p class="section-note">每分钟自动更新一次 manifest；页面会自动刷新读取最新快照。</p></div>
+          <div class="grid4">
+            ${metric("已落盘 Open X", `${fmt(data.data.total_gib, 2)} GiB`, `${data.data.dataset_count} 个数据集 · 含下载中临时文件`)}
+            ${metric("可训练完整文件", `${fmt(data.data.trainable_gib, 2)} GiB`, `自动刷新/增量训练只使用完整文件 · 目标 Strong ${fmt(data.data.target_strong_gib, 2)} GiB`)}
+            ${metric("Demo 包", data.data.total_gib >= data.data.target_demo_gib ? "完成" : "进行中", `Demo 目标 ${fmt(data.data.target_demo_gib, 2)} GiB`)}
+            ${metric("Strong 包", `${fmt(strongProgress, 1)}%`, "language_table + language_table_sim 正在补齐")}
+          </div>
+          <div class="bar"><span style="width:${strongProgress}%"></span></div>
+          <div class="grid3" style="margin-top:12px">
+            ${metric("页面更新时间", esc((data.generated_at_local || "-").replace("T", " ").slice(0, 19)), esc(data.timezone || "Asia/Shanghai"))}
+            ${metric("Manifest UTC", esc((data.generated_at || "-").replace("T", " ").slice(0, 19)), "用于日志和后台任务对齐")}
+            ${metric("当前证据口径", data.training?.incremental_rows_quality?.clean ? "clean complete files" : "needs check", "训练 rows 排除 .gstmp/.tmp/.part")}
+          </div>
+        </section>
+        <section id="objective">
+          <div class="section-head"><h2>目标完成度审计</h2><p class="section-note">把原始目标拆成可检查的工程要求：下载、训练、页面、PT 重尾一致性、数据服务化和客户交付。</p></div>
+          ${objectiveTable(objectiveProgress)}
+        </section>
+        <section>
+          <div class="section-head"><h2>评审提交摘要</h2><p class="section-note">现在可以安全提交的证据、不能提前宣称的边界，以及下一次自动触发条件。</p></div>
+          <div class="grid4">
+            ${metric("提交状态", esc(submission.status || "-"), `clean rows ${esc(headline.incremental_rows || "-")} · partial ${esc(headline.incremental_partial_rows ?? "-")}`)}
+            ${metric("增量 tail gain", pp(headline.incremental_predicted_tail_share_gain_pp), `训练输入 ${fmt(headline.incremental_trainable_gib, 2)} GiB 完整文件`)}
+            ${metric("公开包 tail success", pp(headline.public_tail_success_gain_pp), `相对提升 ${fmt(headline.public_tail_success_relative_gain_pct, 1)}%`)}
+            ${metric("公开包 tail share", pp(headline.public_tail_data_share_gain_pp), "same-budget data-engine audit")}
+          </div>
+          <div class="grid2" style="margin-top:12px">
+            <article class="card">
+              <div class="label">现在可以讲</div>
+              <div class="note">${(submission.can_claim || []).map((x) => `• ${esc(x)}`).join("<br>")}</div>
+            </article>
+            <article class="card">
+              <div class="label">现在不能提前讲</div>
+              <div class="note">${(submission.cannot_claim_yet || []).map((x) => `• ${esc(x)}`).join("<br>")}</div>
+            </article>
+          </div>
+          <div class="grid3" style="margin-top:12px">
+            ${metric("Strong 训练触发", esc(submission.next_trigger?.strong_training || "-"), `ready=${esc(submission.next_trigger?.strong_ready)}`)}
+            ${metric("增量刷新触发", esc(submission.next_trigger?.incremental_refresh || "-"), `还差 ${fmt(refreshPolicy.remaining_to_next_refresh_gib, 3)} GiB 或 ${esc(refreshPolicy.remaining_shards_to_next_refresh ?? "-")} shards`)}
+            ${metric("Strong 完成状态", submission.next_trigger?.strong_training_complete ? "complete" : "waiting", "完成后自动重建公开服务包")}
+          </div>
+          <div class="section-head" style="margin-top:18px"><h2>训练门禁决策</h2><p class="section-note">把当前为什么训练/不训练拆成可审计 gate，避免把 partial 下载字节误说成训练结果。</p></div>
+          ${gateDecisionTable(gateDecisions)}
+        </section>
+        <section>
+          <div class="section-head"><h2>下载安全监控</h2><p class="section-note">把下载日志和磁盘空间转成结构化状态，防止 Strong 包下载变成黑箱。</p></div>
+          <div class="grid4">
+            ${metric("当前数据集", esc(progress.active_dataset || "等待进度"), `${esc(progress.files_done ?? "-")}/${esc(progress.files_total ?? "-")} files · log ${progress.fresh ? "fresh" : "stale/unknown"}`)}
+            ${metric("当前文件进度", `${fmt(progress.percent, 0)}%`, `${fmt(progress.done_gib, 2)} / ${fmt(progress.total_gib, 2)} GiB · ${esc(progress.speed || "-")}`)}
+            ${metric("磁盘剩余", `${fmt(disk.free_gib, 1)} GiB`, `Strong 目标后预计剩余 ${fmt(disk.projected_free_after_strong_gib, 1)} GiB`)}
+            ${metric("空间安全", safetyPill(disk.safety), `目标 ${fmt(disk.target_strong_gib, 2)} GiB · 还需约 ${fmt(disk.remaining_to_strong_target_gib, 1)} GiB`)}
+          </div>
+          <div class="grid4" style="margin-top:12px">
+            ${metric("当前数据集剩余", `${fmt(forecast.current_dataset_remaining_gib, 2)} GiB`, `ETA ${duration(forecast.eta_current_dataset_seconds)} · speed ${esc(forecast.speed || "-")}`)}
+            ${metric("下次增量刷新", `${fmt(forecast.next_incremental_refresh_remaining_gib, 3)} GiB`, `ETA ${duration(forecast.eta_next_incremental_refresh_seconds)} · 完整文件口径`)}
+            ${metric("Strong 目标缺口", `${fmt(forecast.strong_remaining_trainable_gib, 1)} GiB`, `当前速度 ETA ${duration(forecast.eta_strong_target_seconds_at_current_speed)}`)}
+            ${metric("临时/未可训练差额", `${fmt(forecast.disk_vs_trainable_gap_gib, 2)} GiB`, esc(forecast.forecast_boundary || "ETA is approximate"))}
+          </div>
+          <div class="grid4" style="margin-top:12px">
+            ${metric("下载加速", downloadAcceleration.parallel_thread_count ? "enabled" : "waiting", esc(downloadAcceleration.policy || "读取 gsutil_config 日志"))}
+            ${metric("并发线程", esc(downloadAcceleration.parallel_thread_count || "-"), `processes ${esc(downloadAcceleration.parallel_process_count || "-")}`)}
+            ${metric("分片下载", esc(downloadAcceleration.sliced_object_download_threshold || "-"), `components ${esc(downloadAcceleration.sliced_object_download_max_components || "-")}`)}
+            ${metric("配置生效", esc(downloadAcceleration.generated_at || "-"), esc(downloadAcceleration.line || "-"))}
+          </div>
+        </section>
+        <section>
+          <div class="section-head"><h2>下载健康与恢复</h2><p class="section-note">把活动进程、日志新鲜度、网络重试和训练守卫集中展示；网络抖动时，rsync 会继续恢复，训练仍由 require-ready 门禁控制。</p></div>
+          <div class="grid4">
+            ${metric("健康状态", esc(health.state || "-"), health.process_alive ? "gsutil process alive" : "no active gsutil process")}
+            ${metric("活动 gsutil", esc(health.gsutil_process_count ?? "-"), `log ${health.log_fresh ? "fresh" : "stale"} · age ${fmt(health.log_age_seconds, 0)}s`)}
+            ${metric("网络重试", esc(health.retry_count_tail_window ?? "-"), `Connection refused ${esc(health.connection_refused_count_tail_window ?? "-")} · resumable ${esc(health.resumable_exception_count_tail_window ?? "-")}`)}
+            ${metric("训练守卫", health.wait_guard_ready ? "ready" : "waiting", `errors ${esc(health.wait_guard_error_count ?? "-")}`)}
+          </div>
+          <div class="grid4" style="margin-top:12px">
+            ${metric("Watchdog", esc(watchdog.action || "waiting"), esc(watchdog.policy || "stale-only restart policy"))}
+            ${metric("Watchdog 进程判断", `${esc(watchdog.active_gsutil_process_count ?? "-")} gsutil`, `label ${watchdog.launchd_label_present ? "present" : "absent"} · log ${watchdog.log_fresh ? "fresh" : "stale/unknown"}`)}
+            ${metric("Watchdog 原因", esc((watchdog.reasons || []).join(", ") || "none"), `stale after ${esc(watchdog.stale_after_seconds ?? "-")}s`)}
+            ${metric("下次 watchdog", esc((watchdogLoop.next_check_at || "-").replace("T", " ").slice(0, 19)), `loop ${esc(watchdogLoop.status || "-")} · interval ${esc(watchdogLoop.interval_seconds || "-")}s`)}
+          </div>
+          <div class="grid3" style="margin-top:12px">
+            ${metric("Watchdog 字节监控", `${fmt((watchdog.data_bytes || 0) / (1024 ** 3), 2)} GiB`, `since last check ${esc(watchdog.data_growth_bytes_since_last_check ?? "first check")} bytes`)}
+            ${metric("无增长时长", `${fmt(watchdog.no_data_growth_seconds, 0)}s`, `since ${esc((watchdog.data_unchanged_since || "-").replace("T", " ").slice(0, 19))}`)}
+            ${metric("恢复动作", esc(watchdog.restart_result?.returncode == null ? "none" : `code ${watchdog.restart_result.returncode}`), esc(watchdog.restart_result?.stderr || watchdog.restart_result?.stdout || "未触发恢复"))}
+          </div>
+          <div class="grid2" style="margin-top:12px">
+            <article class="card"><div class="label">恢复策略</div><div class="note">${esc(health.recovery_policy || "-")}</div><div class="note">latest: ${esc(health.latest_progress_line || "-")}</div></article>
+            <article class="card"><div class="label">当前未放行原因</div><div class="note">${(health.wait_guard_errors || []).slice(0, 8).map((x) => `• ${esc(x)}`).join("<br>") || "等待下一次校验。"}</div></article>
+          </div>
+          <div class="section-head" style="margin-top:18px"><h2>Partial Shard 明细</h2><p class="section-note">这些文件证明下载仍在推进，但它们还是 .gstmp/.tmp/.part，必须等 gsutil 完成完整性校验并改名后才会进入训练。</p></div>
+          <div class="grid4" style="margin-bottom:12px">
+            ${metric("Partial 文件", esc(partialDownloads.row_count ?? "-"), `${fmt(partialDownloads.total_gib, 3)} GiB 暂不计入训练`)}
+            ${metric("最近活跃", esc(partialDownloads.active_recent_count ?? "-"), `latest ${esc((partialDownloads.latest_mtime_local || "-").replace("T", " ").slice(0, 19))}`)}
+            ${metric("训练策略", "exclude partial", "complete_files_only_excluding_gstmp_tmp_part")}
+            ${metric("为什么不训练", "等待完整 shard", "避免用半截 TFRecord 生成伪结果")}
+          </div>
+          ${partialShardTable(partialDownloads.rows || [])}
+          <div style="margin-top:12px">${processTable(health.gsutil_processes || [])}</div>
+          <div class="section-head" style="margin-top:18px"><h2>Watchdog 检查历史</h2><p class="section-note">最近 24 次下载恢复检查，记录落盘字节增长、无增长时长和是否触发恢复。</p></div>
+          ${watchdogHistoryTable(watchdogHistory.rows || [])}
+        </section>
+        <section>
+          <div class="section-head"><h2>Strong 训练门禁</h2><p class="section-note">最终 20000-step Strong 训练必须先通过数据完整性校验，避免网络中断后误把半截数据当最终结果。</p></div>
+          <div class="grid3">
+            ${metric("门禁状态", verification.ready_for_strong_training ? "ready" : "not ready", verification.generated_at ? `checked ${esc(verification.generated_at)}` : "等待首次校验")}
+            ${metric("错误数", esc((verification.errors || []).length), esc((verification.errors || []).slice(0, 3).join(" · ") || "无"))}
+            ${metric("训练触发", verification.ready_for_strong_training ? "允许" : "等待下载完成", "train_openx_strong_after_download 会先执行 require-ready 校验")}
+          </div>
+          <div style="margin-top:12px">${verificationTable(verification)}</div>
+          <div class="section-head" style="margin-top:18px"><h2>Strong 数据集完成度</h2><p class="section-note">按每个 Strong 数据集拆分 GiB、TFRecord 和 partial 文件缺口，说明最终训练为什么还没放行。</p></div>
+          ${strongCompletionTable(strongCompletion)}
+        </section>
+        <section>
+          <div class="section-head"><h2>最终训练流水线</h2><p class="section-note">Strong 下载和校验完成后，等待器会自动跑最终训练，并把服务包和页面切换到 Strong 结果。</p></div>
+          <div class="grid4">
+            ${metric("下载完成标记", strongPipeline.download_complete ? "yes" : "no", esc(strongPipeline.download_completed_at || "等待 Strong 下载完成"))}
+            ${metric("训练完成标记", strongPipeline.training_complete ? "yes" : "no", esc(strongPipeline.training_completed_at || "等待 20000-step Strong 训练"))}
+            ${metric("训练触发门禁", esc(strongPipeline.wait_policy || "verification gate"), esc(strongPipeline.guard_command || "require-ready verification"))}
+            ${metric("页面刷新", strongPipeline.training_complete ? "已刷新" : "已排队", "训练后自动运行 qtail_openx_progress_manifest.py")}
+          </div>
+          <div class="timeline" style="margin-top:12px">
+            ${(strongPipeline.post_training_actions || []).map((x, i) => `<div class="step"><strong>${i + 1}</strong><span>${esc(x)}</span></div>`).join("")}
+          </div>
+          <div class="section-head" style="margin-top:18px"><h2>Strong 后验收</h2><p class="section-note">最终训练完成后，系统会立即重建服务包、跑客户样本 API，并用 validator 验收最新输出。</p></div>
+          <div class="grid3" style="margin-bottom:12px">
+            ${metric("验收状态", esc(postStrongAcceptance.status || "waiting"), esc(postStrongAcceptance.completion_condition || "-"))}
+            ${metric("Validator", "armed", esc(postStrongAcceptance.validator?.command || "python3 tools/qtail_validate_package.py"))}
+            ${metric("当前样本数", esc((postStrongAcceptance.samples || []).length), "Strong 完成后要求这些样本切到 strong_openx_snapshot")}
+          </div>
+          ${postStrongAcceptanceTable(postStrongAcceptance.samples || [])}
+          <div class="grid4" style="margin-top:12px">
+            ${metric("最近等待检查", esc((strongWaitGuard.generated_at || "-").replace("T", " ").slice(0, 19)), esc(strongWaitGuard.wait_policy || "poll verification"))}
+            ${metric("Downloader label", strongWaitGuard.downloader_label_present ? "present" : "absent", "只作为状态信号，不作为训练触发条件")}
+            ${metric("Ready field", strongWaitGuard.ready_for_strong_training ? "true" : "false", esc(strongWaitGuard.verification_path || "-"))}
+            ${metric("门禁错误数", esc(strongWaitGuard.error_count ?? "-"), esc((strongWaitGuard.errors || []).slice(0, 2).join(" · ") || "无"))}
+          </div>
+        </section>
+        <section>
+          <div class="section-head"><h2>后台任务</h2><p class="section-note">下载和训练由 launchd 托管，避免终端关闭后中断。</p></div>
+          <div class="grid3">
+            <article class="card"><div class="label">Strong 下载</div><div>${jobPill(data.jobs["qtail-openx-strong-addon"])}</div><div class="note">负责 language_table / language_table_sim</div></article>
+            <article class="card"><div class="label">Strong 完成后训练</div><div>${jobPill(data.jobs["qtail-openx-strong-train-after-download"])}</div><div class="note">完成后输出 strong training report</div></article>
+            <article class="card"><div class="label">服务 API</div><div>${jobPill(data.jobs["qtail-service-api"])}</div><div class="note">127.0.0.1:8223 接收新客户 CSV</div></article>
+            <article class="card"><div class="label">下载 Watchdog</div><div>${jobPill(data.jobs["qtail-download-watchdog"])}</div><div class="note">日志 stale 或 gsutil 消失时才恢复下载</div></article>
+          </div>
+        </section>
+        <section>
+          <div class="section-head"><h2>自动刷新器</h2><p class="section-note">下载过程中定期检查完整文件增长；达到 GiB 阈值或新增完整 shard 时自动重训增量快照、重建服务包、刷新页面 manifest。</p></div>
+          <div class="grid4">
+            ${metric("刷新任务", jobPill(data.jobs["qtail-auto-refresh-loop"]), "后台循环，不依赖当前终端")}
+            ${metric("最近状态", esc(autoRefresh.status || "-"), `last refreshed ${esc(autoRefresh.last_refreshed_at || "-")}`)}
+            ${metric("循环状态", esc(autoRefreshLoop.status || "-"), `interval ${esc(autoRefreshLoop.interval_seconds || "-")}s · next ${esc((autoRefreshLoop.next_check_at_local || "-").replace("T", " ").slice(0, 19))}`)}
+            ${metric("刷新训练步数", esc(autoRefresh.steps || "-"), `GiB 阈值 ${fmt(autoRefresh.min_growth_gib, 1)} · shard 阈值 ${esc(autoRefreshLoop.min_new_shards ?? autoRefresh.min_new_shards ?? "-")}`)}
+          </div>
+          <div class="grid4" style="margin-top:12px">
+            ${metric("下次 GiB 刷新点", `${fmt(refreshPolicy.next_refresh_at_gib, 3)} GiB`, `current ${fmt(refreshPolicy.current_gib, 3)} GiB`)}
+            ${metric("下次 shard 刷新点", `${esc(refreshPolicy.next_refresh_at_shard_count ?? "-")} shards`, `current ${esc(refreshPolicy.current_shard_count ?? "-")} shards`)}
+            ${metric("还差完整输入", `${fmt(refreshPolicy.remaining_to_next_refresh_gib, 3)} GiB`, `或 ${esc(refreshPolicy.remaining_shards_to_next_refresh ?? "-")} complete shard`)}
+            ${metric("刷新决策", refreshPolicy.will_refresh_now ? "ready" : "wait", `GiB growth ${fmt(refreshPolicy.growth_since_refresh_gib, 3)} · shard growth ${esc(refreshPolicy.shard_growth_since_refresh ?? "-")}`)}
+          </div>
+        </section>
+        <section>
+          <div class="section-head"><h2>增量训练快照</h2><p class="section-note">Strong 包没下完前，定期用当前已落盘 Open X shard 训练一份短步数快照，展示真实进度。</p></div>
+          <div class="grid4">
+            ${metric("Snapshot data", `${fmt(incremental.total_gib, 2)} GiB`, `${esc(incremental.shard_count || "-")} shards · ${esc((incremental.datasets || []).length)} datasets`)}
+            ${metric("Snapshot steps", esc(incremental.steps || "-"), "当前快照训练步数，最终 strong 训练会另行输出")}
+            ${metric("Snapshot tail gain", pp(incremental.effect_metrics?.predicted_tail_share_gain_pp), `source ${pct(incremental.effect_metrics?.source_pred_tail_share)} → qtail ${pct(incremental.effect_metrics?.qtail_pred_tail_share)}`)}
+            ${metric("Snapshot PT 一致性", incremental.effect_metrics?.consistent_with_pt_tail_goal ? "一致" : "待验证", "只作为下载期间的增量证据，不替代最终 strong result")}
+          </div>
+          <div class="grid4" style="margin-top:12px">
+            ${metric("训练行质量", incrementalQuality.clean ? "clean" : "needs check", `${esc(incrementalQuality.row_count || 0)} rows · partial ${esc(incrementalQuality.partial_row_count ?? "-")}`)}
+            ${metric("训练口径", `${fmt(incrementalQuality.gib, 2)} GiB`, esc(incrementalQuality.byte_policy || "complete files only"))}
+            ${metric("下一次干净刷新", `${fmt(refreshPolicy.next_refresh_at_gib, 3)} GiB / ${esc(refreshPolicy.next_refresh_at_shard_count ?? "-")} shards`, `还差 ${fmt(refreshPolicy.remaining_to_next_refresh_gib, 3)} GiB 或 ${esc(refreshPolicy.remaining_shards_to_next_refresh ?? "-")} shard`)}
+            ${metric("训练 rows", artifactButton("打开 CSV", incrementalQuality.path, "primary"), `${esc(incrementalQuality.dataset_count || "-")} datasets`)}
+          </div>
+          <div class="section-head" style="margin-top:18px"><h2>干净训练版本账本</h2><p class="section-note">只记录排除 .gstmp/.tmp/.part 后完成的训练版本；后续每次增量刷新都会追加一条，不覆盖历史。</p></div>
+          ${trainingLedgerTable(trainingLedger.rows || [])}
+        </section>
+        <section id="effect">
+          <div class="section-head"><h2>训练效果</h2><p class="section-note">这里衡量的是记录级特征驱动的 Q-Tail 分配模型是否学会把预算转向 tail shard；完整机器人 policy 训练是下一阶段。</p></div>
+          <div class="grid4" style="margin-bottom:12px">
+            ${metric("TFRecord 解析覆盖", trajectoryEvidence.record_parse_rate == null ? "等待新版快照" : pct(trajectoryEvidence.record_parse_rate), `${esc(trajectoryEvidence.tfrecord_shards_parsed ?? "-")} / ${esc(trajectoryEvidence.tfrecord_shards_attempted ?? "-")} complete shards`)}
+            ${metric("真实 episodes", esc(trajectoryEvidence.records_decoded ?? "-"), `每 shard 上限 ${esc(trajectoryEvidence.records_per_shard_cap ?? "-")} · mean steps ${fmt(trajectoryEvidence.mean_episode_steps, 1)}`)}
+            ${metric("模型 checkpoint", modelArtifact.path ? "已保存" : "等待新版快照", modelArtifact.sha256 ? `sha256 ${esc(modelArtifact.sha256.slice(0, 16))}…` : "qtail_allocation_head.pt")}
+            ${metric("训练口径", esc(report.training_scope || "legacy shard metadata"), esc((trajectoryEvidence.features_include || []).join(" · ") || "等待 record-informed 特征"))}
+          </div>
+          <div class="grid4">
+            ${metric("Source tail share", pct(effect.source_tail_share), "原始数据在 top-tail shard 的份额")}
+            ${metric("Q-Tail tail share", pct(effect.qtail_tail_share), "PT 重尾目标分配后的 tail 份额")}
+            ${metric("Target gain", pp(effect.target_tail_share_gain_pp), "Q-Tail 目标分配相对 source 的百分点提升")}
+            ${metric("Predicted gain", pp(effect.predicted_tail_share_gain_pp), "训练后模型预测出的 tail 份额提升")}
+          </div>
+          <div class="grid2" style="margin-top:12px">
+            <article class="card"><div class="label">是否符合 PT 重尾目标</div><div class="value">${effect.consistent_with_pt_tail_goal ? "一致" : "待验证"}</div><div class="note">当前 Q-Tail allocation head 把 top 30% tail shard 的份额从 ${pct(effect.source_tail_share)} 推到 ${pct(effect.qtail_tail_share)}，说明它学到的是“向罕见/高风险数据倾斜”的数据生成方向。</div></article>
+            <article class="card"><div class="label">Claim Boundary</div><div class="note">${(report.claim_boundary || []).map(esc).join("<br>")}</div></article>
+          </div>
+        </section>
+        <section>
+          <div class="section-head"><h2>证据账本</h2><p class="section-note">每条结论都绑定当前状态、可检查 artifact 和 claim boundary；用于防止把下载中证据说成最终训练结果。</p></div>
+          ${evidenceTable(evidenceLedger)}
+        </section>
+        <section>
+          <div class="section-head"><h2>进度历史</h2><p class="section-note">最近 24 个非重复状态快照，展示下载、增量训练、刷新器和 Strong 门禁如何推进。</p></div>
+          ${historyTable(progressHistory)}
+        </section>
+        <section id="delivery">
+          <div class="section-head"><h2>服务交付闭环</h2><p class="section-note">把 Open X 训练出的 tail prior 用到一份新客户数据上，输出可交付的 PT 重尾合成数据计划和审计包。</p></div>
+          <div class="grid4">
+            ${metric("服务状态", delivery.service_status === "implemented_demo_delivery" ? "已实施" : "待生成", "客户数据 -> 画像 -> PT 重尾合成计划 -> 审计包")}
+            ${metric("Tail success", pp(deliveryEffect.tail_success_gain_pp), `source ${pct(deliveryEffect.source_tail_success)} → qtail ${pct(deliveryEffect.qtail_tail_success)} · 相对提升 ${fmt(deliveryEffect.tail_success_relative_gain_pct, 1)}%`)}
+            ${metric("Tail data share", pp(deliveryEffect.tail_data_share_gain_pp), `source ${pct(deliveryEffect.source_tail_data_share)} → qtail ${pct(deliveryEffect.qtail_tail_data_share)}`)}
+            ${metric("PT 目标一致性", deliveryEffect.aligned_with_pt_tail_goal ? "一致" : "待验证", `Open X tail prior + 客户包 winner=${esc(deliveryEffect.decision?.winner || "-")}`)}
+          </div>
+          <div class="grid2" style="margin-top:12px">
+            <article class="card">
+              <div class="label">实施步骤</div>
+              <div class="timeline">
+                ${(delivery.service_steps || []).map((s) => `<div class="step"><strong>${esc(s.status)}</strong><span>${esc(s.step)}<br><small>${esc(s.artifact)}</small></span></div>`).join("")}
+              </div>
+            </article>
+            <article class="card">
+              <div class="label">Open X 校准模型</div>
+              <div class="note">模型：${esc(modelCard.model_name || "-")}</div>
+              <div class="note">训练输入：${esc(modelCard.training_source?.shard_count || "-")} shards · ${fmt(modelCard.training_source?.total_gib, 2)} GiB · ${esc(modelCard.training_source?.steps || "-")} steps</div>
+              <div class="note">记录证据：${esc(modelCard.training_source?.trajectory_evidence?.records_decoded ?? "-")} episodes · parse ${pct(modelCard.training_source?.trajectory_evidence?.record_parse_rate)}</div>
+              <div class="note">服务校准：${esc(modelCard.service_calibration?.method || "等待 record-informed model")}</div>
+              <div class="note">学到的 tail prior：source ${pct(modelCard.learned_tail_prior?.source_tail_share)} → qtail ${pct(modelCard.learned_tail_prior?.qtail_tail_share)}，预测提升 ${pp(modelCard.learned_tail_prior?.predicted_tail_share_gain_pp)}</div>
+              <div class="actions">
+                <a class="button primary" href="results/qtail_openx_service_public/qtail_service_model_card.json">Model card</a>
+                <a class="button" href="results/qtail_openx_service_public/README_QTAIL_DELIVERY.md">交付 README</a>
+                <a class="button" href="results/qtail_openx_service_public/package_manifest.json">Package manifest</a>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section id="api">
+          <div class="section-head"><h2>本地 API 服务</h2><p class="section-note">产品化入口：新客户 CSV 通过 HTTP 进来，API 自动生成 Q-Tail PT 重尾 synthetic data package。</p></div>
+          <div class="grid4">
+            ${metric("API base", esc(api.base_url || "-"), "GET /health · POST /generate")}
+            ${metric("最近请求", latestApi.ok ? "成功" : "暂无", esc(latestApi.run_id || "等待 API 调用"))}
+            ${metric("API tail success", pp(latestApiEffect.tail_success_gain_pp), latestApiEffect.tail_success_relative_gain_pct == null ? "等待最近请求" : `相对提升 ${fmt(latestApiEffect.tail_success_relative_gain_pct, 1)}%`)}
+            ${metric("API tail share", pp(latestApiEffect.tail_data_share_gain_pp), latestApiEffect.aligned_with_pt_tail_goal ? "与 PT 重尾目标一致" : "等待验证")}
+          </div>
+          <div class="grid2" style="margin-top:12px">
+            <article class="card">
+              <div class="label">调用方式</div>
+              <pre>curl -X POST ${esc(api.generate_endpoint || "http://127.0.0.1:8223/generate")} \\
+  -H 'Content-Type: application/json' \\
+  --data '{"filename":"customer.csv","csv_text":"task,count,success_rate,difficulty,group\\nrare_pick,12,0.32,0.91,tail\\nstandard_pick,540,0.86,0.22,head\\n","synthetic_budget":100000,"top_k":128}'</pre>
+            </article>
+            <article class="card">
+              <div class="label">最近 API 交付物</div>
+              <div class="note">output_dir: ${esc(latestApi.output_dir || "-")}</div>
+              <div class="note">delivery_report: ${esc(latestApi.delivery_report || "-")}</div>
+              <div class="note">readme: ${esc(latestApi.readme || "-")}</div>
+              <div class="note">synthetic_plan: ${esc(latestApi.synthetic_plan || "-")}</div>
+              <div class="note">winner: ${esc(latestApiEffect.decision?.winner || "-")}</div>
+              <div class="actions">${artifactButton("下载交付包 zip", latestApi.package_zip, "primary")}${artifactButton("查看 README", latestApi.readme)}${artifactButton("查看合成计划", latestApi.synthetic_plan)}</div>
+            </article>
+          </div>
+          <div class="grid2" style="margin-top:12px">
+            <article class="card">
+              <div class="label">在线试跑客户 CSV</div>
+              <label class="field"><span>文件名</span><input id="apiFilename" value="page_customer_demo.csv" /></label>
+              <label class="field"><span>客户任务 CSV</span><textarea id="apiCsvInput">task,count,success_rate,difficulty,group
+rare_glass_pick,12,0.32,0.91,tail
+clutter_drawer_open,38,0.48,0.78,tail
+standard_pick_place,540,0.86,0.22,head
+button_press,420,0.81,0.31,head
+cloth_fold_corner,24,0.41,0.84,tail</textarea></label>
+              <div class="actions"><button id="apiGenerateButton" class="button primary" type="button">生成 Q-Tail 服务包</button></div>
+              <div id="apiGenerateStatus" class="note">等待输入。</div>
+            </article>
+            <article class="card">
+              <div class="label">在线试跑结果</div>
+              <div id="apiGenerateResult" class="note">调用后会显示 tail success、CVaR、tail data share、输出目录和交付文件。</div>
+            </article>
+          </div>
+          <div class="grid2" style="margin-top:12px">
+            <article class="card">
+              <div class="label">CLI / SDK 入口</div>
+              <pre>${esc(cli.example || "python3 tools/qtail_service_client.py --input customer.csv --out response.json")}</pre>
+              <div class="note">脚本：${esc(cli.script || "tools/qtail_service_client.py")}</div>
+            </article>
+            <article class="card">
+              <div class="label">最近 CLI 交付结果</div>
+              <div class="value">${esc(latestCliEffect.decision?.winner || "-")}</div>
+              <div class="note">run_id: ${esc(latestCli.run_id || "-")}</div>
+              <div class="note">Tail success gain: ${pp(latestCliEffect.tail_success_gain_pp)} · relative ${fmt(latestCliEffect.tail_success_relative_gain_pct, 1)}%</div>
+              <div class="note">CVaR@20 gain: ${pp(latestCliEffect.cvar20_gain_pp)} · Tail data share gain: ${pp(latestCliEffect.tail_data_share_gain_pp)}</div>
+              <div class="note">output_dir: ${esc(latestCli.output_dir || "-")}</div>
+              <div class="actions">${artifactButton("下载 CLI 交付包 zip", latestCli.package_zip, "primary")}${artifactButton("查看 CLI README", latestCli.readme)}</div>
+            </article>
+          </div>
+          <div class="section-head" style="margin-top:18px"><h2>服务运行记录</h2><p class="section-note">最近几次客户 CSV 请求和交付包审计结果，包含通过与不通过样本，方便追踪服务质量。</p></div>
+          ${runTable(runHistory)}
+        </section>
+        <section>
+          <div class="section-head"><h2>下载清单</h2><p class="section-note">真实 Open X / RT-X 官方 GCS RLDS 子集，保存在 data/openx_demo，已加入 .gitignore。</p></div>
+          ${table(data.data.datasets || [])}
+        </section>
+        <section id="service">
+          <div class="section-head"><h2>服务模型设计</h2><p class="section-note">最终目标不是只做比赛报告，而是做“PT 重尾具身智能数据服务”。</p></div>
+          <div class="grid4">
+            ${metric("服务阶段", esc(serviceExecution.current_stage || "-"), esc(serviceExecution.next_milestone?.status || "-"))}
+            ${metric("已证明", esc((serviceExecution.proved_now || []).length), "真实 Open X 增量训练 + 服务包 + API")}
+            ${metric("未证明", esc((serviceExecution.not_proved_yet || []).length), "Strong final / full policy / trajectory renderer")}
+            ${metric("下一里程碑", esc(serviceExecution.next_milestone?.trigger || "-"), esc(serviceExecution.next_milestone?.action || "-"))}
+          </div>
+          <div class="grid2" style="margin-top:12px">
+            <article class="card"><div class="label">产品 thesis</div><div class="note">${esc(serviceExecution.product_thesis || data.interpretation.product_goal || "-")}</div></article>
+            <article class="card"><div class="label">当前未证明边界</div><div class="note">${(serviceExecution.not_proved_yet || []).map((x) => `• ${esc(x)}`).join("<br>") || "-"}</div></article>
+          </div>
+          <div class="section-head" style="margin-top:18px"><h2>商业价值映射</h2><p class="section-note">把技术指标翻译成具身智能公司的采购/试点价值。</p></div>
+          ${businessValueTable(serviceExecution.business_value || [])}
+          <div class="section-head" style="margin-top:18px"><h2>服务运行模式</h2><p class="section-note">新客户数据进入后，从 intake 到 delivery 的产品化接口。</p></div>
+          ${operatingModelTable(serviceExecution.operating_model || [])}
+          <div class="section-head" style="margin-top:18px"><h2>升级路径</h2><p class="section-note">当前增量服务、Strong 训练、GPU policy stage 和商业 pilot 的衔接。</p></div>
+          ${upgradePathTable(serviceExecution.upgrade_path || [])}
+          <div class="section-head" style="margin-top:18px"><h2>服务实施矩阵</h2><p class="section-note">把“训练模型生成 PT 重尾具身数据服务”的每一层拆成状态、产物和下一步。</p></div>
+          ${serviceExecutionTable(serviceExecution.layers || [])}
+          <div class="section-head" style="margin-top:18px"><h2>数据服务流程</h2><p class="section-note">客户新数据进入后的固定处理链路。</p></div>
+          <div class="timeline">
+            ${(data.service_design || []).map((s) => `<div class="step"><strong>${esc(s.step)}</strong><span>${esc(s.output)}</span></div>`).join("")}
+          </div>
+        </section>
+        <section>
+          <div class="section-head"><h2>产品化解释</h2><p class="section-note">给具身智能公司的交付口径。</p></div>
+          <div class="grid3">
+            ${(data.interpretation.what_we_did || []).map((x) => `<article class="card"><div class="note">${esc(x)}</div></article>`).join("")}
+          </div>
+          <div class="card" style="margin-top:12px"><div class="label">最终产品目标</div><div class="note">${esc(data.interpretation.product_goal)}</div></div>
+        </section>
+        <section id="logs">
+          <div class="section-head"><h2>实时日志尾部</h2><p class="section-note">用于判断下载和训练是否还在推进。</p></div>
+          <div class="grid2">
+            <article class="card"><div class="label">Strong 下载</div><pre>${esc((data.logs.strong_download_tail || []).join("\\n"))}</pre></article>
+            <article class="card"><div class="label">Strong 训练</div><pre>${esc((data.logs.strong_train_tail || []).join("\\n"))}</pre></article>
+          </div>
+        </section>
+      `;
+      bindApiForm(api);
+    }
+    function renderApiResult(payload) {
+      const effect = payload.effect_summary || {};
+      return `
+        <div class="value">${esc(effect.decision?.winner || "-")}</div>
+        <div class="note">Tail success gain: ${pp(effect.tail_success_gain_pp)} · relative ${fmt(effect.tail_success_relative_gain_pct, 1)}%</div>
+        <div class="note">CVaR@20 gain: ${pp(effect.cvar20_gain_pp)} · Tail data share gain: ${pp(effect.tail_data_share_gain_pp)}</div>
+        <div class="note">Extreme failure reduction: ${esc(effect.extreme_failure_reduction ?? "-")}</div>
+        <div class="note">output_dir: ${esc(payload.output_dir || "-")}</div>
+        <div class="note">delivery_report: ${esc(payload.delivery_report || "-")}</div>
+        <div class="note">readme: ${esc(payload.readme || "-")}</div>
+        <div class="note">synthetic_plan: ${esc(payload.synthetic_plan || "-")}</div>
+        <div class="actions">${artifactButton("下载交付包 zip", payload.package_zip, "primary")}${artifactButton("查看 README", payload.readme)}${artifactButton("查看合成计划", payload.synthetic_plan)}</div>
+      `;
+    }
+    function bindApiForm(api) {
+      const button = document.getElementById("apiGenerateButton");
+      if (!button) return;
+      button.addEventListener("click", async () => {
+        const status = document.getElementById("apiGenerateStatus");
+        const result = document.getElementById("apiGenerateResult");
+        const filename = document.getElementById("apiFilename").value || "customer.csv";
+        const csvText = document.getElementById("apiCsvInput").value || "";
+        status.textContent = "正在调用本地 Q-Tail API...";
+        result.textContent = "生成中...";
+        button.disabled = true;
+        try {
+          const response = await fetch(api.generate_endpoint || "http://127.0.0.1:8223/generate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ filename, csv_text: csvText, synthetic_budget: 100000, top_k: 128 }),
+          });
+          const payload = await response.json();
+          if (!response.ok || !payload.ok) throw new Error(payload.error || `HTTP ${response.status}`);
+          status.textContent = `完成：${payload.run_id}`;
+          result.innerHTML = renderApiResult(payload);
+          await fetch("results/openx_training_progress/progress_manifest.json?ts=" + Date.now(), { cache: "no-store" }).catch(() => {});
+        } catch (error) {
+          status.textContent = `失败：${error.message}`;
+          result.textContent = "请确认 qtail-service-api 仍在 127.0.0.1:8223 运行。";
+        } finally {
+          button.disabled = false;
+        }
+      });
+    }
+    load().catch((error) => { app.innerHTML = `<section><div class="card">无法读取进度：${esc(error.message)}</div></section>`; });
+    setInterval(load, 30000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+{
+    "source_csv": "task_2604201410376483513_result.csv",
+    "mapping_algorithm": "Rank-Based Optimal Transport (pt-rank)",
+    "quantum_fusion_ratio_eta": 0.5,
+    "total_quantum_states_sampled": 29908,
+    "task_mapping": [
+        {
+            "task_id": 0,
+            "task_name": "reach-v2",
+            "semantic_tier": "head",
+            "tail_score_tau": 0.0007413356397108792,
+            "base_prior_b": 0.3282994090610637,
+            "mapped_probability_Ps": 0.17913970453053188
+        },
+        {
+            "task_id": 1,
+            "task_name": "push-v2",
+            "semantic_tier": "head",
+            "tail_score_tau": 0.0009266695496385989,
+            "base_prior_b": 0.262639527248851,
+            "mapped_probability_Ps": 0.14745976362442553
+        },
+        {
+            "task_id": 2,
+            "task_name": "pick-place-v2",
+            "semantic_tier": "head",
+            "tail_score_tau": 0.0012355593995181321,
+            "base_prior_b": 0.1969796454366382,
+            "mapped_probability_Ps": 0.12838982271831917
+        },
+        {
+            "task_id": 9,
+            "task_name": "basketball-v2",
+            "semantic_tier": "tail",
+            "tail_score_tau": 0.7413356397108792,
+            "base_prior_b": 0.00032829940906106366,
+            "mapped_probability_Ps": 0.11618914970453009
+        },
+        {
+            "task_id": 3,
+            "task_name": "door-open-v2",
+            "semantic_tier": "head",
+            "tail_score_tau": 0.0018533390992771979,
+            "base_prior_b": 0.1313197636244255,
+            "mapped_probability_Ps": 0.0955598818122128
+        },
+        {
+            "task_id": 8,
+            "task_name": "sweep-v2",
+            "semantic_tier": "tail",
+            "tail_score_tau": 0.14826712794217584,
+            "base_prior_b": 0.0016414970453053185,
+            "mapped_probability_Ps": 0.08218574852265274
+        },
+        {
+            "task_id": 7,
+            "task_name": "window-open-v2",
+            "semantic_tier": "tail",
+            "tail_score_tau": 0.07413356397108792,
+            "base_prior_b": 0.003282994090610637,
+            "mapped_probability_Ps": 0.0674214970453054
+        },
+        {
+            "task_id": 6,
+            "task_name": "peg-insert-side-v2",
+            "semantic_tier": "medium",
+            "tail_score_tau": 0.014826712794217583,
+            "base_prior_b": 0.016414970453053186,
+            "mapped_probability_Ps": 0.06625748522652666
+        },
+        {
+            "task_id": 4,
+            "task_name": "drawer-close-v2",
+            "semantic_tier": "medium",
+            "tail_score_tau": 0.0074133563971087914,
+            "base_prior_b": 0.03282994090610637,
+            "mapped_probability_Ps": 0.05941497045305324
+        },
+        {
+            "task_id": 5,
+            "task_name": "button-press-topdown-v2",
+            "semantic_tier": "medium",
+            "tail_score_tau": 0.00926669549638599,
+            "base_prior_b": 0.026263952724885097,
+            "mapped_probability_Ps": 0.05798197636244259
+        }
+    ]
+}

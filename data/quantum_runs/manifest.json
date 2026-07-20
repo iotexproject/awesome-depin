@@ -1,0 +1,26 @@
+[
+    {
+        "run_id": "run_20260420_195743_129dce",
+        "timestamp": "2026-04-20T19:57:44.149510",
+        "backend": "Baihua",
+        "n_qubits": 10,
+        "depth": 20,
+        "shots": 10000,
+        "seed": 2026,
+        "status": "failed",
+        "error": "'Failed to communicate with quafu website, please retry later or submit an issue, err: 403 Client Error: Forbidden for url: http://quafu.baqis.ac.cn/qbackend/get_backends/'",
+        "source": "real_quantum_hardware"
+    },
+    {
+        "run_id": "run_20260420_195803_893345",
+        "timestamp": "2026-04-20T19:58:03.332910",
+        "backend": "Baihua",
+        "n_qubits": 15,
+        "depth": 28,
+        "shots": 100000,
+        "seed": 2026,
+        "status": "failed",
+        "error": "'Failed to communicate with quafu website, please retry later or submit an issue, err: 403 Client Error: Forbidden for url: http://quafu.baqis.ac.cn/qbackend/get_backends/'",
+        "source": "real_quantum_hardware"
+    }
+]

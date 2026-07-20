@@ -1,0 +1,132 @@
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-qtail}
+      MYSQL_USER: ${MYSQL_USER:-qtail}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-qtail_dev_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-qtail_root_dev_password}
+    ports:
+      - "${MYSQL_BIND_HOST:-127.0.0.1}:${MYSQL_EXPOSED_PORT:-3307}:3306"
+    volumes:
+      - qtail_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  api:
+    build:
+      context: ..
+      dockerfile: platform/backend/Dockerfile
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+    restart: unless-stopped
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      APP_SECRET: ${APP_SECRET:-unsafe-development-secret-change-me}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-local-admin-token-change-before-production}
+      SESSION_COOKIE_SECURE: ${SESSION_COOKIE_SECURE:-0}
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-qtail}
+      MYSQL_USER: ${MYSQL_USER:-qtail}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-qtail_dev_password}
+      PRO_PRICE_CENTS: ${PRO_PRICE_CENTS:-99900}
+      PAYMENT_MODE: ${PAYMENT_MODE:-manual_qr_verification}
+      PAYMENT_PUBLIC_URL: ${PAYMENT_PUBLIC_URL:-}
+      ALIPAY_APP_ID: ${ALIPAY_APP_ID:-}
+      ALIPAY_SELLER_ID: ${ALIPAY_SELLER_ID:-}
+      ALIPAY_PRIVATE_KEY_FILE: /run/qtail-payment/alipay_private_key.pem
+      ALIPAY_PUBLIC_KEY_FILE: /run/qtail-payment/alipay_public_key.pem
+      ALIPAY_GATEWAY_URL: ${ALIPAY_GATEWAY_URL:-https://openapi.alipay.com/gateway.do}
+      WECHATPAY_APP_ID: ${WECHATPAY_APP_ID:-}
+      WECHATPAY_MCH_ID: ${WECHATPAY_MCH_ID:-}
+      WECHATPAY_MERCHANT_SERIAL: ${WECHATPAY_MERCHANT_SERIAL:-}
+      WECHATPAY_PLATFORM_SERIAL: ${WECHATPAY_PLATFORM_SERIAL:-}
+      WECHATPAY_PRIVATE_KEY_FILE: /run/qtail-payment/wechatpay_private_key.pem
+      WECHATPAY_PLATFORM_PUBLIC_KEY_FILE: /run/qtail-payment/wechatpay_platform_public_key.pem
+      WECHATPAY_API_V3_KEY_FILE: /run/qtail-payment/wechatpay_api_v3.key
+      WECHATPAY_API_BASE: ${WECHATPAY_API_BASE:-https://api.mch.weixin.qq.com}
+      PRO_DAILY_GENERATION_LIMIT: ${PRO_DAILY_GENERATION_LIMIT:-50}
+      MAX_ACTIVE_GENERATIONS_PER_USER: ${MAX_ACTIVE_GENERATIONS_PER_USER:-5}
+      QTAIL_WORKER_MAX_ATTEMPTS: ${QTAIL_WORKER_MAX_ATTEMPTS:-3}
+      QTAIL_FAKE_GENERATOR: ${QTAIL_FAKE_GENERATOR:-0}
+      QTAIL_JOBS_DIR: /app/platform/var/jobs
+      QTAIL_SYNTHETIC_CATALOG_DIR: /app/qtail-catalog
+    volumes:
+      - qtail_job_data:/app/platform/var/jobs
+      - ${QTAIL_PAYMENT_SECRETS_DIR:-./var/secrets/payment}:/run/qtail-payment:ro
+      - ${QTAIL_SYNTHETIC_CATALOG_HOST_DIR:-./var/catalog}:/app/qtail-catalog:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "8787"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8787/api/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  worker:
+    build:
+      context: ..
+      dockerfile: platform/backend/Dockerfile
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+    restart: unless-stopped
+    command: ["python", "/app/platform/backend/worker.py"]
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-qtail}
+      MYSQL_USER: ${MYSQL_USER:-qtail}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-qtail_dev_password}
+      QTAIL_FAKE_GENERATOR: ${QTAIL_FAKE_GENERATOR:-0}
+      QTAIL_JOBS_DIR: /app/platform/var/jobs
+      QTAIL_SYNTHETIC_CATALOG_DIR: /app/qtail-catalog
+      QTAIL_WORKER_ENABLED: ${QTAIL_WORKER_ENABLED:-1}
+      QTAIL_WORKER_POLL_SECONDS: ${QTAIL_WORKER_POLL_SECONDS:-1}
+      QTAIL_WORKER_HEARTBEAT_SECONDS: ${QTAIL_WORKER_HEARTBEAT_SECONDS:-15}
+      QTAIL_WORKER_LEASE_SECONDS: ${QTAIL_WORKER_LEASE_SECONDS:-120}
+      QTAIL_WORKER_RETRY_BASE_SECONDS: ${QTAIL_WORKER_RETRY_BASE_SECONDS:-5}
+      QTAIL_RETENTION_SWEEP_SECONDS: ${QTAIL_RETENTION_SWEEP_SECONDS:-60}
+      QTAIL_WORKER_TEST_DELAY_SECONDS: ${QTAIL_WORKER_TEST_DELAY_SECONDS:-0}
+    volumes:
+      - qtail_job_data:/app/platform/var/jobs
+      - ${QTAIL_SYNTHETIC_CATALOG_HOST_DIR:-./var/catalog}:/app/qtail-catalog:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "/app/platform/backend/worker_health.py"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    restart: unless-stopped
+    ports:
+      - "${WEB_BIND_HOST:-127.0.0.1}:${WEB_PORT:-8080}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ >/dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+volumes:
+  qtail_mysql_data:
+  qtail_job_data:

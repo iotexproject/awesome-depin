@@ -1,0 +1,3994 @@
+{
+  "generated_at": "2026-07-10T09:58:19.173866+00:00",
+  "generated_at_local": "2026-07-10T17:58:19.173882+08:00",
+  "timezone": "Asia/Shanghai",
+  "title": "Q-Tail Open X Training Progress",
+  "current_stage": "strong_download_queued_or_running",
+  "data": {
+    "path": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+    "total_bytes": 184278228991,
+    "total_gib": 171.622,
+    "trainable_bytes": 184278228991,
+    "trainable_gib": 171.622,
+    "dataset_count": 8,
+    "datasets": [
+      {
+        "dataset": "austin_buds_dataset_converted_externally_to_rlds",
+        "bytes": 1604221547,
+        "gib": 1.494,
+        "trainable_bytes": 1604221547,
+        "trainable_gib": 1.494,
+        "file_count": 18,
+        "tfrecord_count": 16,
+        "trainable_tfrecord_count": 16,
+        "partial_file_count": 0
+      },
+      {
+        "dataset": "austin_sirius_dataset_converted_externally_to_rlds",
+        "bytes": 7031694109,
+        "gib": 6.549,
+        "trainable_bytes": 7031694109,
+        "trainable_gib": 6.549,
+        "file_count": 66,
+        "tfrecord_count": 64,
+        "trainable_tfrecord_count": 64,
+        "partial_file_count": 0
+      },
+      {
+        "dataset": "berkeley_mvp_converted_externally_to_rlds",
+        "bytes": 13254264509,
+        "gib": 12.344,
+        "trainable_bytes": 13254264509,
+        "trainable_gib": 12.344,
+        "file_count": 126,
+        "tfrecord_count": 124,
+        "trainable_tfrecord_count": 124,
+        "partial_file_count": 0
+      },
+      {
+        "dataset": "columbia_cairlab_pusht_real",
+        "bytes": 3010538097,
+        "gib": 2.804,
+        "trainable_bytes": 3010538097,
+        "trainable_gib": 2.804,
+        "file_count": 38,
+        "tfrecord_count": 36,
+        "trainable_tfrecord_count": 36,
+        "partial_file_count": 0
+      },
+      {
+        "dataset": "language_table",
+        "bytes": 50362254007,
+        "gib": 46.904,
+        "trainable_bytes": 50362254007,
+        "trainable_gib": 46.904,
+        "file_count": 65,
+        "tfrecord_count": 61,
+        "trainable_tfrecord_count": 61,
+        "partial_file_count": 0
+      },
+      {
+        "dataset": "language_table_sim",
+        "bytes": 99943936069,
+        "gib": 93.08,
+        "trainable_bytes": 99943936069,
+        "trainable_gib": 93.08,
+        "file_count": 175,
+        "tfrecord_count": 173,
+        "trainable_tfrecord_count": 173,
+        "partial_file_count": 0
+      },
+      {
+        "dataset": "nyu_door_opening_surprising_effectiveness",
+        "bytes": 7647996059,
+        "gib": 7.123,
+        "trainable_bytes": 7647996059,
+        "trainable_gib": 7.123,
+        "file_count": 74,
+        "tfrecord_count": 72,
+        "trainable_tfrecord_count": 72,
+        "partial_file_count": 0
+      },
+      {
+        "dataset": "ucsd_kitchen_dataset_converted_externally_to_rlds",
+        "bytes": 1423324594,
+        "gib": 1.326,
+        "trainable_bytes": 1423324594,
+        "trainable_gib": 1.326,
+        "file_count": 18,
+        "tfrecord_count": 16,
+        "trainable_tfrecord_count": 16,
+        "partial_file_count": 0
+      }
+    ],
+    "target_demo_gib": 31.63,
+    "target_strong_gib": 171.62
+  },
+  "disk": {
+    "path": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+    "total_gib": 1858.192,
+    "used_gib": 996.664,
+    "free_gib": 861.528,
+    "target_strong_gib": 171.62,
+    "remaining_to_strong_target_gib": 0.0,
+    "projected_free_after_strong_gib": 861.528,
+    "safety": "ok"
+  },
+  "download_progress": {
+    "active_dataset": null,
+    "files_done": 1,
+    "files_total": 1,
+    "done_gib": 0.59,
+    "total_gib": 0.59,
+    "percent": 100,
+    "speed": "",
+    "eta": "",
+    "line": "/ [1/1 files][604.1 MiB/604.1 MiB] 100% Done",
+    "log_age_seconds": 19733.508837223053,
+    "fresh": false
+  },
+  "download_acceleration": {
+    "generated_at": "2026-07-10T04:29:25Z",
+    "parallel_process_count": "1",
+    "parallel_thread_count": "16",
+    "sliced_object_download_threshold": "256M",
+    "sliced_object_download_max_components": "8",
+    "line": "[2026-07-10T04:29:25Z] gsutil_config processes=1 threads=16 sliced_threshold=256M sliced_components=8",
+    "policy": "Use one process on macOS, higher thread concurrency, and sliced object downloads for large RLDS TFRecord shards."
+  },
+  "download_health": {
+    "state": "no_active_gsutil_process",
+    "process_alive": false,
+    "gsutil_process_count": 0,
+    "gsutil_processes": [],
+    "log_fresh": false,
+    "log_age_seconds": 19733.508837223053,
+    "retry_count_tail_window": 1256,
+    "connection_refused_count_tail_window": 102,
+    "resumable_exception_count_tail_window": 68,
+    "latest_progress_line": "/ [1/1 files][604.1 MiB/604.1 MiB] 100% Done",
+    "wait_guard_ready": true,
+    "wait_guard_error_count": 0,
+    "wait_guard_errors": [],
+    "recovery_policy": "gsutil rsync is resumable; train_after_download polls require-ready and will not start while partial files or missing datasets remain."
+  },
+  "partial_downloads": {
+    "policy": "Partial .gstmp/.tmp/.part files are visible download evidence but excluded from training until promoted to complete TFRecord files.",
+    "row_count": 0,
+    "active_recent_count": 0,
+    "total_bytes": 0,
+    "total_gib": 0.0,
+    "latest_mtime_local": null,
+    "rows": []
+  },
+  "gate_forecast": {
+    "speed": "",
+    "bytes_per_second": null,
+    "current_dataset_remaining_gib": 0.0,
+    "eta_current_dataset_seconds": null,
+    "next_incremental_refresh_remaining_gib": 0.0,
+    "eta_next_incremental_refresh_seconds": null,
+    "strong_remaining_trainable_gib": 0.0,
+    "eta_strong_target_seconds_at_current_speed": null,
+    "disk_vs_trainable_gap_gib": 0.0,
+    "strong_ready": true,
+    "forecast_boundary": "ETA uses the latest gsutil transfer speed and is not a guarantee; training still requires strong verification to pass."
+  },
+  "gate_decisions": [
+    {
+      "gate": "Incremental retrain",
+      "status": "ready",
+      "release_condition": "complete-file trainable data grows by at least min_growth_gib or min_new_shards",
+      "current_evidence": "trainable_gib=171.622; next_refresh_at_gib=168.125; growth_since_refresh_gib=5.497; current_shards=552; next_refresh_at_shards=553; shard_growth=0",
+      "next_action": "Run qtail_auto_refresh training"
+    },
+    {
+      "gate": "Strong download verification",
+      "status": "ready",
+      "release_condition": "language_table and language_table_sim meet size/metadata requirements and no partial files remain",
+      "current_evidence": "language_table_sim_gib=93.08; language_table_sim_partial_files=0; errors=",
+      "next_action": "Allow 20000-step Strong training"
+    },
+    {
+      "gate": "Partial-byte exclusion",
+      "status": "enforced",
+      "release_condition": "partial files are promoted to complete files by gsutil",
+      "current_evidence": "partial_files=0; partial_gib=0.0; recent_active=0",
+      "next_action": "Keep excluding .gstmp/.tmp/.part from training rows."
+    },
+    {
+      "gate": "Strong final training",
+      "status": "complete",
+      "release_condition": "ready_for_strong_training=true",
+      "current_evidence": "download_complete=True; training_complete=True",
+      "next_action": "Run 20000-step training and rebuild service package after verification passes."
+    },
+    {
+      "gate": "Customer service package",
+      "status": "live_incremental",
+      "release_condition": "latest validated training source is available",
+      "current_evidence": "auto_refresh_status=refreshed; last_refreshed_gib=166.125",
+      "next_action": "Serve current incremental model now; switch to Strong checkpoint after final training."
+    }
+  ],
+  "strong_download_verification": {
+    "generated_at": "2026-07-10T04:29:25.508035+00:00",
+    "data_dir": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+    "ready_for_strong_training": true,
+    "errors": [],
+    "datasets": [
+      {
+        "dataset": "language_table",
+        "path": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo/language_table",
+        "exists": true,
+        "bytes": 50362254007,
+        "gib": 46.904,
+        "tfrecord_count": 61,
+        "partial_file_count": 0,
+        "required_metadata_found": [
+          "dataset_info.json",
+          "features.json"
+        ],
+        "expected": {
+          "min_gib": 46.0,
+          "min_tfrecords": 60,
+          "required_files": [
+            "features.json",
+            "dataset_info.json"
+          ]
+        },
+        "valid": true,
+        "errors": []
+      },
+      {
+        "dataset": "language_table_sim",
+        "path": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo/language_table_sim",
+        "exists": true,
+        "bytes": 99943936069,
+        "gib": 93.08,
+        "tfrecord_count": 173,
+        "partial_file_count": 0,
+        "required_metadata_found": [
+          "dataset_info.json",
+          "features.json"
+        ],
+        "expected": {
+          "min_gib": 80.0,
+          "min_tfrecords": 20,
+          "required_files": [
+            "features.json",
+            "dataset_info.json"
+          ]
+        },
+        "valid": true,
+        "errors": []
+      }
+    ]
+  },
+  "strong_dataset_completion": [
+    {
+      "dataset": "language_table",
+      "valid": true,
+      "gib": 46.904,
+      "min_gib": 46.0,
+      "gib_completion_pct": 101.96521739130435,
+      "remaining_gib": 0.0,
+      "tfrecord_count": 61,
+      "min_tfrecords": 60,
+      "tfrecord_completion_pct": 101.66666666666666,
+      "remaining_tfrecords": 0,
+      "partial_file_count": 0,
+      "errors": []
+    },
+    {
+      "dataset": "language_table_sim",
+      "valid": true,
+      "gib": 93.08,
+      "min_gib": 80.0,
+      "gib_completion_pct": 116.35,
+      "remaining_gib": 0.0,
+      "tfrecord_count": 173,
+      "min_tfrecords": 20,
+      "tfrecord_completion_pct": 865.0,
+      "remaining_tfrecords": 0,
+      "partial_file_count": 0,
+      "errors": []
+    }
+  ],
+  "strong_pipeline": {
+    "wait_policy": "poll_strong_download_verification_until_ready",
+    "ready_field": "ready_for_strong_training",
+    "guard_command": "python3 tools/qtail_verify_openx_strong_download.py --require-ready",
+    "download_complete": true,
+    "download_completed_at": "2026-07-10T04:29:25Z",
+    "training_complete": true,
+    "training_completed_at": "2026-07-10T03:08:41Z",
+    "post_training_actions": [
+      "run 20000-step Open X Strong allocation-head training",
+      "rebuild qtail_openx_service_public from strong training report",
+      "validate qtail_data_engine_report.json",
+      "write STRONG_TRAINING_COMPLETE marker",
+      "run a post-strong MetaWorld customer API sample",
+      "run a post-strong semifinal customer API sample",
+      "validate the latest post-strong customer package",
+      "refresh progress_manifest.json for the page after the completion marker exists"
+    ]
+  },
+  "post_strong_acceptance": {
+    "status": "complete",
+    "completion_condition": "Strong training complete, public package rebuilt, MetaWorld and semifinal customer API samples generated from strong_openx_snapshot, latest semifinal package validated.",
+    "samples": [
+      {
+        "name": "MetaWorld benchmark customer",
+        "input": "/Users/avalok/work/Q-TAIL-MVP/data/metaworld_benchmark_anchor.csv",
+        "latest_response": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/latest_metaworld_client_response.json",
+        "exists": true,
+        "training_source": "strong_openx_snapshot",
+        "run_id": "20260710T030841Z_metaworld_benchmark_anchor",
+        "tail_success_gain_pp": 10.46146911269984,
+        "expected_after_strong": "training_source=strong_openx_snapshot"
+      },
+      {
+        "name": "Semifinal customer embodied tasks",
+        "input": "/Users/avalok/work/Q-TAIL-MVP/data/customer_semifinal_embodied_tasks.csv",
+        "latest_response": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/latest_semifinal_customer_response.json",
+        "exists": true,
+        "training_source": "strong_openx_snapshot",
+        "run_id": "20260710T030841Z_customer_semifinal_embodied_tasks",
+        "tail_success_gain_pp": 35.059039800379175,
+        "expected_after_strong": "training_source=strong_openx_snapshot and package validator valid=true"
+      }
+    ],
+    "validator": {
+      "command": "python3 tools/qtail_validate_package.py <post-strong-output-dir>/qtail_data_engine_report.json",
+      "latest_semifinal_response": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/latest_semifinal_customer_response.json"
+    }
+  },
+  "strong_wait_guard": {
+    "generated_at": "2026-07-10T03:08:02.231607+00:00",
+    "wait_policy": "poll_strong_download_verification_until_ready",
+    "guard_command": "python3 tools/qtail_verify_openx_strong_download.py --require-ready",
+    "ready_for_strong_training": true,
+    "downloader_label_present": true,
+    "downloader_pid": null,
+    "downloader_launchctl_row": "-\t0\tqtail-openx-strong-addon",
+    "downloader_action": "downloader_loaded_without_pid_kickstart_requested",
+    "kickstart": {
+      "requested": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "verification_path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_download/last_wait_verification.json",
+    "error_count": 0,
+    "errors": []
+  },
+  "jobs": {
+    "qtail-service-api": {
+      "state": "running",
+      "pid": "44956",
+      "raw": "44956\t-15\tqtail-service-api"
+    },
+    "qtail-download-watchdog": {
+      "state": "not_running"
+    },
+    "qtail-auto-refresh-loop": {
+      "state": "not_running"
+    },
+    "qtail-openx-demo-download": {
+      "state": "not_running"
+    },
+    "qtail-openx-demo-train": {
+      "state": "not_running"
+    },
+    "qtail-openx-demo-train-after-download": {
+      "state": "not_running"
+    },
+    "qtail-openx-strong-addon": {
+      "state": "not_running"
+    },
+    "qtail-openx-strong-train-after-download": {
+      "state": "not_running"
+    }
+  },
+  "training": {
+    "quick_report": {
+      "generated_at": "2026-07-10T03:08:40.905366+00:00",
+      "status": "complete",
+      "training_scope": "all_complete_shards_record_sampled",
+      "claim_boundary": [
+        "This is a real Open X record-informed Q-Tail allocation-head training run.",
+        "Every complete TFRecord shard is covered; a bounded, deterministic number of episodes is decoded per shard.",
+        "It is not full robot-policy training and it does not prove downstream policy success without a same-policy run.",
+        "Both source and Q-Tail heads use identical architecture, optimizer, steps, features and seed."
+      ],
+      "data_dir": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+      "datasets": [
+        "austin_buds_dataset_converted_externally_to_rlds",
+        "austin_sirius_dataset_converted_externally_to_rlds",
+        "berkeley_mvp_converted_externally_to_rlds",
+        "columbia_cairlab_pusht_real",
+        "language_table",
+        "language_table_sim",
+        "nyu_door_opening_surprising_effectiveness",
+        "ucsd_kitchen_dataset_converted_externally_to_rlds"
+      ],
+      "shard_count": 562,
+      "total_bytes": 184278110322,
+      "total_gib": 171.622,
+      "steps": 20000,
+      "model_artifact": {
+        "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/qtail_allocation_head.pt",
+        "sha256": "7a53a2706dfc86d58e735e808987c60c72d54b94b2ca4f6520b9eeaa1445d59a",
+        "feature_names": [
+          "log_bytes",
+          "shard_size_rarity",
+          "dataset_frequency",
+          "shard_position",
+          "mean_episode_steps",
+          "reward_failure_proxy",
+          "action_complexity",
+          "instruction_complexity",
+          "terminal_rate"
+        ],
+        "parameter_count": 865
+      },
+      "trajectory_evidence": {
+        "tfrecord_shards_attempted": 562,
+        "tfrecord_shards_parsed": 562,
+        "record_parse_rate": 1.0,
+        "records_per_shard_cap": 4,
+        "records_decoded": 2071,
+        "mean_episode_steps": 127.19780545670227,
+        "features_include": [
+          "episode length",
+          "reward",
+          "action statistics",
+          "instruction complexity",
+          "terminal rate"
+        ]
+      },
+      "source_final_kl": 5.43730038771173e-09,
+      "qtail_final_kl": 2.4204084184020758e-05,
+      "effect_metrics": {
+        "tail_definition": "top_30_percent_by_record_informed_tail_score",
+        "source_tail_share": 0.0824911892414093,
+        "qtail_tail_share": 0.5013161897659302,
+        "target_tail_share_gain_pp": 41.88250005245209,
+        "source_pred_tail_share": 0.08248263597488403,
+        "qtail_pred_tail_share": 0.5007642507553101,
+        "predicted_tail_share_gain_pp": 41.8281614780426,
+        "consistent_with_pt_tail_goal": true
+      },
+      "source_history": [
+        {
+          "step": 0,
+          "kl": 0.34538111090660095
+        },
+        {
+          "step": 1000,
+          "kl": 1.4842305972706527e-05
+        },
+        {
+          "step": 2000,
+          "kl": 4.0256636566482484e-06
+        },
+        {
+          "step": 3000,
+          "kl": 1.6991289157886058e-06
+        },
+        {
+          "step": 4000,
+          "kl": 8.922306733438745e-07
+        },
+        {
+          "step": 5000,
+          "kl": 4.881849235971458e-07
+        },
+        {
+          "step": 6000,
+          "kl": 1.6112880985019729e-06
+        },
+        {
+          "step": 7000,
+          "kl": 1.1408792488509789e-07
+        },
+        {
+          "step": 8000,
+          "kl": 7.275548341567628e-08
+        },
+        {
+          "step": 9000,
+          "kl": 4.1435646380705293e-07
+        },
+        {
+          "step": 10000,
+          "kl": 2.6405359676573426e-07
+        },
+        {
+          "step": 11000,
+          "kl": 1.431012606190052e-07
+        },
+        {
+          "step": 12000,
+          "kl": 2.4454684535157867e-06
+        },
+        {
+          "step": 13000,
+          "kl": 1.3316969216248253e-07
+        },
+        {
+          "step": 14000,
+          "kl": 4.528237695922144e-08
+        },
+        {
+          "step": 15000,
+          "kl": 1.339634764008224e-06
+        },
+        {
+          "step": 16000,
+          "kl": 9.58268628892256e-07
+        },
+        {
+          "step": 17000,
+          "kl": 2.2454742065747268e-07
+        },
+        {
+          "step": 18000,
+          "kl": 1.1926601928280434e-07
+        },
+        {
+          "step": 19000,
+          "kl": 7.0954229158815e-08
+        },
+        {
+          "step": 20000,
+          "kl": 5.43730038771173e-09
+        }
+      ],
+      "qtail_history": [
+        {
+          "step": 0,
+          "kl": 0.17133426666259766
+        },
+        {
+          "step": 1000,
+          "kl": 0.0005867590080015361
+        },
+        {
+          "step": 2000,
+          "kl": 0.0003083599149249494
+        },
+        {
+          "step": 3000,
+          "kl": 0.00014127400936558843
+        },
+        {
+          "step": 4000,
+          "kl": 9.018235141411424e-05
+        },
+        {
+          "step": 5000,
+          "kl": 6.369696347974241e-05
+        },
+        {
+          "step": 6000,
+          "kl": 0.00010320116416551173
+        },
+        {
+          "step": 7000,
+          "kl": 4.941951192449778e-05
+        },
+        {
+          "step": 8000,
+          "kl": 4.607056325767189e-05
+        },
+        {
+          "step": 9000,
+          "kl": 4.356657154858112e-05
+        },
+        {
+          "step": 10000,
+          "kl": 4.1275692638009787e-05
+        },
+        {
+          "step": 11000,
+          "kl": 3.898811701219529e-05
+        },
+        {
+          "step": 12000,
+          "kl": 3.7052101106382906e-05
+        },
+        {
+          "step": 13000,
+          "kl": 3.510933311190456e-05
+        },
+        {
+          "step": 14000,
+          "kl": 3.301951801404357e-05
+        },
+        {
+          "step": 15000,
+          "kl": 3.128047683276236e-05
+        },
+        {
+          "step": 16000,
+          "kl": 2.948202018160373e-05
+        },
+        {
+          "step": 17000,
+          "kl": 3.602321521611884e-05
+        },
+        {
+          "step": 18000,
+          "kl": 2.589239738881588e-05
+        },
+        {
+          "step": 19000,
+          "kl": 2.4447450414299965e-05
+        },
+        {
+          "step": 20000,
+          "kl": 2.4204084184020758e-05
+        }
+      ]
+    },
+    "current_report_source": "strong_openx_training",
+    "full_demo_report": {
+      "generated_at": "2026-07-09T12:27:30.306915+00:00",
+      "status": "complete",
+      "claim_boundary": [
+        "This is a real Open X shard-level Q-Tail allocation-head training run.",
+        "It is not yet full robot-policy training; TFDS/RLDS policy training is the next stage.",
+        "Both source and Q-Tail heads use identical architecture, optimizer, steps, features, and seed."
+      ],
+      "data_dir": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+      "datasets": [
+        "austin_buds_dataset_converted_externally_to_rlds",
+        "austin_sirius_dataset_converted_externally_to_rlds",
+        "berkeley_mvp_converted_externally_to_rlds",
+        "columbia_cairlab_pusht_real",
+        "language_table",
+        "nyu_door_opening_surprising_effectiveness",
+        "ucsd_kitchen_dataset_converted_externally_to_rlds"
+      ],
+      "shard_count": 366,
+      "total_bytes": 54024565829,
+      "total_gib": 50.314,
+      "steps": 10000,
+      "source_final_kl": 3.96883024222916e-08,
+      "qtail_final_kl": 0.00038476422196254134,
+      "effect_metrics": {
+        "tail_definition": "top_30_percent_by_shard_tail_score",
+        "source_tail_share": 0.15510092675685883,
+        "qtail_tail_share": 0.522159218788147,
+        "target_tail_share_gain_pp": 36.705829203128815,
+        "source_pred_tail_share": 0.1550929844379425,
+        "qtail_pred_tail_share": 0.52177894115448,
+        "predicted_tail_share_gain_pp": 36.66859567165375,
+        "consistent_with_pt_tail_goal": true
+      },
+      "source_history": [
+        {
+          "step": 0,
+          "kl": 0.5595625042915344
+        },
+        {
+          "step": 500,
+          "kl": 8.300207809952553e-07
+        },
+        {
+          "step": 1000,
+          "kl": 2.763918018899858e-07
+        },
+        {
+          "step": 1500,
+          "kl": 5.124093149788678e-08
+        },
+        {
+          "step": 2000,
+          "kl": 1.1158863344462588e-07
+        },
+        {
+          "step": 2500,
+          "kl": 1.1441989045124501e-07
+        },
+        {
+          "step": 3000,
+          "kl": 9.957238944480196e-08
+        },
+        {
+          "step": 3500,
+          "kl": 1.2377950042719021e-07
+        },
+        {
+          "step": 4000,
+          "kl": 1.273510861210525e-07
+        },
+        {
+          "step": 4500,
+          "kl": 7.417702363454737e-08
+        },
+        {
+          "step": 5000,
+          "kl": 1.612488631508313e-08
+        },
+        {
+          "step": 5500,
+          "kl": -2.7961505111306906e-08
+        },
+        {
+          "step": 6000,
+          "kl": -4.281400833860971e-08
+        },
+        {
+          "step": 6500,
+          "kl": 1.3444241631077603e-07
+        },
+        {
+          "step": 7000,
+          "kl": 5.817901183036156e-08
+        },
+        {
+          "step": 7500,
+          "kl": -1.6384774426114745e-08
+        },
+        {
+          "step": 8000,
+          "kl": 3.106356416537892e-08
+        },
+        {
+          "step": 8500,
+          "kl": 4.299954525777139e-08
+        },
+        {
+          "step": 9000,
+          "kl": -1.8960008674184792e-08
+        },
+        {
+          "step": 9500,
+          "kl": 1.8165792425861582e-08
+        },
+        {
+          "step": 10000,
+          "kl": 3.96883024222916e-08
+        }
+      ],
+      "qtail_history": [
+        {
+          "step": 0,
+          "kl": 0.18336200714111328
+        },
+        {
+          "step": 500,
+          "kl": 0.0037317064125090837
+        },
+        {
+          "step": 1000,
+          "kl": 0.0024078271817415953
+        },
+        {
+          "step": 1500,
+          "kl": 0.0017421329393982887
+        },
+        {
+          "step": 2000,
+          "kl": 0.0011455228086560965
+        },
+        {
+          "step": 2500,
+          "kl": 0.0008191093802452087
+        },
+        {
+          "step": 3000,
+          "kl": 0.0006806590827181935
+        },
+        {
+          "step": 3500,
+          "kl": 0.0015133072156459093
+        },
+        {
+          "step": 4000,
+          "kl": 0.0007733192760497332
+        },
+        {
+          "step": 4500,
+          "kl": 0.000566809088923037
+        },
+        {
+          "step": 5000,
+          "kl": 0.0006401831051334739
+        },
+        {
+          "step": 5500,
+          "kl": 0.0005134427919983864
+        },
+        {
+          "step": 6000,
+          "kl": 0.0004807733930647373
+        },
+        {
+          "step": 6500,
+          "kl": 0.0004655093071050942
+        },
+        {
+          "step": 7000,
+          "kl": 0.000453172717243433
+        },
+        {
+          "step": 7500,
+          "kl": 0.0004409615066833794
+        },
+        {
+          "step": 8000,
+          "kl": 0.0004334785044193268
+        },
+        {
+          "step": 8500,
+          "kl": 0.00041205325396731496
+        },
+        {
+          "step": 9000,
+          "kl": 0.00040167017141357064
+        },
+        {
+          "step": 9500,
+          "kl": 0.0003931624523829669
+        },
+        {
+          "step": 10000,
+          "kl": 0.00038476422196254134
+        }
+      ]
+    },
+    "incremental_report": {
+      "generated_at": "2026-07-10T02:33:30.785569+00:00",
+      "status": "complete",
+      "training_scope": "all_complete_shards_record_sampled",
+      "claim_boundary": [
+        "This is a real Open X record-informed Q-Tail allocation-head training run.",
+        "Every complete TFRecord shard is covered; a bounded, deterministic number of episodes is decoded per shard.",
+        "It is not full robot-policy training and it does not prove downstream policy success without a same-policy run.",
+        "Both source and Q-Tail heads use identical architecture, optimizer, steps, features and seed."
+      ],
+      "data_dir": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+      "datasets": [
+        "austin_buds_dataset_converted_externally_to_rlds",
+        "austin_sirius_dataset_converted_externally_to_rlds",
+        "berkeley_mvp_converted_externally_to_rlds",
+        "columbia_cairlab_pusht_real",
+        "language_table",
+        "language_table_sim",
+        "nyu_door_opening_surprising_effectiveness",
+        "ucsd_kitchen_dataset_converted_externally_to_rlds"
+      ],
+      "shard_count": 552,
+      "total_bytes": 178375767279,
+      "total_gib": 166.125,
+      "steps": 2500,
+      "model_artifact": {
+        "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/qtail_allocation_head.pt",
+        "sha256": "47bcc7b8beb9c0b252fd8c5323e3160310207fade4bc453006e910019b1faa7b",
+        "feature_names": [
+          "log_bytes",
+          "shard_size_rarity",
+          "dataset_frequency",
+          "shard_position",
+          "mean_episode_steps",
+          "reward_failure_proxy",
+          "action_complexity",
+          "instruction_complexity",
+          "terminal_rate"
+        ],
+        "parameter_count": 865
+      },
+      "trajectory_evidence": {
+        "tfrecord_shards_attempted": 552,
+        "tfrecord_shards_parsed": 552,
+        "record_parse_rate": 1.0,
+        "records_per_shard_cap": 1,
+        "records_decoded": 552,
+        "mean_episode_steps": 129.41666666666666,
+        "features_include": [
+          "episode length",
+          "reward",
+          "action statistics",
+          "instruction complexity",
+          "terminal rate"
+        ]
+      },
+      "source_final_kl": 2.468434104230255e-06,
+      "qtail_final_kl": 0.00020976876839995384,
+      "effect_metrics": {
+        "tail_definition": "top_30_percent_by_record_informed_tail_score",
+        "source_tail_share": 0.08323414623737335,
+        "qtail_tail_share": 0.5023335814476013,
+        "target_tail_share_gain_pp": 41.9099435210228,
+        "source_pred_tail_share": 0.08325202018022537,
+        "qtail_pred_tail_share": 0.5023468732833862,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "consistent_with_pt_tail_goal": true
+      },
+      "source_history": [
+        {
+          "step": 0,
+          "kl": 0.35114115476608276
+        },
+        {
+          "step": 125,
+          "kl": 0.002761093433946371
+        },
+        {
+          "step": 250,
+          "kl": 0.00042337592458352447
+        },
+        {
+          "step": 375,
+          "kl": 9.937858703779057e-05
+        },
+        {
+          "step": 500,
+          "kl": 4.7723951865918934e-05
+        },
+        {
+          "step": 625,
+          "kl": 3.1965115340426564e-05
+        },
+        {
+          "step": 750,
+          "kl": 2.5031658879015595e-05
+        },
+        {
+          "step": 875,
+          "kl": 2.0104158465983346e-05
+        },
+        {
+          "step": 1000,
+          "kl": 1.681931462371722e-05
+        },
+        {
+          "step": 1125,
+          "kl": 1.3724781638302375e-05
+        },
+        {
+          "step": 1250,
+          "kl": 1.1386418009351473e-05
+        },
+        {
+          "step": 1375,
+          "kl": 9.744715498527512e-06
+        },
+        {
+          "step": 1500,
+          "kl": 7.886595994932577e-06
+        },
+        {
+          "step": 1625,
+          "kl": 6.609669071622193e-06
+        },
+        {
+          "step": 1750,
+          "kl": 5.565001629292965e-06
+        },
+        {
+          "step": 1875,
+          "kl": 4.991696187062189e-06
+        },
+        {
+          "step": 2000,
+          "kl": 4.1199164115823805e-06
+        },
+        {
+          "step": 2125,
+          "kl": 3.337139787618071e-06
+        },
+        {
+          "step": 2250,
+          "kl": 3.1309755286201835e-06
+        },
+        {
+          "step": 2375,
+          "kl": 2.816672349581495e-06
+        },
+        {
+          "step": 2500,
+          "kl": 2.468434104230255e-06
+        }
+      ],
+      "qtail_history": [
+        {
+          "step": 0,
+          "kl": 0.17360326647758484
+        },
+        {
+          "step": 125,
+          "kl": 0.002338327467441559
+        },
+        {
+          "step": 250,
+          "kl": 0.0016936373431235552
+        },
+        {
+          "step": 375,
+          "kl": 0.0013847625814378262
+        },
+        {
+          "step": 500,
+          "kl": 0.0011088212486356497
+        },
+        {
+          "step": 625,
+          "kl": 0.0008744432125240564
+        },
+        {
+          "step": 750,
+          "kl": 0.000717613787855953
+        },
+        {
+          "step": 875,
+          "kl": 0.0006112419650889933
+        },
+        {
+          "step": 1000,
+          "kl": 0.000532890553586185
+        },
+        {
+          "step": 1125,
+          "kl": 0.0004776163259521127
+        },
+        {
+          "step": 1250,
+          "kl": 0.0004368424997664988
+        },
+        {
+          "step": 1375,
+          "kl": 0.00040499470196664333
+        },
+        {
+          "step": 1500,
+          "kl": 0.0003783673164434731
+        },
+        {
+          "step": 1625,
+          "kl": 0.00035519583616405725
+        },
+        {
+          "step": 1750,
+          "kl": 0.0003332534688524902
+        },
+        {
+          "step": 1875,
+          "kl": 0.00031124555971473455
+        },
+        {
+          "step": 2000,
+          "kl": 0.0002890219329856336
+        },
+        {
+          "step": 2125,
+          "kl": 0.0002666705404408276
+        },
+        {
+          "step": 2250,
+          "kl": 0.0002455354551784694
+        },
+        {
+          "step": 2375,
+          "kl": 0.00022669503232464194
+        },
+        {
+          "step": 2500,
+          "kl": 0.00020976876839995384
+        }
+      ]
+    },
+    "incremental_rows_quality": {
+      "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+      "exists": true,
+      "row_count": 552,
+      "partial_row_count": 0,
+      "clean": true,
+      "bytes": 178375767279,
+      "gib": 166.125,
+      "dataset_count": 8,
+      "datasets": [
+        "austin_buds_dataset_converted_externally_to_rlds",
+        "austin_sirius_dataset_converted_externally_to_rlds",
+        "berkeley_mvp_converted_externally_to_rlds",
+        "columbia_cairlab_pusht_real",
+        "language_table",
+        "language_table_sim",
+        "nyu_door_opening_surprising_effectiveness",
+        "ucsd_kitchen_dataset_converted_externally_to_rlds"
+      ],
+      "byte_policy": "complete_files_only_excluding_gstmp_tmp_part"
+    },
+    "strong_report": {
+      "generated_at": "2026-07-10T03:08:40.905366+00:00",
+      "status": "complete",
+      "training_scope": "all_complete_shards_record_sampled",
+      "claim_boundary": [
+        "This is a real Open X record-informed Q-Tail allocation-head training run.",
+        "Every complete TFRecord shard is covered; a bounded, deterministic number of episodes is decoded per shard.",
+        "It is not full robot-policy training and it does not prove downstream policy success without a same-policy run.",
+        "Both source and Q-Tail heads use identical architecture, optimizer, steps, features and seed."
+      ],
+      "data_dir": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+      "datasets": [
+        "austin_buds_dataset_converted_externally_to_rlds",
+        "austin_sirius_dataset_converted_externally_to_rlds",
+        "berkeley_mvp_converted_externally_to_rlds",
+        "columbia_cairlab_pusht_real",
+        "language_table",
+        "language_table_sim",
+        "nyu_door_opening_surprising_effectiveness",
+        "ucsd_kitchen_dataset_converted_externally_to_rlds"
+      ],
+      "shard_count": 562,
+      "total_bytes": 184278110322,
+      "total_gib": 171.622,
+      "steps": 20000,
+      "model_artifact": {
+        "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/qtail_allocation_head.pt",
+        "sha256": "7a53a2706dfc86d58e735e808987c60c72d54b94b2ca4f6520b9eeaa1445d59a",
+        "feature_names": [
+          "log_bytes",
+          "shard_size_rarity",
+          "dataset_frequency",
+          "shard_position",
+          "mean_episode_steps",
+          "reward_failure_proxy",
+          "action_complexity",
+          "instruction_complexity",
+          "terminal_rate"
+        ],
+        "parameter_count": 865
+      },
+      "trajectory_evidence": {
+        "tfrecord_shards_attempted": 562,
+        "tfrecord_shards_parsed": 562,
+        "record_parse_rate": 1.0,
+        "records_per_shard_cap": 4,
+        "records_decoded": 2071,
+        "mean_episode_steps": 127.19780545670227,
+        "features_include": [
+          "episode length",
+          "reward",
+          "action statistics",
+          "instruction complexity",
+          "terminal rate"
+        ]
+      },
+      "source_final_kl": 5.43730038771173e-09,
+      "qtail_final_kl": 2.4204084184020758e-05,
+      "effect_metrics": {
+        "tail_definition": "top_30_percent_by_record_informed_tail_score",
+        "source_tail_share": 0.0824911892414093,
+        "qtail_tail_share": 0.5013161897659302,
+        "target_tail_share_gain_pp": 41.88250005245209,
+        "source_pred_tail_share": 0.08248263597488403,
+        "qtail_pred_tail_share": 0.5007642507553101,
+        "predicted_tail_share_gain_pp": 41.8281614780426,
+        "consistent_with_pt_tail_goal": true
+      },
+      "source_history": [
+        {
+          "step": 0,
+          "kl": 0.34538111090660095
+        },
+        {
+          "step": 1000,
+          "kl": 1.4842305972706527e-05
+        },
+        {
+          "step": 2000,
+          "kl": 4.0256636566482484e-06
+        },
+        {
+          "step": 3000,
+          "kl": 1.6991289157886058e-06
+        },
+        {
+          "step": 4000,
+          "kl": 8.922306733438745e-07
+        },
+        {
+          "step": 5000,
+          "kl": 4.881849235971458e-07
+        },
+        {
+          "step": 6000,
+          "kl": 1.6112880985019729e-06
+        },
+        {
+          "step": 7000,
+          "kl": 1.1408792488509789e-07
+        },
+        {
+          "step": 8000,
+          "kl": 7.275548341567628e-08
+        },
+        {
+          "step": 9000,
+          "kl": 4.1435646380705293e-07
+        },
+        {
+          "step": 10000,
+          "kl": 2.6405359676573426e-07
+        },
+        {
+          "step": 11000,
+          "kl": 1.431012606190052e-07
+        },
+        {
+          "step": 12000,
+          "kl": 2.4454684535157867e-06
+        },
+        {
+          "step": 13000,
+          "kl": 1.3316969216248253e-07
+        },
+        {
+          "step": 14000,
+          "kl": 4.528237695922144e-08
+        },
+        {
+          "step": 15000,
+          "kl": 1.339634764008224e-06
+        },
+        {
+          "step": 16000,
+          "kl": 9.58268628892256e-07
+        },
+        {
+          "step": 17000,
+          "kl": 2.2454742065747268e-07
+        },
+        {
+          "step": 18000,
+          "kl": 1.1926601928280434e-07
+        },
+        {
+          "step": 19000,
+          "kl": 7.0954229158815e-08
+        },
+        {
+          "step": 20000,
+          "kl": 5.43730038771173e-09
+        }
+      ],
+      "qtail_history": [
+        {
+          "step": 0,
+          "kl": 0.17133426666259766
+        },
+        {
+          "step": 1000,
+          "kl": 0.0005867590080015361
+        },
+        {
+          "step": 2000,
+          "kl": 0.0003083599149249494
+        },
+        {
+          "step": 3000,
+          "kl": 0.00014127400936558843
+        },
+        {
+          "step": 4000,
+          "kl": 9.018235141411424e-05
+        },
+        {
+          "step": 5000,
+          "kl": 6.369696347974241e-05
+        },
+        {
+          "step": 6000,
+          "kl": 0.00010320116416551173
+        },
+        {
+          "step": 7000,
+          "kl": 4.941951192449778e-05
+        },
+        {
+          "step": 8000,
+          "kl": 4.607056325767189e-05
+        },
+        {
+          "step": 9000,
+          "kl": 4.356657154858112e-05
+        },
+        {
+          "step": 10000,
+          "kl": 4.1275692638009787e-05
+        },
+        {
+          "step": 11000,
+          "kl": 3.898811701219529e-05
+        },
+        {
+          "step": 12000,
+          "kl": 3.7052101106382906e-05
+        },
+        {
+          "step": 13000,
+          "kl": 3.510933311190456e-05
+        },
+        {
+          "step": 14000,
+          "kl": 3.301951801404357e-05
+        },
+        {
+          "step": 15000,
+          "kl": 3.128047683276236e-05
+        },
+        {
+          "step": 16000,
+          "kl": 2.948202018160373e-05
+        },
+        {
+          "step": 17000,
+          "kl": 3.602321521611884e-05
+        },
+        {
+          "step": 18000,
+          "kl": 2.589239738881588e-05
+        },
+        {
+          "step": 19000,
+          "kl": 2.4447450414299965e-05
+        },
+        {
+          "step": 20000,
+          "kl": 2.4204084184020758e-05
+        }
+      ]
+    },
+    "strong_rows_quality": {
+      "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/openx_shard_training_rows.csv",
+      "exists": true,
+      "row_count": 562,
+      "partial_row_count": 0,
+      "clean": true,
+      "bytes": 184278110322,
+      "gib": 171.622,
+      "dataset_count": 8,
+      "datasets": [
+        "austin_buds_dataset_converted_externally_to_rlds",
+        "austin_sirius_dataset_converted_externally_to_rlds",
+        "berkeley_mvp_converted_externally_to_rlds",
+        "columbia_cairlab_pusht_real",
+        "language_table",
+        "language_table_sim",
+        "nyu_door_opening_surprising_effectiveness",
+        "ucsd_kitchen_dataset_converted_externally_to_rlds"
+      ],
+      "byte_policy": "complete_files_only_excluding_gstmp_tmp_part"
+    },
+    "ledger": {
+      "path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_auto_refresh/training_ledger.json",
+      "row_count": 77,
+      "rows": [
+        {
+          "run_id": "20260710T013248Z",
+          "generated_at": "2026-07-10T01:32:48.716570+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 155.541,
+          "shard_count": 550,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.08006720244884491,
+          "qtail_pred_tail_share": 0.500727653503418,
+          "predicted_tail_share_gain_pp": 42.066045105457306,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T013839Z",
+          "generated_at": "2026-07-10T01:38:39.320613+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 156.616,
+          "shard_count": 552,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.08093499392271042,
+          "qtail_pred_tail_share": 0.5023740530014038,
+          "predicted_tail_share_gain_pp": 42.14390590786934,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T014122Z",
+          "generated_at": "2026-07-10T01:41:22.598925+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 157.1,
+          "shard_count": 553,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.08068476617336273,
+          "qtail_pred_tail_share": 0.501778244972229,
+          "predicted_tail_share_gain_pp": 42.10934787988663,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T014445Z",
+          "generated_at": "2026-07-10T01:44:45.470656+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 157.685,
+          "shard_count": 554,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.08038689941167831,
+          "qtail_pred_tail_share": 0.5003061890602112,
+          "predicted_tail_share_gain_pp": 41.99192896485329,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T015339Z",
+          "generated_at": "2026-07-10T01:53:39.672055+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 158.763,
+          "shard_count": 556,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.08057469874620438,
+          "qtail_pred_tail_share": 0.50236576795578,
+          "predicted_tail_share_gain_pp": 42.179106920957565,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T015446Z",
+          "generated_at": "2026-07-10T01:54:46.395664+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 159.252,
+          "shard_count": 557,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.08032737672328949,
+          "qtail_pred_tail_share": 0.5015137195587158,
+          "predicted_tail_share_gain_pp": 42.11863428354263,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T021036Z",
+          "generated_at": "2026-07-10T02:10:36.103919+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 159.738,
+          "shard_count": 558,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.08040587604045868,
+          "qtail_pred_tail_share": 0.5027698874473572,
+          "predicted_tail_share_gain_pp": 42.23640114068985,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T021234Z",
+          "generated_at": "2026-07-10T02:12:34.985332+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 160.232,
+          "shard_count": 559,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.0801587700843811,
+          "qtail_pred_tail_share": 0.5018904209136963,
+          "predicted_tail_share_gain_pp": 42.17316508293152,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T021434Z",
+          "generated_at": "2026-07-10T02:14:34.763447+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 161.446,
+          "shard_count": 561,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.07993015646934509,
+          "qtail_pred_tail_share": 0.501505970954895,
+          "predicted_tail_share_gain_pp": 42.15758144855499,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T021747Z",
+          "generated_at": "2026-07-10T02:17:47.810843+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 161.935,
+          "shard_count": 562,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.07968882471323013,
+          "qtail_pred_tail_share": 0.5012252330780029,
+          "predicted_tail_share_gain_pp": 42.15364083647728,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T022054Z",
+          "generated_at": "2026-07-10T02:20:54.547346+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": false,
+          "trainable_gib": 162.521,
+          "shard_count": 563,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.07940071821212769,
+          "qtail_pred_tail_share": 0.49478834867477417,
+          "predicted_tail_share_gain_pp": 41.53876304626465,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.43318136772369,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        },
+        {
+          "run_id": "20260710T023331Z",
+          "generated_at": "2026-07-10T02:33:31.251539+00:00",
+          "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+          "force": true,
+          "trainable_gib": 166.125,
+          "shard_count": 552,
+          "steps": 2500,
+          "dataset_count": 8,
+          "datasets": [
+            "austin_buds_dataset_converted_externally_to_rlds",
+            "austin_sirius_dataset_converted_externally_to_rlds",
+            "berkeley_mvp_converted_externally_to_rlds",
+            "columbia_cairlab_pusht_real",
+            "language_table",
+            "language_table_sim",
+            "nyu_door_opening_surprising_effectiveness",
+            "ucsd_kitchen_dataset_converted_externally_to_rlds"
+          ],
+          "source_pred_tail_share": 0.08325202018022537,
+          "qtail_pred_tail_share": 0.5023468732833862,
+          "predicted_tail_share_gain_pp": 41.909485310316086,
+          "consistent_with_pt_tail_goal": true,
+          "service_tail_success_gain_pp": 5.409800742436954,
+          "service_tail_success_relative_gain_pct": 11.310462530453531,
+          "service_cvar20_gain_pp": 5.560568197370608,
+          "service_tail_data_share_gain_pp": 34.433181367723684,
+          "service_winner": "qtail_synthetic",
+          "service_passed": true,
+          "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "training_rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+          "service_package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+        }
+      ]
+    }
+  },
+  "service_delivery": {
+    "delivery_report": {
+      "generated_at": "2026-07-10T03:08:41.353135+00:00",
+      "service_status": "implemented_demo_delivery",
+      "input_csv": "data/embodied_public_anchor_real.csv",
+      "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public",
+      "model_card": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_model_card.json",
+      "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_synthetic_plan.csv",
+      "customer_package": {
+        "generated_at": "2026-07-10T03:08:41.350725+00:00",
+        "package_type": "qtail_data_engine_evaluation_package",
+        "input_csv": "data/embodied_public_anchor_real.csv",
+        "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public",
+        "report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_data_engine_report.json",
+        "synthetic_data": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_synthetic_data.csv",
+        "task_profiles": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/task_profiles.csv",
+        "per_task_comparison": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/per_task_comparison.csv",
+        "winner": "qtail_synthetic",
+        "test_passed": true,
+        "same_budget_audit": {
+          "same_task_set": true,
+          "same_total_budget": 100000.0,
+          "source_allocation_sum": 1.0000000000000002,
+          "synthetic_allocation_sum": 1.0,
+          "allocation_sum_tolerance": 1e-06,
+          "allocation_sums_valid": true,
+          "same_response_model": "response_success_v1",
+          "same_tail_definition": "top_30_percent_by_tail_score",
+          "same_metric_set": [
+            "overall_success",
+            "tail_success",
+            "cvar20",
+            "extreme_failure_count",
+            "tail_coverage_at_50",
+            "tail_data_share"
+          ],
+          "profile_count": 114
+        },
+        "validation": {
+          "report_path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_data_engine_report.json",
+          "valid": true,
+          "errors": [],
+          "winner": "qtail_synthetic",
+          "test_passed": true,
+          "profile_count": 114
+        },
+        "manifest": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/package_manifest.json"
+      },
+      "service_steps": [
+        {
+          "step": "1. Ingest customer embodied data",
+          "status": "complete",
+          "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/task_profiles.csv"
+        },
+        {
+          "step": "2. Score rarity/risk/tail profile",
+          "status": "complete",
+          "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/task_profiles.csv"
+        },
+        {
+          "step": "3. Apply Open X trained PT-tail prior",
+          "status": "complete",
+          "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_model_card.json"
+        },
+        {
+          "step": "4. Generate synthetic allocation/spec plan",
+          "status": "complete",
+          "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_synthetic_plan.csv"
+        },
+        {
+          "step": "5. Same-budget source vs Q-Tail audit",
+          "status": "complete",
+          "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_data_engine_report.json"
+        },
+        {
+          "step": "6. Full policy training handoff",
+          "status": "pending_full_policy_stack",
+          "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/openx_demo_training_report.json"
+        }
+      ],
+      "effect_summary": {
+        "source_tail_success": 0.4783005759376341,
+        "qtail_tail_success": 0.5323985833620036,
+        "tail_success_gain_pp": 5.409800742436954,
+        "tail_success_relative_gain_pct": 11.310462530453531,
+        "source_cvar20": 0.45378949528698653,
+        "qtail_cvar20": 0.5093951772606926,
+        "cvar20_gain_pp": 5.560568197370608,
+        "source_tail_data_share": 0.05413894721231414,
+        "qtail_tail_data_share": 0.398470760889551,
+        "tail_data_share_gain_pp": 34.433181367723684,
+        "extreme_failure_reduction": 0,
+        "decision": {
+          "winner": "qtail_synthetic",
+          "passed": true,
+          "summary": "Q-Tail synthetic data wins under the same-budget evaluation protocol.",
+          "primary_metric": "tail_success",
+          "decision_gate": {
+            "tail_success_min_gain": 0.02,
+            "cvar20_min_gain": 0.02,
+            "tail_data_share_min_gain": 0.1,
+            "p_delta_le_0_max": 0.05
+          },
+          "reasons": [
+            "tail_success_gain=0.054098",
+            "cvar20_gain=0.055606",
+            "tail_data_share_gain=0.344332",
+            "paired_bootstrap_p_delta_le_0_within_gate",
+            "same_budget_audit_passed"
+          ]
+        },
+        "aligned_with_pt_tail_goal": true
+      },
+      "business_use": [
+        "Customer sends a task/trajectory summary CSV or RLDS export summary.",
+        "Q-Tail scores rare, risky, or under-covered tasks.",
+        "The Open X calibrated prior shifts generation budget toward tail tasks while preserving a source-data floor.",
+        "The customer receives a synthetic data plan and audit package before expensive robot-policy retraining."
+      ],
+      "delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+      "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/README_QTAIL_DELIVERY.md",
+      "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+    },
+    "model_card": {
+      "model_name": "Q-Tail OpenX-Calibrated Data Service v0.1",
+      "generated_at": "2026-07-10T03:08:41.253433+00:00",
+      "training_source": {
+        "report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/openx_demo_training_report.json",
+        "rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/openx_shard_training_rows.csv",
+        "status": "complete",
+        "steps": 20000,
+        "datasets": [
+          "austin_buds_dataset_converted_externally_to_rlds",
+          "austin_sirius_dataset_converted_externally_to_rlds",
+          "berkeley_mvp_converted_externally_to_rlds",
+          "columbia_cairlab_pusht_real",
+          "language_table",
+          "language_table_sim",
+          "nyu_door_opening_surprising_effectiveness",
+          "ucsd_kitchen_dataset_converted_externally_to_rlds"
+        ],
+        "shard_count": 562,
+        "total_gib": 171.622,
+        "training_scope": "all_complete_shards_record_sampled",
+        "trajectory_evidence": {
+          "tfrecord_shards_attempted": 562,
+          "tfrecord_shards_parsed": 562,
+          "record_parse_rate": 1.0,
+          "records_per_shard_cap": 4,
+          "records_decoded": 2071,
+          "mean_episode_steps": 127.19780545670227,
+          "features_include": [
+            "episode length",
+            "reward",
+            "action statistics",
+            "instruction complexity",
+            "terminal rate"
+          ]
+        },
+        "model_artifact": {
+          "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/qtail_allocation_head.pt",
+          "sha256": "7a53a2706dfc86d58e735e808987c60c72d54b94b2ca4f6520b9eeaa1445d59a",
+          "feature_names": [
+            "log_bytes",
+            "shard_size_rarity",
+            "dataset_frequency",
+            "shard_position",
+            "mean_episode_steps",
+            "reward_failure_proxy",
+            "action_complexity",
+            "instruction_complexity",
+            "terminal_rate"
+          ],
+          "parameter_count": 865
+        }
+      },
+      "learned_tail_prior": {
+        "tail_definition": "top_30_percent_by_record_informed_tail_score",
+        "source_tail_share": 0.0824911892414093,
+        "qtail_tail_share": 0.5013161897659302,
+        "target_tail_share_gain_pp": 41.88250005245209,
+        "predicted_tail_share_gain_pp": 41.8281614780426,
+        "tail_share_multiplier": 6.077208904078658,
+        "consistent_with_pt_tail_goal": true
+      },
+      "tail_quantile_calibration": [
+        {
+          "bucket": "q1",
+          "tail_score_min": 0.10747551918029785,
+          "tail_score_max": 0.25186342000961304,
+          "shards": 113,
+          "source_share": 0.3697079459670931,
+          "qtail_share": 0.12127638200763613,
+          "source_pred_share": 0.3697150503285229,
+          "qtail_pred_share": 0.12142063566716388,
+          "target_gain_pp": -24.843156395945698,
+          "predicted_gain_pp": -24.829441466135904
+        },
+        {
+          "bucket": "q2",
+          "tail_score_min": 0.25186342000961304,
+          "tail_score_max": 0.4542645514011383,
+          "shards": 112,
+          "source_share": 0.2113880806718953,
+          "qtail_share": 0.11319883732357994,
+          "source_pred_share": 0.21138504400732927,
+          "qtail_pred_share": 0.11340108583681285,
+          "target_gain_pp": -9.818924334831536,
+          "predicted_gain_pp": -9.798395817051642
+        },
+        {
+          "bucket": "q3",
+          "tail_score_min": 0.4542645514011383,
+          "tail_score_max": 0.5114102840423584,
+          "shards": 112,
+          "source_share": 0.21700017496186774,
+          "qtail_share": 0.15940235526068136,
+          "source_pred_share": 0.21700271748704836,
+          "qtail_pred_share": 0.1595179780269973,
+          "target_gain_pp": -5.759781970118638,
+          "predicted_gain_pp": -5.748473946005106
+        },
+        {
+          "bucket": "q4",
+          "tail_score_min": 0.5114102840423584,
+          "tail_score_max": 0.583045756816864,
+          "shards": 112,
+          "source_share": 0.1494396100169979,
+          "qtail_share": 0.21065396280027926,
+          "source_pred_share": 0.14943530492018908,
+          "qtail_pred_share": 0.21079133148305118,
+          "target_gain_pp": 6.121435278328136,
+          "predicted_gain_pp": 6.13560265628621
+        },
+        {
+          "bucket": "q5",
+          "tail_score_min": 0.583045756816864,
+          "tail_score_max": 0.7727040648460388,
+          "shards": 113,
+          "source_share": 0.05246418841124978,
+          "qtail_share": 0.3954684156924486,
+          "source_pred_share": 0.05246191224796348,
+          "qtail_pred_share": 0.3948688998352736,
+          "target_gain_pp": 34.300422728119884,
+          "predicted_gain_pp": 34.240698758731014
+        }
+      ],
+      "service_calibration": {
+        "method": "customer_tail_quantile_x_openx_predicted_gain",
+        "description": "Map customer task tail-score quantiles to the learned Open X quantile gain curve, then renormalize to the same synthetic budget.",
+        "same_budget": true
+      },
+      "dataset_priors": [
+        {
+          "dataset": "austin_sirius_dataset_converted_externally_to_rlds",
+          "shards": 64,
+          "gib": 6.548761395737529,
+          "mean_tail_score": 0.6060422137379646,
+          "source_target_share": 0.03815797218703665,
+          "qtail_target_share": 0.16667850816156715,
+          "qtail_minus_source_pp": 12.85205359745305,
+          "qtail_pred_minus_source_pred_pp": 12.832200739649124
+        },
+        {
+          "dataset": "columbia_cairlab_pusht_real",
+          "shards": 36,
+          "gib": 2.803771105594933,
+          "mean_tail_score": 0.6374566919273801,
+          "source_target_share": 0.016336863343894947,
+          "qtail_target_share": 0.11833917780313641,
+          "qtail_minus_source_pp": 10.200231445924146,
+          "qtail_pred_minus_source_pred_pp": 10.186223586788401
+        },
+        {
+          "dataset": "austin_buds_dataset_converted_externally_to_rlds",
+          "shards": 16,
+          "gib": 1.4940383518114686,
+          "mean_tail_score": 0.6860465109348297,
+          "source_target_share": 0.008705382715561427,
+          "qtail_target_share": 0.08199828374199569,
+          "qtail_minus_source_pp": 7.3292901026434265,
+          "qtail_pred_minus_source_pred_pp": 7.311317439598497
+        },
+        {
+          "dataset": "berkeley_mvp_converted_externally_to_rlds",
+          "shards": 124,
+          "gib": 12.343984698876739,
+          "mean_tail_score": 0.47985692009810477,
+          "source_target_share": 0.07192526867584093,
+          "qtail_target_share": 0.13881894934456795,
+          "qtail_minus_source_pp": 6.689368066872703,
+          "qtail_pred_minus_source_pred_pp": 6.696247573563596
+        },
+        {
+          "dataset": "nyu_door_opening_surprising_effectiveness",
+          "shards": 72,
+          "gib": 7.122741459868848,
+          "mean_tail_score": 0.5102119706571102,
+          "source_target_share": 0.041502408479573205,
+          "qtail_target_share": 0.098602399462834,
+          "qtail_minus_source_pp": 5.7099990983260795,
+          "qtail_pred_minus_source_pred_pp": 5.716511706486926
+        },
+        {
+          "dataset": "ucsd_kitchen_dataset_converted_externally_to_rlds",
+          "shards": 16,
+          "gib": 1.3255660459399223,
+          "mean_tail_score": 0.659839354455471,
+          "source_target_share": 0.007723737231572159,
+          "qtail_target_share": 0.060628261882811785,
+          "qtail_minus_source_pp": 5.290452465123963,
+          "qtail_pred_minus_source_pred_pp": 5.2847415980068035
+        },
+        {
+          "dataset": "language_table",
+          "shards": 61,
+          "gib": 46.90346757695079,
+          "mean_tail_score": 0.5055048006479858,
+          "source_target_share": 0.2732946132309735,
+          "qtail_target_share": 0.14102913299575448,
+          "qtail_minus_source_pp": -13.2265480235219,
+          "qtail_pred_minus_source_pred_pp": -13.21352042723447
+        },
+        {
+          "dataset": "language_table_sim",
+          "shards": 173,
+          "gib": 93.08003351558,
+          "mean_tail_score": 0.24619700393580288,
+          "source_target_share": 0.542353754164651,
+          "qtail_target_share": 0.19390523969195783,
+          "qtail_minus_source_pp": -34.84485144726932,
+          "qtail_pred_minus_source_pred_pp": -34.813732031034306
+        }
+      ],
+      "customer_input_contract": {
+        "accepted_columns": {
+          "task": [
+            "task",
+            "task_id",
+            "skill",
+            "instruction",
+            "scenario",
+            "env"
+          ],
+          "count": [
+            "count",
+            "episodes",
+            "trajectories",
+            "samples",
+            "frequency"
+          ],
+          "success": [
+            "success",
+            "success_rate",
+            "reward",
+            "score",
+            "pass_rate"
+          ],
+          "difficulty": [
+            "difficulty",
+            "risk",
+            "failure_rate",
+            "tail_score",
+            "rarity"
+          ],
+          "group": [
+            "group",
+            "split",
+            "category",
+            "bucket"
+          ]
+        },
+        "output": [
+          "task_profiles.csv",
+          "qtail_synthetic_data.csv",
+          "per_task_comparison.csv",
+          "qtail_data_engine_report.json",
+          "qtail_service_model_card.json",
+          "qtail_service_delivery_report.json",
+          "README_QTAIL_DELIVERY.md",
+          "qtail_delivery_package.zip"
+        ]
+      },
+      "claim_boundary": [
+        "The Open X stage trains a record-informed allocation head on real downloaded RLDS TFRecord shards.",
+        "Every complete shard is covered, with a bounded number of decoded episodes per shard; this is not an all-episode policy run.",
+        "The service package generates allocation/scenario specs for synthetic data production.",
+        "Full robot-policy validation remains a later same-policy training run after the full RLDS/TFDS stack is ready."
+      ]
+    },
+    "artifacts": {
+      "model_card": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_model_card.json",
+      "delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+      "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/README_QTAIL_DELIVERY.md",
+      "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_synthetic_plan.csv",
+      "package_manifest": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/package_manifest.json",
+      "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip"
+    }
+  },
+  "service_execution": {
+    "product_thesis": "Train and operate a Q-Tail model that converts customer embodied-AI data profiles into PT-heavy-tail synthetic data allocation packages, so customers can spend the same training budget on more rare/high-risk tasks.",
+    "current_stage": "incremental_openx_trained_service_live",
+    "proved_now": [
+      "Real Open X shards are being downloaded and used for allocation-head training.",
+      "The current incremental model shifts predicted allocation mass toward tail shards.",
+      "The customer-facing service/API can generate auditable PT-heavy-tail data packages.",
+      "Same-budget audit packages are produced with tail success, CVaR, and tail data share metrics."
+    ],
+    "not_proved_yet": [
+      "Final Strong 20000-step training is still gated on full language_table/language_table_sim download.",
+      "Full robot policy training on raw trajectories is not complete in this local environment.",
+      "Synthetic allocation rows still need downstream renderers/adapters to become executable robot trajectories."
+    ],
+    "next_milestone": {
+      "trigger": "ready_for_strong_training=true",
+      "action": "run 20000-step Strong training, rebuild service package, run post-Strong customer API sample, refresh page",
+      "status": "complete"
+    },
+    "metrics": {
+      "downloaded_total_gib": 171.622,
+      "trainable_complete_gib": 171.622,
+      "incremental_predicted_tail_share_gain_pp": 41.909485310316086,
+      "public_tail_success_gain_pp": 5.409800742436954,
+      "public_tail_success_relative_gain_pct": 11.310462530453531,
+      "public_tail_data_share_gain_pp": 34.433181367723684,
+      "latest_api_tail_success_gain_pp": 35.059039800379175,
+      "latest_api_tail_data_share_gain_pp": 36.98611710879064,
+      "next_incremental_refresh_at_gib": 168.125
+    },
+    "business_value": [
+      {
+        "value": "Reduce wasted embodied-AI training budget on already-common head tasks.",
+        "evidence": "Q-Tail reallocates data mass toward high tail_score tasks under the same total synthetic budget.",
+        "metric": "tail_data_share_gain_pp=34.433181367723684"
+      },
+      {
+        "value": "Improve robustness on rare and high-risk task buckets before customers run expensive policy training.",
+        "evidence": "Service packages report tail success, CVaR@20, extreme failure, and paired-bootstrap gates.",
+        "metric": "tail_success_gain_pp=5.409800742436954"
+      },
+      {
+        "value": "Turn customer datasets into repeatable, auditable synthetic-data delivery packages.",
+        "evidence": "POST /generate writes report, model card, synthetic plan, README, manifest, and zip.",
+        "metric": "latest_api_run=20260710T030841Z_customer_semifinal_embodied_tasks"
+      },
+      {
+        "value": "Create a product loop that improves as more Open X shards and customer data arrive.",
+        "evidence": "Auto-refresh updates incremental training and the service package after complete-file growth.",
+        "metric": "next_refresh_at_gib=168.125"
+      }
+    ],
+    "operating_model": [
+      {
+        "stage": "Customer intake",
+        "input": "CSV/RLDS summary with task, count, success_rate, difficulty, and group columns",
+        "output": "normalized task profiles with tail_score and source allocation"
+      },
+      {
+        "stage": "Q-Tail inference",
+        "input": "customer profiles + Open X trained tail prior",
+        "output": "PT-heavy-tail synthetic allocation/spec rows under the same total budget"
+      },
+      {
+        "stage": "Audit",
+        "input": "source allocation and Q-Tail allocation",
+        "output": "tail success, CVaR@20, tail data share, extreme failure, claim boundary"
+      },
+      {
+        "stage": "Delivery",
+        "input": "validated report and synthetic plan",
+        "output": "customer zip package ready for renderer/trajectory adapter integration"
+      }
+    ],
+    "upgrade_path": [
+      {
+        "milestone": "Now",
+        "status": "live_incremental_service",
+        "deliverable": "API + customer package generated from incremental Open X allocation-head snapshot"
+      },
+      {
+        "milestone": "After Strong download",
+        "status": "armed",
+        "deliverable": "20000-step Strong training, rebuilt public package, post-Strong customer API samples"
+      },
+      {
+        "milestone": "GPU policy stage",
+        "status": "planned",
+        "deliverable": "full RLDS/TFDS policy-training adapter and policy-level tail success validation"
+      },
+      {
+        "milestone": "Commercial pilot",
+        "status": "planned",
+        "deliverable": "company-specific renderer/trajectory adapter plus recurring dataset refresh reports"
+      }
+    ],
+    "layers": [
+      {
+        "layer": "1. Open X evidence substrate",
+        "status": "active_downloading",
+        "implemented": "171.622 GiB on disk; 171.622 GiB complete-file training input",
+        "artifact": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+        "next_step": "Finish language_table and language_table_sim, then verify Strong gate."
+      },
+      {
+        "layer": "2. Q-Tail allocation-head model",
+        "status": "implemented_incremental",
+        "implemented": "Trains on complete Open X TFRecord shards and predicts PT-heavy-tail allocation weights.",
+        "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+        "next_step": "Replace incremental checkpoint with Strong 20000-step checkpoint after download completion."
+      },
+      {
+        "layer": "3. Synthetic data engine",
+        "status": "implemented",
+        "implemented": "Maps customer task profiles to PT-heavy-tail synthetic allocation/spec CSV plus same-budget comparison.",
+        "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_synthetic_plan.csv",
+        "next_step": "Attach renderer/trajectory adapters for customer-specific embodied-AI stacks."
+      },
+      {
+        "layer": "4. Customer API",
+        "status": "implemented_live_local",
+        "implemented": "POST /generate accepts new CSV and creates a delivery package with report, model card, README, and zip.",
+        "artifact": "/Users/avalok/work/Q-TAIL-MVP/tools/qtail_service_api.py",
+        "next_step": "Keep API source selection pinned to Strong report once Strong training completes."
+      },
+      {
+        "layer": "5. Audit and claim boundary",
+        "status": "implemented",
+        "implemented": "Validates same-budget gates, tail success, CVaR@20, tail data share, and explicit claim boundaries.",
+        "artifact": "/Users/avalok/work/Q-TAIL-MVP/tools/qtail_validate_package.py",
+        "next_step": "Add policy-training audit once raw trajectory policy runs are available."
+      },
+      {
+        "layer": "6. Customer delivery package",
+        "status": "implemented",
+        "implemented": "Produces package_manifest, qtail_delivery_package.zip, README_QTAIL_DELIVERY, synthetic plan, and reports.",
+        "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip",
+        "next_step": "Version packages by customer/run and by training source: incremental vs Strong."
+      },
+      {
+        "layer": "7. Continuous refresh",
+        "status": "implemented",
+        "implemented": "Auto-refresh retrains incremental snapshots when complete-file data grows enough.",
+        "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_auto_refresh/refresh_status.json",
+        "next_step": "Let the running loop trigger the next refresh at the configured growth threshold."
+      },
+      {
+        "layer": "8. Full robot-policy training",
+        "status": "planned_not_complete",
+        "implemented": "Not yet completed; current work is allocation/data-service training, not full policy learning.",
+        "artifact": "/Users/avalok/work/Q-TAIL-MVP/docs/experiments/qtail_data_engine_protocol.md",
+        "next_step": "Run full RLDS/TFDS policy training on the prepared GPU environment after Strong data is verified."
+      }
+    ]
+  },
+  "service_api": {
+    "base_url": "http://127.0.0.1:8223",
+    "health_endpoint": "http://127.0.0.1:8223/health",
+    "generate_endpoint": "http://127.0.0.1:8223/generate",
+    "runs_endpoint": "http://127.0.0.1:8223/runs",
+    "latest_response": {
+      "ok": true,
+      "run_id": "20260710T030841Z_customer_semifinal_embodied_tasks",
+      "training_source": "strong_openx_snapshot",
+      "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks",
+      "delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/qtail_service_delivery_report.json",
+      "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/README_QTAIL_DELIVERY.md",
+      "model_card": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/qtail_service_model_card.json",
+      "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/qtail_service_synthetic_plan.csv",
+      "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/qtail_delivery_package.zip",
+      "package_manifest": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/package_manifest.json",
+      "effect_summary": {
+        "source_tail_success": 0.35637238304098234,
+        "qtail_tail_success": 0.7069627810447741,
+        "tail_success_gain_pp": 35.059039800379175,
+        "tail_success_relative_gain_pct": 98.3775440207089,
+        "source_cvar20": 0.31097794433931253,
+        "qtail_cvar20": 0.7061853806589642,
+        "cvar20_gain_pp": 39.52074363196517,
+        "source_tail_data_share": 0.020090978013646704,
+        "qtail_tail_data_share": 0.38995214910155307,
+        "tail_data_share_gain_pp": 36.98611710879064,
+        "extreme_failure_reduction": 2,
+        "decision": {
+          "winner": "qtail_synthetic",
+          "passed": true,
+          "summary": "Q-Tail synthetic data wins under the same-budget evaluation protocol.",
+          "primary_metric": "tail_success",
+          "decision_gate": {
+            "tail_success_min_gain": 0.02,
+            "cvar20_min_gain": 0.02,
+            "tail_data_share_min_gain": 0.1,
+            "p_delta_le_0_max": 0.05
+          },
+          "reasons": [
+            "tail_success_gain=0.350590",
+            "cvar20_gain=0.395207",
+            "tail_data_share_gain=0.369861",
+            "paired_bootstrap_p_delta_le_0_within_gate",
+            "same_budget_audit_passed"
+          ]
+        },
+        "aligned_with_pt_tail_goal": true
+      },
+      "api_response_path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/latest_semifinal_customer_response.json"
+    },
+    "run_history": [
+      {
+        "run_id": "20260710T095818Z_page_customer_demo",
+        "winner": "qtail_synthetic",
+        "passed": true,
+        "tail_success_gain_pp": 37.196266747772285,
+        "tail_success_relative_gain_pct": 80.6714606670417,
+        "cvar20_gain_pp": 42.766487618405314,
+        "tail_data_share_gain_pp": 44.23654525140081,
+        "aligned_with_pt_tail_goal": true,
+        "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T095818Z_page_customer_demo",
+        "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T095818Z_page_customer_demo/README_QTAIL_DELIVERY.md",
+        "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T095818Z_page_customer_demo/qtail_service_synthetic_plan.csv",
+        "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T095818Z_page_customer_demo/qtail_delivery_package.zip"
+      },
+      {
+        "run_id": "20260710T030841Z_customer_semifinal_embodied_tasks",
+        "winner": "qtail_synthetic",
+        "passed": true,
+        "tail_success_gain_pp": 35.059039800379175,
+        "tail_success_relative_gain_pct": 98.3775440207089,
+        "cvar20_gain_pp": 39.52074363196517,
+        "tail_data_share_gain_pp": 36.98611710879064,
+        "aligned_with_pt_tail_goal": true,
+        "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks",
+        "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/README_QTAIL_DELIVERY.md",
+        "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/qtail_service_synthetic_plan.csv",
+        "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/qtail_delivery_package.zip"
+      },
+      {
+        "run_id": "20260710T030841Z_metaworld_benchmark_anchor",
+        "winner": "qtail_synthetic",
+        "passed": true,
+        "tail_success_gain_pp": 10.46146911269984,
+        "tail_success_relative_gain_pct": 19.442308239680305,
+        "cvar20_gain_pp": 12.000127316411458,
+        "tail_data_share_gain_pp": 35.197917392709364,
+        "aligned_with_pt_tail_goal": true,
+        "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor",
+        "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor/README_QTAIL_DELIVERY.md",
+        "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor/qtail_service_synthetic_plan.csv",
+        "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor/qtail_delivery_package.zip"
+      },
+      {
+        "run_id": "20260710T030748Z_customer_semifinal_embodied_tasks",
+        "winner": "qtail_synthetic",
+        "passed": true,
+        "tail_success_gain_pp": 35.059039800379175,
+        "tail_success_relative_gain_pct": 98.3775440207089,
+        "cvar20_gain_pp": 39.52074363196517,
+        "tail_data_share_gain_pp": 36.98611710879064,
+        "aligned_with_pt_tail_goal": true,
+        "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030748Z_customer_semifinal_embodied_tasks",
+        "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030748Z_customer_semifinal_embodied_tasks/README_QTAIL_DELIVERY.md",
+        "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030748Z_customer_semifinal_embodied_tasks/qtail_service_synthetic_plan.csv",
+        "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030748Z_customer_semifinal_embodied_tasks/qtail_delivery_package.zip"
+      },
+      {
+        "run_id": "20260710T030747Z_metaworld_benchmark_anchor",
+        "winner": "qtail_synthetic",
+        "passed": true,
+        "tail_success_gain_pp": 10.46146911269984,
+        "tail_success_relative_gain_pct": 19.442308239680305,
+        "cvar20_gain_pp": 12.000127316411458,
+        "tail_data_share_gain_pp": 35.197917392709364,
+        "aligned_with_pt_tail_goal": true,
+        "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030747Z_metaworld_benchmark_anchor",
+        "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030747Z_metaworld_benchmark_anchor/README_QTAIL_DELIVERY.md",
+        "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030747Z_metaworld_benchmark_anchor/qtail_service_synthetic_plan.csv",
+        "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030747Z_metaworld_benchmark_anchor/qtail_delivery_package.zip"
+      },
+      {
+        "run_id": "20260710T030648Z_customer_semifinal_embodied_tasks",
+        "winner": "qtail_synthetic",
+        "passed": true,
+        "tail_success_gain_pp": 35.059039800379175,
+        "tail_success_relative_gain_pct": 98.3775440207089,
+        "cvar20_gain_pp": 39.52074363196517,
+        "tail_data_share_gain_pp": 36.98611710879064,
+        "aligned_with_pt_tail_goal": true,
+        "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030648Z_customer_semifinal_embodied_tasks",
+        "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030648Z_customer_semifinal_embodied_tasks/README_QTAIL_DELIVERY.md",
+        "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030648Z_customer_semifinal_embodied_tasks/qtail_service_synthetic_plan.csv",
+        "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030648Z_customer_semifinal_embodied_tasks/qtail_delivery_package.zip"
+      },
+      {
+        "run_id": "20260710T030647Z_metaworld_benchmark_anchor",
+        "winner": "qtail_synthetic",
+        "passed": true,
+        "tail_success_gain_pp": 10.46146911269984,
+        "tail_success_relative_gain_pct": 19.442308239680305,
+        "cvar20_gain_pp": 12.000127316411458,
+        "tail_data_share_gain_pp": 35.197917392709364,
+        "aligned_with_pt_tail_goal": true,
+        "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030647Z_metaworld_benchmark_anchor",
+        "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030647Z_metaworld_benchmark_anchor/README_QTAIL_DELIVERY.md",
+        "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030647Z_metaworld_benchmark_anchor/qtail_service_synthetic_plan.csv",
+        "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030647Z_metaworld_benchmark_anchor/qtail_delivery_package.zip"
+      },
+      {
+        "run_id": "20260710T030550Z_customer_semifinal_embodied_tasks",
+        "winner": "qtail_synthetic",
+        "passed": true,
+        "tail_success_gain_pp": 35.059039800379175,
+        "tail_success_relative_gain_pct": 98.3775440207089,
+        "cvar20_gain_pp": 39.52074363196517,
+        "tail_data_share_gain_pp": 36.98611710879064,
+        "aligned_with_pt_tail_goal": true,
+        "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030550Z_customer_semifinal_embodied_tasks",
+        "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030550Z_customer_semifinal_embodied_tasks/README_QTAIL_DELIVERY.md",
+        "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030550Z_customer_semifinal_embodied_tasks/qtail_service_synthetic_plan.csv",
+        "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030550Z_customer_semifinal_embodied_tasks/qtail_delivery_package.zip"
+      }
+    ],
+    "cli": {
+      "script": "/Users/avalok/work/Q-TAIL-MVP/tools/qtail_service_client.py",
+      "example": "python3 tools/qtail_service_client.py --input data/metaworld_benchmark_anchor.csv --out results/qtail_service_api_runs/latest_metaworld_client_response.json",
+      "latest_response": {
+        "ok": true,
+        "run_id": "20260710T030841Z_metaworld_benchmark_anchor",
+        "training_source": "strong_openx_snapshot",
+        "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor",
+        "delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor/qtail_service_delivery_report.json",
+        "readme": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor/README_QTAIL_DELIVERY.md",
+        "model_card": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor/qtail_service_model_card.json",
+        "synthetic_plan": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor/qtail_service_synthetic_plan.csv",
+        "package_zip": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor/qtail_delivery_package.zip",
+        "package_manifest": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_metaworld_benchmark_anchor/package_manifest.json",
+        "effect_summary": {
+          "source_tail_success": 0.5380775257615121,
+          "qtail_tail_success": 0.6426922168885105,
+          "tail_success_gain_pp": 10.46146911269984,
+          "tail_success_relative_gain_pct": 19.442308239680305,
+          "source_cvar20": 0.5042054110405577,
+          "qtail_cvar20": 0.6242066842046723,
+          "cvar20_gain_pp": 12.000127316411458,
+          "source_tail_data_share": 0.09280885064535956,
+          "qtail_tail_data_share": 0.4447880245724532,
+          "tail_data_share_gain_pp": 35.197917392709364,
+          "extreme_failure_reduction": 0,
+          "decision": {
+            "winner": "qtail_synthetic",
+            "passed": true,
+            "summary": "Q-Tail synthetic data wins under the same-budget evaluation protocol.",
+            "primary_metric": "tail_success",
+            "decision_gate": {
+              "tail_success_min_gain": 0.02,
+              "cvar20_min_gain": 0.02,
+              "tail_data_share_min_gain": 0.1,
+              "p_delta_le_0_max": 0.05
+            },
+            "reasons": [
+              "tail_success_gain=0.104615",
+              "cvar20_gain=0.120001",
+              "tail_data_share_gain=0.351979",
+              "paired_bootstrap_p_delta_le_0_within_gate",
+              "same_budget_audit_passed"
+            ]
+          },
+          "aligned_with_pt_tail_goal": true
+        }
+      }
+    },
+    "example_request": {
+      "filename": "customer.csv",
+      "csv_text": "task,count,success_rate,difficulty,group\\nrare_pick,12,0.32,0.91,tail\\nstandard_pick,540,0.86,0.22,head\\n",
+      "synthetic_budget": 100000,
+      "top_k": 128
+    }
+  },
+  "auto_refresh": {
+    "generated_at": "2026-07-10T02:33:19.605362+00:00",
+    "data_dir": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+    "current_bytes": 178375767279,
+    "current_gib": 166.125,
+    "current_shard_count": 552,
+    "current_dataset_count": 8,
+    "current_datasets": [
+      "austin_buds_dataset_converted_externally_to_rlds",
+      "austin_sirius_dataset_converted_externally_to_rlds",
+      "berkeley_mvp_converted_externally_to_rlds",
+      "columbia_cairlab_pusht_real",
+      "language_table",
+      "language_table_sim",
+      "nyu_door_opening_surprising_effectiveness",
+      "ucsd_kitchen_dataset_converted_externally_to_rlds"
+    ],
+    "last_refreshed_bytes": 178375767279,
+    "last_refreshed_shard_count": 552,
+    "raw_growth_bytes": 3869925293,
+    "raw_shard_growth": -11,
+    "growth_bytes": 3869925293,
+    "growth_gib": 3.604,
+    "shard_growth": 0,
+    "byte_policy": "complete_files_only_excluding_gstmp_tmp_part",
+    "baseline_adjusted": false,
+    "min_growth_gib": 2.0,
+    "min_new_shards": 1,
+    "refresh_requested": true,
+    "trigger_reasons": [
+      "force",
+      "byte_growth_threshold"
+    ],
+    "force": true,
+    "steps": 2500,
+    "steps_ran": [
+      {
+        "command": [
+          "python3",
+          "tools/qtail_train_openx_demo.py",
+          "--data-dir",
+          "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+          "--out",
+          "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot",
+          "--steps",
+          "2500",
+          "--wait",
+          "0",
+          "--min-shards",
+          "12",
+          "--records-per-shard",
+          "1",
+          "--min-record-parse-rate",
+          "0.95"
+        ],
+        "started_at": "2026-07-10T02:33:19.605977+00:00",
+        "finished_at": "2026-07-10T02:33:31.075626+00:00",
+        "returncode": 0,
+        "log": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_auto_refresh/incremental_train.log"
+      },
+      {
+        "command": [
+          "python3",
+          "tools/qtail_openx_service_model.py",
+          "--input",
+          "data/embodied_public_anchor_real.csv",
+          "--out",
+          "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public",
+          "--training-report",
+          "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+          "--training-rows",
+          "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_shard_training_rows.csv",
+          "--top-k",
+          "128",
+          "--synthetic-budget",
+          "100000"
+        ],
+        "started_at": "2026-07-10T02:33:31.075771+00:00",
+        "finished_at": "2026-07-10T02:33:31.251249+00:00",
+        "returncode": 0,
+        "log": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_auto_refresh/service_rebuild.log"
+      },
+      {
+        "command": [
+          "python3",
+          "tools/qtail_openx_progress_manifest.py"
+        ],
+        "started_at": "2026-07-10T02:33:31.253265+00:00",
+        "finished_at": "2026-07-10T02:33:31.515250+00:00",
+        "returncode": 0,
+        "log": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_auto_refresh/manifest_refresh.log"
+      }
+    ],
+    "previous_status": "skipped_waiting_for_more_data",
+    "last_refreshed_at": "2026-07-10T02:33:31.251282+00:00",
+    "last_refreshed_gib": 166.125,
+    "last_refreshed_shards": 552,
+    "incremental_report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+    "service_delivery_report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+    "status": "refreshed"
+  },
+  "auto_refresh_loop": {
+    "generated_at": "2026-07-10T04:21:14.624437+00:00",
+    "generated_at_local": "2026-07-10T12:21:14.624437+08:00",
+    "loop": "qtail-auto-refresh-loop",
+    "interval_seconds": 600,
+    "min_new_shards": 1,
+    "status": "sleeping",
+    "next_check_after_seconds": 600,
+    "next_check_at": "2026-07-10T04:31:14.624437+00:00",
+    "next_check_at_local": "2026-07-10T12:31:14.624437+08:00"
+  },
+  "download_watchdog": {
+    "generated_at": "2026-07-10T04:24:06.587382+00:00",
+    "label": "qtail-openx-strong-addon",
+    "stale_after_seconds": 900,
+    "dry_run": false,
+    "log_path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_download/download.log",
+    "log_age_seconds": 0.6001572608947754,
+    "log_fresh": true,
+    "data_dir": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+    "data_bytes": 184278228991,
+    "previous_data_bytes": 184278228991,
+    "data_growth_bytes_since_last_check": 0,
+    "data_unchanged_since": "2026-07-10T04:24:06.587382+00:00",
+    "no_data_growth_seconds": 0.0,
+    "pre_restart_no_data_growth_seconds": 320.2999200820923,
+    "launchd_label_present": true,
+    "active_gsutil_process_count": 0,
+    "active_gsutil_processes": [],
+    "reasons": [
+      "no_active_gsutil_process"
+    ],
+    "action": "restart_requested",
+    "restart_result": {
+      "command": [
+        "launchctl",
+        "kickstart",
+        "-k",
+        "gui/501/qtail-openx-strong-addon"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "policy": "Restart the Strong downloader only when the log is stale, missing, no gsutil process is alive, or downloaded bytes stop growing for the stale window."
+  },
+  "download_watchdog_loop": {
+    "generated_at": "2026-07-10T04:29:26Z",
+    "interval_seconds": 300,
+    "stale_after_seconds": 900,
+    "status": "checking",
+    "next_check_at": "2026-07-10T04:34:26Z"
+  },
+  "download_watchdog_history": {
+    "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_download/download_watchdog_history.json",
+    "row_count": 178,
+    "rows": [
+      {
+        "generated_at": "2026-07-10T02:29:17.462244+00:00",
+        "action": "watching",
+        "log_fresh": true,
+        "log_age_seconds": 0.05818009376525879,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 629208177,
+        "data_unchanged_since": null,
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 3,
+        "reasons": [],
+        "restart_returncode": null
+      },
+      {
+        "generated_at": "2026-07-10T02:34:17.725587+00:00",
+        "action": "watching",
+        "log_fresh": true,
+        "log_age_seconds": 0.157196044921875,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T02:29:17.462244+00:00",
+        "no_data_growth_seconds": 300.34368801116943,
+        "active_gsutil_process_count": 3,
+        "reasons": [],
+        "restart_returncode": null
+      },
+      {
+        "generated_at": "2026-07-10T02:39:17.986396+00:00",
+        "action": "watching",
+        "log_fresh": true,
+        "log_age_seconds": 0.19472289085388184,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T02:29:17.462244+00:00",
+        "no_data_growth_seconds": 600.6239159107208,
+        "active_gsutil_process_count": 3,
+        "reasons": [],
+        "restart_returncode": null
+      },
+      {
+        "generated_at": "2026-07-10T02:44:18.335515+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 0.49688148498535156,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T02:44:18.335515+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 3,
+        "reasons": [
+          "no_data_growth"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T02:49:18.709797+00:00",
+        "action": "watching",
+        "log_fresh": true,
+        "log_age_seconds": 5.178466558456421,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T02:44:18.335515+00:00",
+        "no_data_growth_seconds": 300.44567704200745,
+        "active_gsutil_process_count": 3,
+        "reasons": [],
+        "restart_returncode": null
+      },
+      {
+        "generated_at": "2026-07-10T02:54:18.969252+00:00",
+        "action": "watching",
+        "log_fresh": true,
+        "log_age_seconds": 2.4222633838653564,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T02:44:18.335515+00:00",
+        "no_data_growth_seconds": 600.7187390327454,
+        "active_gsutil_process_count": 3,
+        "reasons": [],
+        "restart_returncode": null
+      },
+      {
+        "generated_at": "2026-07-10T02:59:19.506915+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 4.838437557220459,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T02:59:19.506915+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 3,
+        "reasons": [
+          "no_data_growth"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T02:59:57.447527+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 15.156325101852417,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T02:59:57.447527+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:04:19.831478+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 2.963212728500366,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:04:19.831478+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:09:37.077120+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 1.9762680530548096,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:09:37.077120+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:14:55.323819+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 1.2052984237670898,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:14:55.323819+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:20:14.305234+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 1.0867154598236084,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:20:14.305234+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:25:33.427230+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 1.7770814895629883,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:25:33.427230+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:30:51.840225+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 1.7505168914794922,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:30:51.840225+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:36:10.425939+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 0.7472319602966309,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:36:10.425939+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:41:29.889924+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 0.06757235527038574,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:41:29.889924+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:46:50.164446+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 1.0878736972808838,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:46:50.164446+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:52:09.298214+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 0.7943634986877441,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:52:09.298214+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T03:57:28.727299+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 1.0249707698822021,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T03:57:28.727299+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T04:02:48.007218+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 1.0563995838165283,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T04:02:48.007218+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T04:08:07.182307+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 0.40636754035949707,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T04:08:07.182307+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T04:13:26.989580+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 0.9386248588562012,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T04:13:26.989580+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T04:18:46.373067+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 0.07490181922912598,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T04:18:46.373067+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      },
+      {
+        "generated_at": "2026-07-10T04:24:06.587382+00:00",
+        "action": "restart_requested",
+        "log_fresh": true,
+        "log_age_seconds": 0.6001572608947754,
+        "data_bytes": 184278228991,
+        "data_growth_bytes_since_last_check": 0,
+        "data_unchanged_since": "2026-07-10T04:24:06.587382+00:00",
+        "no_data_growth_seconds": 0.0,
+        "active_gsutil_process_count": 0,
+        "reasons": [
+          "no_active_gsutil_process"
+        ],
+        "restart_returncode": 0
+      }
+    ]
+  },
+  "refresh_policy": {
+    "mode": "growth_threshold",
+    "min_growth_gib": 2.0,
+    "min_new_shards": 1,
+    "last_refreshed_gib": 166.125,
+    "current_gib": 171.622,
+    "growth_since_refresh_gib": 5.497,
+    "remaining_to_next_refresh_gib": 0.0,
+    "next_refresh_at_gib": 168.125,
+    "last_refreshed_shard_count": 552,
+    "current_shard_count": 552,
+    "shard_growth_since_refresh": 0,
+    "remaining_shards_to_next_refresh": 1,
+    "next_refresh_at_shard_count": 553,
+    "will_refresh_now": true,
+    "reason": "threshold_met"
+  },
+  "submission_summary": {
+    "status": "ready_as_incremental_evidence",
+    "can_claim": [
+      "Real Open X files are being downloaded into data/openx_demo and monitored.",
+      "Current incremental allocation-head training uses complete files only, excluding .gstmp/.tmp/.part partial downloads.",
+      "The current Q-Tail allocation head is directionally aligned with the PT-heavy-tail goal.",
+      "The local API can turn new embodied-task CSV data into a Q-Tail synthetic allocation package.",
+      "The public customer-style service package passes the same-budget data-engine audit."
+    ],
+    "cannot_claim_yet": [
+      "Final Strong 20000-step training is not complete.",
+      "Full robot-policy training has not been completed on the full RLDS/TFDS stack.",
+      "Cannot yet claim language_table and language_table_sim are fully downloaded and verified."
+    ],
+    "headline_metrics": {
+      "incremental_trainable_gib": 166.125,
+      "incremental_rows": 552,
+      "incremental_partial_rows": 0,
+      "incremental_predicted_tail_share_gain_pp": 41.909485310316086,
+      "public_tail_success_gain_pp": 5.409800742436954,
+      "public_tail_success_relative_gain_pct": 11.310462530453531,
+      "public_tail_data_share_gain_pp": 34.433181367723684,
+      "latest_api_tail_success_gain_pp": 35.059039800379175
+    },
+    "next_trigger": {
+      "strong_training": "ready_for_strong_training=true",
+      "incremental_refresh": "complete-file growth reaches min_growth_gib",
+      "remaining_to_incremental_refresh_gib": 0.0,
+      "strong_ready": true,
+      "strong_training_complete": true
+    }
+  },
+  "evidence_ledger": [
+    {
+      "claim": "Real Open X data is being downloaded and monitored.",
+      "status": "active",
+      "evidence": "171.622 GiB in data/openx_demo",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+      "boundary": "Strong download is still in progress until both language_table datasets pass verification."
+    },
+    {
+      "claim": "Strong final training is gated by data completeness.",
+      "status": "ready",
+      "evidence": "ready_for_strong_training=True",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_download/strong_download_verification.json",
+      "boundary": "Final 20000-step run is not allowed while partial .gstmp files or missing datasets remain."
+    },
+    {
+      "claim": "Current Open X trained model has learned a PT-heavy-tail allocation direction.",
+      "status": "complete",
+      "evidence": "predicted_tail_share_gain_pp=41.909485310316086",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+      "boundary": "This is the latest incremental snapshot, not the final Strong result."
+    },
+    {
+      "claim": "Public customer-style service package passes same-budget audit.",
+      "status": "passed",
+      "evidence": "tail_success_gain_pp=5.409800742436954; tail_data_share_gain_pp=34.433181367723684",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json",
+      "boundary": "Customer package validates data allocation quality before full robot-policy retraining."
+    },
+    {
+      "claim": "The local Q-Tail API can turn new embodied data into a PT-heavy-tail delivery package.",
+      "status": "passed",
+      "evidence": "latest_run=20260710T030841Z_customer_semifinal_embodied_tasks; winner=qtail_synthetic",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/qtail_delivery_package.zip",
+      "boundary": "API output is a synthetic allocation/scenario package; downstream renderers produce final trajectories."
+    },
+    {
+      "claim": "Auto-refresh keeps the service package aligned with newly downloaded shards.",
+      "status": "refreshed",
+      "evidence": "growth_gib=3.604; last_refreshed_gib=166.125",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_auto_refresh/refresh_status.json",
+      "boundary": "Incremental retrain runs after the configured growth threshold is met."
+    },
+    {
+      "claim": "Final Strong result will automatically replace the public service package.",
+      "status": "complete",
+      "evidence": "strong_steps=20000",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/openx_demo_training_report.json",
+      "boundary": "This claim becomes complete only after Strong verification and training succeed."
+    }
+  ],
+  "objective_progress": [
+    {
+      "requirement": "Download real Open X data into data/ and monitor it.",
+      "status": "active",
+      "evidence": "171.622 GiB downloaded; strong_ready=True",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+      "next_step": "Finish language_table and language_table_sim, then pass strong verification."
+    },
+    {
+      "requirement": "Start training after the download is complete.",
+      "status": "complete",
+      "evidence": "Strong waiter is armed; final marker=True; wait_policy=poll_strong_download_verification_until_ready",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/train_after_download.log",
+      "next_step": "The launchd waiter runs 20000-step training only after require-ready verification succeeds."
+    },
+    {
+      "requirement": "Show what was done and every step of progress on a new page.",
+      "status": "implemented",
+      "evidence": "qtail-openx-training.html reads progress_manifest.json and progress_history.json.",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/qtail-openx-training.html",
+      "next_step": "After Strong training, the same page switches to the Strong result automatically."
+    },
+    {
+      "requirement": "Explain effect and whether it matches the PT-heavy-tail embodied-AI goal.",
+      "status": "incremental_evidence",
+      "evidence": "incremental predicted_tail_share_gain_pp=41.909485310316086; strong predicted_tail_share_gain_pp=41.8281614780426; clean_training_rows=True",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json",
+      "next_step": "Replace incremental evidence with Strong 20000-step evidence after download completion."
+    },
+    {
+      "requirement": "Implement a data service that turns new embodied data into PT-heavy-tail synthetic data.",
+      "status": "implemented",
+      "evidence": "latest_api_run=20260710T030841Z_customer_semifinal_embodied_tasks; api_tail_success_gain_pp=35.059039800379175",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/qtail_delivery_package.zip",
+      "next_step": "Keep API calibrated to the latest incremental or Strong Open X training report."
+    },
+    {
+      "requirement": "Provide a customer-facing delivery package for embodied-AI companies.",
+      "status": "passed",
+      "evidence": "tail_success_gain_pp=5.409800742436954; tail_data_share_gain_pp=34.433181367723684",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_delivery_package.zip",
+      "next_step": "Rebuild package from Strong result when final training completes."
+    },
+    {
+      "requirement": "Keep progress updated while the long download/training runs.",
+      "status": "threshold_met",
+      "evidence": "refresh_current_gib=171.622; next_refresh_at_gib=168.125",
+      "artifact": "/Users/avalok/work/Q-TAIL-MVP/results/openx_training_progress/progress_manifest.json",
+      "next_step": "Auto-refresh retrains the incremental snapshot after enough new data lands."
+    }
+  ],
+  "logs": {
+    "demo_download_tail": [
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "[2026-07-09T12:09:00Z] END nyu_door_opening_surprising_effectiveness code=0",
+      "[2026-07-09T12:09:00Z] START berkeley_mvp_converted_externally_to_rlds gs://gdm-robotics-open-x-embodiment/berkeley_mvp_converted_externally_to_rlds -> /Users/avalok/work/Q-TAIL-MVP/data/openx_demo/berkeley_mvp_conver...",
+      "Building synchronization state...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "Starting synchronization...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "[2026-07-09T12:09:02Z] END berkeley_mvp_converted_externally_to_rlds code=0",
+      "32G /Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+      "[2026-07-09T12:09:02Z] START ucsd_kitchen_dataset_converted_externally_to_rlds gs://gdm-robotics-open-x-embodiment/ucsd_kitchen_dataset_converted_externally_to_rlds -> /Users/avalok/work/Q-TAIL-MVP/data/openx_demo/ucs...",
+      "Building synchronization state...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "Starting synchronization...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "[2026-07-09T12:09:05Z] END ucsd_kitchen_dataset_converted_externally_to_rlds code=0",
+      "[2026-07-09T12:09:05Z] START austin_buds_dataset_converted_externally_to_rlds gs://gdm-robotics-open-x-embodiment/austin_buds_dataset_converted_externally_to_rlds -> /Users/avalok/work/Q-TAIL-MVP/data/openx_demo/austi...",
+      "Building synchronization state...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "Starting synchronization...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "[2026-07-09T12:09:07Z] END austin_buds_dataset_converted_externally_to_rlds code=0",
+      "[2026-07-09T12:09:07Z] START columbia_cairlab_pusht_real gs://gdm-robotics-open-x-embodiment/columbia_cairlab_pusht_real -> /Users/avalok/work/Q-TAIL-MVP/data/openx_demo/columbia_cairlab_pusht_real",
+      "Building synchronization state...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "Starting synchronization...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "[2026-07-09T12:09:09Z] END columbia_cairlab_pusht_real code=0",
+      "[2026-07-09T12:09:09Z] START austin_sirius_dataset_converted_externally_to_rlds gs://gdm-robotics-open-x-embodiment/austin_sirius_dataset_converted_externally_to_rlds -> /Users/avalok/work/Q-TAIL-MVP/data/openx_demo/a...",
+      "Building synchronization state...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "Starting synchronization...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "[2026-07-09T12:09:11Z] END austin_sirius_dataset_converted_externally_to_rlds code=0",
+      "[2026-07-09T12:09:11Z] START nyu_door_opening_surprising_effectiveness gs://gdm-robotics-open-x-embodiment/nyu_door_opening_surprising_effectiveness -> /Users/avalok/work/Q-TAIL-MVP/data/openx_demo/nyu_door_opening_su...",
+      "Building synchronization state...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "Starting synchronization...",
+      "If you experience problems with multiprocessing on MacOS, they might be related to https://bugs.python.org/issue33725. You can disable multiprocessing by editing your .boto config or by adding the following flag to yo...",
+      "[2026-07-09T12:09:14Z] END nyu_door_opening_surprising_effectiveness code=0",
+      "[2026-07-09T12:09:14Z] START berkeley_mvp_converted_externally_to_rlds gs://gdm-robotics-open-x-embodiment/berkeley_mvp_converted_externally_to_rlds -> /Users/avalok/work/Q-TAIL-MVP/data/openx_demo/berkeley_mvp_conver..."
+    ],
+    "strong_download_tail": [
+      "\"dataset_info.json\",",
+      "\"features.json\"",
+      "],",
+      "\"expected\": {",
+      "\"min_gib\": 46.0,",
+      "\"min_tfrecords\": 60,",
+      "\"required_files\": [",
+      "\"features.json\",",
+      "\"dataset_info.json\"",
+      "]",
+      "},",
+      "\"valid\": true,",
+      "\"errors\": []",
+      "},",
+      "{",
+      "\"dataset\": \"language_table_sim\",",
+      "\"path\": \"/Users/avalok/work/Q-TAIL-MVP/data/openx_demo/language_table_sim\",",
+      "\"exists\": true,",
+      "\"bytes\": 99943936069,",
+      "\"gib\": 93.08,",
+      "\"tfrecord_count\": 173,",
+      "\"partial_file_count\": 0,",
+      "\"required_metadata_found\": [",
+      "\"dataset_info.json\",",
+      "\"features.json\"",
+      "],",
+      "\"expected\": {",
+      "\"min_gib\": 80.0,",
+      "\"min_tfrecords\": 20,",
+      "\"required_files\": [",
+      "\"features.json\",",
+      "\"dataset_info.json\"",
+      "]",
+      "},",
+      "\"valid\": true,",
+      "\"errors\": []",
+      "}",
+      "]",
+      "}",
+      "[2026-07-10T04:29:25Z] STRONG_DOWNLOAD_COMPLETE /Users/avalok/work/Q-TAIL-MVP/results/openx_strong_download/STRONG_DOWNLOAD_COMPLETE"
+    ],
+    "strong_train_tail": [
+      "\"qtail_cvar20\": 0.7061853806589642,",
+      "\"cvar20_gain_pp\": 39.52074363196517,",
+      "\"source_tail_data_share\": 0.020090978013646704,",
+      "\"qtail_tail_data_share\": 0.38995214910155307,",
+      "\"tail_data_share_gain_pp\": 36.98611710879064,",
+      "\"extreme_failure_reduction\": 2,",
+      "\"decision\": {",
+      "\"winner\": \"qtail_synthetic\",",
+      "\"passed\": true,",
+      "\"summary\": \"Q-Tail synthetic data wins under the same-budget evaluation protocol.\",",
+      "\"primary_metric\": \"tail_success\",",
+      "\"decision_gate\": {",
+      "\"tail_success_min_gain\": 0.02,",
+      "\"cvar20_min_gain\": 0.02,",
+      "\"tail_data_share_min_gain\": 0.1,",
+      "\"p_delta_le_0_max\": 0.05",
+      "},",
+      "\"reasons\": [",
+      "\"tail_success_gain=0.350590\",",
+      "\"cvar20_gain=0.395207\",",
+      "\"tail_data_share_gain=0.369861\",",
+      "\"paired_bootstrap_p_delta_le_0_within_gate\",",
+      "\"same_budget_audit_passed\"",
+      "]",
+      "},",
+      "\"aligned_with_pt_tail_goal\": true",
+      "}",
+      "}",
+      "[2026-07-10T03:08:42Z] validating latest post-strong customer package",
+      "{",
+      "\"report_path\": \"/Users/avalok/work/Q-TAIL-MVP/results/qtail_service_api_runs/20260710T030841Z_customer_semifinal_embodied_tasks/qtail_data_engine_report.json\",",
+      "\"valid\": true,",
+      "\"errors\": [],",
+      "\"winner\": \"qtail_synthetic\",",
+      "\"test_passed\": true,",
+      "\"profile_count\": 10",
+      "}",
+      "[2026-07-10T03:08:42Z] refreshing progress manifest",
+      "Users/avalok/work/Q-TAIL-MVP/results/openx_training_progress/progress_manifest.json",
+      "[2026-07-10T03:08:42Z] strong pipeline already complete; idling under launchd KeepAlive"
+    ],
+    "auto_refresh_tail": [
+      "\"tools/qtail_openx_progress_manifest.py\"",
+      "],",
+      "\"started_at\": \"2026-07-10T02:20:54.549638+00:00\",",
+      "\"finished_at\": \"2026-07-10T02:20:54.833394+00:00\",",
+      "\"returncode\": 0,",
+      "\"log\": \"/Users/avalok/work/Q-TAIL-MVP/results/qtail_auto_refresh/manifest_refresh.log\"",
+      "}",
+      "],",
+      "\"previous_status\": \"refreshed\",",
+      "\"last_refreshed_at\": \"2026-07-10T02:20:54.547067+00:00\",",
+      "\"last_refreshed_gib\": 162.521,",
+      "\"last_refreshed_shards\": 563,",
+      "\"incremental_report\": \"/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/openx_demo_training_report.json\",",
+      "\"service_delivery_report\": \"/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_service_delivery_report.json\",",
+      "\"status\": \"refreshed\"",
+      "}",
+      "[2026-07-10T02:30:55Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T02:40:56Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T02:50:58Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T03:01:00Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T03:11:01Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T03:21:02Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T03:31:04Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T03:41:05Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T03:51:07Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T04:01:09Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T04:11:10Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt",
+      "[2026-07-10T04:21:12Z] auto-refresh check",
+      "Missing dependency: install `tfrecord` from requirements.txt"
+    ]
+  },
+  "interpretation": {
+    "what_we_did": [
+      "Downloaded official Open X / RT-X RLDS-format subsets into data/openx_demo.",
+      "Started same-architecture source-vs-Q-Tail allocation-head training on real downloaded shards.",
+      "Queued Strong Evidence add-on datasets language_table and language_table_sim after the demo package."
+    ],
+    "claim_boundary": [
+      "Current completed training is shard-level allocation-head training on real Open X files.",
+      "It is not yet full robot-policy training because TensorFlow/TFDS/RLDS policy stack is not installed in this local Python environment.",
+      "The result is still directly useful for the product goal: learning a model that maps customer embodied data profiles to PT-heavy-tail synthetic allocation targets."
+    ],
+    "product_goal": "Train a Q-Tail data service model that ingests new embodied-AI data, estimates task rarity/risk, generates PT-heavy-tail synthetic data/allocation specs, and gives embodied-AI companies a faster path to improve tail-task training."
+  },
+  "service_design": [
+    {
+      "step": "1. Ingest",
+      "output": "customer CSV/RLDS/trajectory summary -> task and shard profiles"
+    },
+    {
+      "step": "2. Score",
+      "output": "rarity, difficulty, risk, tail_score, data mass"
+    },
+    {
+      "step": "3. Generate",
+      "output": "PT-heavy-tail allocation and scenario/spec CSV"
+    },
+    {
+      "step": "4. Train",
+      "output": "allocation head / policy adapter under same budget"
+    },
+    {
+      "step": "5. Audit",
+      "output": "tail share, tail success proxy, CVaR, extreme failure, claim boundary"
+    },
+    {
+      "step": "6. Deliver",
+      "output": "customer data package and API-ready synthetic-data plan"
+    }
+  ],
+  "progress_history": {
+    "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_training_progress/progress_history.json",
+    "row_count": 240,
+    "rows": [
+      {
+        "generated_at": "2026-07-10T02:31:11.254819+00:00",
+        "generated_at_local": "2026-07-10T10:31:11.254835+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 105,
+        "download_files_total": 115,
+        "download_percent": 96,
+        "download_done_gib": 59.8,
+        "download_total_gib": 61.9,
+        "download_speed": "17.6 MiB/s",
+        "download_eta": "00:02:04",
+        "incremental_total_gib": 162.521,
+        "incremental_steps": 2500,
+        "incremental_shards": 563,
+        "predicted_tail_share_gain_pp": 41.53876304626465,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.43318136772369,
+        "auto_refresh_status": "skipped_waiting_for_more_data",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:33:08.744343+00:00",
+        "generated_at_local": "2026-07-10T10:33:08.744364+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 105,
+        "download_files_total": 115,
+        "download_percent": 97,
+        "download_done_gib": 60.2,
+        "download_total_gib": 61.9,
+        "download_speed": "796.3 KiB/s",
+        "download_eta": "00:36:44",
+        "incremental_total_gib": 162.521,
+        "incremental_steps": 2500,
+        "incremental_shards": 563,
+        "predicted_tail_share_gain_pp": 41.53876304626465,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.43318136772369,
+        "auto_refresh_status": "skipped_waiting_for_more_data",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:33:27.431920+00:00",
+        "generated_at_local": "2026-07-10T10:33:27.431932+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 105,
+        "download_files_total": 115,
+        "download_percent": 97,
+        "download_done_gib": 60.3,
+        "download_total_gib": 61.9,
+        "download_speed": "794.4 KiB/s",
+        "download_eta": "00:36:30",
+        "incremental_total_gib": 162.521,
+        "incremental_steps": 2500,
+        "incremental_shards": 563,
+        "predicted_tail_share_gain_pp": 41.53876304626465,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.43318136772369,
+        "auto_refresh_status": null,
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:33:31.484753+00:00",
+        "generated_at_local": "2026-07-10T10:33:31.484765+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 105,
+        "download_files_total": 115,
+        "download_percent": 97,
+        "download_done_gib": 60.3,
+        "download_total_gib": 61.9,
+        "download_speed": "817.6 KiB/s",
+        "download_eta": "00:35:23",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:34:12.813776+00:00",
+        "generated_at_local": "2026-07-10T10:34:12.813786+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 106,
+        "download_files_total": 115,
+        "download_percent": 97,
+        "download_done_gib": 60.3,
+        "download_total_gib": 61.9,
+        "download_speed": "792.6 KiB/s",
+        "download_eta": "00:35:54",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:39:11.702501+00:00",
+        "generated_at_local": "2026-07-10T10:39:11.702517+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 107,
+        "download_files_total": 115,
+        "download_percent": 97,
+        "download_done_gib": 60.7,
+        "download_total_gib": 61.9,
+        "download_speed": "890.4 KiB/s",
+        "download_eta": "00:24:30",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:44:13.896991+00:00",
+        "generated_at_local": "2026-07-10T10:44:13.897003+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 107,
+        "download_files_total": 115,
+        "download_percent": 98,
+        "download_done_gib": 60.9,
+        "download_total_gib": 61.9,
+        "download_speed": "748.2 KiB/s",
+        "download_eta": "00:24:12",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:44:49.203421+00:00",
+        "generated_at_local": "2026-07-10T10:44:49.203430+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 2,
+        "download_files_total": 8,
+        "download_percent": 69,
+        "download_done_gib": 3.0,
+        "download_total_gib": 4.4,
+        "download_speed": "13.7 MiB/s",
+        "download_eta": "00:01:42",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:45:05.525423+00:00",
+        "generated_at_local": "2026-07-10T10:45:05.525443+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 5,
+        "download_files_total": 8,
+        "download_percent": 71,
+        "download_done_gib": 3.2,
+        "download_total_gib": 4.4,
+        "download_speed": "4.8 MiB/s",
+        "download_eta": "00:04:28",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:45:14.312390+00:00",
+        "generated_at_local": "2026-07-10T10:45:14.312403+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 5,
+        "download_files_total": 8,
+        "download_percent": 73,
+        "download_done_gib": 3.2,
+        "download_total_gib": 4.4,
+        "download_speed": "8.9 MiB/s",
+        "download_eta": "00:02:17",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:45:16.841806+00:00",
+        "generated_at_local": "2026-07-10T10:45:16.841819+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 6,
+        "download_files_total": 8,
+        "download_percent": 73,
+        "download_done_gib": 3.2,
+        "download_total_gib": 4.4,
+        "download_speed": "10.4 MiB/s",
+        "download_eta": "00:01:56",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:45:34.619783+00:00",
+        "generated_at_local": "2026-07-10T10:45:34.619793+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 6,
+        "download_files_total": 8,
+        "download_percent": 88,
+        "download_done_gib": 3.9,
+        "download_total_gib": 4.4,
+        "download_speed": "16.9 MiB/s",
+        "download_eta": "00:00:30",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:57:20.758821+00:00",
+        "generated_at_local": "2026-07-10T10:57:20.758833+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 7,
+        "download_files_total": 8,
+        "download_percent": 98,
+        "download_done_gib": 4.4,
+        "download_total_gib": 4.4,
+        "download_speed": "60.8 KiB/s",
+        "download_eta": "00:13:36",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T02:59:21.840803+00:00",
+        "generated_at_local": "2026-07-10T10:59:21.840817+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table_sim",
+        "download_files_done": 7,
+        "download_files_total": 8,
+        "download_percent": 99,
+        "download_done_gib": 4.4,
+        "download_total_gib": 4.4,
+        "download_speed": "52.8 KiB/s",
+        "download_eta": "00:13:24",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": false,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T03:04:24.047463+00:00",
+        "generated_at_local": "2026-07-10T11:04:24.047478+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table",
+        "download_files_done": 1,
+        "download_files_total": 1,
+        "download_percent": 100,
+        "download_done_gib": 0.59,
+        "download_total_gib": 0.59,
+        "download_speed": "",
+        "download_eta": "",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": true,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T03:04:53.496352+00:00",
+        "generated_at_local": "2026-07-10T11:04:53.496368+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table",
+        "download_files_done": 1,
+        "download_files_total": 1,
+        "download_percent": 100,
+        "download_done_gib": 0.59,
+        "download_total_gib": 0.59,
+        "download_speed": "",
+        "download_eta": "",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": true,
+        "strong_training_complete": true
+      },
+      {
+        "generated_at": "2026-07-10T03:05:24.503994+00:00",
+        "generated_at_local": "2026-07-10T11:05:24.504011+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table",
+        "download_files_done": 1,
+        "download_files_total": 1,
+        "download_percent": 100,
+        "download_done_gib": 0.59,
+        "download_total_gib": 0.59,
+        "download_speed": "",
+        "download_eta": "",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": true,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T03:05:51.259295+00:00",
+        "generated_at_local": "2026-07-10T11:05:51.259310+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table",
+        "download_files_done": 1,
+        "download_files_total": 1,
+        "download_percent": 100,
+        "download_done_gib": 0.59,
+        "download_total_gib": 0.59,
+        "download_speed": "",
+        "download_eta": "",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": true,
+        "strong_training_complete": true
+      },
+      {
+        "generated_at": "2026-07-10T03:06:24.961863+00:00",
+        "generated_at_local": "2026-07-10T11:06:24.961877+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table",
+        "download_files_done": 1,
+        "download_files_total": 1,
+        "download_percent": 100,
+        "download_done_gib": 0.59,
+        "download_total_gib": 0.59,
+        "download_speed": "",
+        "download_eta": "",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": true,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T03:06:49.009513+00:00",
+        "generated_at_local": "2026-07-10T11:06:49.009526+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table",
+        "download_files_done": 1,
+        "download_files_total": 1,
+        "download_percent": 100,
+        "download_done_gib": 0.59,
+        "download_total_gib": 0.59,
+        "download_speed": "",
+        "download_eta": "",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": true,
+        "strong_training_complete": true
+      },
+      {
+        "generated_at": "2026-07-10T03:07:25.383186+00:00",
+        "generated_at_local": "2026-07-10T11:07:25.383201+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table",
+        "download_files_done": 1,
+        "download_files_total": 1,
+        "download_percent": 100,
+        "download_done_gib": 0.59,
+        "download_total_gib": 0.59,
+        "download_speed": "",
+        "download_eta": "",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": true,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T03:07:48.857250+00:00",
+        "generated_at_local": "2026-07-10T11:07:48.857265+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table",
+        "download_files_done": 1,
+        "download_files_total": 1,
+        "download_percent": 100,
+        "download_done_gib": 0.59,
+        "download_total_gib": 0.59,
+        "download_speed": "",
+        "download_eta": "",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": true,
+        "strong_training_complete": true
+      },
+      {
+        "generated_at": "2026-07-10T03:08:25.797337+00:00",
+        "generated_at_local": "2026-07-10T11:08:25.797352+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": "language_table",
+        "download_files_done": 1,
+        "download_files_total": 1,
+        "download_percent": 100,
+        "download_done_gib": 0.59,
+        "download_total_gib": 0.59,
+        "download_speed": "",
+        "download_eta": "",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": true,
+        "strong_training_complete": false
+      },
+      {
+        "generated_at": "2026-07-10T09:58:19.173866+00:00",
+        "generated_at_local": "2026-07-10T17:58:19.173882+08:00",
+        "data_gib": 171.622,
+        "dataset_count": 8,
+        "download_dataset": null,
+        "download_files_done": 1,
+        "download_files_total": 1,
+        "download_percent": 100,
+        "download_done_gib": 0.59,
+        "download_total_gib": 0.59,
+        "download_speed": "",
+        "download_eta": "",
+        "incremental_total_gib": 166.125,
+        "incremental_steps": 2500,
+        "incremental_shards": 552,
+        "predicted_tail_share_gain_pp": 41.909485310316086,
+        "service_tail_success_gain_pp": 5.409800742436954,
+        "service_tail_data_share_gain_pp": 34.433181367723684,
+        "auto_refresh_status": "refreshed",
+        "strong_ready": true,
+        "strong_training_complete": true
+      }
+    ]
+  },
+  "status_brief": {
+    "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_training_progress/STATUS_BRIEF.md",
+    "format": "markdown"
+  },
+  "download_status": {
+    "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_download/DOWNLOAD_STATUS.md",
+    "format": "markdown"
+  }
+}

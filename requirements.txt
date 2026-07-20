@@ -1,0 +1,11 @@
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+pyyaml
+requests
+flask
+werkzeug
+torch
+tfrecord

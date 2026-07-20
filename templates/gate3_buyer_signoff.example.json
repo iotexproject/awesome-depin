@@ -1,0 +1,12 @@
+{
+  "pilot_id": "REPLACE_WITH_REAL_PILOT_ID",
+  "buyer_company": "REPLACE_WITH_LEGAL_ENTITY",
+  "buyer_owner": "REPLACE_WITH_NAMED_ACCEPTANCE_OWNER",
+  "hardware_safety_owner": "REPLACE_WITH_NAMED_SAFETY_OWNER",
+  "procurement_owner": "REPLACE_WITH_NAMED_PROCUREMENT_OWNER",
+  "contract_reference": "REPLACE_WITH_EXTERNAL_CONTRACT_OR_SOW_REFERENCE",
+  "accepted": false,
+  "signed_at": null,
+  "signoff_evidence_url": "REPLACE_WITH_ABSOLUTE_ARCHIVE_URL",
+  "notes": "Template only. Do not set accepted=true until the named buyer owners have reviewed the real-robot, safety, and cost evidence."
+}

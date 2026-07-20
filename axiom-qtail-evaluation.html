@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q-Tail-for-AI 同预算证明与价值评估</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #081016;
+      --ink: #edf7f6;
+      --muted: #9fb2b7;
+      --panel: #101b22;
+      --panel2: #14242d;
+      --line: #27404a;
+      --cyan: #43d9c8;
+      --green: #67d58f;
+      --gold: #e6bd62;
+      --red: #ff8585;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        linear-gradient(180deg, rgba(67, 217, 200, 0.09), transparent 430px),
+        linear-gradient(90deg, rgba(230, 189, 98, 0.06), transparent 40%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(8, 16, 22, 0.9);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner, .shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+
+    .topbar-inner {
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 820;
+      white-space: nowrap;
+    }
+
+    .mark {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .nav a:hover { color: var(--cyan); }
+
+    .shell { padding-bottom: 60px; }
+
+    .hero {
+      min-height: calc(100vh - 62px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 42px;
+      align-items: center;
+      padding: 54px 0 34px;
+    }
+
+    .eyebrow {
+      margin-bottom: 16px;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 820;
+      text-transform: uppercase;
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(40px, 5.3vw, 68px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .title-line { display: block; }
+
+    .hero-copy {
+      margin: 22px 0 0;
+      max-width: 740px;
+      color: #c9d9dc;
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      font-weight: 820;
+      font-size: 14px;
+    }
+
+    .button.primary {
+      background: var(--cyan);
+      border-color: var(--cyan);
+      color: #061114;
+    }
+
+    .hero-panel, .card, .table-wrap {
+      border: 1px solid var(--line);
+      background: rgba(16, 27, 34, 0.9);
+    }
+
+    .hero-panel { padding: 22px; }
+
+    .status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 7px 10px;
+      border: 1px solid rgba(103, 213, 143, 0.45);
+      background: rgba(103, 213, 143, 0.12);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 820;
+      white-space: nowrap;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      min-height: 116px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--line);
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .value {
+      font-size: 31px;
+      line-height: 1;
+      font-weight: 860;
+    }
+
+    .note {
+      margin-top: 8px;
+      color: #bed0d4;
+      font-size: 12px;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid rgba(230, 189, 98, 0.46);
+      background: rgba(230, 189, 98, 0.09);
+      color: #f0d99a;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 54px 0 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      margin: 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .two, .three {
+      display: grid;
+      gap: 14px;
+    }
+
+    .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      padding: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .card p, .card li {
+      color: #bfd0d4;
+      font-size: 14px;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .audit {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .audit-id {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(103, 213, 143, 0.45);
+      color: var(--green);
+      background: rgba(103, 213, 143, 0.09);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-weight: 900;
+    }
+
+    .audit-title {
+      font-weight: 820;
+      margin-bottom: 4px;
+    }
+
+    .audit-detail {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      font-weight: 820;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    .qrow td { color: var(--cyan); font-weight: 800; }
+    .risk { color: var(--gold); font-weight: 800; }
+    .bad { color: var(--red); }
+
+    .figure-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .figure {
+      border: 1px solid var(--line);
+      background: #fff;
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .figure img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .caption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .error {
+      margin: 30px auto;
+      max-width: 900px;
+      padding: 18px;
+      border: 1px solid rgba(255, 133, 133, 0.5);
+      background: rgba(255, 133, 133, 0.08);
+      color: #ffd6d6;
+    }
+
+    @media (max-width: 900px) {
+      .nav { display: none; }
+      .hero, .two, .three, .audit-grid, .figure-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .section-head { display: block; }
+      .section-note { margin-top: 10px; }
+    }
+
+    @media (max-width: 520px) {
+      .topbar-inner, .shell { padding-left: 16px; padding-right: 16px; }
+      h1 { font-size: 34px; }
+      .metric-grid { grid-template-columns: 1fr; }
+      .hero-panel { padding: 16px; }
+      .status { display: block; }
+      .pill { margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><span class="mark">Q</span><span>Q-Tail Proof</span></a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#proof">证明</a>
+        <a href="#baselines">强基线</a>
+        <a href="#figures">图表</a>
+        <a href="#value">价值评估</a>
+        <a href="#boundary">边界</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" class="shell">
+    <div class="error">正在读取 <code>results/qtail_same_budget_proof/same_budget_proof.json</code>...</div>
+  </main>
+
+  <script>
+    const app = document.getElementById("app");
+    const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+    })[char]);
+    const pct = (value) => `${(Number(value) * 100).toFixed(1)}%`;
+    const pp = (value) => `${Number(value) >= 0 ? "+" : ""}${(Number(value) * 100).toFixed(1)} pp`;
+    const num = (value, digits = 2) => value === null || value === undefined ? "未达到" : Number(value).toFixed(digits);
+    const pvalue = (value) => Number(value) === 0 ? "< 1e-12" : Number(value).toExponential(2);
+
+    function list(items) {
+      return `<ul>${items.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>`;
+    }
+
+    function metric(label, value, note) {
+      return `<div class="metric"><div class="label">${esc(label)}</div><div class="value">${value}</div><div class="note">${esc(note)}</div></div>`;
+    }
+
+    function auditCard(item) {
+      return `<div class="audit">
+        <div class="audit-id">${esc(item.id)}</div>
+        <div><div class="audit-title">${esc(item.name)}</div><div class="audit-detail">${esc(item.detail)}</div></div>
+      </div>`;
+    }
+
+    function renderRows(proof) {
+      const summaries = proof.summaries;
+      const rows = Object.keys(summaries).map((strategy) => ({ strategy, ...summaries[strategy] }));
+      rows.sort((a, b) => b.tail_success_mean - a.tail_success_mean);
+      return rows.map((row, index) => {
+        const q = row.strategy === "q_tail";
+        const pareto = row.strategy === "pareto_heavy_tail";
+        const note = q ? "Q-Tail balanced proof target" : pareto ? "tail-only strong adversary; head/CVaR collapse" : "baseline";
+        return `<tr class="${q ? "qrow" : ""}">
+          <td>${index + 1}</td>
+          <td>${esc(row.strategy)}</td>
+          <td>${pct(row.tail_success_mean)}</td>
+          <td>${pct(row.head_success_mean)}</td>
+          <td>${pct(row.cvar20_mean)}</td>
+          <td>${num(row.extreme_failure_mean, 2)}</td>
+          <td>${pct(row.rare_space_coverage_rate)}</td>
+          <td class="${pareto ? "risk" : ""}">${esc(note)}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    function packetCards(proof) {
+      return proof.audit.multi_agent_next_prs.map((packet) => `<article class="card">
+        <h3>${esc(packet.role)}</h3>
+        <p>${esc(packet.task)}</p>
+      </article>`).join("");
+    }
+
+    function render(proof) {
+      const h = proof.headline;
+      const scope = proof.scope;
+      const auditPassed = proof.audit.requirements.filter((item) => item.passed).length;
+      const auditTotal = proof.audit.requirements.length;
+      const generated = new Date(proof.generated_at).toLocaleString("zh-CN", { hour12: false });
+      const ci = h.tail_success_gain_ci95_vs_uniform;
+
+      app.innerHTML = `
+        <section class="hero">
+          <div>
+            <div class="eyebrow">same compute · same steps · same environment · scheduler-only proof</div>
+            <h1><span class="title-line">Q-Tail-for-AI</span><span class="title-line">同预算证明与</span><span class="title-line">商业价值评估</span></h1>
+            <p class="hero-copy">
+              这次页面不再展示 Axiom-Horizon 的外壳，而是借用它的证据方法：先锁定命题边界，再跑同预算实验，再把强基线和未证明内容放在台面上。
+              当前证明回答的是：在同一 MT10-style 长尾任务模拟器、同样 100,000 步预算、同样 seed 环境扰动下，Q-Tail 是否比 uniform 更能提升 tail success、降低严重失败，并覆盖罕见任务空间。
+            </p>
+            <div class="actions">
+              <a class="button primary" href="results/qtail_same_budget_proof/same_budget_proof.json">查看 proof JSON</a>
+              <a class="button" href="results/qtail_same_budget_proof/same_budget_summary.csv">查看 summary CSV</a>
+              <a class="button" href="tools/qtail_same_budget_proof.py">复跑脚本</a>
+            </div>
+            <div class="notice">证据边界：这是同预算统计模拟证明，不是现实 Meta-World SAC/PPO、真实机器人部署或量子优势证明。</div>
+          </div>
+          <aside class="hero-panel">
+            <div class="status">
+              <div><div class="label">Proof audit</div><strong>${auditPassed}/${auditTotal} requirements passed</strong></div>
+              <span class="pill">${esc(scope.n_seeds)} paired seeds</span>
+            </div>
+            <div class="metric-grid">
+              ${metric("Tail Success", pp(h.tail_success_gain_vs_uniform), `Q-Tail ${pct(h.q_tail_tail_success)} vs uniform ${pct(h.uniform_tail_success)}`)}
+              ${metric("CVaR@20", pp(h.cvar20_gain_vs_uniform), `Q-Tail ${pct(h.q_tail_cvar20)} vs uniform ${pct(h.uniform_cvar20)}`)}
+              ${metric("Severe Failures", `${num(h.uniform_extreme_failures, 1)} → ${num(h.q_tail_extreme_failures, 1)}`, "final success below 35%")}
+              ${metric("Rare Coverage", `${pct(h.uniform_coverage_rate)} → ${pct(h.q_tail_coverage_rate)}`, "all tail tasks reach 40%")}
+            </div>
+          </aside>
+        </section>
+
+        <section id="proof">
+          <div class="section-head">
+            <h2>证明结论</h2>
+            <p class="section-note">生成时间：${esc(generated)}。所有策略共享同一任务学习曲线，策略只能改变训练预算分配。</p>
+          </div>
+          <div class="three">
+            <article class="card">
+              <h3>显著提高 Tail Success</h3>
+              <p>Q-Tail 相比 uniform 提升 ${pp(h.tail_success_gain_vs_uniform)}，95% bootstrap CI 为 ${pp(ci[0])} 到 ${pp(ci[1])}，paired z 近似 p 值 ${pvalue(h.tail_success_p_vs_uniform)}。</p>
+            </article>
+            <article class="card">
+              <h3>降低极端失败率</h3>
+              <p>严重失败定义为最终成功率低于 35%。Uniform 平均有 ${num(h.uniform_extreme_failures, 1)} 个严重失败任务，Q-Tail 降到 ${num(h.q_tail_extreme_failures, 1)}。</p>
+            </article>
+            <article class="card">
+              <h3>更快覆盖罕见任务</h3>
+              <p>罕见空间覆盖定义为所有 tail tasks 达到 40% 成功率。Uniform 在 64 个 paired seeds 中覆盖率为 ${pct(h.uniform_coverage_rate)}，Q-Tail 为 ${pct(h.q_tail_coverage_rate)}，中位覆盖步数 ${num(h.q_tail_median_coverage_time, 0)}。</p>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-head">
+            <h2>Audit Requirements</h2>
+            <p class="section-note">这里的 audit 是方法，不是装饰：每个结论都要对应一个可复跑条件。</p>
+          </div>
+          <div class="audit-grid">${proof.audit.requirements.map(auditCard).join("")}</div>
+        </section>
+
+        <section id="baselines">
+          <div class="section-head">
+            <h2>强基线矩阵</h2>
+            <p class="section-note">覆盖 curriculum learning、domain randomization、adversarial scenario generation、PER、beta/lognormal/Pareto、diffusion/LLM task generation、simulator edge-case mining。</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Strategy</th>
+                  <th>Tail SR</th>
+                  <th>Head SR</th>
+                  <th>CVaR@20</th>
+                  <th>Severe Failures</th>
+                  <th>Rare Coverage</th>
+                  <th>Interpretation</th>
+                </tr>
+              </thead>
+              <tbody>${renderRows(proof)}</tbody>
+            </table>
+          </div>
+          <div class="notice">诚实边界：Pareto heavy-tail 的 tail success 和覆盖速度更高，但 head success 只有约 29.1%、CVaR@20 约 15.7%，属于“尾部堆预算导致整体风险崩塌”的强反例压力。Q-Tail 的商业价值在于更平衡的 tail lift 和风险控制，而不是无约束地最大化 tail 指标。</div>
+        </section>
+
+        <section id="figures">
+          <div class="section-head">
+            <h2>Proof Figures</h2>
+            <p class="section-note">图表由 proof 脚本生成，和 JSON/CSV 使用同一组结果。</p>
+          </div>
+          <div class="figure-grid">
+            <div>
+              <div class="figure"><img src="results/qtail_same_budget_proof/same_budget_tail_success.svg" alt="Same budget tail success chart"></div>
+              <div class="caption">Tail Success under equal budget</div>
+            </div>
+            <div>
+              <div class="figure"><img src="results/qtail_same_budget_proof/rare_coverage_curve.svg" alt="Rare coverage curve"></div>
+              <div class="caption">Q-Tail reaches rare-task coverage while uniform does not</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="value">
+          <div class="section-head">
+            <h2>技术价值与商业价值</h2>
+            <p class="section-note">价值评估只从当前 proof 能支持的内容外推，不把模拟结果包装成生产结论。</p>
+          </div>
+          <div class="three">
+            <article class="card"><h3>Technical Value</h3>${list(proof.business_value.technical_value)}</article>
+            <article class="card"><h3>Commercial Value</h3>${list(proof.business_value.commercial_value)}</article>
+            <article class="card"><h3>Commercial Risks</h3>${list(proof.business_value.commercial_risks)}</article>
+          </div>
+        </section>
+
+        <section id="boundary">
+          <div class="section-head">
+            <h2>Claim Boundary And Next PRs</h2>
+            <p class="section-note">Axiom-Horizon 的方法在这里体现为边界、审计和下一步 agent PR，而不是照搬它的项目包装。</p>
+          </div>
+          <div class="two">
+            <article class="card">
+              <h3>Still Not Claimed</h3>
+              ${list(scope.not_claimed)}
+            </article>
+            <article class="card">
+              <h3>Locked Conditions</h3>
+              <p>Same compute: ${esc(scope.same_compute)}</p>
+              <p>Same training steps: ${esc(scope.same_training_steps)}</p>
+              <p>Same environment: ${esc(scope.same_environment)}</p>
+            </article>
+          </div>
+          <div class="three" style="margin-top:14px">${packetCards(proof)}</div>
+        </section>
+      `;
+    }
+
+    fetch("results/qtail_same_budget_proof/same_budget_proof.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then(render)
+      .catch((error) => {
+        app.innerHTML = `<div class="error"><strong>无法读取 proof 数据。</strong><br>请先运行 <code>python3 tools/qtail_same_budget_proof.py</code>。<br>错误：${esc(error.message)}</div>`;
+      });
+  </script>
+</body>
+</html>

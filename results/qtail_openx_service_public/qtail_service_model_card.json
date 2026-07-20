@@ -1,0 +1,267 @@
+{
+  "model_name": "Q-Tail OpenX-Calibrated Data Service v0.1",
+  "generated_at": "2026-07-10T03:08:41.253433+00:00",
+  "training_source": {
+    "report": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/openx_demo_training_report.json",
+    "rows": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/openx_shard_training_rows.csv",
+    "status": "complete",
+    "steps": 20000,
+    "datasets": [
+      "austin_buds_dataset_converted_externally_to_rlds",
+      "austin_sirius_dataset_converted_externally_to_rlds",
+      "berkeley_mvp_converted_externally_to_rlds",
+      "columbia_cairlab_pusht_real",
+      "language_table",
+      "language_table_sim",
+      "nyu_door_opening_surprising_effectiveness",
+      "ucsd_kitchen_dataset_converted_externally_to_rlds"
+    ],
+    "shard_count": 562,
+    "total_gib": 171.622,
+    "training_scope": "all_complete_shards_record_sampled",
+    "trajectory_evidence": {
+      "tfrecord_shards_attempted": 562,
+      "tfrecord_shards_parsed": 562,
+      "record_parse_rate": 1.0,
+      "records_per_shard_cap": 4,
+      "records_decoded": 2071,
+      "mean_episode_steps": 127.19780545670227,
+      "features_include": [
+        "episode length",
+        "reward",
+        "action statistics",
+        "instruction complexity",
+        "terminal rate"
+      ]
+    },
+    "model_artifact": {
+      "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_strong_training/qtail_allocation_head.pt",
+      "sha256": "7a53a2706dfc86d58e735e808987c60c72d54b94b2ca4f6520b9eeaa1445d59a",
+      "feature_names": [
+        "log_bytes",
+        "shard_size_rarity",
+        "dataset_frequency",
+        "shard_position",
+        "mean_episode_steps",
+        "reward_failure_proxy",
+        "action_complexity",
+        "instruction_complexity",
+        "terminal_rate"
+      ],
+      "parameter_count": 865
+    }
+  },
+  "learned_tail_prior": {
+    "tail_definition": "top_30_percent_by_record_informed_tail_score",
+    "source_tail_share": 0.0824911892414093,
+    "qtail_tail_share": 0.5013161897659302,
+    "target_tail_share_gain_pp": 41.88250005245209,
+    "predicted_tail_share_gain_pp": 41.8281614780426,
+    "tail_share_multiplier": 6.077208904078658,
+    "consistent_with_pt_tail_goal": true
+  },
+  "tail_quantile_calibration": [
+    {
+      "bucket": "q1",
+      "tail_score_min": 0.10747551918029785,
+      "tail_score_max": 0.25186342000961304,
+      "shards": 113,
+      "source_share": 0.3697079459670931,
+      "qtail_share": 0.12127638200763613,
+      "source_pred_share": 0.3697150503285229,
+      "qtail_pred_share": 0.12142063566716388,
+      "target_gain_pp": -24.843156395945698,
+      "predicted_gain_pp": -24.829441466135904
+    },
+    {
+      "bucket": "q2",
+      "tail_score_min": 0.25186342000961304,
+      "tail_score_max": 0.4542645514011383,
+      "shards": 112,
+      "source_share": 0.2113880806718953,
+      "qtail_share": 0.11319883732357994,
+      "source_pred_share": 0.21138504400732927,
+      "qtail_pred_share": 0.11340108583681285,
+      "target_gain_pp": -9.818924334831536,
+      "predicted_gain_pp": -9.798395817051642
+    },
+    {
+      "bucket": "q3",
+      "tail_score_min": 0.4542645514011383,
+      "tail_score_max": 0.5114102840423584,
+      "shards": 112,
+      "source_share": 0.21700017496186774,
+      "qtail_share": 0.15940235526068136,
+      "source_pred_share": 0.21700271748704836,
+      "qtail_pred_share": 0.1595179780269973,
+      "target_gain_pp": -5.759781970118638,
+      "predicted_gain_pp": -5.748473946005106
+    },
+    {
+      "bucket": "q4",
+      "tail_score_min": 0.5114102840423584,
+      "tail_score_max": 0.583045756816864,
+      "shards": 112,
+      "source_share": 0.1494396100169979,
+      "qtail_share": 0.21065396280027926,
+      "source_pred_share": 0.14943530492018908,
+      "qtail_pred_share": 0.21079133148305118,
+      "target_gain_pp": 6.121435278328136,
+      "predicted_gain_pp": 6.13560265628621
+    },
+    {
+      "bucket": "q5",
+      "tail_score_min": 0.583045756816864,
+      "tail_score_max": 0.7727040648460388,
+      "shards": 113,
+      "source_share": 0.05246418841124978,
+      "qtail_share": 0.3954684156924486,
+      "source_pred_share": 0.05246191224796348,
+      "qtail_pred_share": 0.3948688998352736,
+      "target_gain_pp": 34.300422728119884,
+      "predicted_gain_pp": 34.240698758731014
+    }
+  ],
+  "service_calibration": {
+    "method": "customer_tail_quantile_x_openx_predicted_gain",
+    "description": "Map customer task tail-score quantiles to the learned Open X quantile gain curve, then renormalize to the same synthetic budget.",
+    "same_budget": true
+  },
+  "dataset_priors": [
+    {
+      "dataset": "austin_sirius_dataset_converted_externally_to_rlds",
+      "shards": 64,
+      "gib": 6.548761395737529,
+      "mean_tail_score": 0.6060422137379646,
+      "source_target_share": 0.03815797218703665,
+      "qtail_target_share": 0.16667850816156715,
+      "qtail_minus_source_pp": 12.85205359745305,
+      "qtail_pred_minus_source_pred_pp": 12.832200739649124
+    },
+    {
+      "dataset": "columbia_cairlab_pusht_real",
+      "shards": 36,
+      "gib": 2.803771105594933,
+      "mean_tail_score": 0.6374566919273801,
+      "source_target_share": 0.016336863343894947,
+      "qtail_target_share": 0.11833917780313641,
+      "qtail_minus_source_pp": 10.200231445924146,
+      "qtail_pred_minus_source_pred_pp": 10.186223586788401
+    },
+    {
+      "dataset": "austin_buds_dataset_converted_externally_to_rlds",
+      "shards": 16,
+      "gib": 1.4940383518114686,
+      "mean_tail_score": 0.6860465109348297,
+      "source_target_share": 0.008705382715561427,
+      "qtail_target_share": 0.08199828374199569,
+      "qtail_minus_source_pp": 7.3292901026434265,
+      "qtail_pred_minus_source_pred_pp": 7.311317439598497
+    },
+    {
+      "dataset": "berkeley_mvp_converted_externally_to_rlds",
+      "shards": 124,
+      "gib": 12.343984698876739,
+      "mean_tail_score": 0.47985692009810477,
+      "source_target_share": 0.07192526867584093,
+      "qtail_target_share": 0.13881894934456795,
+      "qtail_minus_source_pp": 6.689368066872703,
+      "qtail_pred_minus_source_pred_pp": 6.696247573563596
+    },
+    {
+      "dataset": "nyu_door_opening_surprising_effectiveness",
+      "shards": 72,
+      "gib": 7.122741459868848,
+      "mean_tail_score": 0.5102119706571102,
+      "source_target_share": 0.041502408479573205,
+      "qtail_target_share": 0.098602399462834,
+      "qtail_minus_source_pp": 5.7099990983260795,
+      "qtail_pred_minus_source_pred_pp": 5.716511706486926
+    },
+    {
+      "dataset": "ucsd_kitchen_dataset_converted_externally_to_rlds",
+      "shards": 16,
+      "gib": 1.3255660459399223,
+      "mean_tail_score": 0.659839354455471,
+      "source_target_share": 0.007723737231572159,
+      "qtail_target_share": 0.060628261882811785,
+      "qtail_minus_source_pp": 5.290452465123963,
+      "qtail_pred_minus_source_pred_pp": 5.2847415980068035
+    },
+    {
+      "dataset": "language_table",
+      "shards": 61,
+      "gib": 46.90346757695079,
+      "mean_tail_score": 0.5055048006479858,
+      "source_target_share": 0.2732946132309735,
+      "qtail_target_share": 0.14102913299575448,
+      "qtail_minus_source_pp": -13.2265480235219,
+      "qtail_pred_minus_source_pred_pp": -13.21352042723447
+    },
+    {
+      "dataset": "language_table_sim",
+      "shards": 173,
+      "gib": 93.08003351558,
+      "mean_tail_score": 0.24619700393580288,
+      "source_target_share": 0.542353754164651,
+      "qtail_target_share": 0.19390523969195783,
+      "qtail_minus_source_pp": -34.84485144726932,
+      "qtail_pred_minus_source_pred_pp": -34.813732031034306
+    }
+  ],
+  "customer_input_contract": {
+    "accepted_columns": {
+      "task": [
+        "task",
+        "task_id",
+        "skill",
+        "instruction",
+        "scenario",
+        "env"
+      ],
+      "count": [
+        "count",
+        "episodes",
+        "trajectories",
+        "samples",
+        "frequency"
+      ],
+      "success": [
+        "success",
+        "success_rate",
+        "reward",
+        "score",
+        "pass_rate"
+      ],
+      "difficulty": [
+        "difficulty",
+        "risk",
+        "failure_rate",
+        "tail_score",
+        "rarity"
+      ],
+      "group": [
+        "group",
+        "split",
+        "category",
+        "bucket"
+      ]
+    },
+    "output": [
+      "task_profiles.csv",
+      "qtail_synthetic_data.csv",
+      "per_task_comparison.csv",
+      "qtail_data_engine_report.json",
+      "qtail_service_model_card.json",
+      "qtail_service_delivery_report.json",
+      "README_QTAIL_DELIVERY.md",
+      "qtail_delivery_package.zip"
+    ]
+  },
+  "claim_boundary": [
+    "The Open X stage trains a record-informed allocation head on real downloaded RLDS TFRecord shards.",
+    "Every complete shard is covered, with a bounded number of decoded episodes per shard; this is not an all-episode policy run.",
+    "The service package generates allocation/scenario specs for synthetic data production.",
+    "Full robot-policy validation remains a later same-policy training run after the full RLDS/TFDS stack is ready."
+  ]
+}

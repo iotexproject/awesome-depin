@@ -1,0 +1,51 @@
+{
+	http_port 8080
+	https_port 8443
+	# RFC-compliant clients usually omit SNI for IP-literal URLs. Select the
+	# issued IP certificate for those handshakes instead of returning a TLS
+	# internal-error alert before HTTP routing begins.
+	default_sni {$QTAIL_PUBLIC_IP}
+	admin off
+	servers {
+		protocols h1 h2
+	}
+}
+
+:8081 {
+	respond /healthz "ok" 200
+}
+
+http://{$QTAIL_PUBLIC_IP}:8080 {
+	handle /.well-known/acme-challenge/* {
+		root * /srv/acme
+		file_server
+	}
+	handle {
+		redir https://{$QTAIL_PUBLIC_IP}{uri} 308
+	}
+}
+
+https://{$QTAIL_PUBLIC_IP}:8443 {
+	tls /etc/letsencrypt/live/{$QTAIL_PUBLIC_IP}/fullchain.pem /etc/letsencrypt/live/{$QTAIL_PUBLIC_IP}/privkey.pem
+	encode zstd gzip
+
+	handle /.well-known/acme-challenge/* {
+		root * /srv/acme
+		file_server
+	}
+	handle {
+		reverse_proxy web:80
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	log {
+		output stdout
+		format json
+	}
+}

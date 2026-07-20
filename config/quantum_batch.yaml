@@ -1,0 +1,15 @@
+jobs:
+  - backend: "Baihua"
+    n_qubits: 15
+    depth: 28
+    shots: 100000
+    seed: 2026
+    repeats: 1
+
+  # Example of another small job
+  # - backend: "Quafu"
+  #   n_qubits: 10
+  #   depth: 20
+  #   shots: 50000
+  #   seed: 42
+  #   repeats: 2

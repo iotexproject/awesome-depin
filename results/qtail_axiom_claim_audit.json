@@ -1,0 +1,481 @@
+{
+  "generated_at": "2026-07-01T10:52:39.930539+00:00",
+  "framework_source": {
+    "name": "Axiom-Horizon-inspired claim boundary + audit + multi-agent PR workflow",
+    "local_reference_repo": "/tmp/Axiom-Horizon",
+    "reference_url": "https://github.com/crystal-tensor/Axiom-Horizon",
+    "adapted_pattern": [
+      "problem -> benchmark -> method -> result -> audit -> claim boundary -> review",
+      "positive claims separated from forbidden claims",
+      "agent-ready PR work packets",
+      "translation only after technical gates"
+    ]
+  },
+  "evidence_level": "L2 reproducible simulation baseline; not L3/L4 until adversarial and real-environment gates pass",
+  "mode": "simulated",
+  "locked_conditions_observed": {
+    "environment": "Meta-World MT10 statistical simulator",
+    "budget": "基于 100,000 步训练预算，每种策略运行 3 组随机种子取平均。模拟模式：越罕见的任务随训练次数呈现对数式成功率爬升。pt-rank 使用了 eta=0.6 的固定融合。",
+    "same_compute_same_steps_same_environment": true,
+    "artifact_paths": [
+      "results/report.json",
+      "results/page_experiment_summary.json",
+      "results/summary.csv",
+      "results/summary_mt50_comprehensive.csv",
+      "results/summary_risk.csv",
+      "results/summary_exploration.csv",
+      "results/axiom_baseline_matrix/experiment_results.json",
+      "results/axiom_baseline_matrix/summary.csv"
+    ]
+  },
+  "headline_metrics": {
+    "mt10_tail_success_uniform": 0.5290712192839114,
+    "mt10_tail_success_pt_rank": 0.5655197844887608,
+    "mt10_tail_success_gain": 0.036448565204849404,
+    "mt10_tail_success_gain_pp": "+3.6 pp",
+    "mt10_cvar20_uniform": 0.5038381361493556,
+    "mt10_cvar20_pt_rank": 0.5477304449598266,
+    "mt10_cvar20_gain": 0.043892308810471015,
+    "mt10_cvar20_gain_pp": "+4.4 pp",
+    "mt10_overall_gain": 0.011359420594475367,
+    "mt10_head_delta": -0.0005451320018053929,
+    "extreme_failure_threshold": 0.5,
+    "extreme_failures_uniform": 1,
+    "extreme_failures_pt_rank": 0,
+    "warning_failure_threshold": 0.55,
+    "warning_failures_uniform": 2,
+    "warning_failures_pt_rank": 1,
+    "tail_sampling_mass_uniform": 0.29982,
+    "tail_sampling_mass_pt_rank": 0.43289666666666665,
+    "tail_sampling_mass_gain": 0.13307666666666668,
+    "tail_sampling_coverage_ratio": 1.443855202010095,
+    "mt50_tail_success_uniform_percent": 44.9,
+    "mt50_tail_success_pt_rank_percent": 57.8,
+    "mt50_tail_success_pt_ot_adaptive_percent": 59.8,
+    "risk_wasserstein_uniform": 0.1772819230480852,
+    "risk_wasserstein_pt_ot": 0.0019534912384211556,
+    "exploration_best_arm_uniform_percent": 0.0,
+    "exploration_best_arm_pt_ot_percent": 95.8
+  },
+  "extended_baseline_matrix": {
+    "available": true,
+    "artifact": "results/axiom_baseline_matrix/experiment_results.json",
+    "strategies": [
+      "uniform",
+      "empirical",
+      "invfreq",
+      "pt-rank",
+      "prioritized_replay",
+      "curriculum",
+      "power_law",
+      "levy",
+      "gaussian",
+      "dro_risk_weighting",
+      "focal_loss"
+    ],
+    "metrics": {
+      "uniform": {
+        "overall": 98.62608439353141,
+        "head_sr": 99.99929530887127,
+        "tail_sr": 95.6054685073469,
+        "cvar20": 95.34580808233136,
+        "cvar50": 97.28100651157533,
+        "mode": "simulated"
+      },
+      "empirical": {
+        "overall": 98.94142055967454,
+        "head_sr": 99.99999999999979,
+        "tail_sr": 96.47140186558265,
+        "cvar20": 95.99919124589945,
+        "cvar50": 97.88284111934935,
+        "mode": "simulated"
+      },
+      "invfreq": {
+        "overall": 97.33607187985692,
+        "head_sr": 95.3555996691601,
+        "tail_sr": 98.18519648219663,
+        "cvar20": 95.05753629397515,
+        "cvar50": 95.89532216247235,
+        "mode": "simulated"
+      },
+      "pt-rank": {
+        "overall": 97.77015466982564,
+        "head_sr": 97.43928564810864,
+        "tail_sr": 98.69713518009804,
+        "cvar20": 95.65315596399188,
+        "cvar50": 96.8241805931887,
+        "mode": "simulated"
+      },
+      "prioritized_replay": {
+        "overall": 96.51090433039386,
+        "head_sr": 97.37750440703512,
+        "tail_sr": 95.16749560700814,
+        "cvar20": 95.0963208846605,
+        "cvar50": 95.73194720414261,
+        "mode": "simulated"
+      },
+      "curriculum": {
+        "overall": 98.3157300171277,
+        "head_sr": 99.70481895722236,
+        "tail_sr": 95.37486847692364,
+        "cvar20": 95.22962795808226,
+        "cvar50": 96.96821080907877,
+        "mode": "simulated"
+      },
+      "power_law": {
+        "overall": 99.36060515201657,
+        "head_sr": 98.40151288004249,
+        "tail_sr": 99.99999999999916,
+        "cvar20": 96.8030257620654,
+        "cvar50": 98.72121030403376,
+        "mode": "simulated"
+      },
+      "levy": {
+        "overall": 75.26888449675715,
+        "head_sr": 38.92172663200507,
+        "tail_sr": 99.99999999999916,
+        "cvar20": 17.01553306360598,
+        "cvar50": 50.539601171508366,
+        "mode": "simulated"
+      },
+      "gaussian": {
+        "overall": 99.4949761409828,
+        "head_sr": 99.99999999998967,
+        "tail_sr": 98.31658713662348,
+        "cvar20": 97.47489846601596,
+        "cvar50": 98.98995228196593,
+        "mode": "simulated"
+      },
+      "dro_risk_weighting": {
+        "overall": 96.51692702075269,
+        "head_sr": 96.66314693758164,
+        "tail_sr": 95.61200682580095,
+        "cvar20": 95.33653819116414,
+        "cvar50": 95.92681692387667,
+        "mode": "simulated"
+      },
+      "focal_loss": {
+        "overall": 95.38262810382848,
+        "head_sr": 95.34399487430977,
+        "tail_sr": 95.29688389315082,
+        "cvar20": 95.10902044789461,
+        "cvar50": 95.21934674253828,
+        "mode": "simulated"
+      }
+    },
+    "best_by_tail": {
+      "strategy": "power_law",
+      "overall": 99.36060515201657,
+      "head_sr": 98.40151288004249,
+      "tail_sr": 99.99999999999916,
+      "cvar20": 96.8030257620654,
+      "cvar50": 98.72121030403376,
+      "mode": "simulated"
+    },
+    "best_by_cvar20": {
+      "strategy": "gaussian",
+      "overall": 99.4949761409828,
+      "head_sr": 99.99999999998967,
+      "tail_sr": 98.31658713662348,
+      "cvar20": 97.47489846601596,
+      "cvar50": 98.98995228196593,
+      "mode": "simulated"
+    },
+    "pt_rank_tail_rank": 3,
+    "pt_rank_beats": [
+      "uniform",
+      "empirical",
+      "invfreq",
+      "prioritized_replay",
+      "curriculum",
+      "gaussian",
+      "dro_risk_weighting",
+      "focal_loss"
+    ],
+    "pt_rank_loses_to": [
+      "power_law",
+      "levy"
+    ],
+    "rows_by_tail_desc": [
+      {
+        "strategy": "power_law",
+        "overall": 99.36060515201657,
+        "head_sr": 98.40151288004249,
+        "tail_sr": 99.99999999999916,
+        "cvar20": 96.8030257620654,
+        "cvar50": 98.72121030403376,
+        "mode": "simulated"
+      },
+      {
+        "strategy": "levy",
+        "overall": 75.26888449675715,
+        "head_sr": 38.92172663200507,
+        "tail_sr": 99.99999999999916,
+        "cvar20": 17.01553306360598,
+        "cvar50": 50.539601171508366,
+        "mode": "simulated"
+      },
+      {
+        "strategy": "pt-rank",
+        "overall": 97.77015466982564,
+        "head_sr": 97.43928564810864,
+        "tail_sr": 98.69713518009804,
+        "cvar20": 95.65315596399188,
+        "cvar50": 96.8241805931887,
+        "mode": "simulated"
+      },
+      {
+        "strategy": "gaussian",
+        "overall": 99.4949761409828,
+        "head_sr": 99.99999999998967,
+        "tail_sr": 98.31658713662348,
+        "cvar20": 97.47489846601596,
+        "cvar50": 98.98995228196593,
+        "mode": "simulated"
+      },
+      {
+        "strategy": "invfreq",
+        "overall": 97.33607187985692,
+        "head_sr": 95.3555996691601,
+        "tail_sr": 98.18519648219663,
+        "cvar20": 95.05753629397515,
+        "cvar50": 95.89532216247235,
+        "mode": "simulated"
+      },
+      {
+        "strategy": "empirical",
+        "overall": 98.94142055967454,
+        "head_sr": 99.99999999999979,
+        "tail_sr": 96.47140186558265,
+        "cvar20": 95.99919124589945,
+        "cvar50": 97.88284111934935,
+        "mode": "simulated"
+      },
+      {
+        "strategy": "dro_risk_weighting",
+        "overall": 96.51692702075269,
+        "head_sr": 96.66314693758164,
+        "tail_sr": 95.61200682580095,
+        "cvar20": 95.33653819116414,
+        "cvar50": 95.92681692387667,
+        "mode": "simulated"
+      },
+      {
+        "strategy": "uniform",
+        "overall": 98.62608439353141,
+        "head_sr": 99.99929530887127,
+        "tail_sr": 95.6054685073469,
+        "cvar20": 95.34580808233136,
+        "cvar50": 97.28100651157533,
+        "mode": "simulated"
+      },
+      {
+        "strategy": "curriculum",
+        "overall": 98.3157300171277,
+        "head_sr": 99.70481895722236,
+        "tail_sr": 95.37486847692364,
+        "cvar20": 95.22962795808226,
+        "cvar50": 96.96821080907877,
+        "mode": "simulated"
+      },
+      {
+        "strategy": "focal_loss",
+        "overall": 95.38262810382848,
+        "head_sr": 95.34399487430977,
+        "tail_sr": 95.29688389315082,
+        "cvar20": 95.10902044789461,
+        "cvar50": 95.21934674253828,
+        "mode": "simulated"
+      },
+      {
+        "strategy": "prioritized_replay",
+        "overall": 96.51090433039386,
+        "head_sr": 97.37750440703512,
+        "tail_sr": 95.16749560700814,
+        "cvar20": 95.0963208846605,
+        "cvar50": 95.73194720414261,
+        "mode": "simulated"
+      }
+    ]
+  },
+  "adversarial_audit_summary": {
+    "pt_rank_beats_uniform_in_extended_matrix": true,
+    "pt_rank_beats_per_curriculum_dro_focal": true,
+    "pt_rank_tail_rank_among_extended_strategies": 3,
+    "stronger_tail_strategies_in_current_simulator": [
+      "power_law",
+      "levy"
+    ],
+    "interpretation": "Q-TAIL passes the uniform/core-baseline simulation claim but remains under adversarial pressure from classic heavy-tail and Gaussian proxy schedulers in this simulator."
+  },
+  "requirements": [
+    {
+      "id": "Q1",
+      "description": "pt-rank Tail Success beats uniform under the same 100k-step MT10 simulation budget.",
+      "passed": true
+    },
+    {
+      "id": "Q2",
+      "description": "pt-rank CVaR@20 beats uniform under the same 100k-step MT10 simulation budget.",
+      "passed": true
+    },
+    {
+      "id": "Q3",
+      "description": "Overall success is preserved within a 2 pp non-inferiority band.",
+      "passed": true
+    },
+    {
+      "id": "Q4",
+      "description": "Head-task success is preserved within a 1 pp non-inferiority band.",
+      "passed": true
+    },
+    {
+      "id": "Q5",
+      "description": "Extreme task failures below 50% success are reduced versus uniform.",
+      "passed": true
+    },
+    {
+      "id": "Q6",
+      "description": "Tail task sampling mass increases versus uniform, supporting faster rare-space coverage.",
+      "passed": true
+    },
+    {
+      "id": "Q7",
+      "description": "PT-OT risk-scene generator has lower Wasserstein-1 distance than uniform in the risk simulator.",
+      "passed": true
+    },
+    {
+      "id": "Q8",
+      "description": "PT-OT rare-jump exploration improves best-arm discovery in the exploration simulator.",
+      "passed": true
+    },
+    {
+      "id": "Q9",
+      "description": "Extended baseline-matrix replay keeps pt-rank Tail Success above uniform.",
+      "passed": true
+    },
+    {
+      "id": "Q10",
+      "description": "pt-rank Tail Success beats PER, curriculum, DRO, and focal-loss proxies in the extended simulation matrix.",
+      "passed": true
+    }
+  ],
+  "requirements_passed": 10,
+  "requirements_total": 10,
+  "gate_status": "simulation_claim_gate_passed",
+  "claim_boundary": {
+    "now_supported": [
+      "In the existing simulated MT10 evidence, Q-TAIL pt-rank improves Tail Success versus uniform at the same 100k-step budget.",
+      "In the same simulated MT10 evidence, pt-rank improves CVaR@20 and removes sub-50% extreme task failures while preserving head-task success.",
+      "The scheduler increases sampling mass on the declared tail task set, which is evidence for faster coverage of rare task space in simulation.",
+      "Separate PT-OT simulator artifacts support risk-scene generation and rare-jump exploration as useful long-tail mechanisms.",
+      "Commercial value is credible as a risk-aware training scheduler and evaluation layer, not yet as a proven hardware-quantum advantage product."
+    ],
+    "still_not_supported": [
+      "No real Meta-World SAC/PPO training run is audited here.",
+      "No real robot or production embodied-AI deployment is audited here.",
+      "No quantum advantage, quantum speedup, or hardware superiority claim is supported.",
+      "Tail-specific statistical significance beyond the 3-seed simulation summary is not established.",
+      "The expanded simulation matrix does not prove pt-rank dominates every classical proxy; power-law and Levy proxies have higher simulated tail success, while Gaussian has stronger aggregate/CVaR behavior in this simulator.",
+      "MT50, PT-OT adaptive, domain randomization, adversarial generation, diffusion/LLM task generation, and simulator edge-case mining remain proxy or future-work evidence until reproduced under locked training conditions."
+    ],
+    "falsifiers": [
+      "A same-budget real MT10 run where pt-rank does not improve Tail Success or CVaR@20 versus uniform.",
+      "A stronger baseline such as DRO, focal loss, prioritized replay, or adaptive curriculum matching Q-TAIL tail metrics with less complexity.",
+      "A classic beta/lognormal/Pareto/power-law scheduler matching Q-TAIL tail metrics while preserving head and overall success.",
+      "A domain-randomization, adversarial-scenario, diffusion/LLM task-generation, or simulator edge-case-mining system that covers the same rare task space faster under equal compute.",
+      "A replay audit showing hidden budget, environment, seed, or metric differences across strategies.",
+      "A real-robot rare-task benchmark where Q-TAIL increases tail sampling but does not improve rare-task success or risk."
+    ]
+  },
+  "multi_agent_pr_packets": [
+    {
+      "id": "QTAIL-W1-real-mt10-lock",
+      "agent_role": "Benchmark Curator",
+      "objective": "Lock real MT10 SAC/PPO environment, seeds, compute budget, task taxonomy, and logging schema.",
+      "required_outputs": [
+        "benchmark manifest",
+        "seed ledger",
+        "config hash",
+        "parseable run logs"
+      ],
+      "done_when": "Uniform, empirical, invfreq, pt-rank, and one strong adaptive baseline run under identical conditions.",
+      "must_not_claim": "Do not claim real-environment superiority until W2/W3 audits pass."
+    },
+    {
+      "id": "QTAIL-W2-baseline-adversary",
+      "agent_role": "Baseline Adversary",
+      "objective": "Add and harden DRO, focal loss, prioritized replay, curriculum, beta/lognormal/Pareto/power-law, and Gaussian baselines under the locked W1 protocol.",
+      "required_outputs": [
+        "baseline scripts",
+        "metric table",
+        "failure-mode report"
+      ],
+      "done_when": "Q-TAIL beats the strongest same-budget baseline on Tail Success or CVaR@20 without unacceptable overall loss.",
+      "must_not_claim": "Do not compare against weak baselines only."
+    },
+    {
+      "id": "QTAIL-W3-stat-audit",
+      "agent_role": "Audit Agent",
+      "objective": "Run confidence intervals, paired tests, seed sensitivity, and metric-leakage checks.",
+      "required_outputs": [
+        "audit script",
+        "JSON audit result",
+        "claim-boundary update"
+      ],
+      "done_when": "Tail Success, CVaR@20, extreme-failure rate, and rare-space coverage have reproducible uncertainty estimates.",
+      "must_not_claim": "Do not use practical lift as statistical significance without the test ledger."
+    },
+    {
+      "id": "QTAIL-W4-generation-mining-adversary",
+      "agent_role": "Scenario Generation Agent",
+      "objective": "Evaluate domain randomization, adversarial scenario generation, diffusion/LLM task generation, and simulator edge-case mining as rare-task coverage adversaries.",
+      "required_outputs": [
+        "scenario manifest",
+        "coverage metric",
+        "same-budget generation cost ledger",
+        "rare-task replay set"
+      ],
+      "done_when": "Coverage-per-compute and tail-success-per-generated-scenario are measured against Q-TAIL under the same environment contract.",
+      "must_not_claim": "Do not treat generated scenario count as coverage unless failures are replayable and tied to task success."
+    },
+    {
+      "id": "QTAIL-W5-business-evidence",
+      "agent_role": "Translation Agent",
+      "objective": "Translate audited technical gates into buyer-specific value cases for robotics, simulation data, and safety evaluation.",
+      "required_outputs": [
+        "ROI model",
+        "buyer map",
+        "pilot acceptance checklist"
+      ],
+      "done_when": "At least one pilot plan ties reduced tail failure to measurable training cost, incident risk, or data-coverage savings.",
+      "must_not_claim": "Do not claim revenue, patentability, or production readiness before technical gates pass."
+    }
+  ],
+  "value_assessment": {
+    "technical_value": [
+      "Drop-in scheduler: Q-TAIL changes task allocation rather than the policy network or environment source.",
+      "Risk-sensitive metric focus: Tail Success, CVaR@20, and extreme-failure counts target the failure modes average success hides.",
+      "Rare-space exploration: PT-rank/PT-OT priors allocate more budget to hard and low-frequency tasks without fully abandoning head tasks.",
+      "Auditable architecture: source distribution, semantic mapping, scheduler, training logs, and evaluation are separable agent surfaces."
+    ],
+    "commercial_value": [
+      "Training efficiency: fewer wasted steps on already-solved head tasks if real runs reproduce the simulated tail lift.",
+      "Safety and QA: explicit extreme-failure metrics support robotics, autonomous-agent, and simulation testing workflows.",
+      "Data engine positioning: the product can sell rare-scenario coverage and risk evaluation before claiming quantum advantage.",
+      "Baseline-neutral packaging: Q-TAIL can be sold as an auditable scheduler/evaluator that also benchmarks curriculum, PER, domain randomization, adversarial generation, and edge-case mining.",
+      "Enterprise pilot path: value can be measured by tail-task pass rate, incident replay coverage, and compute-per-rare-success."
+    ],
+    "risk_register": [
+      "Current main evidence is simulation, so commercialization should be framed as pilot-ready methodology rather than proven deployment performance.",
+      "The quantum prior may be matched by simpler heavy-tail, Gaussian, curriculum, or generator-based baselines; W2/W4 must try to kill the claim.",
+      "Buyer value depends on mapping abstract task rarity to domain-specific rare failures."
+    ]
+  },
+  "review_requests": [
+    "Builder review: verify scheduler implementation and task taxonomy.",
+    "Baseline adversary review: add stronger baselines and try to erase the lift.",
+    "Statistical audit review: rerun with more seeds and locked confidence tests.",
+    "Translation review: convert only audited claims into product/pilot language."
+  ]
+}

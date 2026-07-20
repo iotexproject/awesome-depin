@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q-Tail 合成训练数据服务 | 相干（北京）科技有限公司</title>
+  <meta name="description" content="相干（北京）科技有限公司提供基于量子 Porter-Thomas 重尾先验的具身智能合成训练数据规划、同预算审计与 API 服务。" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b10;
+      --surface: #10161d;
+      --surface-2: #151d25;
+      --line: #27343e;
+      --line-strong: #3a505d;
+      --text: #f2f7f7;
+      --muted: #9aadb5;
+      --cyan: #45f3ff;
+      --cyan-dark: #0d939f;
+      --green: #72d89b;
+      --gold: #e9be64;
+      --coral: #ff7a68;
+      --blue: #70a7ff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      min-width: 0;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; min-width: 0; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid var(--line);
+      background: rgba(8, 11, 16, 0.94);
+      backdrop-filter: blur(14px);
+    }
+    .topbar-inner { min-height: 64px; display: flex; align-items: center; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; min-width: 0; font-weight: 800; }
+    .brand-mark { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--cyan); color: var(--cyan); flex: 0 0 auto; }
+    .brand-copy { min-width: 0; }
+    .brand-copy strong, .brand-copy small { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-copy strong { font-size: 14px; }
+    .brand-copy small { color: var(--muted); font-size: 10px; font-weight: 500; }
+    .nav { margin-left: auto; display: flex; align-items: center; gap: 22px; color: #c8d3d6; font-size: 13px; }
+    .nav a:hover { color: var(--cyan); }
+    .nav-cta { min-height: 36px; display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border: 1px solid var(--cyan-dark); color: var(--cyan); }
+    .hero { padding: 76px 0 44px; border-bottom: 1px solid var(--line); }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--gold); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    .eyebrow .rule { width: 42px; height: 1px; background: var(--gold); }
+    h1 { margin: 18px 0 0; max-width: 900px; font-size: 58px; line-height: 1.06; font-weight: 850; }
+    .hero-copy { max-width: 840px; margin: 22px 0 0; color: #c6d2d6; font-size: 18px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1px solid var(--line-strong);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 4px;
+    }
+    .button:hover { border-color: var(--cyan-dark); }
+    .button.primary { border-color: var(--cyan); background: var(--cyan); color: #041013; }
+    .button svg { width: 17px; height: 17px; }
+    .hero-status { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; margin-top: 48px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .stat { padding: 18px 18px 19px 0; min-width: 0; }
+    .stat + .stat { padding-left: 18px; border-left: 1px solid var(--line); }
+    .stat-label { color: var(--muted); font-size: 11px; text-transform: uppercase; }
+    .stat-value { margin-top: 7px; font-size: 25px; line-height: 1.1; font-weight: 850; overflow-wrap: anywhere; }
+    .stat-note { margin-top: 6px; color: #b5c5ca; font-size: 11px; }
+    .service-state { color: var(--green); }
+    .section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1fr); gap: 56px; align-items: end; margin-bottom: 28px; }
+    .section-kicker { color: var(--cyan); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    h2 { margin: 8px 0 0; font-size: 38px; line-height: 1.12; }
+    .section-lead { margin: 0; color: var(--muted); font-size: 15px; }
+    .flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); }
+    .flow-step { min-height: 210px; padding: 22px; position: relative; }
+    .flow-step + .flow-step { border-left: 1px solid var(--line); }
+    .flow-step svg { width: 22px; height: 22px; color: var(--cyan); }
+    .flow-index { position: absolute; top: 18px; right: 18px; color: #647781; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    .flow-step h3 { margin: 42px 0 8px; font-size: 18px; }
+    .flow-step p { margin: 0; color: var(--muted); font-size: 13px; }
+    .flow-output { display: block; margin-top: 15px; color: var(--gold); font: 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+    .evidence-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .evidence-card { min-height: 236px; padding: 20px; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; }
+    .evidence-card header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .evidence-card header span:first-child { color: #dfe9eb; font-size: 13px; font-weight: 800; }
+    .badge { padding: 4px 7px; border: 1px solid var(--line-strong); color: var(--muted); font-size: 10px; text-transform: uppercase; white-space: nowrap; }
+    .badge.direct { border-color: rgba(114,216,155,.45); color: var(--green); }
+    .badge.protocol { border-color: rgba(233,190,100,.45); color: var(--gold); }
+    .evidence-value { margin-top: 24px; font-size: 34px; line-height: 1; font-weight: 850; }
+    .evidence-value .arrow { color: #69808a; font-weight: 500; }
+    .delta { margin-top: 10px; color: var(--cyan); font-size: 16px; font-weight: 800; }
+    .evidence-card p { margin: 16px 0 0; color: var(--muted); font-size: 12px; }
+    .bar-pair { display: grid; gap: 9px; margin-top: 20px; }
+    .bar-row { display: grid; grid-template-columns: 60px minmax(0,1fr) 48px; gap: 9px; align-items: center; font-size: 11px; color: var(--muted); }
+    .track { height: 7px; background: #202b33; overflow: hidden; }
+    .track span { display: block; height: 100%; background: #657984; }
+    .track span.qtail { background: var(--cyan); }
+    .proof-figures { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 14px; margin-top: 18px; }
+    .proof-figure { margin: 0; min-width: 0; border: 1px solid var(--line); background: #eef2f3; }
+    .proof-figure img { width: 100%; height: 360px; display: block; object-fit: contain; }
+    .proof-figure figcaption { padding: 12px 14px; border-top: 1px solid #cfd8db; background: #10161d; color: var(--muted); font-size: 11px; }
+    .audit-strip { margin-top: 14px; padding: 16px 18px; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; border: 1px solid var(--line); background: var(--surface-2); }
+    .audit-item strong { display: block; color: var(--green); font-size: 13px; }
+    .audit-item span { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+    .delivery-layout { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 36px; }
+    .deliverables { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .deliverable { display: grid; grid-template-columns: 38px minmax(0,1fr); gap: 12px; padding: 16px; background: var(--surface); }
+    .deliverable svg { width: 19px; height: 19px; color: var(--cyan); margin-top: 2px; }
+    .deliverable strong { display: block; font-size: 13px; }
+    .deliverable span { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; overflow-wrap: anywhere; }
+    .boundary { padding: 22px; border-left: 3px solid var(--gold); background: #171811; }
+    .boundary h3 { margin: 0; font-size: 18px; }
+    .boundary ul { margin: 16px 0 0; padding-left: 18px; color: #c5cec9; font-size: 13px; }
+    .boundary li + li { margin-top: 8px; }
+    .proof-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .proof-link { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 6px 10px; border: 1px solid var(--line); color: #c7d4d7; font-size: 11px; }
+    .proof-link:hover { border-color: var(--cyan-dark); color: var(--cyan); }
+    .proof-link svg { width: 14px; height: 14px; }
+    .api-layout { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 28px; align-items: start; }
+    .endpoint-list { border: 1px solid var(--line); }
+    .endpoint { display: grid; grid-template-columns: 62px minmax(0,1fr); gap: 12px; padding: 15px; background: var(--surface); }
+    .endpoint + .endpoint { border-top: 1px solid var(--line); }
+    .method { color: var(--cyan); font: 800 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .endpoint code { display: block; font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+    .endpoint span { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+    .api-status { margin-top: 14px; padding: 14px; border: 1px solid var(--line); background: var(--surface-2); font-size: 12px; }
+    .api-status strong { color: var(--green); }
+    .code-panel { border: 1px solid var(--line); background: #05080b; min-width: 0; }
+    .code-head { padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+    pre { margin: 0; padding: 18px; max-width: 100%; overflow: auto; color: #cfe5e8; font: 11px/1.75 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .apply-layout { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 48px; align-items: start; }
+    .apply-copy h2 { margin-top: 8px; }
+    .apply-copy p { color: var(--muted); font-size: 14px; }
+    .review-list { margin-top: 24px; display: grid; gap: 10px; }
+    .review-row { display: flex; gap: 10px; align-items: flex-start; color: #c5d2d5; font-size: 12px; }
+    .review-row svg { width: 17px; height: 17px; color: var(--green); flex: 0 0 auto; }
+    .form { padding: 24px; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { display: grid; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { color: #c8d5d8; font-size: 11px; font-weight: 700; }
+    .field input, .field select, .field textarea {
+      width: 100%; min-width: 0; border: 1px solid var(--line-strong); border-radius: 3px; background: #0b1015; color: var(--text); padding: 10px 11px; outline: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--cyan-dark); }
+    .field textarea { min-height: 118px; resize: vertical; }
+    .form-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; }
+    .form-note { max-width: 420px; color: var(--muted); font-size: 10px; }
+    .form-message { display: none; margin-top: 14px; padding: 11px 12px; border: 1px solid var(--line); font-size: 12px; }
+    .form-message.show { display: block; }
+    .form-message.success { border-color: rgba(114,216,155,.5); color: var(--green); background: rgba(114,216,155,.06); }
+    .form-message.error { border-color: rgba(255,122,104,.5); color: var(--coral); background: rgba(255,122,104,.06); }
+    .footer { padding: 38px 0; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; color: var(--muted); font-size: 11px; }
+    .footer strong { color: #dce7e9; }
+    @media (max-width: 980px) {
+      .nav a:not(.nav-cta) { display: none; }
+      .hero-status { grid-template-columns: repeat(3, 1fr); }
+      .stat:nth-child(4) { border-left: 0; }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .flow-step:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+      .flow-step:nth-child(4) { border-top: 1px solid var(--line); }
+      .evidence-grid { grid-template-columns: 1fr 1fr; }
+      .proof-figures, .delivery-layout, .api-layout, .apply-layout { grid-template-columns: 1fr; }
+      .audit-strip { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .brand-copy small { display: none; }
+      .topbar-inner { gap: 12px; }
+      .nav { gap: 8px; }
+      .nav-cta { padding: 7px 9px; font-size: 11px; }
+      .hero { padding-top: 48px; }
+      h1 { font-size: 40px; }
+      .hero-copy { font-size: 16px; }
+      .hero-status { grid-template-columns: 1fr 1fr; }
+      .stat:nth-child(3), .stat:nth-child(5) { border-left: 0; }
+      .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .section { padding: 48px 0; }
+      .section-head { grid-template-columns: 1fr; gap: 12px; }
+      h2 { font-size: 30px; }
+      .flow, .evidence-grid, .audit-strip, .form-grid { grid-template-columns: 1fr; }
+      .flow-step + .flow-step { border-left: 0; border-top: 1px solid var(--line); }
+      .proof-figure img { height: 250px; }
+      .field.full { grid-column: auto; }
+      .form-footer, .footer-inner { align-items: stretch; flex-direction: column; }
+      .form-footer .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="主导航">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">Q</span>
+        <span class="brand-copy"><strong>Q-Tail Synthetic Data</strong><small>相干（北京）科技有限公司</small></span>
+      </a>
+      <div class="nav">
+        <a href="#service">服务流程</a>
+        <a href="#evidence">训练证据</a>
+        <a href="#delivery">交付内容</a>
+        <a href="#api">API</a>
+        <a class="nav-cta" href="#apply"><i data-lucide="key-round"></i><span>申请访问</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="container">
+        <div class="eyebrow"><span class="rule"></span><span>Coherent Technology · Private Preview</span></div>
+        <h1>量子增强的具身智能合成训练数据</h1>
+        <p class="hero-copy">客户给出任务、频次、成功率与风险画像；Q-Tail 用量子 Porter-Thomas 重尾先验重新分配合成预算，让罕见、高风险、极端失败任务获得更多训练数据，并交付可审计的数据计划与 API 结果包。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#apply"><i data-lucide="key-round"></i><span>申请 API 试用</span></a>
+          <a class="button" href="#evidence"><i data-lucide="flask-conical"></i><span>查看可信证据</span></a>
+          <a class="button" href="qtail-openx-training.html#objective"><i data-lucide="activity"></i><span>查看完整训练账本</span></a>
+        </div>
+        <div class="hero-status" aria-label="Strong 训练状态">
+          <div class="stat"><div class="stat-label">Open X 真实数据</div><div class="stat-value"><span data-metric="total-gib">171.62</span> GiB</div><div class="stat-note">8 个具身数据集</div></div>
+          <div class="stat"><div class="stat-label">完整 TFRecord</div><div class="stat-value" data-metric="shards">562</div><div class="stat-note">分片解析覆盖 100%</div></div>
+          <div class="stat"><div class="stat-label">真实 Episode</div><div class="stat-value" data-metric="episodes">2,071</div><div class="stat-note">记录级特征抽取</div></div>
+          <div class="stat"><div class="stat-label">最终训练</div><div class="stat-value"><span data-metric="steps">20,000</span> steps</div><div class="stat-note">Strong checkpoint</div></div>
+          <div class="stat"><div class="stat-label">服务状态</div><div class="stat-value service-state" data-metric="service-state">正在校验</div><div class="stat-note" data-metric="service-source">strong_openx_snapshot</div></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="service">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">Service Pipeline</div><h2>从客户原始数据到可训练的重尾数据计划</h2></div>
+          <p class="section-lead">服务不改客户策略网络，也不要求先重做整个训练栈。第一阶段先识别覆盖盲区，再用 Open X 训练得到的尾部分位校准曲线生成同预算数据计划。</p>
+        </div>
+        <div class="flow">
+          <article class="flow-step"><i data-lucide="database"></i><span class="flow-index">01</span><h3>接入客户数据</h3><p>任务/轨迹摘要、成功率、失败率、难度、场景标签或 RLDS 导出摘要。</p><span class="flow-output">CSV · JSON · RLDS summary</span></article>
+          <article class="flow-step"><i data-lucide="scan-search"></i><span class="flow-index">02</span><h3>长尾与风险画像</h3><p>统一任务字段，计算 rarity、failure risk、difficulty 与 tail score。</p><span class="flow-output">task_profiles.csv</span></article>
+          <article class="flow-step"><i data-lucide="atom"></i><span class="flow-index">03</span><h3>PT 重尾校准</h3><p>把 Porter-Thomas 权重映射到高 tail score 任务，并应用 Open X 训练出的分位增益曲线。</p><span class="flow-output">OpenX-calibrated allocation</span></article>
+          <article class="flow-step"><i data-lucide="package-check"></i><span class="flow-index">04</span><h3>交付合成数据包</h3><p>输出场景规格、数量、预算份额、同预算对比、model card 与审计 manifest。</p><span class="flow-output">delivery package · API response</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="evidence">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">Evidence Stack</div><h2>三层证据，不把模型效果说过头</h2></div>
+          <p class="section-lead">训练覆盖与分配学习是直接证据；tail success、CVaR 和极端失败来自同预算响应模型协议评测。真正的策略收益仍需客户在同一 policy、同一环境、同一步数下复训确认。</p>
+        </div>
+        <div class="evidence-grid">
+          <article class="evidence-card">
+            <header><span>记录级训练覆盖</span><span class="badge direct">直接证据</span></header>
+            <div class="evidence-value"><span data-metric="parse-rate">100.0</span>%</div>
+            <div class="delta"><span data-metric="shards-parsed">562</span> / <span data-metric="shards-attempted">562</span> shards</div>
+            <p>171.622 GiB 完整文件进入 Strong 训练；partial 文件被完整性门禁排除。</p>
+          </article>
+          <article class="evidence-card">
+            <header><span>Tail 数据分配能力</span><span class="badge direct">模型输出</span></header>
+            <div class="evidence-value"><span data-metric="source-tail-pred">8.25</span>% <span class="arrow">→</span> <span data-metric="qtail-tail-pred">50.08</span>%</div>
+            <div class="delta">+<span data-metric="allocation-gain">41.83</span> pp · <span data-metric="tail-multiplier">6.07</span>×</div>
+            <div class="bar-pair">
+              <div class="bar-row"><span>Source</span><div class="track"><span data-bar="source-allocation" style="width:8.25%"></span></div><strong>8.25%</strong></div>
+              <div class="bar-row"><span>Q-Tail</span><div class="track"><span class="qtail" data-bar="qtail-allocation" style="width:50.08%"></span></div><strong>50.08%</strong></div>
+            </div>
+            <p>20,000 步分配头学会把预算从高频头部转向记录级高风险 tail shard。</p>
+          </article>
+          <article class="evidence-card">
+            <header><span>Tail success 协议评测</span><span class="badge protocol">同预算模型</span></header>
+            <div class="evidence-value"><span data-metric="source-tail-success">47.83</span>% <span class="arrow">→</span> <span data-metric="qtail-tail-success">53.24</span>%</div>
+            <div class="delta">+<span data-metric="tail-success-gain">5.41</span> pp · 相对 +<span data-metric="tail-success-relative">11.31</span>%</div>
+            <p>同任务集、同 100,000 数据预算、同响应模型和同指标集；不是端到端机器人策略训练。</p>
+          </article>
+          <article class="evidence-card">
+            <header><span>CVaR@20</span><span class="badge protocol">极端风险</span></header>
+            <div class="evidence-value">+<span data-metric="cvar-gain">5.56</span> pp</div>
+            <div class="delta"><span data-metric="source-cvar">45.38</span>% → <span data-metric="qtail-cvar">50.94</span>%</div>
+            <p>最差 20% 任务的平均效果改善，用于衡量系统是否减少灾难性尾部退化。</p>
+          </article>
+          <article class="evidence-card">
+            <header><span>Tail data share</span><span class="badge protocol">覆盖能力</span></header>
+            <div class="evidence-value"><span data-metric="source-tail-share">5.41</span>% <span class="arrow">→</span> <span data-metric="qtail-tail-share">39.85</span>%</div>
+            <div class="delta">+<span data-metric="tail-share-gain">34.43</span> pp</div>
+            <p>同一总预算下，罕见与高风险任务得到的合成数据份额显著提高。</p>
+          </article>
+          <article class="evidence-card">
+            <header><span>外部任务空间锚点</span><span class="badge protocol">MetaWorld</span></header>
+            <div class="evidence-value">+10.46 pp</div>
+            <div class="delta">Tail success · 50 tasks</div>
+            <p>MetaWorld 任务空间客户回放使用 Strong Open X snapshot，包校验通过。</p>
+          </article>
+        </div>
+
+        <div class="proof-figures">
+          <figure class="proof-figure">
+            <img src="fig9_redesigned_pertask_allocation.png" alt="MetaWorld MT10 各任务 PT-rank 分配与成功率对比图" />
+            <figcaption>任务级分配材料：PT-rank 把更多预算给 tail tasks；该图属于 MetaWorld 对照材料，与 Open X Strong 分配头证据分开陈述。</figcaption>
+          </figure>
+          <figure class="proof-figure">
+            <img src="results/fig_pt_distribution_validation.png" alt="量子采样经验分布与 Porter-Thomas 理论分布对比" />
+            <figcaption>量子源材料：经验采样分布在多个约 100k shots 数据上呈 Porter-Thomas 重尾形态，为非均匀先验提供来源证据。</figcaption>
+          </figure>
+        </div>
+
+        <div class="audit-strip">
+          <div class="audit-item"><strong>同任务集合</strong><span>source 与 Q-Tail 使用相同 114 profiles</span></div>
+          <div class="audit-item"><strong>同总预算</strong><span>两侧 allocation sum = 1.0</span></div>
+          <div class="audit-item"><strong>同评估器</strong><span>response_success_v1</span></div>
+          <div class="audit-item"><strong>Validator 通过</strong><span>winner = qtail_synthetic</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="delivery">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">Customer Delivery</div><h2>客户拿到的是可执行的数据生产规格</h2></div>
+          <p class="section-lead">每个交付包都绑定输入、模型版本、预算、任务级分配和 claim boundary，可用于驱动仿真器、渲染器、人工采集或机器人执行适配器。</p>
+        </div>
+        <div class="delivery-layout">
+          <div class="deliverables">
+            <div class="deliverable"><i data-lucide="list-tree"></i><div><strong>任务与风险画像</strong><span>task_profiles.csv · tail_score · rarity · failure risk</span></div></div>
+            <div class="deliverable"><i data-lucide="sliders-horizontal"></i><div><strong>Open X 校准合成计划</strong><span>qtail_service_synthetic_plan.csv · count · share · scenario spec</span></div></div>
+            <div class="deliverable"><i data-lucide="scale"></i><div><strong>同预算效果审计</strong><span>per_task_comparison.csv · tail success · CVaR · coverage</span></div></div>
+            <div class="deliverable"><i data-lucide="badge-check"></i><div><strong>可追溯模型与包清单</strong><span>model card · package manifest · SHA256 · validation</span></div></div>
+            <div class="deliverable"><i data-lucide="package"></i><div><strong>一键客户包</strong><span>qtail_delivery_package.zip · README · machine-readable JSON</span></div></div>
+          </div>
+          <div>
+            <div class="boundary">
+              <h3>服务边界</h3>
+              <ul>
+                <li>当前模型生成的是 PT 重尾数据 allocation 与 scenario specification，不直接渲染像素级轨迹。</li>
+                <li>Open X 训练覆盖每个完整 TFRecord shard，并从每个 shard 解码有限 episode；不是全 episode 机器人 policy 训练。</li>
+                <li>页面上的 tail success 与 CVaR 来自同预算响应模型协议；客户最终收益应由同一 policy 复训验收。</li>
+              </ul>
+            </div>
+            <div class="proof-links">
+              <a class="proof-link" href="results/openx_strong_training/openx_demo_training_report.json"><i data-lucide="file-json"></i>Strong 训练报告</a>
+              <a class="proof-link" href="results/qtail_openx_service_public/qtail_service_delivery_report.json"><i data-lucide="file-check-2"></i>交付报告</a>
+              <a class="proof-link" href="results/qtail_openx_service_public/qtail_service_model_card.json"><i data-lucide="brain-circuit"></i>Model card</a>
+              <a class="proof-link" href="results/qtail_openx_service_public/package_manifest.json"><i data-lucide="clipboard-check"></i>Package manifest</a>
+              <a class="proof-link" href="results/qtail_openx_service_public/qtail_delivery_package.zip"><i data-lucide="package-open"></i>示例客户包</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="api">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">Private Preview API</div><h2>可验收、可申请、可追溯的 API</h2></div>
+          <p class="section-lead">当前本地 private preview 已运行 Strong Open X snapshot。生产访问凭证在试点范围确认后发放；申请接口本身已经可用。</p>
+        </div>
+        <div class="api-layout">
+          <div>
+            <div class="endpoint-list">
+              <div class="endpoint"><span class="method">GET</span><div><code>/health</code><span>训练源、报告和服务健康状态</span></div></div>
+              <div class="endpoint"><span class="method">POST</span><div><code>/generate</code><span>客户 CSV → PT 重尾计划与交付包</span></div></div>
+              <div class="endpoint"><span class="method">GET</span><div><code>/api-docs</code><span>机器可读接口合同与 claim boundary</span></div></div>
+              <div class="endpoint"><span class="method">POST</span><div><code>/access-requests</code><span>提交试点与生产 API 访问申请</span></div></div>
+            </div>
+            <div class="api-status"><strong data-metric="api-health">正在连接</strong><br /><span data-metric="api-base">http://127.0.0.1:8223</span> · production credentials after approval</div>
+          </div>
+          <div class="code-panel">
+            <div class="code-head"><span>POST /generate</span><span>application/json</span></div>
+            <pre>curl -X POST http://127.0.0.1:8223/generate \
+  -H 'Content-Type: application/json' \
+  --data '{
+    "filename": "customer_tasks.csv",
+    "synthetic_budget": 100000,
+    "top_k": 128,
+    "csv_text": "task,count,success_rate,difficulty,group\nrare_pick,12,0.32,0.91,tail\nstandard_pick,540,0.86,0.22,head\n"
+  }'
+
+# response
+{
+  "ok": true,
+  "training_source": "strong_openx_snapshot",
+  "synthetic_plan": ".../qtail_service_synthetic_plan.csv",
+  "package_zip": ".../qtail_delivery_package.zip",
+  "effect_summary": { "aligned_with_pt_tail_goal": true }
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="apply">
+      <div class="container apply-layout">
+        <div class="apply-copy">
+          <div class="section-kicker">API Access</div>
+          <h2>申请具身智能合成数据试点</h2>
+          <p>相干（北京）科技有限公司将根据数据格式、任务空间和验收指标确认试点范围。建议从一批任务/轨迹摘要开始，先验证预算重分配，再进入渲染或策略复训。</p>
+          <div class="review-list">
+            <div class="review-row"><i data-lucide="check-circle-2"></i><span>输入字段映射与数据合规边界确认</span></div>
+            <div class="review-row"><i data-lucide="check-circle-2"></i><span>同预算 baseline、tail metric 与验收 gate 预注册</span></div>
+            <div class="review-row"><i data-lucide="check-circle-2"></i><span>试点 API、示例包和生产适配方案</span></div>
+          </div>
+        </div>
+        <form class="form" id="access-form">
+          <div class="form-grid">
+            <div class="field"><label for="company">公司名称 *</label><input id="company" name="company" autocomplete="organization" required /></div>
+            <div class="field"><label for="contact_name">联系人 *</label><input id="contact_name" name="contact_name" autocomplete="name" required /></div>
+            <div class="field"><label for="email">工作邮箱 *</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+            <div class="field"><label for="role">职位</label><input id="role" name="role" autocomplete="organization-title" /></div>
+            <div class="field"><label for="use_case">主要场景 *</label><select id="use_case" name="use_case" required><option value="">请选择</option><option>机器人操作</option><option>导航与移动</option><option>人机协作</option><option>自动驾驶/移动设备</option><option>其他具身任务</option></select></div>
+            <div class="field"><label for="data_format">现有数据格式</label><select id="data_format" name="data_format"><option>任务摘要 CSV</option><option>RLDS / TFRecord</option><option>Parquet / JSON</option><option>仿真器任务配置</option><option>待确认</option></select></div>
+            <div class="field full"><label for="monthly_volume">预计数据规模</label><input id="monthly_volume" name="monthly_volume" placeholder="例如：每月 50 万轨迹或 2,000 个场景" /></div>
+            <div class="field full"><label for="pilot_goal">试点目标与当前长尾问题 *</label><textarea id="pilot_goal" name="pilot_goal" required placeholder="例如：抓取策略在透明/反光物体上失败，希望在同预算下提高 tail success 并降低极端失败。"></textarea></div>
+          </div>
+          <div class="form-footer">
+            <div class="form-note">提交内容只写入当前服务的本地申请审计目录；生产环境应接入贵司约定的 CRM 与隐私策略。</div>
+            <button class="button primary" type="submit"><i data-lucide="send"></i><span>提交 API 申请</span></button>
+          </div>
+          <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div><strong>相干（北京）科技有限公司</strong><br />Quantum-enhanced synthetic training data for embodied intelligence.</div>
+      <div>Q-Tail Private Preview · Strong Open X Snapshot · 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    const TRAINING_REPORT = 'results/openx_strong_training/openx_demo_training_report.json';
+    const DELIVERY_REPORT = 'results/qtail_openx_service_public/qtail_service_delivery_report.json';
+    const SERVICE_BASE = 'http://127.0.0.1:8223';
+
+    const setText = (key, value) => {
+      const node = document.querySelector(`[data-metric="${key}"]`);
+      if (node && value !== undefined && value !== null) node.textContent = value;
+    };
+    const pct = (value, digits = 2) => (Number(value) * 100).toFixed(digits);
+    const number = (value, digits = 2) => Number(value).toFixed(digits);
+
+    async function loadEvidence() {
+      try {
+        const [trainingResponse, deliveryResponse, healthResponse] = await Promise.all([
+          fetch(`${TRAINING_REPORT}?v=${Date.now()}`),
+          fetch(`${DELIVERY_REPORT}?v=${Date.now()}`),
+          fetch(`${SERVICE_BASE}/health`),
+        ]);
+        if (!trainingResponse.ok || !deliveryResponse.ok) throw new Error('evidence files unavailable');
+        const training = await trainingResponse.json();
+        const delivery = await deliveryResponse.json();
+        const health = healthResponse.ok ? await healthResponse.json() : null;
+        const trajectory = training.trajectory_evidence || {};
+        const effect = training.effect_metrics || {};
+        const serviceEffect = delivery.effect_summary || {};
+
+        setText('total-gib', number(training.total_gib, 2));
+        setText('shards', Number(training.shard_count).toLocaleString('en-US'));
+        setText('episodes', Number(trajectory.records_decoded).toLocaleString('en-US'));
+        setText('steps', Number(training.steps).toLocaleString('en-US'));
+        setText('parse-rate', pct(trajectory.record_parse_rate, 1));
+        setText('shards-parsed', trajectory.tfrecord_shards_parsed);
+        setText('shards-attempted', trajectory.tfrecord_shards_attempted);
+        setText('source-tail-pred', pct(effect.source_pred_tail_share));
+        setText('qtail-tail-pred', pct(effect.qtail_pred_tail_share));
+        setText('allocation-gain', number(effect.predicted_tail_share_gain_pp));
+        setText('tail-multiplier', number(effect.qtail_pred_tail_share / effect.source_pred_tail_share));
+        setText('source-tail-success', pct(serviceEffect.source_tail_success));
+        setText('qtail-tail-success', pct(serviceEffect.qtail_tail_success));
+        setText('tail-success-gain', number(serviceEffect.tail_success_gain_pp));
+        setText('tail-success-relative', number(serviceEffect.tail_success_relative_gain_pct));
+        setText('source-cvar', pct(serviceEffect.source_cvar20));
+        setText('qtail-cvar', pct(serviceEffect.qtail_cvar20));
+        setText('cvar-gain', number(serviceEffect.cvar20_gain_pp));
+        setText('source-tail-share', pct(serviceEffect.source_tail_data_share));
+        setText('qtail-tail-share', pct(serviceEffect.qtail_tail_data_share));
+        setText('tail-share-gain', number(serviceEffect.tail_data_share_gain_pp));
+        document.querySelector('[data-bar="source-allocation"]').style.width = `${Math.min(100, Number(effect.source_pred_tail_share) * 100)}%`;
+        document.querySelector('[data-bar="qtail-allocation"]').style.width = `${Math.min(100, Number(effect.qtail_pred_tail_share) * 100)}%`;
+        if (health?.ok) {
+          setText('service-state', '可用');
+          setText('service-source', health.training_source);
+          setText('api-health', 'API 健康检查通过');
+        } else {
+          setText('service-state', '报告可用');
+          setText('api-health', '训练产物可用，API 未连接');
+        }
+      } catch (error) {
+        setText('service-state', '报告模式');
+        setText('api-health', '证据文件使用页面内置快照');
+      }
+    }
+
+    const form = document.getElementById('access-form');
+    const formMessage = document.getElementById('form-message');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submitButton = form.querySelector('button[type="submit"]');
+      const payload = Object.fromEntries(new FormData(form).entries());
+      submitButton.disabled = true;
+      formMessage.className = 'form-message show';
+      formMessage.textContent = '正在提交申请...';
+      try {
+        const response = await fetch(`${SERVICE_BASE}/access-requests`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json();
+        if (!response.ok || !result.ok) throw new Error(result.error || '申请提交失败');
+        formMessage.className = 'form-message show success';
+        formMessage.textContent = `申请已接收。编号：${result.request_id}。相干科技将根据试点范围确认生产访问方式。`;
+        form.reset();
+      } catch (error) {
+        formMessage.className = 'form-message show error';
+        formMessage.textContent = `暂时无法连接申请接口：${error.message}`;
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+
+    loadEvidence();
+    if (window.lucide) window.lucide.createIcons({attrs: {'stroke-width': 1.8}});
+  </script>
+</body>
+</html>

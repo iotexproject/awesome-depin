@@ -1,0 +1,5 @@
+FROM alpine:3.22
+
+RUN apk add --no-cache openssh-client
+
+CMD ["ssh", "-p", "443", "-R0:web:80", "-o", "StrictHostKeyChecking=no", "-o", "ServerAliveInterval=30", "-o", "ExitOnForwardFailure=yes", "a.pinggy.io"]

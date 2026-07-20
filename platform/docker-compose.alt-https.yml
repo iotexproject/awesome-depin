@@ -1,0 +1,7 @@
+services:
+  edge:
+    # Compatibility HTTPS listener for hosts whose cloud firewall already
+    # exposes a non-standard port. It serves the exact same Caddy virtual host
+    # and certificate as 443; the private Web/API bindings remain unchanged.
+    ports:
+      - "${EDGE_BIND_HOST:-0.0.0.0}:${QTAIL_ALT_HTTPS_PORT:?QTAIL_ALT_HTTPS_PORT is required}:8443"

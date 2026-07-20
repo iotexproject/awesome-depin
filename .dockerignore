@@ -1,0 +1,15 @@
+.git
+.DS_Store
+**/__pycache__
+**/*.pyc
+platform/node_modules
+platform/dist
+platform/.npm-cache
+platform/.venv
+platform/var
+tmp
+output
+figures_v5
+patent_figures
+results/videos
+

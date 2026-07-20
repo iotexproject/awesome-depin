@@ -1,0 +1,24 @@
+services:
+  db:
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --innodb-buffer-pool-size=128M
+      - --max-connections=50
+      - --performance-schema=OFF
+      - --table-open-cache=400
+      - --thread-cache-size=8
+    mem_limit: 384m
+    cpus: 0.5
+
+  api:
+    mem_limit: 320m
+    cpus: 0.5
+
+  worker:
+    mem_limit: 640m
+    cpus: 1.0
+
+  web:
+    mem_limit: 96m
+    cpus: 0.25

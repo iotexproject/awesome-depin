@@ -1,0 +1,76 @@
+{
+    "title": "MT10 \u4efb\u52a1\u957f\u5c3e\u6620\u5c04",
+    "description": "\u57fa\u4e8e\u5386\u53f2\u6837\u672c\u9891\u7387\u4e0e\u96be\u5ea6\uff0c\u5c06 Meta-World MT10 \u5212\u5206\u4e3a Head, Medium, Tail \u4e09\u4e2a\u5c42\u7ea7\uff0c\u5e76\u8ba1\u7b97\u51fa\u6bcf\u4e2a\u4efb\u52a1\u7684\u957f\u5c3e\u5206\u6570\uff08Tail Score\uff09\uff0c\u5206\u6570\u8d8a\u9ad8\u4ee3\u8868\u4efb\u52a1\u8d8a\u7f55\u89c1\u3001\u8d8a\u56f0\u96be\u3002",
+    "tasks": [
+        {
+            "task_name": "reach-v2",
+            "tier": "head",
+            "tail_score": 0.0007413356397108792,
+            "base_frequency": 10000.0,
+            "display_order": 0
+        },
+        {
+            "task_name": "push-v2",
+            "tier": "head",
+            "tail_score": 0.0009266695496385989,
+            "base_frequency": 8000.0,
+            "display_order": 1
+        },
+        {
+            "task_name": "pick-place-v2",
+            "tier": "head",
+            "tail_score": 0.0012355593995181321,
+            "base_frequency": 6000.0,
+            "display_order": 2
+        },
+        {
+            "task_name": "door-open-v2",
+            "tier": "head",
+            "tail_score": 0.0018533390992771979,
+            "base_frequency": 4000.0,
+            "display_order": 3
+        },
+        {
+            "task_name": "drawer-close-v2",
+            "tier": "medium",
+            "tail_score": 0.0074133563971087914,
+            "base_frequency": 1000.0,
+            "display_order": 4
+        },
+        {
+            "task_name": "button-press-topdown-v2",
+            "tier": "medium",
+            "tail_score": 0.00926669549638599,
+            "base_frequency": 800.0,
+            "display_order": 5
+        },
+        {
+            "task_name": "peg-insert-side-v2",
+            "tier": "medium",
+            "tail_score": 0.014826712794217583,
+            "base_frequency": 500.0,
+            "display_order": 6
+        },
+        {
+            "task_name": "window-open-v2",
+            "tier": "tail",
+            "tail_score": 0.07413356397108792,
+            "base_frequency": 100.0,
+            "display_order": 7
+        },
+        {
+            "task_name": "sweep-v2",
+            "tier": "tail",
+            "tail_score": 0.14826712794217584,
+            "base_frequency": 50.0,
+            "display_order": 8
+        },
+        {
+            "task_name": "basketball-v2",
+            "tier": "tail",
+            "tail_score": 0.7413356397108792,
+            "base_frequency": 10.0,
+            "display_order": 9
+        }
+    ]
+}

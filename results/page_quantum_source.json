@@ -1,0 +1,13 @@
+{
+    "title": "\u91cf\u5b50\u6e90\u6570\u636e\uff1a\u771f\u5b9e\u7269\u7406\u7cfb\u7edf\u7684\u975e\u5747\u5300\u5148\u9a8c",
+    "subtitle": "Quantum Random Circuit Sampling",
+    "source_file": "task_2604201358523029585_result.csv",
+    "support_size": 30003,
+    "entropy": 10.13339432679841,
+    "cv": 0.6146476758273788,
+    "gini": -0.3277786734659862,
+    "short_description": "\u57fa\u4e8e\u771f\u5b9e\u8d85\u5bfc\u91cf\u5b50\u82af\u7247\u7684\u968f\u673a\u7535\u8def\u91c7\u6837\u6570\u636e\uff0c\u5448\u73b0\u51fa\u5178\u578b\u7684\u91cd\u5c3e\uff08Heavy-tail\uff09\u975e\u5747\u5300\u5206\u5e03\u7279\u6027\uff0c\u4e3a\u5177\u8eab\u667a\u80fd\u8bad\u7ec3\u63d0\u4f9b\u7ed3\u6784\u5316\u63a2\u7d22\u7a7a\u95f4\u3002",
+    "chart_paths": [
+        "results/fig_quantum_prob_dist.png"
+    ]
+}

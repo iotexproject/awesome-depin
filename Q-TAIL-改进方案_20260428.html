@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-TAIL 项目改进方案 | 基于 ChatGPT 5.5 专业评估</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--gray-800);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .header .meta {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .header .meta-item {
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Content */
+        .content {
+            padding: 2.5rem 3rem;
+        }
+        
+        /* Score Summary */
+        .score-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .score-card {
+            background: var(--gray-50);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .score-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
+        }
+        
+        .score-card .label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+        }
+        
+        .score-card .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+        
+        .score-card .value.high { color: var(--success); }
+        .score-card .value.medium { color: var(--warning); }
+        .score-card .value.low { color: var(--danger); }
+        
+        .score-card.highlight {
+            background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+        }
+        
+        .score-card.highlight .label { color: rgba(255,255,255,0.8); }
+        .score-card.highlight .value { color: white; }
+        
+        /* Section */
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .section-title .icon {
+            width: 2rem;
+            height: 2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        /* Priority Badge */
+        .priority {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .priority.p0 { background: #fee2e2; color: #dc2626; }
+        .priority.p1 { background: #fef3c7; color: #d97706; }
+        .priority.p2 { background: #dbeafe; color: #2563eb; }
+        .priority.p3 { background: #f3f4f6; color: #6b7280; }
+        
+        /* Improvement Item */
+        .improvement {
+            background: var(--gray-50);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .improvement-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .improvement-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+        
+        .score-change {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            background: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .improvement-content {
+            color: var(--gray-600);
+        }
+        
+        .improvement-content ul {
+            margin-top: 0.75rem;
+            padding-left: 1.5rem;
+        }
+        
+        .improvement-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .improvement-content strong {
+            color: var(--gray-800);
+        }
+        
+        /* Table */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 0.75rem;
+            border: 1px solid var(--gray-200);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        th {
+            background: var(--gray-100);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-700);
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background: var(--gray-50);
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--gray-200);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .comparison-table .cell {
+            background: white;
+            padding: 1rem;
+        }
+        
+        .comparison-table .cell.header {
+            background: var(--gray-100);
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+        
+        .comparison-table .cell.current {
+            background: #fef2f2;
+        }
+        
+        .comparison-table .cell.suggested {
+            background: #f0fdf4;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gray-300);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.65rem;
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        
+        .timeline-time {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content {
+            background: var(--gray-50);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        /* Key Points */
+        .key-points {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .key-points h3 {
+            color: #92400e;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .key-points ol {
+            padding-left: 1.5rem;
+            color: #78350f;
+        }
+        
+        .key-points li {
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Success Box */
+        .success-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .success-box h3 {
+            color: #065f46;
+            margin-bottom: 0.75rem;
+        }
+        
+        .success-box p {
+            color: #047857;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--gray-100);
+            padding: 2rem 3rem;
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🔬 Q-TAIL 项目改进方案</h1>
+            <p class="subtitle">基于 ChatGPT 5.5 专业评估报告的系统性改进建议</p>
+            <div class="meta">
+                <span class="meta-item">📅 生成时间: 2026-04-28</span>
+                <span class="meta-item">📊 综合评分: 6.4/10</span>
+                <span class="meta-item">🎯 目标评分: 7.5+/10</span>
+            </div>
+        </header>
+        
+        <div class="content">
+            <!-- Score Summary -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="icon">📊</span>
+                    评估维度得分总览
+                </h2>
+                <div class="score-summary">
+                    <div class="score-card">
+                        <div class="label">赛道方向</div>
+                        <div class="value high">8.5</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="label">问题定义</div>
+                        <div class="value high">8.0</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="label">技术创意</div>
+                        <div class="value high">7.5</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="label">量子真实性</div>
+                        <div class="value medium">6.0</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="label">实验充分性</div>
+                        <div class="value low">5.5</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="label">产品清晰度</div>
+                        <div class="value medium">6.0</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="label">商业化可信度</div>
+                        <div class="value low">5.5</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="label">团队与IP</div>
+                        <div class="value medium">6.5</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="label">融资Readiness</div>
+                        <div class="value low">5.5</div>
+                    </div>
+                    <div class="score-card highlight">
+                        <div class="label">综合评分</div>
+                        <div class="value">6.4</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Project Improvements -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="icon">🛠️</span>
+                    一、项目改进方案
+                </h2>
+                
+                <!-- P0 -->
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="priority p0">P0 最高优先</span>
+                        <span class="improvement-title">实验可复现性与严谨性</span>
+                        <span class="score-change">5.5 → 7.5+</span>
+                    </div>
+                    <div class="improvement-content">
+                        <p><strong>这是评估报告指出的最致命短板。</strong></p>
+                        <ul>
+                            <li><strong>多种子验证：</strong>从 3 seed → 至少 5-10 个 seed，报告均值 ± 标准差 + 95% 置信区间</li>
+                            <li><strong>固定随机种子 + 统一预算：</strong>所有策略在同一 <code>n_steps</code> 预算下运行，确保公平比较</li>
+                            <li><strong>统计显著性检验：</strong>增加 paired t-test / Wilcoxon 检验 / bootstrap CI</li>
+                            <li><strong>补齐强基线：</strong>
+                                <ul>
+                                    <li>Focal Loss（经典长尾学习）</li>
+                                    <li>DRO (Distributionally Robust Optimization)</li>
+                                    <li>Prioritized Experience Replay</li>
+                                    <li>Levy Flight / OU Noise（重尾探索基线）</li>
+                                    <li>Logit Adjustment</li>
+                                    <li>Meta-Weight Net</li>
+                                </ul>
+                            </li>
+                            <li><strong>增加消融实验：</strong>
+                                <ul>
+                                    <li>去掉量子先验（η=0）→ 纯经验分布</li>
+                                    <li>去掉 rank matching → 随机排列</li>
+                                    <li>去掉非线性效用函数 → 线性</li>
+                                    <li>去掉多维度 OT → 1D 映射</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- P1 -->
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="priority p1">P1 高优先</span>
+                        <span class="improvement-title">量子叙事去风险化</span>
+                        <span class="score-change">6.0 → 7.5+</span>
+                    </div>
+                    <div class="improvement-content">
+                        <p><strong>评估报告最核心的建议：不要把 QEDE 说成"量子计算直接生成数据"。</strong></p>
+                        
+                        <div class="comparison-table">
+                            <div class="cell header">当前表述</div>
+                            <div class="cell header">建议表述</div>
+                            <div class="cell current">"量子驱动的具身智能长尾数据引擎"</div>
+                            <div class="cell suggested">"量子分布引导的具身长尾数据调度与风险评测平台"</div>
+                            <div class="cell current">"30亿小时可蒸馏到1亿小时"</div>
+                            <div class="cell suggested">"在同等采样预算下，提升尾部成功率、CVaR 与跨任务保持率"</div>
+                            <div class="cell current">"量子优势"</div>
+                            <div class="cell suggested">"量子校准先验 + 工程化数据调度"</div>
+                        </div>
+                        
+                        <ul>
+                            <li><strong>增加经典分布对比验证：</strong>PT 分布 vs Levy / Power-law / Exponential</li>
+                            <li><strong>明确区分两个概念：</strong>
+                                <ul>
+                                    <li>✅ "量子硬件产生了 PT 型重尾概率分布" → 有成熟科学背景</li>
+                                    <li>❌ "这种分布用于机器人数据调度后，能稳定提升真实任务表现" → 是创业假设，需要实验验证</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- P1 Commercial -->
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="priority p1">P1 高优先</span>
+                        <span class="improvement-title">商业路径重聚焦</span>
+                        <span class="score-change">5.5 → 6.5+</span>
+                    </div>
+                    <div class="improvement-content">
+                        <p><strong>产品入口收敛（按优先级排序）：</strong></p>
+                        <ol>
+                            <li><strong>Eval / Benchmark（最优先）</strong> → "具身长尾评测标准 + 风险场景库 + 报告系统"</li>
+                            <li><strong>DaaS 数据服务</strong> → "长尾任务包/风险场景包/失败样本包"</li>
+                            <li><strong>SaaS / 私有化</strong> → 轻量 SDK + 私有化 dashboard</li>
+                            <li><strong>自动预标注 / 量子采样 API</strong> → 附属模块，不做核心卖点</li>
+                        </ol>
+                        <ul>
+                            <li>锁定 3-5 家机器人/仿真/工业自动化客户做 PoC</li>
+                            <li>每个 PoC 有明确验收指标：失败样本覆盖率、尾部成功率、训练成本降低</li>
+                            <li>增加自下而上的收入测算（目标客户数、PoC单价、年费、转化率、毛利率）</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- P2 -->
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="priority p2">P2 中优先</span>
+                        <span class="improvement-title">真实机器人验证</span>
+                    </div>
+                    <div class="improvement-content">
+                        <ul>
+                            <li><strong>高保真仿真层：</strong>接入 <strong>ManiSkill2</strong> 或 <strong>Isaac Sim</strong> 替代纯 Meta-World</li>
+                            <li><strong>真实机械臂 demo：</strong>至少 1 个端到端 demo，录视频 + 日志 + 失败案例分析</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- P2 BP -->
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="priority p2">P2 中优先</span>
+                        <span class="improvement-title">BP 主线清理</span>
+                    </div>
+                    <div class="improvement-content">
+                        <ul>
+                            <li><strong>移出弱相关内容到附录：</strong>
+                                <ul>
+                                    <li>量子全同态加密（FHE）</li>
+                                    <li>抗量子密码平台</li>
+                                    <li>QMLXC</li>
+                                    <li>微生物制氢</li>
+                                </ul>
+                            </li>
+                            <li><strong>融资估值调整：</strong>建议 milestone tranche（里程碑分期）或可转债降低估值争议</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- P3 -->
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="priority p3">P3 低优先</span>
+                        <span class="improvement-title">团队补强</span>
+                    </div>
+                    <div class="improvement-content">
+                        <ul>
+                            <li>补强机器人 RL / 仿真平台 / MLOps / 数据工程负责人</li>
+                            <li>整理 "专利-产品模块-权利要求-商业场景" 映射表</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Paper Improvements -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="icon">📄</span>
+                    二、论文改进方案
+                </h2>
+                
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="improvement-title">1. 叙事体系重构</span>
+                    </div>
+                    <div class="improvement-content">
+                        <p><strong>标题建议：</strong></p>
+                        <p style="background: #f0fdf4; padding: 1rem; border-radius: 0.5rem; margin: 0.5rem 0;">
+                            <em>"Porter-Thomas Distribution-Guided Scheduling for Long-Tail Embodied Learning: A Quantum-Calibrated Approach"</em>
+                        </p>
+                        <ul>
+                            <li>去掉 "quantum supremacy" / "quantum advantage" 表述</li>
+                            <li>强调效果来自于<strong>分布形状 + 调度算法</strong>，不等同于量子硬件优势</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="improvement-title">2. 实验部分大幅加强（核心改进）</span>
+                    </div>
+                    <div class="improvement-content">
+                        <p><strong>新增章节：</strong></p>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>章节</th>
+                                        <th>内容</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Section X: Comprehensive Baseline Comparison</strong></td>
+                                        <td>Focal Loss, Logit Adjustment, DRO, Meta-Weight Net, Prioritized Replay, Curriculum Learning, Levy Flight</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Section Y: Ablation Studies</strong></td>
+                                        <td>去掉量子先验、rank matching、非线性效用、多维OT，η敏感性分析</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>完善实验协议</strong></td>
+                                        <td>10 个 seed 均值 ± 95% CI，统计显著性检验，失败案例定性分析，公开代码仓库</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="improvement-title">3. 增加理论分析深度</span>
+                    </div>
+                    <div class="improvement-content">
+                        <ul>
+                            <li><strong>形式化分析：</strong>PT 重尾分布如何通过 rank matching 影响梯度方差</li>
+                            <li><strong>信息论视角：</strong>PT 分布相对于 uniform/empirical 分布的互信息增益</li>
+                            <li><strong>收敛性分析：</strong>在 PT 调度下策略的尾部收敛界</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="improvement-title">4. 硬件验证部分加强</span>
+                    </div>
+                    <div class="improvement-content">
+                        <ul>
+                            <li>增加 Quafu/Baihua 芯片的详细参数（T1, T2, gate fidelity, readout error）</li>
+                            <li>增加与理想 PT 的 TV distance / KL divergence 分析</li>
+                            <li>增加噪声鲁棒性的系统研究</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="improvement">
+                    <div class="improvement-header">
+                        <span class="improvement-title">5. Related Work 扩展</span>
+                    </div>
+                    <div class="improvement-content">
+                        <ul>
+                            <li><strong>Data-centric AI：</strong>Scale AI, data selection, active learning</li>
+                            <li><strong>Embodied AI data bottleneck：</strong>Open X-Embodiment, RT-X</li>
+                            <li><strong>Distribution shift in robotics：</strong>Sim2Real gap</li>
+                            <li><strong>Risk-sensitive RL：</strong>CVaR optimization, robust MDP</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Timeline -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="icon">📅</span>
+                    三、改进时间线
+                </h2>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>项目改进</th>
+                                <th>论文改进</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>0-1 月</strong></td>
+                                <td>补齐 5-10 seed 实验 + 置信区间</td>
+                                <td>重写叙事体系、调整 quantum 表述</td>
+                            </tr>
+                            <tr>
+                                <td><strong>1-2 月</strong></td>
+                                <td>实现 Focal Loss / DRO / PER 基线</td>
+                                <td>增加 Comprehensive Baselines 章节</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2-3 月</strong></td>
+                                <td>消融实验 + 理论分析</td>
+                                <td>增加 Ablation + Statistical Analysis</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3-6 月</strong></td>
+                                <td>ManiSkill/Isaac 仿真 demo + PoC</td>
+                                <td>理论收敛分析 + Hardware 加强</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6-12 月</strong></td>
+                                <td>真实机械臂验证 + SDK</td>
+                                <td>顶会投稿版论文</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Key Points -->
+            <div class="key-points">
+                <h3>⚠️ 当前最大的三个问题</h3>
+                <ol>
+                    <li><strong>量子叙事过强</strong> → 实验证据还不够硬</li>
+                    <li><strong>商业路径太发散</strong> → 没有聚焦最可落地的切入点</li>
+                    <li><strong>BP 主线被其他量子项目稀释</strong> → 投资人不清楚你到底在做什么</li>
+                </ol>
+            </div>
+            
+            <div class="success-box">
+                <h3>✅ 改进后预期</h3>
+                <p>如果按上述方案在 <strong>3-6 个月</strong>内补齐实验可复现性 + 强基线对比 + 高保真仿真 + 2 个 PoC，项目可信度可从 <strong>6.4 → 7.5+</strong>，融资说服力将显著提升。</p>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Q-TAIL 项目改进方案 | 生成时间: 2026-04-28 | 基于 ChatGPT 5.5 专业评估报告</p>
+        </footer>
+    </div>
+</body>
+</html>

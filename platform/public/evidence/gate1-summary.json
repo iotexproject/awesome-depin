@@ -1,0 +1,32 @@
+{
+  "gate": 1,
+  "status": "passed_simulator_production_baseline",
+  "generated_at": "2026-07-17T03:22:04.841656+00:00",
+  "robot_type": "sawyer_metaworld_mujoco",
+  "production_backend": "MuJoCo 3.10.0 / MetaWorld 3.0.0 MT1",
+  "formats": ["LeRobotDataset v3.0", "RLDS-compatible TFRecord"],
+  "trajectory_allocation": {
+    "reach-v3": 50,
+    "button-press-v3": 7,
+    "pick-place-v3": 7
+  },
+  "trajectory_count": 64,
+  "frame_count": 3285,
+  "lerobot_official_loader_passed": true,
+  "training_dataloader_passed": true,
+  "rlds_tfrecord_validation_passed": true,
+  "missing_required_field_count": 0,
+  "nonfinite_value_count": 0,
+  "corrupt_frame_count": 0,
+  "corrupt_frame_rate": 0.0,
+  "package_manifest_sha256": "003d5d62c92237412f86d72e796c4a5570e3a9760b1d40fee8c0f7f826f3c13a",
+  "public_adapter_baseline": {
+    "source": "Open X UCSD Kitchen RLDS",
+    "format": "LeRobot v3",
+    "trajectory_count": 64,
+    "frame_count": 1915,
+    "package_manifest_sha256": "4be8f261657e6a62355eecd46c02d0b7678d10360834be48d428d1b0688b3909"
+  },
+  "buyer_gate_passed": false,
+  "claim_boundary": "Local synthetic simulator production baseline only; buyer-selected robot/backend execution, physical-validity review, and signed buyer acceptance remain required."
+}

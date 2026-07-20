@@ -1,0 +1,34 @@
+{
+	# Run on unprivileged container ports. Compose maps the public 80/443 ports.
+	http_port 8080
+	https_port 8443
+	admin off
+	servers {
+		# Host 443 is mapped to container 8443. Disable HTTP/3 so Caddy does not
+		# advertise the internal UDP port in Alt-Svc.
+		protocols h1 h2
+	}
+}
+
+# Container-only liveness endpoint.  Port 8081 is intentionally not published
+# by Compose and does not bypass the public HTTPS virtual host.
+:8081 {
+	respond /healthz "ok" 200
+}
+
+{$QTAIL_DOMAIN:localhost} {
+	encode zstd gzip
+	reverse_proxy web:80
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	log {
+		output stdout
+		format json
+	}
+}

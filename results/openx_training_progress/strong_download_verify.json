@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-07-09T23:20:50.242400+00:00",
+  "data_dir": "data/openx_demo",
+  "ready_for_strong_training": false,
+  "errors": [
+    "language_table_sim:below_min_gib",
+    "language_table_sim:partial_gsutil_files_present"
+  ],
+  "datasets": [
+    {
+      "dataset": "language_table",
+      "path": "data/openx_demo/language_table",
+      "exists": true,
+      "bytes": 50362254007,
+      "gib": 46.904,
+      "tfrecord_count": 61,
+      "partial_file_count": 0,
+      "required_metadata_found": [
+        "dataset_info.json",
+        "features.json"
+      ],
+      "expected": {
+        "min_gib": 46.0,
+        "min_tfrecords": 60,
+        "required_files": [
+          "features.json",
+          "dataset_info.json"
+        ]
+      },
+      "valid": true,
+      "errors": []
+    },
+    {
+      "dataset": "language_table_sim",
+      "path": "data/openx_demo/language_table_sim",
+      "exists": true,
+      "bytes": 42506797448,
+      "gib": 39.588,
+      "tfrecord_count": 74,
+      "partial_file_count": 16,
+      "required_metadata_found": [
+        "dataset_info.json",
+        "features.json"
+      ],
+      "expected": {
+        "min_gib": 80.0,
+        "min_tfrecords": 20,
+        "required_files": [
+          "features.json",
+          "dataset_info.json"
+        ]
+      },
+      "valid": false,
+      "errors": [
+        "below_min_gib",
+        "partial_gsutil_files_present"
+      ]
+    }
+  ]
+}

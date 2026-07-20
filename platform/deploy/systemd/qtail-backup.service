@@ -1,0 +1,16 @@
+[Unit]
+Description=Q-Tail encrypted database and delivery backup
+Requires=qtail.service
+After=qtail.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/qtail/current/platform
+EnvironmentFile=/etc/qtail/operations.env
+Environment=ENV_FILE=/etc/qtail/qtail.env
+Environment=COMPOSE_PROJECT_NAME=qtail-production
+Environment=BACKUP_DIR=/opt/qtail/backups
+ExecStart=/opt/qtail/current/platform/scripts/production_stack.sh backup
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=6

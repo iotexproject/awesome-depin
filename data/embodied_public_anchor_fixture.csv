@@ -1,0 +1,11 @@
+dataset,robot,task,scene,count,success_rate,difficulty,group,source_url,fixture_note
+Open X-Embodiment,RT-X mixture,move red pepper to tray,kitchen tabletop,24000,0.78,0.35,head,https://robotics-transformer-x.github.io/,schema fixture based on public task examples and aggregate dataset description
+Open X-Embodiment,RT-X mixture,pick ice cream,kitchen tabletop,21000,0.74,0.38,head,https://robotics-transformer-x.github.io/,schema fixture based on public task examples and aggregate dataset description
+Open X-Embodiment,RT-X mixture,move apple near cloth,tabletop spatial relation,6500,0.52,0.66,tail,https://robotics-transformer-x.github.io/,schema fixture for emergent spatial relation task
+Open X-Embodiment,RT-X mixture,move apple between can and orange,tabletop spatial relation,4200,0.44,0.78,tail,https://robotics-transformer-x.github.io/,schema fixture for emergent spatial relation task
+DROID,Franka Panda,open drawer,office,7600,0.68,0.50,medium,https://droid-dataset.github.io/,schema fixture based on DROID task/scene diversity
+DROID,Franka Panda,pick object with distractors,household,3900,0.46,0.80,tail,https://droid-dataset.github.io/,schema fixture for OOD distractor robustness
+DROID,Franka Panda,place object in container,lab,11800,0.72,0.42,head,https://droid-dataset.github.io/,schema fixture based on manipulation trajectories
+DROID,Franka Panda,manipulate novel object,household,3100,0.40,0.86,tail,https://droid-dataset.github.io/,schema fixture for novel object tail
+Meta Habitat 3.0,Fetch/social robot,social navigation,home,9000,0.64,0.54,medium,https://aihabitat.org/habitat3/,schema fixture based on Habitat 3.0 benchmark task
+Meta Habitat 3.0,Fetch/social robot,social rearrangement,home clutter,5200,0.49,0.76,tail,https://aihabitat.org/habitat3/,schema fixture based on Habitat 3.0 benchmark task

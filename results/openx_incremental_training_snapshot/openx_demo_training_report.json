@@ -1,0 +1,241 @@
+{
+  "generated_at": "2026-07-10T02:33:30.785569+00:00",
+  "status": "complete",
+  "training_scope": "all_complete_shards_record_sampled",
+  "claim_boundary": [
+    "This is a real Open X record-informed Q-Tail allocation-head training run.",
+    "Every complete TFRecord shard is covered; a bounded, deterministic number of episodes is decoded per shard.",
+    "It is not full robot-policy training and it does not prove downstream policy success without a same-policy run.",
+    "Both source and Q-Tail heads use identical architecture, optimizer, steps, features and seed."
+  ],
+  "data_dir": "/Users/avalok/work/Q-TAIL-MVP/data/openx_demo",
+  "datasets": [
+    "austin_buds_dataset_converted_externally_to_rlds",
+    "austin_sirius_dataset_converted_externally_to_rlds",
+    "berkeley_mvp_converted_externally_to_rlds",
+    "columbia_cairlab_pusht_real",
+    "language_table",
+    "language_table_sim",
+    "nyu_door_opening_surprising_effectiveness",
+    "ucsd_kitchen_dataset_converted_externally_to_rlds"
+  ],
+  "shard_count": 552,
+  "total_bytes": 178375767279,
+  "total_gib": 166.125,
+  "steps": 2500,
+  "model_artifact": {
+    "path": "/Users/avalok/work/Q-TAIL-MVP/results/openx_incremental_training_snapshot/qtail_allocation_head.pt",
+    "sha256": "47bcc7b8beb9c0b252fd8c5323e3160310207fade4bc453006e910019b1faa7b",
+    "feature_names": [
+      "log_bytes",
+      "shard_size_rarity",
+      "dataset_frequency",
+      "shard_position",
+      "mean_episode_steps",
+      "reward_failure_proxy",
+      "action_complexity",
+      "instruction_complexity",
+      "terminal_rate"
+    ],
+    "parameter_count": 865
+  },
+  "trajectory_evidence": {
+    "tfrecord_shards_attempted": 552,
+    "tfrecord_shards_parsed": 552,
+    "record_parse_rate": 1.0,
+    "records_per_shard_cap": 1,
+    "records_decoded": 552,
+    "mean_episode_steps": 129.41666666666666,
+    "features_include": [
+      "episode length",
+      "reward",
+      "action statistics",
+      "instruction complexity",
+      "terminal rate"
+    ]
+  },
+  "source_final_kl": 2.468434104230255e-06,
+  "qtail_final_kl": 0.00020976876839995384,
+  "effect_metrics": {
+    "tail_definition": "top_30_percent_by_record_informed_tail_score",
+    "source_tail_share": 0.08323414623737335,
+    "qtail_tail_share": 0.5023335814476013,
+    "target_tail_share_gain_pp": 41.9099435210228,
+    "source_pred_tail_share": 0.08325202018022537,
+    "qtail_pred_tail_share": 0.5023468732833862,
+    "predicted_tail_share_gain_pp": 41.909485310316086,
+    "consistent_with_pt_tail_goal": true
+  },
+  "source_history": [
+    {
+      "step": 0,
+      "kl": 0.35114115476608276
+    },
+    {
+      "step": 125,
+      "kl": 0.002761093433946371
+    },
+    {
+      "step": 250,
+      "kl": 0.00042337592458352447
+    },
+    {
+      "step": 375,
+      "kl": 9.937858703779057e-05
+    },
+    {
+      "step": 500,
+      "kl": 4.7723951865918934e-05
+    },
+    {
+      "step": 625,
+      "kl": 3.1965115340426564e-05
+    },
+    {
+      "step": 750,
+      "kl": 2.5031658879015595e-05
+    },
+    {
+      "step": 875,
+      "kl": 2.0104158465983346e-05
+    },
+    {
+      "step": 1000,
+      "kl": 1.681931462371722e-05
+    },
+    {
+      "step": 1125,
+      "kl": 1.3724781638302375e-05
+    },
+    {
+      "step": 1250,
+      "kl": 1.1386418009351473e-05
+    },
+    {
+      "step": 1375,
+      "kl": 9.744715498527512e-06
+    },
+    {
+      "step": 1500,
+      "kl": 7.886595994932577e-06
+    },
+    {
+      "step": 1625,
+      "kl": 6.609669071622193e-06
+    },
+    {
+      "step": 1750,
+      "kl": 5.565001629292965e-06
+    },
+    {
+      "step": 1875,
+      "kl": 4.991696187062189e-06
+    },
+    {
+      "step": 2000,
+      "kl": 4.1199164115823805e-06
+    },
+    {
+      "step": 2125,
+      "kl": 3.337139787618071e-06
+    },
+    {
+      "step": 2250,
+      "kl": 3.1309755286201835e-06
+    },
+    {
+      "step": 2375,
+      "kl": 2.816672349581495e-06
+    },
+    {
+      "step": 2500,
+      "kl": 2.468434104230255e-06
+    }
+  ],
+  "qtail_history": [
+    {
+      "step": 0,
+      "kl": 0.17360326647758484
+    },
+    {
+      "step": 125,
+      "kl": 0.002338327467441559
+    },
+    {
+      "step": 250,
+      "kl": 0.0016936373431235552
+    },
+    {
+      "step": 375,
+      "kl": 0.0013847625814378262
+    },
+    {
+      "step": 500,
+      "kl": 0.0011088212486356497
+    },
+    {
+      "step": 625,
+      "kl": 0.0008744432125240564
+    },
+    {
+      "step": 750,
+      "kl": 0.000717613787855953
+    },
+    {
+      "step": 875,
+      "kl": 0.0006112419650889933
+    },
+    {
+      "step": 1000,
+      "kl": 0.000532890553586185
+    },
+    {
+      "step": 1125,
+      "kl": 0.0004776163259521127
+    },
+    {
+      "step": 1250,
+      "kl": 0.0004368424997664988
+    },
+    {
+      "step": 1375,
+      "kl": 0.00040499470196664333
+    },
+    {
+      "step": 1500,
+      "kl": 0.0003783673164434731
+    },
+    {
+      "step": 1625,
+      "kl": 0.00035519583616405725
+    },
+    {
+      "step": 1750,
+      "kl": 0.0003332534688524902
+    },
+    {
+      "step": 1875,
+      "kl": 0.00031124555971473455
+    },
+    {
+      "step": 2000,
+      "kl": 0.0002890219329856336
+    },
+    {
+      "step": 2125,
+      "kl": 0.0002666705404408276
+    },
+    {
+      "step": 2250,
+      "kl": 0.0002455354551784694
+    },
+    {
+      "step": 2375,
+      "kl": 0.00022669503232464194
+    },
+    {
+      "step": 2500,
+      "kl": 0.00020976876839995384
+    }
+  ]
+}

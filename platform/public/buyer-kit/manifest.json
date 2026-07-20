@@ -1,0 +1,76 @@
+{
+  "package": "qtail_buyer_procurement_pilot_kit",
+  "version": "1.2.0",
+  "generated_at": "2026-07-20T00:00:00+00:00",
+  "template_count": 11,
+  "tool_count": 1,
+  "gate_thresholds": {
+    "gate1": "trajectory_count > 0; schema and playback pass; manifest hash and production log present",
+    "gate2": "same policy and budget; Tail SR >= +5 pp; CI95 lower > 0; overall >= -1 pp; head >= -2 pp",
+    "gate3": "3-5 tasks; simulation >= 100/condition; real robot >= 30/task; unit cost reduction >= 20%; safety and buyer owners"
+  },
+  "files": [
+    {
+      "path": "templates/README.md",
+      "bytes": 2837,
+      "sha256": "6268abc1f7b383a6833f259d9bd8578dc6179d6810411d4c4ad9a029b1cce0a4"
+    },
+    {
+      "path": "templates/buyer-signoff-template.md",
+      "bytes": 969,
+      "sha256": "70fa235995be2811ba702db52d55ce5f82ec9648e728d402373d5094f317dad0"
+    },
+    {
+      "path": "templates/contract-execution-checklist.md",
+      "bytes": 1383,
+      "sha256": "ea1246cdbdd48e3cb12b03d65108c99669d86c20c4d2e5a637160bcb99c10132"
+    },
+    {
+      "path": "templates/gate1-dataset-manifest.json",
+      "bytes": 1211,
+      "sha256": "9dc825b4a40821dbbe38d80038bfbc32dbc2c3a682af0c88127dfacbdae965ab"
+    },
+    {
+      "path": "templates/gate1-evidence.json",
+      "bytes": 613,
+      "sha256": "c9ed7614624991a304e91c14ee3165696d5a9ace47d491899e57b3ca322b8e87"
+    },
+    {
+      "path": "templates/gate2-evaluation-ledger.csv",
+      "bytes": 164,
+      "sha256": "caf96305103148c74b2e0a9fcbc4a0071c83ccc9550872b281ad319dc022aa67"
+    },
+    {
+      "path": "templates/gate2-evidence.json",
+      "bytes": 699,
+      "sha256": "023dcbaa62f65b847a28ad209d0dbea6cd93370a2bf909b3227625848ce3fb14"
+    },
+    {
+      "path": "templates/gate3-commercial-cost-ledger.csv",
+      "bytes": 174,
+      "sha256": "1c36ea53974efa35f84f131c76cb5a73a947fc2f709ee6b1824938d65830d6d6"
+    },
+    {
+      "path": "templates/gate3-evidence.json",
+      "bytes": 689,
+      "sha256": "11eb911501c3a2ed26c63abf8f2e83796350eefdceab092b729b2c58a7370c1d"
+    },
+    {
+      "path": "templates/gate3-real-robot-trials.csv",
+      "bytes": 179,
+      "sha256": "32685a4baa3bb92842c1c1ee24050e0898018b8339dba78edb9c3b2a3f4836da"
+    },
+    {
+      "path": "templates/pilot-sow-template.md",
+      "bytes": 3511,
+      "sha256": "36bc4f402838c9b88e4ae15ddd92b3f2133c45e1339b9e024dbc33304861bb0c"
+    },
+    {
+      "path": "tools/validate_gate1_delivery.py",
+      "bytes": 9481,
+      "sha256": "34c039762d1bcc8eecdd32eeb6495047175e9aa9356588a31f7f3f0274c269f0"
+    }
+  ],
+  "contract_eligibility": false,
+  "claim_boundary": "Blank buyer working papers only; no buyer data, external acceptance, real-robot result, invoice, legal approval, signature, or executed contract."
+}

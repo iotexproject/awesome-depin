@@ -1,0 +1,17 @@
+{
+  "evidence_scope": "buyer_external",
+  "evidence_issuer": "<buyer-or-independent-verifier-legal-name>",
+  "evidence_artifact_sha256": "<sha256-of-frozen-original-gate2-evidence-package>",
+  "buyer_signoff_sha256": "<sha256-of-externally-signed-gate2-acceptance>",
+  "evidence_observed_at": "<iso8601>",
+  "same_policy": false,
+  "same_budget": false,
+  "baseline_name": "<strong-baseline-name-and-version>",
+  "tail_sr_gain_pp": null,
+  "ci95_lower_pp": null,
+  "overall_gain_pp": null,
+  "head_gain_pp": null,
+  "evaluation_episodes": null,
+  "evaluation_report_url": "<buyer-or-independent-verifier-https-url>",
+  "evidence_notes": "<frozen-protocol-seeds-statistical-method-and-exceptions>"
+}

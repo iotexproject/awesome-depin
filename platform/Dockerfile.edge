@@ -1,0 +1,6 @@
+FROM caddy:2.10.2-alpine
+
+# The upstream image carries cap_net_bind_service on the binary. Q-Tail maps
+# public 80/443 to unprivileged 8080/8443, so remove the file capability and run
+# with every container capability dropped plus no-new-privileges.
+RUN setcap -r /usr/bin/caddy

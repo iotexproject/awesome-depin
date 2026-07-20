@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-07-10T03:08:41.350725+00:00",
+  "package_type": "qtail_data_engine_evaluation_package",
+  "input_csv": "data/embodied_public_anchor_real.csv",
+  "output_dir": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public",
+  "report": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_data_engine_report.json",
+  "synthetic_data": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_synthetic_data.csv",
+  "task_profiles": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/task_profiles.csv",
+  "per_task_comparison": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/per_task_comparison.csv",
+  "winner": "qtail_synthetic",
+  "test_passed": true,
+  "same_budget_audit": {
+    "same_task_set": true,
+    "same_total_budget": 100000.0,
+    "source_allocation_sum": 1.0000000000000002,
+    "synthetic_allocation_sum": 1.0,
+    "allocation_sum_tolerance": 1e-06,
+    "allocation_sums_valid": true,
+    "same_response_model": "response_success_v1",
+    "same_tail_definition": "top_30_percent_by_tail_score",
+    "same_metric_set": [
+      "overall_success",
+      "tail_success",
+      "cvar20",
+      "extreme_failure_count",
+      "tail_coverage_at_50",
+      "tail_data_share"
+    ],
+    "profile_count": 114
+  },
+  "validation": {
+    "report_path": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/qtail_data_engine_report.json",
+    "valid": true,
+    "errors": [],
+    "winner": "qtail_synthetic",
+    "test_passed": true,
+    "profile_count": 114
+  },
+  "manifest": "/Users/avalok/work/Q-TAIL-MVP/results/qtail_openx_service_public/package_manifest.json"
+}

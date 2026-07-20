@@ -1,0 +1,36 @@
+{
+  "manifest_version": "1.1.0",
+  "status": "unverified_template_set_to_buyer_external_completed_after_execution",
+  "buyer_legal_name": "<required>",
+  "production_backend": {
+    "name": "<required>",
+    "version": "<required>",
+    "execution_environment": "<required>",
+    "run_id": "<required>"
+  },
+  "robot": {
+    "manufacturer": "<required>",
+    "model": "<required>",
+    "configuration": "<required>",
+    "control_frequency_hz": null,
+    "action_space": "<required>",
+    "sensors": [],
+    "calibration_sha256": "<required-64-hex>"
+  },
+  "dataset": {
+    "format": "<RLDS-or-LeRobot-v3>",
+    "trajectory_count": null,
+    "frame_count": null,
+    "task_ids": [],
+    "schema_version": "<required>",
+    "schema_validation_passed": false,
+    "sample_playback_passed": false,
+    "package_sha256": "<required-64-hex>"
+  },
+  "source_qtail_job_id": "<required>",
+  "source_qtail_delivery_sha256": "<required-64-hex>",
+  "production_log_url": "<required-https-url>",
+  "production_log_sha256": "<required-64-hex>",
+  "observed_at": "<required-iso8601>",
+  "claim_boundary": "This template is not buyer evidence until completed from a buyer-selected production backend and externally signed."
+}

@@ -1,0 +1,7 @@
+Strategy,Head Success,Tail Success,CVaR@20,MT50 Retention
+Uniform,90.0,44.9,35.9,85.1
+Focal Loss,84.6,50.0,40.0,88.1
+Logit Adj,87.5,50.8,40.7,89.9
+DRO,83.7,53.1,42.5,91.2
+PT-Rank (Ours),88.3,57.8,46.3,93.5
+PT-OT Adaptive (Ours),88.0,59.8,47.8,96.6

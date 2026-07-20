@@ -1,0 +1,10 @@
+services:
+  pinggy:
+    profiles: ["temporary-preview"]
+    build:
+      context: .
+      dockerfile: Dockerfile.tunnel
+    restart: unless-stopped
+    depends_on:
+      web:
+        condition: service_started

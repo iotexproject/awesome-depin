@@ -1,0 +1,132 @@
+{
+    "metrics": [
+        {
+            "Strategy": "uniform",
+            "Head Success": 0.9494439738297826,
+            "Tail Success": 0.5290712192839114,
+            "Overall Success": 0.8064258675823004,
+            "CVaR@20": 0.5038381361493556
+        },
+        {
+            "Strategy": "empirical",
+            "Head Success": 0.9500426652058722,
+            "Tail Success": 0.175698892766016,
+            "Overall Success": 0.6699060250576309,
+            "CVaR@20": 0.12075005946528941
+        },
+        {
+            "Strategy": "invfreq",
+            "Head Success": 0.9302393987073898,
+            "Tail Success": 0.6021110809128899,
+            "Overall Success": 0.76796634053865,
+            "CVaR@20": 0.5635628857877971
+        },
+        {
+            "Strategy": "pt-rank",
+            "Head Success": 0.9488988418279772,
+            "Tail Success": 0.5655197844887608,
+            "Overall Success": 0.8177852881767758,
+            "CVaR@20": 0.5477304449598266
+        }
+    ],
+    "task_sr_heatmap": {
+        "uniform": {
+            "reach-v2": 0.949138425955773,
+            "push-v2": 0.9510598811385035,
+            "pick-place-v2": 0.9468149887524135,
+            "door-open-v2": 0.9507625994724407,
+            "drawer-close-v2": 0.9351054715718393,
+            "button-press-topdown-v2": 0.9111773550916611,
+            "peg-insert-side-v2": 0.8329862959886389,
+            "window-open-v2": 0.5795373855530231,
+            "sweep-v2": 0.5278787826825879,
+            "basketball-v2": 0.4797974896161233
+        },
+        "empirical": {
+            "reach-v2": 0.9493475825324904,
+            "push-v2": 0.9520189675171357,
+            "pick-place-v2": 0.9496037761894405,
+            "door-open-v2": 0.949200334584422,
+            "drawer-close-v2": 0.9084999266094899,
+            "button-press-topdown-v2": 0.8052919417923549,
+            "peg-insert-side-v2": 0.6580010430529268,
+            "window-open-v2": 0.2855965593674691,
+            "sweep-v2": 0.18357328966228614,
+            "basketball-v2": 0.05792682926829268
+        },
+        "invfreq": {
+            "reach-v2": 0.9524810235426674,
+            "push-v2": 0.9435098136236187,
+            "pick-place-v2": 0.9213834043102336,
+            "door-open-v2": 0.9035833533530397,
+            "drawer-close-v2": 0.801658005098411,
+            "button-press-topdown-v2": 0.7033572755189234,
+            "peg-insert-side-v2": 0.6473572872009368,
+            "window-open-v2": 0.5558225807659596,
+            "sweep-v2": 0.5713031908096347,
+            "basketball-v2": 0.6792074711630754
+        },
+        "pt-rank": {
+            "reach-v2": 0.9487777114891907,
+            "push-v2": 0.9509084422686929,
+            "pick-place-v2": 0.9502475588329771,
+            "door-open-v2": 0.9456616547210484,
+            "drawer-close-v2": 0.9342394678498123,
+            "button-press-topdown-v2": 0.9037352471486875,
+            "peg-insert-side-v2": 0.8477234459910652,
+            "window-open-v2": 0.6010984635466292,
+            "sweep-v2": 0.5601014579750753,
+            "basketball-v2": 0.5353594319445779
+        }
+    },
+    "sampling_dists": {
+        "uniform": {
+            "reach-v2": 0.10037666666666666,
+            "push-v2": 0.09963666666666667,
+            "pick-place-v2": 0.10022666666666666,
+            "door-open-v2": 0.10094666666666668,
+            "drawer-close-v2": 0.09992333333333334,
+            "button-press-topdown-v2": 0.09939666666666666,
+            "peg-insert-side-v2": 0.09967333333333332,
+            "window-open-v2": 0.10094,
+            "sweep-v2": 0.09919,
+            "basketball-v2": 0.09969
+        },
+        "empirical": {
+            "reach-v2": 0.3291766666666666,
+            "push-v2": 0.26267666666666667,
+            "pick-place-v2": 0.19723333333333332,
+            "door-open-v2": 0.13031,
+            "drawer-close-v2": 0.033,
+            "button-press-topdown-v2": 0.025883333333333335,
+            "peg-insert-side-v2": 0.016383333333333337,
+            "window-open-v2": 0.0034033333333333337,
+            "sweep-v2": 0.0015866666666666666,
+            "basketball-v2": 0.0003466666666666666
+        },
+        "invfreq": {
+            "reach-v2": 0.0007666666666666667,
+            "push-v2": 0.0008866666666666667,
+            "pick-place-v2": 0.00128,
+            "door-open-v2": 0.0019733333333333334,
+            "drawer-close-v2": 0.00721,
+            "button-press-topdown-v2": 0.00941,
+            "peg-insert-side-v2": 0.014603333333333334,
+            "window-open-v2": 0.07496333333333334,
+            "sweep-v2": 0.1471066666666667,
+            "basketball-v2": 0.7418
+        },
+        "pt-rank": {
+            "reach-v2": 0.05807,
+            "push-v2": 0.06051333333333333,
+            "pick-place-v2": 0.0757,
+            "door-open-v2": 0.07547,
+            "drawer-close-v2": 0.09392666666666666,
+            "button-press-topdown-v2": 0.09346,
+            "peg-insert-side-v2": 0.10996333333333334,
+            "window-open-v2": 0.11805333333333334,
+            "sweep-v2": 0.13795,
+            "basketball-v2": 0.17689333333333332
+        }
+    }
+}

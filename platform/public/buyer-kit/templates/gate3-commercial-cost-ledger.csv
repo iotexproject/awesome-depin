@@ -1,0 +1,1 @@
+cost_period,currency,task_id,cost_category,baseline_quantity,baseline_unit_cost,qtail_quantity,qtail_unit_cost,invoice_reference,invoice_or_ledger_sha256,buyer_finance_owner

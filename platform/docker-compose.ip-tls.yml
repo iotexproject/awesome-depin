@@ -1,0 +1,8 @@
+services:
+  edge:
+    environment:
+      QTAIL_PUBLIC_IP: ${QTAIL_PUBLIC_IP:?QTAIL_PUBLIC_IP is required for IP TLS}
+    volumes:
+      - ./deploy/caddy/Caddyfile.ip:/etc/caddy/Caddyfile:ro
+      - ${QTAIL_CERTBOT_CONFIG_DIR:-/opt/qtail/certbot/config}:/etc/letsencrypt:ro
+      - ${QTAIL_ACME_WEBROOT:-/opt/qtail/acme-webroot}:/srv/acme:ro

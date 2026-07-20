@@ -1,0 +1,15 @@
+{
+  "evidence_scope": "buyer_external",
+  "evidence_issuer": "<buyer-or-independent-verifier-legal-name>",
+  "evidence_artifact_sha256": "<sha256-of-frozen-original-gate3-evidence-package>",
+  "buyer_signoff_sha256": "<sha256-of-externally-signed-gate3-acceptance>",
+  "evidence_observed_at": "<iso8601>",
+  "tail_task_count": null,
+  "simulation_episodes_per_condition": null,
+  "real_robot_trials_per_task": null,
+  "unit_cost_reduction_pct": null,
+  "safety_review_passed": false,
+  "buyer_acceptance_owner": "<named-buyer-procurement-owner>",
+  "validation_report_url": "<buyer-controlled-https-url>",
+  "evidence_notes": "<robot-serials-safety-review-invoice-scope-and-exceptions>"
+}

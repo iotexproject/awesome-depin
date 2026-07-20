@@ -1,0 +1,11 @@
+task,count,success_rate,difficulty,group
+transparent_cup_pick,18,0.34,0.88,tail
+wet_cloth_fold_corner,26,0.39,0.83,tail
+thin_cable_insert,9,0.22,0.96,tail
+cluttered_drawer_open,44,0.51,0.76,tail
+reflective_bottle_grasp,31,0.46,0.81,tail
+standard_pick_place,720,0.87,0.24,head
+button_press,510,0.82,0.29,head
+door_handle_turn,260,0.74,0.42,medium
+tabletop_push,640,0.84,0.27,head
+block_stack,380,0.78,0.36,medium

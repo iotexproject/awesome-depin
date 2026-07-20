@@ -1,0 +1,10 @@
+FROM adguard/dnsproxy@sha256:527d604da27b7e4eab19f7967a7122e8922818b3e4574d29b552e39a969cbf57 AS source
+
+FROM alpine:3.22@sha256:14358309a308569c32bdc37e2e0e9694be33a9d99e68afb0f5ff33cc1f695dce
+RUN apk add --no-cache ca-certificates
+COPY --from=source /opt/dnsproxy/dnsproxy /tmp/dnsproxy-source
+RUN cp /tmp/dnsproxy-source /usr/local/bin/dnsproxy \
+    && rm /tmp/dnsproxy-source \
+    && chmod 0755 /usr/local/bin/dnsproxy
+USER 65532:65532
+ENTRYPOINT ["/usr/local/bin/dnsproxy"]

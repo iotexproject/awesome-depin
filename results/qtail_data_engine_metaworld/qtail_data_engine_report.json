@@ -1,0 +1,676 @@
+{
+  "generated_at": "2026-07-02T03:48:09.072435+00:00",
+  "input": {
+    "input_path": "data/metaworld_benchmark_anchor.csv",
+    "columns": [
+      "dataset",
+      "task",
+      "count",
+      "success_rate",
+      "difficulty",
+      "group",
+      "family",
+      "benchmark_membership",
+      "source_url",
+      "evidence",
+      "adapter_method"
+    ],
+    "row_count": 50,
+    "profile_count": 50,
+    "detected_columns": {
+      "task": "task",
+      "count": "count",
+      "success": "success_rate",
+      "difficulty": "difficulty",
+      "group": "group"
+    }
+  },
+  "source_audit": {
+    "generated_at": "2026-07-02T03:44:01.959871+00:00",
+    "source_path": "/Users/avalok/work/Q-TAIL-MVP/Metaworld/metaworld/env_dict.py",
+    "row_count": 50,
+    "extracted": {
+      "all_v3_tasks": 50,
+      "mt10_tasks": 10,
+      "mt25_tasks": 25,
+      "ml10_train_tasks": 10,
+      "ml10_test_tasks": 5,
+      "ml45_train_tasks": 45,
+      "ml45_test_tasks": 5
+    },
+    "claim_boundary": [
+      "Rows represent benchmark task-space coverage, not collected trajectory counts.",
+      "Counts, success_rate, and difficulty are deterministic evaluation priors from benchmark membership.",
+      "This anchor validates rare-task allocation behavior over a canonical manipulation benchmark taxonomy."
+    ],
+    "output_csv": "/Users/avalok/work/Q-TAIL-MVP/data/metaworld_benchmark_anchor.csv"
+  },
+  "pt_source": {
+    "pt_source_path": "/Users/avalok/work/Q-TAIL-MVP/data/uploaded_data.csv",
+    "pt_source_rows": 29581,
+    "pt_source_gini": 0.33948355660562607,
+    "method": "empirical_pt_bucket_from_csv"
+  },
+  "synthetic_budget": 100000.0,
+  "same_budget_audit": {
+    "same_task_set": true,
+    "same_total_budget": 100000.0,
+    "source_allocation_sum": 0.9999999999999999,
+    "synthetic_allocation_sum": 1.0,
+    "allocation_sum_tolerance": 1e-06,
+    "allocation_sums_valid": true,
+    "same_response_model": "response_success_v1",
+    "same_tail_definition": "top_30_percent_by_tail_score",
+    "same_metric_set": [
+      "overall_success",
+      "tail_success",
+      "cvar20",
+      "extreme_failure_count",
+      "tail_coverage_at_50",
+      "tail_data_share"
+    ],
+    "profile_count": 50
+  },
+  "decision": {
+    "winner": "qtail_synthetic",
+    "passed": true,
+    "summary": "Q-Tail synthetic data wins under the same-budget evaluation protocol.",
+    "primary_metric": "tail_success",
+    "decision_gate": {
+      "tail_success_min_gain": 0.02,
+      "cvar20_min_gain": 0.02,
+      "tail_data_share_min_gain": 0.1,
+      "p_delta_le_0_max": 0.05
+    },
+    "reasons": [
+      "tail_success_gain=0.104615",
+      "cvar20_gain=0.120001",
+      "tail_data_share_gain=0.351979",
+      "paired_bootstrap_p_delta_le_0_within_gate",
+      "same_budget_audit_passed"
+    ]
+  },
+  "model": {
+    "name": "Q-Tail Data Engine v0",
+    "purpose": "Compare user-provided embodied data allocation against PT-heavy-tail synthetic allocation under one response model.",
+    "claim_boundary": [
+      "This evaluates data distribution quality, not full policy training.",
+      "Public Open X/Habitat/DROID anchors are aggregate-metadata validations unless full exports are supplied.",
+      "Synthetic data rows are allocation targets/scenario specs; rendering or robot execution is a downstream adapter."
+    ]
+  },
+  "evaluation": {
+    "tail_threshold_quantile": 0.7,
+    "tail_task_count": 17,
+    "source_data_metrics": {
+      "overall_success": 0.6615438808083755,
+      "tail_success": 0.5380775257615121,
+      "cvar20": 0.5042054110405577,
+      "extreme_failure_count": 0,
+      "tail_coverage_at_50": 0.6470588235294118,
+      "tail_data_share": 0.09280885064535956
+    },
+    "qtail_synthetic_metrics": {
+      "overall_success": 0.6895377455820573,
+      "tail_success": 0.6426922168885105,
+      "cvar20": 0.6242066842046723,
+      "extreme_failure_count": 0,
+      "tail_coverage_at_50": 1.0,
+      "tail_data_share": 0.4447880245724532
+    },
+    "gains": {
+      "overall_success": 0.02799386477368182,
+      "tail_success": 0.1046146911269984,
+      "cvar20": 0.12000127316411457,
+      "tail_coverage_at_50": 0.3529411764705882,
+      "tail_data_share": 0.35197917392709366,
+      "extreme_failure_reduction": 0
+    },
+    "significance": {
+      "method": "paired task-level bootstrap over response-model effects",
+      "bootstrap_iterations": 5000,
+      "tail_success_delta": {
+        "n": 17,
+        "delta": 0.10461469112699838,
+        "ci95": [
+          0.08475508268614837,
+          0.12503669617955726
+        ],
+        "p_delta_le_0": 0.0,
+        "positive_pair_rate": 1.0
+      },
+      "overall_success_delta": {
+        "n": 50,
+        "delta": 0.02799386477368155,
+        "ci95": [
+          0.009494211555134314,
+          0.04714754732381204
+        ],
+        "p_delta_le_0": 0.001,
+        "positive_pair_rate": 0.58
+      },
+      "cvar20_delta": {
+        "n": 50,
+        "delta": 0.12000127316411457,
+        "ci95": [
+          0.08418460619076136,
+          0.15015586596796868
+        ],
+        "p_delta_le_0": 0.0
+      }
+    },
+    "pass_gate": {
+      "tail_success_min_gain": 0.02,
+      "cvar20_min_gain": 0.02,
+      "tail_data_share_min_gain": 0.1,
+      "p_delta_le_0_max": 0.05
+    },
+    "test_passed": true,
+    "gate_results": {
+      "tail_success_gain": true,
+      "tail_success_p": true,
+      "cvar20_gain": true,
+      "cvar20_p": true,
+      "tail_data_share_gain": true
+    },
+    "per_task": [
+      {
+        "task_id": "button-press-topdown-v3",
+        "group": "head",
+        "tail_score": 0.15176,
+        "source_share": 0.05531653349723417,
+        "synthetic_share": 0.019772617781287423,
+        "source_effect": 0.8527476096772573,
+        "synthetic_effect": 0.808383815790217
+      },
+      {
+        "task_id": "door-open-v3",
+        "group": "head",
+        "tail_score": 0.15176,
+        "source_share": 0.05531653349723417,
+        "synthetic_share": 0.019772617781287423,
+        "source_effect": 0.8527476096772573,
+        "synthetic_effect": 0.808383815790217
+      },
+      {
+        "task_id": "drawer-close-v3",
+        "group": "head",
+        "tail_score": 0.15176,
+        "source_share": 0.05531653349723417,
+        "synthetic_share": 0.019772617781287423,
+        "source_effect": 0.8527476096772573,
+        "synthetic_effect": 0.808383815790217
+      },
+      {
+        "task_id": "pick-place-v3",
+        "group": "head",
+        "tail_score": 0.17386,
+        "source_share": 0.05531653349723417,
+        "synthetic_share": 0.019772617781287423,
+        "source_effect": 0.8382031227429327,
+        "synthetic_effect": 0.7882585623022342
+      },
+      {
+        "task_id": "peg-insert-side-v3",
+        "group": "head",
+        "tail_score": 0.17386,
+        "source_share": 0.05531653349723417,
+        "synthetic_share": 0.019772617781287423,
+        "source_effect": 0.8382031227429327,
+        "synthetic_effect": 0.7882585623022342
+      },
+      {
+        "task_id": "push-v3",
+        "group": "head",
+        "tail_score": 0.18712,
+        "source_share": 0.05531653349723417,
+        "synthetic_share": 0.019772617781287423,
+        "source_effect": 0.829240743211319,
+        "synthetic_effect": 0.7760356667685363
+      },
+      {
+        "task_id": "reach-v3",
+        "group": "head",
+        "tail_score": 0.15176,
+        "source_share": 0.05531653349723417,
+        "synthetic_share": 0.019772617781287423,
+        "source_effect": 0.8527476096772573,
+        "synthetic_effect": 0.808383815790217
+      },
+      {
+        "task_id": "window-open-v3",
+        "group": "head",
+        "tail_score": 0.15176,
+        "source_share": 0.05531653349723417,
+        "synthetic_share": 0.019772617781287423,
+        "source_effect": 0.8527476096772573,
+        "synthetic_effect": 0.808383815790217
+      },
+      {
+        "task_id": "window-close-v3",
+        "group": "head",
+        "tail_score": 0.15176,
+        "source_share": 0.05531653349723417,
+        "synthetic_share": 0.019772617781287423,
+        "source_effect": 0.8527476096772573,
+        "synthetic_effect": 0.808383815790217
+      },
+      {
+        "task_id": "basketball-v3",
+        "group": "medium",
+        "tail_score": 0.3379808614883988,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.01589654921143842,
+        "source_effect": 0.7273229314508998,
+        "synthetic_effect": 0.6910137697116282
+      },
+      {
+        "task_id": "button-press-topdown-wall-v3",
+        "group": "medium",
+        "tail_score": 0.30262086148839884,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.015882051788758008,
+        "source_effect": 0.760664985742406,
+        "synthetic_effect": 0.7260838927562454
+      },
+      {
+        "task_id": "button-press-wall-v3",
+        "group": "medium",
+        "tail_score": 0.30262086148839884,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.015882051788758008,
+        "source_effect": 0.760664985742406,
+        "synthetic_effect": 0.7260838927562454
+      },
+      {
+        "task_id": "coffee-button-v3",
+        "group": "medium",
+        "tail_score": 0.30262086148839884,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.015882051788758008,
+        "source_effect": 0.760664985742406,
+        "synthetic_effect": 0.7260838927562454
+      },
+      {
+        "task_id": "coffee-pull-v3",
+        "group": "medium",
+        "tail_score": 0.3379808614883988,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.015882051788758008,
+        "source_effect": 0.7273229314508998,
+        "synthetic_effect": 0.690955184264445
+      },
+      {
+        "task_id": "dial-turn-v3",
+        "group": "medium",
+        "tail_score": 0.30262086148839884,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.015882051788758008,
+        "source_effect": 0.760664985742406,
+        "synthetic_effect": 0.7260838927562454
+      },
+      {
+        "task_id": "disassemble-v3",
+        "group": "medium",
+        "tail_score": 0.30262086148839884,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.015882051788758008,
+        "source_effect": 0.760664985742406,
+        "synthetic_effect": 0.7260838927562454
+      },
+      {
+        "task_id": "faucet-open-v3",
+        "group": "medium",
+        "tail_score": 0.30262086148839884,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.011699545345459039,
+        "source_effect": 0.760664985742406,
+        "synthetic_effect": 0.7088485345429619
+      },
+      {
+        "task_id": "faucet-close-v3",
+        "group": "medium",
+        "tail_score": 0.30262086148839884,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.015882051788758008,
+        "source_effect": 0.760664985742406,
+        "synthetic_effect": 0.7260838927562454
+      },
+      {
+        "task_id": "pick-place-wall-v3",
+        "group": "medium",
+        "tail_score": 0.32472086148839885,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.015882051788758008,
+        "source_effect": 0.7398758625112185,
+        "synthetic_effect": 0.7041550388786303
+      },
+      {
+        "task_id": "pick-out-of-hole-v3",
+        "group": "medium",
+        "tail_score": 0.32472086148839885,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.015882051788758008,
+        "source_effect": 0.7398758625112185,
+        "synthetic_effect": 0.7041550388786303
+      },
+      {
+        "task_id": "stick-pull-v3",
+        "group": "medium",
+        "tail_score": 0.3379808614883988,
+        "source_share": 0.026121696373693916,
+        "synthetic_share": 0.01589654921143842,
+        "source_effect": 0.7273229314508998,
+        "synthetic_effect": 0.6910137697116282
+      },
+      {
+        "task_id": "assembly-v3",
+        "group": "tail",
+        "tail_score": 0.5884734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.019402194919496386,
+        "source_effect": 0.5891744935439674,
+        "synthetic_effect": 0.6458105946562549
+      },
+      {
+        "task_id": "button-press-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.01669117687825927,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.655812337888729
+      },
+      {
+        "task_id": "coffee-push-v3",
+        "group": "tail",
+        "tail_score": 0.6017334149184113,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.023693432032898445,
+        "source_effect": 0.5754642413976798,
+        "synthetic_effect": 0.6511757350409451
+      },
+      {
+        "task_id": "hammer-v3",
+        "group": "tail",
+        "tail_score": 0.6017334149184113,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.019402194919496386,
+        "source_effect": 0.5754642413976798,
+        "synthetic_effect": 0.6323771946666359
+      },
+      {
+        "task_id": "handle-press-side-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.015110957806094321,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.6483378218236181
+      },
+      {
+        "task_id": "handle-press-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.015110957806094321,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.6483378218236181
+      },
+      {
+        "task_id": "handle-pull-side-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.019402194919496386,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.6681717350996988
+      },
+      {
+        "task_id": "handle-pull-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.015110957806094321,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.6483378218236181
+      },
+      {
+        "task_id": "plate-slide-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.015110957806094321,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.6483378218236181
+      },
+      {
+        "task_id": "plate-slide-side-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.015110957806094321,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.6483378218236181
+      },
+      {
+        "task_id": "plate-slide-back-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.015110957806094321,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.6483378218236181
+      },
+      {
+        "task_id": "plate-slide-back-side-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.015110957806094321,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.6483378218236181
+      },
+      {
+        "task_id": "peg-unplug-side-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.014444076362795353,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.6451219711248545
+      },
+      {
+        "task_id": "soccer-v3",
+        "group": "tail",
+        "tail_score": 0.6017334149184113,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.020525745177228348,
+        "source_effect": 0.5754642413976798,
+        "synthetic_effect": 0.6374272977578123
+      },
+      {
+        "task_id": "stick-push-v3",
+        "group": "tail",
+        "tail_score": 0.6017334149184113,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.023693432032898445,
+        "source_effect": 0.5754642413976798,
+        "synthetic_effect": 0.6511757350409451
+      },
+      {
+        "task_id": "push-wall-v3",
+        "group": "tail",
+        "tail_score": 0.6017334149184113,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.019402194919496386,
+        "source_effect": 0.5754642413976798,
+        "synthetic_effect": 0.6323771946666359
+      },
+      {
+        "task_id": "push-back-v3",
+        "group": "tail",
+        "tail_score": 0.6017334149184113,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.019402194919496386,
+        "source_effect": 0.5754642413976798,
+        "synthetic_effect": 0.6323771946666359
+      },
+      {
+        "task_id": "reach-wall-v3",
+        "group": "tail",
+        "tail_score": 0.5663734149184112,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.015110957806094321,
+        "source_effect": 0.6120175947814914,
+        "synthetic_effect": 0.6483378218236181
+      },
+      {
+        "task_id": "sweep-v3",
+        "group": "tail",
+        "tail_score": 0.6017334149184113,
+        "source_share": 0.007990165949600492,
+        "synthetic_share": 0.019402194919496386,
+        "source_effect": 0.5754642413976798,
+        "synthetic_effect": 0.6323771946666359
+      },
+      {
+        "task_id": "bin-picking-v3",
+        "group": "tail",
+        "tail_score": 0.8802199999999633,
+        "source_share": 0.0036877688998156115,
+        "synthetic_share": 0.03344881240535042,
+        "source_effect": 0.46412504558205264,
+        "synthetic_effect": 0.6154627493928005
+      },
+      {
+        "task_id": "box-close-v3",
+        "group": "tail",
+        "tail_score": 0.8802199999999633,
+        "source_share": 0.0036877688998156115,
+        "synthetic_share": 0.037189147456896825,
+        "source_effect": 0.46412504558205264,
+        "synthetic_effect": 0.6309955973815058
+      },
+      {
+        "task_id": "door-close-v3",
+        "group": "tail",
+        "tail_score": 0.8581199999999632,
+        "source_share": 0.0036877688998156115,
+        "synthetic_share": 0.02677999797236074,
+        "source_effect": 0.48709977711283187,
+        "synthetic_effect": 0.6084321266214074
+      },
+      {
+        "task_id": "door-lock-v3",
+        "group": "tail",
+        "tail_score": 0.7785599999999632,
+        "source_share": 0.0036877688998156115,
+        "synthetic_share": 0.02248876085895868,
+        "source_effect": 0.5697987035748293,
+        "synthetic_effect": 0.6694435356251234
+      },
+      {
+        "task_id": "door-unlock-v3",
+        "group": "tail",
+        "tail_score": 0.8581199999999632,
+        "source_share": 0.0036877688998156115,
+        "synthetic_share": 0.028236988951742183,
+        "source_effect": 0.48709977711283187,
+        "synthetic_effect": 0.6150132284831322
+      },
+      {
+        "task_id": "hand-insert-v3",
+        "group": "tail",
+        "tail_score": 0.8802199999999633,
+        "source_share": 0.0036877688998156115,
+        "synthetic_share": 0.04667046188988651,
+        "source_effect": 0.46412504558205264,
+        "synthetic_effect": 0.6674332877426342
+      },
+      {
+        "task_id": "drawer-open-v3",
+        "group": "tail",
+        "tail_score": 0.6989999999999631,
+        "source_share": 0.0036877688998156115,
+        "synthetic_share": 0.02248876085895868,
+        "source_effect": 0.652478379154049,
+        "synthetic_effect": 0.7502262407199943
+      },
+      {
+        "task_id": "lever-pull-v3",
+        "group": "tail",
+        "tail_score": 0.8139199999999631,
+        "source_share": 0.0036877688998156115,
+        "synthetic_share": 0.024112472199164865,
+        "source_effect": 0.5330457144395971,
+        "synthetic_effect": 0.6410441726527294
+      },
+      {
+        "task_id": "shelf-place-v3",
+        "group": "tail",
+        "tail_score": 0.8802199999999633,
+        "source_share": 0.0036877688998156115,
+        "synthetic_share": 0.0310712350857628,
+        "source_effect": 0.46412504558205264,
+        "synthetic_effect": 0.6052270637435215
+      },
+      {
+        "task_id": "sweep-into-v3",
+        "group": "tail",
+        "tail_score": 0.8139199999999631,
+        "source_share": 0.0036877688998156115,
+        "synthetic_share": 0.02677999797236074,
+        "source_effect": 0.5330457144395971,
+        "synthetic_effect": 0.6532021382355833
+      }
+    ]
+  },
+  "external_validation_anchors": [
+    {
+      "name": "Google DeepMind Open X-Embodiment / RT-X",
+      "url": "https://robotics-transformer-x.github.io/",
+      "why_it_matters": "Large cross-embodiment robot dataset with many skills/tasks; validates the need for task/skill distribution auditing.",
+      "adapter_expected_columns": [
+        "dataset",
+        "robot",
+        "task_or_language_instruction",
+        "success_or_reward",
+        "trajectory_count"
+      ],
+      "status": "adapter-ready; full dataset not bundled locally"
+    },
+    {
+      "name": "Meta AI Habitat / Habitat 3.0",
+      "url": "https://aihabitat.org/habitat3/",
+      "why_it_matters": "Embodied AI simulator for navigation/rearrangement and human-robot collaboration; validates simulated rare-scenario mining.",
+      "adapter_expected_columns": [
+        "scene",
+        "episode_id",
+        "task",
+        "success",
+        "spl_or_reward",
+        "difficulty"
+      ],
+      "status": "adapter-ready; benchmark export required"
+    },
+    {
+      "name": "DROID / BridgeData-style real robot manipulation datasets",
+      "url": "https://droid-dataset.github.io/",
+      "why_it_matters": "Real robot manipulation trajectories can be grouped into task/scene/object tails for original-vs-synthetic evaluation.",
+      "adapter_expected_columns": [
+        "task",
+        "scene",
+        "object",
+        "success",
+        "trajectory_count"
+      ],
+      "status": "adapter-ready; local sample/export required"
+    }
+  ],
+  "artifacts": {
+    "task_profiles": "results/qtail_data_engine_metaworld/task_profiles.csv",
+    "qtail_synthetic_data": "results/qtail_data_engine_metaworld/qtail_synthetic_data.csv",
+    "per_task_comparison": "results/qtail_data_engine_metaworld/per_task_comparison.csv"
+  }
+}

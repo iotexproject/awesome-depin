@@ -1,0 +1,13 @@
+{
+  "evidence_scope": "buyer_external",
+  "evidence_issuer": "<buyer-or-independent-verifier-legal-name>",
+  "evidence_artifact_sha256": "<sha256-of-frozen-original-gate1-evidence-package>",
+  "buyer_signoff_sha256": "<sha256-of-externally-signed-gate1-acceptance>",
+  "evidence_observed_at": "<iso8601>",
+  "trajectory_count": null,
+  "schema_validation_passed": false,
+  "sample_playback_passed": false,
+  "dataset_manifest_sha256": "<sha256-of-completed-gate1-dataset-manifest>",
+  "production_log_url": "<buyer-controlled-https-url>",
+  "evidence_notes": "<backend-version-validation-scope-and-exceptions>"
+}

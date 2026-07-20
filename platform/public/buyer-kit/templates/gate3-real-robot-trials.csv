@@ -1,0 +1,1 @@
+protocol_version,robot_serial,task_id,trial_id,condition,controller_version,success,safety_incident,emergency_stop,cycle_time_s,evaluator,observed_at_utc,video_uri,run_log_sha256

@@ -1,0 +1,3 @@
+# The production service adapter imports only NumPy from the broader research stack.
+# Training-only dependencies (notably PyTorch/CUDA) stay outside the API image.
+numpy==2.5.1

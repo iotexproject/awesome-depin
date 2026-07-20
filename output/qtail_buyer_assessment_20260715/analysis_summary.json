@@ -1,0 +1,110 @@
+{
+  "as_of": "2026-07-15",
+  "data_procurement_score": 34.5,
+  "service_procurement_score": 58.0,
+  "package_rows": 114,
+  "package_columns": [
+    "task_id",
+    "source",
+    "synthetic_count",
+    "synthetic_share",
+    "tail_score",
+    "group",
+    "success_rate_reference"
+  ],
+  "trajectory_fields": [],
+  "zip_size_bytes": 41877,
+  "zip_uncompressed_bytes": 160819,
+  "strong_datasets": 8,
+  "strong_shards": 562,
+  "strong_decoded_episodes": 2071,
+  "tail_success_gain_pp_response_model": 5.409800742436954,
+  "cvar20_gain_pp_response_model": 5.560568197370608,
+  "quality_checks": [
+    {
+      "check": "任务 ID 唯一",
+      "passed": true,
+      "evidence": "114/114",
+      "status": "通过"
+    },
+    {
+      "check": "分配份额和为 1",
+      "passed": true,
+      "evidence": "1.000000000",
+      "status": "通过"
+    },
+    {
+      "check": "合成预算和为 100k",
+      "passed": true,
+      "evidence": "100000.0",
+      "status": "通过"
+    },
+    {
+      "check": "核心字段无空值",
+      "passed": true,
+      "evidence": "nulls=0",
+      "status": "通过"
+    },
+    {
+      "check": "包含逐步观测/动作字段",
+      "passed": false,
+      "evidence": "[]",
+      "status": "未通过"
+    },
+    {
+      "check": "包含相机标定/机器人构型",
+      "passed": false,
+      "evidence": "服务包未提供",
+      "status": "未通过"
+    },
+    {
+      "check": "包含 RLDS/LeRobot 可加载产物",
+      "passed": false,
+      "evidence": "仅 CSV/JSON/ZIP",
+      "status": "未通过"
+    },
+    {
+      "check": "存在独立 holdout/validation",
+      "passed": false,
+      "evidence": "Strong 报告未记录",
+      "status": "未通过"
+    }
+  ],
+  "evidence_checks": [
+    {
+      "item": "Strong 训练状态",
+      "observed": "complete",
+      "assessment": "完整"
+    },
+    {
+      "item": "全分片解析",
+      "observed": "562/562",
+      "assessment": "完整"
+    },
+    {
+      "item": "独立验证集",
+      "observed": null,
+      "assessment": "缺失"
+    },
+    {
+      "item": "策略训练/闭环 rollout",
+      "observed": "pending_full_policy_stack",
+      "assessment": "缺失"
+    },
+    {
+      "item": "仓库内受版本控制自动化测试",
+      "observed": 0,
+      "assessment": "缺失"
+    },
+    {
+      "item": "服务包文档是否仍称 Strong 待完成",
+      "observed": true,
+      "assessment": "冲突"
+    },
+    {
+      "item": "复现命令是否仍引用 incremental",
+      "observed": true,
+      "assessment": "冲突"
+    }
+  ]
+}

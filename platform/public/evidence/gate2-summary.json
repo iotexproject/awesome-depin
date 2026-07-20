@@ -1,0 +1,22 @@
+{
+  "gate": 2,
+  "status": "passed_simulation_controlled",
+  "generated_at": "2026-07-17T03:25:30.256180+00:00",
+  "benchmark": "MetaWorld 3.0.0 MT1",
+  "same_policy": true,
+  "same_budget": true,
+  "trajectory_budget_per_condition": 64,
+  "qtail_training_source": "Gate 1 validated LeRobotDataset v3 synthetic simulator package",
+  "qtail_training_source_manifest_sha256": "003d5d62c92237412f86d72e796c4a5570e3a9760b1d40fee8c0f7f826f3c13a",
+  "deterministic_recollection_match": true,
+  "evaluation_episodes_total": 900,
+  "baseline_tail_success_rate": 0.5166666666666667,
+  "qtail_tail_success_rate": 0.68,
+  "tail_sr_gain_pp": 16.333333333333332,
+  "ci95_lower_pp": 12.0,
+  "ci95_upper_pp": 20.666666666666668,
+  "overall_gain_pp": 10.444444444444445,
+  "head_gain_pp": -1.3333333333333308,
+  "artifact_manifest_sha256": "07a4d7bfc638031dc936e5e34390d69161b18812c590035ee356823ca0217c53",
+  "claim_boundary": "Controlled closed-loop simulation only; independent buyer reproduction and real-robot review remain required."
+}

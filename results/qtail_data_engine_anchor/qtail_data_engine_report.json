@@ -1,0 +1,210 @@
+{
+  "generated_at": "2026-07-02T03:18:15.338353+00:00",
+  "input": {
+    "input_path": "data/embodied_public_anchor_fixture.csv",
+    "columns": [
+      "dataset",
+      "robot",
+      "task",
+      "scene",
+      "count",
+      "success_rate",
+      "difficulty",
+      "group",
+      "source_url",
+      "fixture_note"
+    ],
+    "row_count": 10,
+    "profile_count": 10,
+    "detected_columns": {
+      "task": "task",
+      "count": "count",
+      "success": "success_rate",
+      "difficulty": "difficulty",
+      "group": "group"
+    }
+  },
+  "pt_source": {
+    "pt_source_path": "/Users/avalok/work/Q-TAIL-MVP/data/uploaded_data.csv",
+    "pt_source_rows": 29581,
+    "pt_source_gini": 0.33948355660562607,
+    "method": "empirical_pt_bucket_from_csv"
+  },
+  "synthetic_budget": 100000.0,
+  "model": {
+    "name": "Q-Tail Data Engine v0",
+    "purpose": "Compare user-provided embodied data allocation against PT-heavy-tail synthetic allocation under one response model.",
+    "claim_boundary": [
+      "This evaluates data distribution quality, not full policy training.",
+      "External Open X/Habitat/DROID validation requires exported metadata or trajectories.",
+      "Synthetic data rows are allocation targets/scenario specs; rendering or robot execution is a downstream adapter."
+    ]
+  },
+  "evaluation": {
+    "tail_threshold_quantile": 0.7,
+    "tail_task_count": 3,
+    "source_data_metrics": {
+      "overall_success": 0.7913695878198216,
+      "tail_success": 0.623333847531289,
+      "cvar20": 0.6069158799759151,
+      "extreme_failure_count": 0,
+      "tail_coverage_at_50": 1.0,
+      "tail_data_share": 0.11630321910695743
+    },
+    "qtail_synthetic_metrics": {
+      "overall_success": 0.8610525589289434,
+      "tail_success": 0.8347322740821298,
+      "cvar20": 0.7926205559743504,
+      "extreme_failure_count": 0,
+      "tail_coverage_at_50": 1.0,
+      "tail_data_share": 0.41689157660768006
+    },
+    "gains": {
+      "overall_success": 0.0696829711091218,
+      "tail_success": 0.21139842655084085,
+      "cvar20": 0.18570467599843532,
+      "tail_coverage_at_50": 0.0,
+      "tail_data_share": 0.30058835750072266,
+      "extreme_failure_reduction": 0
+    },
+    "per_task": [
+      {
+        "task_id": "move red pepper to tray",
+        "group": "head",
+        "tail_score": 0.16649999999999998,
+        "source_share": 0.24922118380062305,
+        "synthetic_share": 0.09122361960850436,
+        "source_effect": 0.9215703263735203,
+        "synthetic_effect": 0.9183341195035661
+      },
+      {
+        "task_id": "pick ice cream",
+        "group": "head",
+        "tail_score": 0.20243135866187734,
+        "source_share": 0.21806853582554517,
+        "synthetic_share": 0.08264585240228668,
+        "source_effect": 0.9012839443633326,
+        "synthetic_effect": 0.8936019738916737
+      },
+      {
+        "task_id": "place object in container",
+        "group": "head",
+        "tail_score": 0.31058698320544914,
+        "source_share": 0.122533748701973,
+        "synthetic_share": 0.07719282592521223,
+        "source_effect": 0.9332008382325282,
+        "synthetic_effect": 0.9143353513714657
+      },
+      {
+        "task_id": "social navigation",
+        "group": "medium",
+        "tail_score": 0.4208078934695581,
+        "source_share": 0.09345794392523364,
+        "synthetic_share": 0.06905160058772522,
+        "source_effect": 0.8849202727067247,
+        "synthetic_effect": 0.8591901528067364
+      },
+      {
+        "task_id": "open drawer",
+        "group": "medium",
+        "tail_score": 0.4351761881084152,
+        "source_share": 0.07892004153686397,
+        "synthetic_share": 0.08154429333135282,
+        "source_effect": 0.9153936332096061,
+        "synthetic_effect": 0.9183241718767818
+      },
+      {
+        "task_id": "move apple near cloth",
+        "group": "tail",
+        "tail_score": 0.5596549965176527,
+        "source_share": 0.06749740394600208,
+        "synthetic_share": 0.08322433753787027,
+        "source_effect": 0.7670269551276591,
+        "synthetic_effect": 0.7935087313898385
+      },
+      {
+        "task_id": "social rearrangement",
+        "group": "tail",
+        "tail_score": 0.6579155095119661,
+        "source_share": 0.05399792315680166,
+        "synthetic_share": 0.09822589399936839,
+        "source_effect": 0.7202983655909783,
+        "synthetic_effect": 0.8090342662029821
+      },
+      {
+        "task_id": "move apple between can and orange",
+        "group": "tail",
+        "tail_score": 0.7360401888417959,
+        "source_share": 0.04361370716510903,
+        "synthetic_share": 0.10770636120210683,
+        "source_effect": 0.6454705604337594,
+        "synthetic_effect": 0.7917323805588623
+      },
+      {
+        "task_id": "pick object with distractors",
+        "group": "tail",
+        "tail_score": 0.7618218891179144,
+        "source_share": 0.040498442367601244,
+        "synthetic_share": 0.12876143886292835,
+        "source_effect": 0.6561697826420367,
+        "synthetic_effect": 0.8452250762598261
+      },
+      {
+        "task_id": "manipulate novel object",
+        "group": "tail",
+        "tail_score": 0.870999999999874,
+        "source_share": 0.032191069574247146,
+        "synthetic_share": 0.18042377654264485,
+        "source_effect": 0.5683611995180707,
+        "synthetic_effect": 0.867239365427701
+      }
+    ]
+  },
+  "external_validation_anchors": [
+    {
+      "name": "Google DeepMind Open X-Embodiment / RT-X",
+      "url": "https://robotics-transformer-x.github.io/",
+      "why_it_matters": "Large cross-embodiment robot dataset with many skills/tasks; validates the need for task/skill distribution auditing.",
+      "adapter_expected_columns": [
+        "dataset",
+        "robot",
+        "task_or_language_instruction",
+        "success_or_reward",
+        "trajectory_count"
+      ],
+      "status": "adapter-ready; full dataset not bundled locally"
+    },
+    {
+      "name": "Meta AI Habitat / Habitat 3.0",
+      "url": "https://aihabitat.org/habitat3/",
+      "why_it_matters": "Embodied AI simulator for navigation/rearrangement and human-robot collaboration; validates simulated rare-scenario mining.",
+      "adapter_expected_columns": [
+        "scene",
+        "episode_id",
+        "task",
+        "success",
+        "spl_or_reward",
+        "difficulty"
+      ],
+      "status": "adapter-ready; benchmark export required"
+    },
+    {
+      "name": "DROID / BridgeData-style real robot manipulation datasets",
+      "url": "https://droid-dataset.github.io/",
+      "why_it_matters": "Real robot manipulation trajectories can be grouped into task/scene/object tails for original-vs-synthetic evaluation.",
+      "adapter_expected_columns": [
+        "task",
+        "scene",
+        "object",
+        "success",
+        "trajectory_count"
+      ],
+      "status": "adapter-ready; local sample/export required"
+    }
+  ],
+  "artifacts": {
+    "task_profiles": "results/qtail_data_engine_anchor/task_profiles.csv",
+    "qtail_synthetic_data": "results/qtail_data_engine_anchor/qtail_synthetic_data.csv",
+    "per_task_comparison": "results/qtail_data_engine_anchor/per_task_comparison.csv"
+  }
+}

@@ -1,0 +1,102 @@
+{
+    "title": "\u4efb\u52a1\u8c03\u5ea6\u5206\u5e03\u5206\u6790 (Task Scheduler Distribution)",
+    "description": "\u5c55\u793a\u4e0d\u540c\u8c03\u5ea6\u7b56\u7565\u4e0b\uff0cMT10 \u5404\u4e2a\u4efb\u52a1\u88ab\u9009\u4e2d\u7684\u6982\u7387 (q)\u3002pt-rank \u7b56\u7565\u901a\u8fc7\u6ce8\u5165\u91cf\u5b50\u5148\u9a8c\uff0c\u5728\u5934\u90e8\u4e0e\u5c3e\u90e8\u4efb\u52a1\u95f4\u8fbe\u5230\u4e86\u6700\u4f73\u7684\u7269\u7406\u91cd\u5c3e\u5e73\u8861\u3002",
+    "comparisons": [
+        {
+            "strategy_name": "uniform",
+            "eta": 0.0,
+            "task_distribution": [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+            ],
+            "top_tasks": [
+                "task_9",
+                "task_8",
+                "task_7"
+            ],
+            "tail_mass": 0.30000000000000004,
+            "head_mass": 0.4,
+            "explanation": "\u5b8c\u5168\u5747\u5300\u91c7\u6837\uff0c\u65e0\u89c6\u4efb\u52a1\u96be\u5ea6\u4e0e\u9891\u7387\u3002\u5bfc\u81f4\u5934\u90e8\u4efb\u52a1\u8fc7\u5269\uff0c\u5c3e\u90e8\u4efb\u52a1\u6b20\u7f3a\u8bad\u7ec3\u3002"
+        },
+        {
+            "strategy_name": "empirical",
+            "eta": 0.0,
+            "task_distribution": [
+                0.328,
+                0.263,
+                0.197,
+                0.131,
+                0.033,
+                0.026,
+                0.016,
+                0.003,
+                0.002,
+                0.001
+            ],
+            "top_tasks": [
+                "task_0",
+                "task_1",
+                "task_2"
+            ],
+            "tail_mass": 0.006,
+            "head_mass": 0.919,
+            "explanation": "\u6309\u5386\u53f2\u6837\u672c\u5206\u5e03\u91c7\u6837\uff0c\u5bfc\u81f4\u5bcc\u8005\u8d8a\u5bcc\u3002\u5c3e\u90e8\u4efb\u52a1\u7531\u4e8e\u5386\u53f2\u6837\u672c\u5c11\uff0c\u51e0\u4e4e\u5f97\u4e0d\u5230\u91c7\u6837\u673a\u4f1a\u3002"
+        },
+        {
+            "strategy_name": "invfreq",
+            "eta": 0.0,
+            "task_distribution": [
+                0.001001001001001001,
+                0.001001001001001001,
+                0.001001001001001001,
+                0.002002002002002002,
+                0.007007007007007007,
+                0.009009009009009009,
+                0.015015015015015015,
+                0.07407407407407407,
+                0.14814814814814814,
+                0.7417417417417418
+            ],
+            "top_tasks": [
+                "task_9",
+                "task_8",
+                "task_7"
+            ],
+            "tail_mass": 0.963963963963964,
+            "head_mass": 0.005005005005005005,
+            "explanation": "\u6309\u5386\u53f2\u6837\u672c\u9006\u9891\u7387\u91c7\u6837\u3002\u77eb\u6789\u8fc7\u6b63\uff0c\u5c3e\u90e8\u4efb\u52a1\u5360\u636e\u7edd\u5927\u6bd4\u4f8b\uff0c\u5bfc\u81f4\u6574\u4f53\u6027\u80fd\u5d29\u6e83\u3002"
+        },
+        {
+            "strategy_name": "pt-rank",
+            "eta": 0.6,
+            "task_distribution": [
+                0.04305637376801258,
+                0.04972337526087473,
+                0.05714713900138176,
+                0.06566690052098567,
+                0.07563910354911059,
+                0.08780858588244043,
+                0.10261696983964966,
+                0.12309804112026045,
+                0.15488318956973032,
+                0.24036032148755399
+            ],
+            "top_tasks": [
+                "task_9",
+                "task_8",
+                "task_7"
+            ],
+            "tail_mass": 0.5183415521775447,
+            "head_mass": 0.21559378855125474,
+            "explanation": "\u5229\u7528\u91cf\u5b50\u968f\u673a\u7535\u8def\u91c7\u6837\u63d0\u4f9b\u7684\u91cd\u5c3e\u5206\u5e03\uff0c\u7ecf\u8fc7 q=(1-0.6)b+\u03b7Ps \u878d\u5408\u3002\u5c06\u6700\u9ad8\u91cf\u5b50\u6982\u7387\u5e73\u6ed1\u5339\u914d\u81f3\u6700\u56f0\u96be\u957f\u5c3e\u4efb\u52a1\u3002\u65e2\u4fdd\u8bc1\u4e86\u5934\u90e8\u57fa\u7840\uff0c\u53c8\u6781\u5927\u62d3\u5c55\u4e86\u957f\u5c3e\u63a2\u7d22\u3002"
+        }
+    ]
+}

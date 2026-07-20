@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Q-Tail encrypted backup daily
+
+[Timer]
+OnCalendar=*-*-* 03:15:00 UTC
+RandomizedDelaySec=900
+Persistent=true
+Unit=qtail-backup.service
+
+[Install]
+WantedBy=timers.target

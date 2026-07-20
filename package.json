@@ -1,0 +1,25 @@
+{
+  "name": "q-tail-mvp",
+  "version": "1.0.0",
+  "description": "在具身智能多任务强化学习（如 Meta-World MT10）中，由于任务复杂度的天然不平衡，智能体极易陷入“头部任务过拟合、长尾（Tail）任务灾难性失败”的困境，导致整体成功率受限及极端风险指标（CVaR）表现不佳。本项目创新性地提出了一种量子启发的长尾任务调度引擎（Q-TAIL）。系统无需修改底层环境源码或重写策略网络，而是引入基于量子随机电路采样得到的非均匀分布作为物理先验（Quantum Prior）。通过自适应调度公式 $q = (1-\\eta)b + \\eta P_s$，系统能够在固定训练预算下，动态融合经验基线与量子先验分布，实现从均匀采样向重尾采样的智能转换。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "serve -p 6222",
+    "dev:backend": "python3 upload_server.py",
+    "test": "node check_syntax.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
+    "concurrently": "^9.2.1",
+    "serve": "^14.2.6"
+  }
+}
