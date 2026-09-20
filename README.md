@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [RustChain](https://github.com/Scottcjn/Rustchain) - Experimental layer-1 chain whose Proof of Physical AI (PPA) consensus uses hardware fingerprinting to verify which physical machine did the work.
 
 #### Storage
 
