@@ -114,6 +114,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [Paralon Cloud](https://paraloncloud.com)
 - [Orogen](https://orogen.network)
 - [MLX Network](https://mlx.app)
 - [LibertAI](https://libertai.io)
