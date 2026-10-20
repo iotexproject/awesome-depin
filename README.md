@@ -163,6 +163,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Analytics
 
+- [DePIN Pulse - revenue leaderboard](https://depinpulse.app/)
 - [wholovesburrito](https://wholovesburrito.com)
 - [CoinGecko](https://www.coingecko.com/en/categories/depin)
 - [DePINScan](https://depinscan.io/)
@@ -170,11 +171,15 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Articles
 
+- [A Survey of Decentralized Physical Infrastructure Networks, Research Directions, and Open Challenges (2026)](https://arxiv.org/abs/2609.02125)
+- [Decentralized Physical Infrastructure Networks (DePIN) Tokenomics (Frontiers in Blockchain, 2026)](https://www.frontiersin.org/journals/blockchain/articles/10.3389/fbloc.2025.1644115/full)
 - [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
 
 
 ## Blogposts and Social Media
 
+- [Syndica: Deep Dive into Solana DePIN, April 2026](https://blog.syndica.io/deep-dive-solana-depin-april-2026/)
+- [Helium: The Next Era of the Helium Network (2026)](https://www.helium.com/blog/the-next-era-of-the-helium-network)
 - [Connor Lovely](https://substack.com/@connorbuildsinpublic)
 - [DePIN State](https://twitter.com/DePINState)
 - [Future Money Group](https://twitter.com/fmgroupxyz)
@@ -183,12 +188,14 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Podcasts
 
+- [DePINed by Fluence (2026 episodes)](https://podcasts.apple.com/us/podcast/depined-podcast/id1765217356)
 - [Proof of Coverage Podcast](https://www.youtube.com/channel/UC5u5Po0RmkaSxen-1MF5nJg?app=desktop)
 - [The Hotspot Podcast](https://thehotspot.co/)
 - [Unleashing DeWi Podcast](https://tunein.com/podcasts/Technology-Podcasts/Unleashing-DeWi-p1989062/)
 
 ## Awesome DePIN videos and presentations
 
+- [What is DePIN? The Case for Decentralizing the Real World (a16z crypto, 2026)](https://a16zcrypto.com/posts/videos/what-is-depin-the-case-for-decentralizing-the-real-world/)
 - [DePIN Blockchaince Keynote](https://www.youtube.com/watch?v=SKbVfK-fIAs)
 - [EthDenver '23: DePIN W3bstream- The next big thing in Web3](https://www.youtube.com/watch?v=jJzY5i3SIV8)
 - [Use off-chain price feeds in your DePIN dApp built on IoTeX](https://www.youtube.com/watch?v=x7NlClgGuSk)
@@ -201,6 +208,8 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Research Conferences, Workshops and Symposiums
 
+- [BRAINS 2026 Workshop on Blockchain & DePIN for Decentralized Energy Systems](https://brains.dnac.org/2026/bdepin-energy/)
+- [IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2026)](https://www.comsoc.org/conferences-events/ieee-international-conference-blockchain-and-cryptocurrency-2026)
 - [The Second International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2024)](https://icbc2024.ieee-icbc.org/workshop/depin)
 - [IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2024)](https://icbc2024.ieee-icbc.org/)
 - [The First International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2023)](https://wfiot2023.iot.ieee.org/1st-international-workshop-decentralized-physical-infrastructure-networks-depin-2023)
