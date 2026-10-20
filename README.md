@@ -172,6 +172,10 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 ## Articles
 
 - [State of DePIN 2025 (EV3 and Messari, published 2026)](https://messari.io/report/state-of-depin-2025)
+- [Messari: The Crypto Theses 2026 (includes a DePIN chapter; free account required)](https://messari.io/report/the-crypto-theses-2026)
+- [Messari: DePIN Tokenomics Part 1 — Token Distribution Models and Incentive Mechanisms (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-1-token-distribution-models-incentive-mechanisms-token-trends-and-more)
+- [Messari: DePIN Tokenomics Part 2 — Finding the Right Balance for Token Rewards (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-2-finding-the-right-balance-for-depin-token-rewards)
+- [Messari: DePIN Tokenomics Part 3 — What Drives Valuations? (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-3-what-drives-valuations-drns-vs-prns-fundamentals-liquidity-premiums-scalability-and-more)
 - [A Survey of Decentralized Physical Infrastructure Networks, Research Directions, and Open Challenges (2026)](https://arxiv.org/abs/2609.02125)
 - [Decentralized Physical Infrastructure Networks (DePIN) Tokenomics (Frontiers in Blockchain, 2026)](https://www.frontiersin.org/journals/blockchain/articles/10.3389/fbloc.2025.1644115/full)
 - [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
