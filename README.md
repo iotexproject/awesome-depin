@@ -115,6 +115,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
 - [MLX Network](https://mlx.app)
+- [LibertAI](https://libertai.io)
 
 #### Storage
 
