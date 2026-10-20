@@ -171,6 +171,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Articles
 
+- [State of DePIN 2025 (EV3 and Messari, published 2026)](https://messari.io/report/state-of-depin-2025)
 - [A Survey of Decentralized Physical Infrastructure Networks, Research Directions, and Open Challenges (2026)](https://arxiv.org/abs/2609.02125)
 - [Decentralized Physical Infrastructure Networks (DePIN) Tokenomics (Frontiers in Blockchain, 2026)](https://www.frontiersin.org/journals/blockchain/articles/10.3389/fbloc.2025.1644115/full)
 - [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
@@ -178,6 +179,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Blogposts and Social Media
 
+- [EV3: Q2 2026 Investor Letter (DePIN postscript)](https://ev3.xyz/research/ev3-investor-letter-q2-26.pdf)
 - [Multicoin Capital: The Read Layer for Machine Intelligence (2026)](https://multicoin.capital/2026/09/29/the-read-layer-for-machine-intelligence/)
 - [Multicoin Capital: Internet Labor Markets (2026)](https://multicoin.capital/2026/03/10/internet-labor-markets/)
 - [a16z crypto: 6 Use Cases for DePIN (2025)](https://a16zcrypto.com/posts/article/6-use-cases-for-depin/)
