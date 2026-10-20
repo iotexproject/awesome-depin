@@ -49,6 +49,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [World Mobile](https://worldmobile.io)
 - [Fry Networks](https://www.frynetworks.com)
+- [Derad Network](https://www.derad.net)
 
 ### Decentralized Sensor
 
