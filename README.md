@@ -29,12 +29,10 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Helium IoT](https://www.helium.com)
 - [Drop Wireless](https://dropwireless.io)
 - [Chirp](https://chirptoken.io)
-- [Crankk](crankk.io)
-- [ThingsIX](thingsix.com)
+- [Crankk](https://crankk.io)
 
 #### WiFi
 
-- [Wayru](https://www.wayru.io)
 - [Metablox](https://metablox.io)
 - [Drop Wireless](https://dropwireless.io)
 - [Wicrypt](https://wicrypt.com)
@@ -58,9 +56,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [DIMO](https://dimo.zone)
 - [Hivemapper](https://hivemapper.com)
 - [Natix](https://www.natix.network)
-- [2blox](https://2blox.io)
 - [Mapmetrics](https://mapmetrics.org)
-- [Soarchain](https://www.soarchain.com)
 - [Fry Networks](https://www.frynetworks.com)
 
 #### ESG
@@ -79,26 +75,24 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 #### Energy
 
-- [React](https://www.reactnetwork.io)
+- [React](https://docs.reactnetwork.io/introduction)
 - [Arkreen](https://arkreen.com)
-- [GPN](https://www.greenpowern.com)
 - [Fry Networks](https://www.frynetworks.com)
 
 #### Health
 
 - [Healthblocks](https://www.healthblocks.ai)
-- [Mindland](https://mndlnd.xyz)
 
 #### Smart Home
 
 - [Envirobloq](https://envirobloq.io)
-- [PiPhi] (https://piphi.network/)
+- [PiPhi](https://piphi.network/)
 
 ### Decentralized Server
 
 #### Compute
 
-- [StackOS](https://www.stackos.io)
+- [StackOS](https://docs.stackos.io/stackos-docs)
 - [Render](https://rendertoken.com)
 - [Akash](https://akash.network)
 - [Gensyn](https://www.gensyn.ai)
@@ -129,11 +123,9 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [ScPrime](https://scpri.me)
 - [Zus](https://zus.network)
 - [4EVERLAND](https://www.4everland.org)
-- [Ceramic](https://ceramic.network)
+- [Ceramic](https://developers.ceramic.network/docs/introduction/intro)
 - [Space and Time](https://www.spaceandtime.io)
 - [Kwil](https://www.kwil.com)
-- [Polybase](https://polybase.xyz)
-- [Tableland](https://tableland.xyz)
 - [Swarm](https://www.ethswarm.org/)
 - [Xandeum](https://www.xandeum.network)
 
@@ -141,19 +133,14 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [Orchid](https://www.orchid.com)
 - [Mysterium](https://www.mysteriumvpn.com)
-- [Boring Protocol](https://boringprotocol.io)
 - [Sentinel](https://sentinel.co)
 - [MASQ](https://masq.ai)
-- [Incognito](https://incognito.org)
 - [Fry Networks](https://www.frynetworks.com/)
-- [NYM](https://nymvpn.com)
+- [NYM](https://nym.com/)
 
 #### CDN
 
-- [Fleek](https://fleek.co)
 - [Saturn](https://saturn.tech)
-- [Media](https://www.media.network)
-- [Meson](https://www.meson.network)
 - [Edge](https://edge.network/)
 
 ### DePIN Specific Infrastructure
@@ -167,7 +154,6 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [Hotspotty](https://hotspotty.net)
 - [Relay](https://www.relaywireless.com)
-- [Solsplits](https://solsplits.xyz/)
 - [Mycelium Testbed](https://myceliumnetworks.com)
 
 #### L1/L2
@@ -177,18 +163,15 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Analytics
 
-- [DePINDD](https://depindd.com)
 - [wholovesburrito](https://wholovesburrito.com)
 - [CoinGecko](https://www.coingecko.com/en/categories/depin)
 - [DePINScan](https://depinscan.io/)
 - [Pulsar Network](https://pulsarnetwork.xyz)
-  
-## Articles 
+
+## Articles
+
 - [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
 
-## Hardware Sales
-
-- [Mining Chamber](https://www.miningchamber.com)
 
 ## Blogposts and Social Media
 
@@ -201,7 +184,6 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 ## Podcasts
 
 - [Proof of Coverage Podcast](https://www.youtube.com/channel/UC5u5Po0RmkaSxen-1MF5nJg?app=desktop)
-- [Moonshot Research Podcast](https://moonshotresearch.buzzsprout.com/)
 - [The Hotspot Podcast](https://thehotspot.co/)
 - [Unleashing DeWi Podcast](https://tunein.com/podcasts/Technology-Podcasts/Unleashing-DeWi-p1989062/)
 
@@ -216,9 +198,6 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Solana & IoTeX DePIN Ecosystem](https://youtu.be/53KO9WMeGVw?si=LJaK-NzkwILFVZT7)
 - [Sprout Your DePIN Contest](https://www.youtube.com/watch?v=M4XqRz4Hleo)
 
-## Jobs
-
-- [EV3 Job Board](https://jobs.ev3.xyz/jobs)
 
 ## Research Conferences, Workshops and Symposiums
 
