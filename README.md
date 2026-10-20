@@ -49,6 +49,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [World Mobile](https://worldmobile.io)
 - [Fry Networks](https://www.frynetworks.com)
+- [Derad Network](https://www.derad.net)
 
 ### Decentralized Sensor
 
@@ -102,6 +103,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Akash](https://akash.network)
 - [Gensyn](https://www.gensyn.ai)
 - [Cudos](https://www.cudos.org)
+- [Dasha Compute](https://getdasha.com)
 - [Flux](https://runonflux.io)
 - [Aleph](https://aleph.im)
 - [Lit](https://litprotocol.com)
@@ -112,6 +114,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
+- [MLX Network](https://mlx.app)
 - [LibertAI](https://libertai.io)
 
 #### Storage
@@ -130,6 +133,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Polybase](https://polybase.xyz)
 - [Tableland](https://tableland.xyz)
 - [Swarm](https://www.ethswarm.org/)
+- [Xandeum](https://www.xandeum.network)
 
 #### VPN
 
@@ -175,6 +179,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [wholovesburrito](https://wholovesburrito.com)
 - [CoinGecko](https://www.coingecko.com/en/categories/depin)
 - [DePINScan](https://depinscan.io/)
+- [Pulsar Network](https://pulsarnetwork.xyz)
   
 ## Articles 
 - [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
