@@ -102,6 +102,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Akash](https://akash.network)
 - [Gensyn](https://www.gensyn.ai)
 - [Cudos](https://www.cudos.org)
+- [Dasha Compute](https://getdasha.com)
 - [Flux](https://runonflux.io)
 - [Aleph](https://aleph.im)
 - [Lit](https://litprotocol.com)
