@@ -178,6 +178,10 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Blogposts and Social Media
 
+- [Multicoin Capital: The Read Layer for Machine Intelligence (2026)](https://multicoin.capital/2026/09/29/the-read-layer-for-machine-intelligence/)
+- [Multicoin Capital: Internet Labor Markets (2026)](https://multicoin.capital/2026/03/10/internet-labor-markets/)
+- [a16z crypto: 6 Use Cases for DePIN (2025)](https://a16zcrypto.com/posts/article/6-use-cases-for-depin/)
+- [a16z crypto: Manipulated Signals in DePIN Protocols (2025)](https://a16zcrypto.com/posts/article/manipulated-signals-in-depin-protocols/)
 - [Syndica: Deep Dive into Solana DePIN, April 2026](https://blog.syndica.io/deep-dive-solana-depin-april-2026/)
 - [Helium: The Next Era of the Helium Network (2026)](https://www.helium.com/blog/the-next-era-of-the-helium-network)
 - [Connor Lovely](https://substack.com/@connorbuildsinpublic)
