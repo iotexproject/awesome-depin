@@ -164,6 +164,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 ## Analytics
 
 - [DePIN Pulse - revenue leaderboard](https://depinpulse.app/)
+- [1kx Onchain Revenue Dashboard (DePIN sector filter)](https://1kx.capital/onchain-revenue-dashboard)
 - [wholovesburrito](https://wholovesburrito.com)
 - [CoinGecko](https://www.coingecko.com/en/categories/depin)
 - [DePINScan](https://depinscan.io/)
@@ -173,6 +174,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [State of DePIN 2025 (EV3 and Messari, published 2026)](https://messari.io/report/state-of-depin-2025)
 - [The DePIN Report 2025 (The Block Research; commissioned by io.net)](https://www.theblock.co/research/reports/state-of-depin-2025-360958)
+- [1kx: 2025 Onchain Revenue Report (DePIN fees and cross-sector comparison)](https://1kx.capital/writing/2025-onchain-revenue-report)
 - [Messari: The Crypto Theses 2026 (includes a DePIN chapter; free account required)](https://messari.io/report/the-crypto-theses-2026)
 - [Messari: DePIN Tokenomics Part 1 — Token Distribution Models and Incentive Mechanisms (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-1-token-distribution-models-incentive-mechanisms-token-trends-and-more)
 - [Messari: DePIN Tokenomics Part 2 — Finding the Right Balance for Token Rewards (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-2-finding-the-right-balance-for-depin-token-rewards)
@@ -191,6 +193,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Multicoin Capital: The Read Layer for Machine Intelligence (2026)](https://multicoin.capital/2026/09/29/the-read-layer-for-machine-intelligence/)
 - [Multicoin Capital: Internet Labor Markets (2026)](https://multicoin.capital/2026/03/10/internet-labor-markets/)
 - [a16z crypto: 6 Use Cases for DePIN (2025)](https://a16zcrypto.com/posts/article/6-use-cases-for-depin/)
+- [a16z crypto: Why DePIN Matters, and How to Make It Work (2025)](https://a16zcrypto.com/posts/listicles/why-depin-matters/)
 - [a16z crypto: Manipulated Signals in DePIN Protocols (2025)](https://a16zcrypto.com/posts/article/manipulated-signals-in-depin-protocols/)
 - [Variant: What We're Looking For in DePIN, Part 1 — Supply (2025)](https://variant.fund/articles/what-were-looking-for-in-depin-pt-1/)
 - [Variant: What We're Looking For in DePIN, Part 2 — Demand (2025)](https://variant.fund/articles/what-were-looking-for-in-depin-pt-2/)
