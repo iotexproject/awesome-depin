@@ -190,6 +190,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 ## Blogposts and Social Media
 
 - [EV3: Q2 2026 Investor Letter (DePIN postscript)](https://ev3.xyz/research/ev3-investor-letter-q2-26.pdf)
+- [CoinFund: The Dawn of DePIN — DIMO Investment Case Study (2024)](https://www.coinfund.io/insights/the-dawn-of-depin-leading-the-series-a-in-dimos-open-platform-for-car-apps)
 - [Multicoin Capital: The Read Layer for Machine Intelligence (2026)](https://multicoin.capital/2026/09/29/the-read-layer-for-machine-intelligence/)
 - [Multicoin Capital: Internet Labor Markets (2026)](https://multicoin.capital/2026/03/10/internet-labor-markets/)
 - [a16z crypto: 6 Use Cases for DePIN (2025)](https://a16zcrypto.com/posts/article/6-use-cases-for-depin/)
