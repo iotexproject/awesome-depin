@@ -172,12 +172,16 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 ## Articles
 
 - [State of DePIN 2025 (EV3 and Messari, published 2026)](https://messari.io/report/state-of-depin-2025)
+- [The DePIN Report 2025 (The Block Research; commissioned by io.net)](https://www.theblock.co/research/reports/state-of-depin-2025-360958)
 - [Messari: The Crypto Theses 2026 (includes a DePIN chapter; free account required)](https://messari.io/report/the-crypto-theses-2026)
 - [Messari: DePIN Tokenomics Part 1 — Token Distribution Models and Incentive Mechanisms (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-1-token-distribution-models-incentive-mechanisms-token-trends-and-more)
 - [Messari: DePIN Tokenomics Part 2 — Finding the Right Balance for Token Rewards (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-2-finding-the-right-balance-for-depin-token-rewards)
 - [Messari: DePIN Tokenomics Part 3 — What Drives Valuations? (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-3-what-drives-valuations-drns-vs-prns-fundamentals-liquidity-premiums-scalability-and-more)
 - [A Survey of Decentralized Physical Infrastructure Networks, Research Directions, and Open Challenges (2026)](https://arxiv.org/abs/2609.02125)
 - [Decentralized Physical Infrastructure Networks (DePIN) Tokenomics (Frontiers in Blockchain, 2026)](https://www.frontiersin.org/journals/blockchain/articles/10.3389/fbloc.2025.1644115/full)
+- [The Road to Decentralization: Optimal Coverage on DePIN (Finance Research Letters, 2026)](https://doi.org/10.1016/j.frl.2025.109115)
+- [Are You a DePIN? A Decision Tree to Classify Decentralized Physical Infrastructure Networks (2025)](https://arxiv.org/abs/2501.17416)
+- [Solana DePIN Quickstart Guide](https://solana.com/developers/cookbook/depin)
 - [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
 
 
@@ -188,6 +192,8 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Multicoin Capital: Internet Labor Markets (2026)](https://multicoin.capital/2026/03/10/internet-labor-markets/)
 - [a16z crypto: 6 Use Cases for DePIN (2025)](https://a16zcrypto.com/posts/article/6-use-cases-for-depin/)
 - [a16z crypto: Manipulated Signals in DePIN Protocols (2025)](https://a16zcrypto.com/posts/article/manipulated-signals-in-depin-protocols/)
+- [Variant: What We're Looking For in DePIN, Part 1 — Supply (2025)](https://variant.fund/articles/what-were-looking-for-in-depin-pt-1/)
+- [Variant: What We're Looking For in DePIN, Part 2 — Demand (2025)](https://variant.fund/articles/what-were-looking-for-in-depin-pt-2/)
 - [Syndica: Deep Dive into Solana DePIN, April 2026](https://blog.syndica.io/deep-dive-solana-depin-april-2026/)
 - [Helium: The Next Era of the Helium Network (2026)](https://www.helium.com/blog/the-next-era-of-the-helium-network)
 - [Connor Lovely](https://substack.com/@connorbuildsinpublic)
@@ -198,6 +204,8 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Podcasts
 
+- [Indexed Podcast: Is 2026 DePIN's Year? (with Messari's Dylan Bane)](https://share.transistor.fm/s/8d2c1c39)
+- [Messari Fully Diluted: State of DePIN 2025 (published 2026)](https://podcasts.apple.com/us/podcast/state-of-depin-2025-fully-diluted/id1455666979?i=1000747009686)
 - [DePINed by Fluence (2026 episodes)](https://podcasts.apple.com/us/podcast/depined-podcast/id1765217356)
 - [Proof of Coverage Podcast](https://www.youtube.com/channel/UC5u5Po0RmkaSxen-1MF5nJg?app=desktop)
 - [The Hotspot Podcast](https://thehotspot.co/)
