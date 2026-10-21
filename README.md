@@ -162,6 +162,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Eclipse](https://www.eclipse.builders)
 
 ## Analytics
+- [IOTA Watch](https://iotahome.site/en/projects) — Monitoring dashboard for distributed training and compute providers, with source-qualified status, activity and reported reward records.
 
 - [DePIN Pulse - revenue leaderboard](https://depinpulse.app/)
 - [1kx Onchain Revenue Dashboard (DePIN sector filter)](https://1kx.capital/onchain-revenue-dashboard)
