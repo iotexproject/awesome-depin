@@ -137,6 +137,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [MASQ](https://masq.ai)
 - [Fry Networks](https://www.frynetworks.com/)
 - [NYM](https://nym.com/)
+- [Sailnet](https://github.com/dhyabi2/sailnet)
 
 #### CDN
 
