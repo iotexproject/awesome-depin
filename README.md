@@ -155,6 +155,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Hotspotty](https://hotspotty.net)
 - [Relay](https://www.relaywireless.com)
 - [Mycelium Testbed](https://myceliumnetworks.com)
+- [RTP — Robot Task Protocol](https://github.com/plagtech/rtp-spec) — Open standard for AI agents to discover, commission, and pay for physical robot tasks via x402 micropayments. 15 standard capability verbs, multi-connection dispatch (webhook, XMTP, WiFi, WebSocket), escrow lifecycle, and TypeScript SDK. Reference implementation live at [gateway.spraay.app](https://gateway.spraay.app) on Base mainnet. [Proposed as x402 extension](https://github.com/coinbase/x402/issues/1569).
 
 #### L1/L2
 
