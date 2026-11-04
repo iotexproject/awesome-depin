@@ -29,12 +29,10 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Helium IoT](https://www.helium.com)
 - [Drop Wireless](https://dropwireless.io)
 - [Chirp](https://chirptoken.io)
-- [Crankk](crankk.io)
-- [ThingsIX](thingsix.com)
+- [Crankk](https://crankk.io)
 
 #### WiFi
 
-- [Wayru](https://www.wayru.io)
 - [Metablox](https://metablox.io)
 - [Drop Wireless](https://dropwireless.io)
 - [Wicrypt](https://wicrypt.com)
@@ -49,6 +47,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [World Mobile](https://worldmobile.io)
 - [Fry Networks](https://www.frynetworks.com)
+- [Derad Network](https://www.derad.net)
 
 ### Decentralized Sensor
 
@@ -57,9 +56,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [DIMO](https://dimo.zone)
 - [Hivemapper](https://hivemapper.com)
 - [Natix](https://www.natix.network)
-- [2blox](https://2blox.io)
 - [Mapmetrics](https://mapmetrics.org)
-- [Soarchain](https://www.soarchain.com)
 - [Fry Networks](https://www.frynetworks.com)
 
 #### ESG
@@ -78,30 +75,29 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 #### Energy
 
-- [React](https://www.reactnetwork.io)
+- [React](https://docs.reactnetwork.io/introduction)
 - [Arkreen](https://arkreen.com)
-- [GPN](https://www.greenpowern.com)
 - [Fry Networks](https://www.frynetworks.com)
 
 #### Health
 
 - [Healthblocks](https://www.healthblocks.ai)
-- [Mindland](https://mndlnd.xyz)
 
 #### Smart Home
 
 - [Envirobloq](https://envirobloq.io)
-- [PiPhi] (https://piphi.network/)
+- [PiPhi](https://piphi.network/)
 
 ### Decentralized Server
 
 #### Compute
 
-- [StackOS](https://www.stackos.io)
+- [StackOS](https://docs.stackos.io/stackos-docs)
 - [Render](https://rendertoken.com)
 - [Akash](https://akash.network)
 - [Gensyn](https://www.gensyn.ai)
 - [Cudos](https://www.cudos.org)
+- [Dasha Compute](https://getdasha.com)
 - [Flux](https://runonflux.io)
 - [Aleph](https://aleph.im)
 - [Lit](https://litprotocol.com)
@@ -112,7 +108,10 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Livepeer](https://livepeer.org)
 - [Acurast](https://acurast.com/)
 - [Lilypad](https://lilypad.tech)
-- [Spraay Compute Futures](https://docs.spraay.app/#cat-compute-futures)
+- [Paralon Cloud](https://paraloncloud.com)
+- [Orogen](https://orogen.network)
+- [MLX Network](https://mlx.app)
+- [LibertAI](https://libertai.io)
 
 #### Storage
 
@@ -124,30 +123,24 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [ScPrime](https://scpri.me)
 - [Zus](https://zus.network)
 - [4EVERLAND](https://www.4everland.org)
-- [Ceramic](https://ceramic.network)
+- [Ceramic](https://developers.ceramic.network/docs/introduction/intro)
 - [Space and Time](https://www.spaceandtime.io)
 - [Kwil](https://www.kwil.com)
-- [Polybase](https://polybase.xyz)
-- [Tableland](https://tableland.xyz)
 - [Swarm](https://www.ethswarm.org/)
+- [Xandeum](https://www.xandeum.network)
 
 #### VPN
 
 - [Orchid](https://www.orchid.com)
 - [Mysterium](https://www.mysteriumvpn.com)
-- [Boring Protocol](https://boringprotocol.io)
 - [Sentinel](https://sentinel.co)
 - [MASQ](https://masq.ai)
-- [Incognito](https://incognito.org)
 - [Fry Networks](https://www.frynetworks.com/)
-- [NYM](https://nymvpn.com)
+- [NYM](https://nym.com/)
 
 #### CDN
 
-- [Fleek](https://fleek.co)
 - [Saturn](https://saturn.tech)
-- [Media](https://www.media.network)
-- [Meson](https://www.meson.network)
 - [Edge](https://edge.network/)
 
 ### DePIN Specific Infrastructure
@@ -161,7 +154,6 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 - [Hotspotty](https://hotspotty.net)
 - [Relay](https://www.relaywireless.com)
-- [Solsplits](https://solsplits.xyz/)
 - [Mycelium Testbed](https://myceliumnetworks.com)
 - [RTP — Robot Task Protocol](https://github.com/plagtech/rtp-spec) — Open standard for AI agents to discover, commission, and pay for physical robot tasks via x402 micropayments. 15 standard capability verbs, multi-connection dispatch (webhook, XMTP, WiFi, WebSocket), escrow lifecycle, and TypeScript SDK. Reference implementation live at [gateway.spraay.app](https://gateway.spraay.app) on Base mainnet. [Proposed as x402 extension](https://github.com/coinbase/x402/issues/1569).
 
@@ -171,21 +163,45 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Eclipse](https://www.eclipse.builders)
 
 ## Analytics
+- [IOTA Watch](https://iotahome.site/en/projects) — Monitoring dashboard for distributed training and compute providers, with source-qualified status, activity and reported reward records.
 
-- [DePINDD](https://depindd.com)
+- [DePIN Pulse - revenue leaderboard](https://depinpulse.app/)
+- [1kx Onchain Revenue Dashboard (DePIN sector filter)](https://1kx.capital/onchain-revenue-dashboard)
 - [wholovesburrito](https://wholovesburrito.com)
 - [CoinGecko](https://www.coingecko.com/en/categories/depin)
 - [DePINScan](https://depinscan.io/)
-  
-## Articles 
+- [Pulsar Network](https://pulsarnetwork.xyz)
+
+## Articles
+
+- [State of DePIN 2025 (EV3 and Messari, published 2026)](https://messari.io/report/state-of-depin-2025)
+- [The DePIN Report 2025 (The Block Research; commissioned by io.net)](https://www.theblock.co/research/reports/state-of-depin-2025-360958)
+- [1kx: 2025 Onchain Revenue Report (DePIN fees and cross-sector comparison)](https://1kx.capital/writing/2025-onchain-revenue-report)
+- [Messari: The Crypto Theses 2026 (includes a DePIN chapter; free account required)](https://messari.io/report/the-crypto-theses-2026)
+- [Messari: DePIN Tokenomics Part 1 — Token Distribution Models and Incentive Mechanisms (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-1-token-distribution-models-incentive-mechanisms-token-trends-and-more)
+- [Messari: DePIN Tokenomics Part 2 — Finding the Right Balance for Token Rewards (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-2-finding-the-right-balance-for-depin-token-rewards)
+- [Messari: DePIN Tokenomics Part 3 — What Drives Valuations? (2025; Enterprise)](https://messari.io/report/depin-tokenomics-part-3-what-drives-valuations-drns-vs-prns-fundamentals-liquidity-premiums-scalability-and-more)
+- [A Survey of Decentralized Physical Infrastructure Networks, Research Directions, and Open Challenges (2026)](https://arxiv.org/abs/2609.02125)
+- [Decentralized Physical Infrastructure Networks (DePIN) Tokenomics (Frontiers in Blockchain, 2026)](https://www.frontiersin.org/journals/blockchain/articles/10.3389/fbloc.2025.1644115/full)
+- [The Road to Decentralization: Optimal Coverage on DePIN (Finance Research Letters, 2026)](https://doi.org/10.1016/j.frl.2025.109115)
+- [Are You a DePIN? A Decision Tree to Classify Decentralized Physical Infrastructure Networks (2025)](https://arxiv.org/abs/2501.17416)
+- [Solana DePIN Quickstart Guide](https://solana.com/developers/cookbook/depin)
 - [What is DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/)
 
-## Hardware Sales
-
-- [Mining Chamber](https://www.miningchamber.com)
 
 ## Blogposts and Social Media
 
+- [EV3: Q2 2026 Investor Letter (DePIN postscript)](https://ev3.xyz/research/ev3-investor-letter-q2-26.pdf)
+- [CoinFund: The Dawn of DePIN — DIMO Investment Case Study (2024)](https://www.coinfund.io/insights/the-dawn-of-depin-leading-the-series-a-in-dimos-open-platform-for-car-apps)
+- [Multicoin Capital: The Read Layer for Machine Intelligence (2026)](https://multicoin.capital/2026/09/29/the-read-layer-for-machine-intelligence/)
+- [Multicoin Capital: Internet Labor Markets (2026)](https://multicoin.capital/2026/03/10/internet-labor-markets/)
+- [a16z crypto: 6 Use Cases for DePIN (2025)](https://a16zcrypto.com/posts/article/6-use-cases-for-depin/)
+- [a16z crypto: Why DePIN Matters, and How to Make It Work (2025)](https://a16zcrypto.com/posts/listicles/why-depin-matters/)
+- [a16z crypto: Manipulated Signals in DePIN Protocols (2025)](https://a16zcrypto.com/posts/article/manipulated-signals-in-depin-protocols/)
+- [Variant: What We're Looking For in DePIN, Part 1 — Supply (2025)](https://variant.fund/articles/what-were-looking-for-in-depin-pt-1/)
+- [Variant: What We're Looking For in DePIN, Part 2 — Demand (2025)](https://variant.fund/articles/what-were-looking-for-in-depin-pt-2/)
+- [Syndica: Deep Dive into Solana DePIN, April 2026](https://blog.syndica.io/deep-dive-solana-depin-april-2026/)
+- [Helium: The Next Era of the Helium Network (2026)](https://www.helium.com/blog/the-next-era-of-the-helium-network)
 - [Connor Lovely](https://substack.com/@connorbuildsinpublic)
 - [DePIN State](https://twitter.com/DePINState)
 - [Future Money Group](https://twitter.com/fmgroupxyz)
@@ -194,13 +210,16 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 
 ## Podcasts
 
+- [Indexed Podcast: Is 2026 DePIN's Year? (with Messari's Dylan Bane)](https://share.transistor.fm/s/8d2c1c39)
+- [Messari Fully Diluted: State of DePIN 2025 (published 2026)](https://podcasts.apple.com/us/podcast/state-of-depin-2025-fully-diluted/id1455666979?i=1000747009686)
+- [DePINed by Fluence (2026 episodes)](https://podcasts.apple.com/us/podcast/depined-podcast/id1765217356)
 - [Proof of Coverage Podcast](https://www.youtube.com/channel/UC5u5Po0RmkaSxen-1MF5nJg?app=desktop)
-- [Moonshot Research Podcast](https://moonshotresearch.buzzsprout.com/)
 - [The Hotspot Podcast](https://thehotspot.co/)
 - [Unleashing DeWi Podcast](https://tunein.com/podcasts/Technology-Podcasts/Unleashing-DeWi-p1989062/)
 
 ## Awesome DePIN videos and presentations
 
+- [What is DePIN? The Case for Decentralizing the Real World (a16z crypto, 2026)](https://a16zcrypto.com/posts/videos/what-is-depin-the-case-for-decentralizing-the-real-world/)
 - [DePIN Blockchaince Keynote](https://www.youtube.com/watch?v=SKbVfK-fIAs)
 - [EthDenver '23: DePIN W3bstream- The next big thing in Web3](https://www.youtube.com/watch?v=jJzY5i3SIV8)
 - [Use off-chain price feeds in your DePIN dApp built on IoTeX](https://www.youtube.com/watch?v=x7NlClgGuSk)
@@ -210,12 +229,11 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Solana & IoTeX DePIN Ecosystem](https://youtu.be/53KO9WMeGVw?si=LJaK-NzkwILFVZT7)
 - [Sprout Your DePIN Contest](https://www.youtube.com/watch?v=M4XqRz4Hleo)
 
-## Jobs
-
-- [EV3 Job Board](https://jobs.ev3.xyz/jobs)
 
 ## Research Conferences, Workshops and Symposiums
 
+- [BRAINS 2026 Workshop on Blockchain & DePIN for Decentralized Energy Systems](https://brains.dnac.org/2026/bdepin-energy/)
+- [IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2026)](https://www.comsoc.org/conferences-events/ieee-international-conference-blockchain-and-cryptocurrency-2026)
 - [The Second International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2024)](https://icbc2024.ieee-icbc.org/workshop/depin)
 - [IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2024)](https://icbc2024.ieee-icbc.org/)
 - [The First International Workshop on Decentralized Physical Infrastructure Networks (DePIN 2023)](https://wfiot2023.iot.ieee.org/1st-international-workshop-decentralized-physical-infrastructure-networks-depin-2023)
