@@ -112,6 +112,7 @@ Welcome to our [DePIN (Decentralized Physical Infrastructure Networks)](https://
 - [Orogen](https://orogen.network)
 - [MLX Network](https://mlx.app)
 - [LibertAI](https://libertai.io)
+- [SQUIDWEAVE](https://gputestnet.squidweave.com)
 
 #### Storage
 
